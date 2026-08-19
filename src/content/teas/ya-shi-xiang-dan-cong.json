@@ -1,0 +1,111 @@
+{
+  "name": "Ya Shi Xiang Dan Cong",
+  "nameNative": "鸭屎香单丛",
+  "romanization": "Yāshǐxiāng Dāncóng",
+  "translation": "Duck Shit Aroma",
+  "origin": {
+    "country": "China",
+    "region": "Phoenix Mountain",
+    "subregion": "Chaozhou, Guangdong"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Ya Shi Xiang"
+  ],
+  "harvest": {
+    "season": "spring",
+    "pluckingStage": "open leaf"
+  },
+  "oxidation": 32,
+  "roast": "medium",
+  "processing": [
+    {
+      "step": "Wither and shake",
+      "description": "Aromatic dan cong craft; name is folk camouflage, not flavour."
+    },
+    {
+      "step": "Twist and roast",
+      "description": "Medium roast over a creamy-floral cultivar."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "magnolia",
+      "cream",
+      "honey",
+      "almond"
+    ],
+    "taste": [
+      "milky floral",
+      "orchard",
+      "light spice"
+    ],
+    "mouthfeel": "creamier than Mi Lan Xiang",
+    "finish": "magnolia-milk aftertaste"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:16",
+      "waterTemp": 98,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 8
+        },
+        {
+          "n": 2,
+          "seconds": 6
+        },
+        {
+          "n": 3,
+          "seconds": 10
+        },
+        {
+          "n": 4,
+          "seconds": 15
+        },
+        {
+          "n": 5,
+          "seconds": 25
+        },
+        {
+          "n": 6,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 98,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 80
+        },
+        {
+          "n": 2,
+          "seconds": 110
+        }
+      ]
+    }
+  },
+  "water": "Near boiling, flash steeps. Creamy aromatics collapse if boiled too long in the cup.",
+  "storage": "Airtight. Drink within 18 months of roast for the milk-floral top.",
+  "qualityMarkers": [
+    "creamy magnolia, not farmyard",
+    "Phoenix high gardens",
+    "whole wiry leaf"
+  ],
+  "commonFaults": [
+    "novelty-name marketing on generic dan cong",
+    "added milk-scent flavouring"
+  ],
+  "similarTo": [
+    "mi-lan-xiang-dan-cong",
+    "tie-guan-yin",
+    "rou-gui"
+  ],
+  "summary": "Dan cong with a mischievous name and a creamy magnolia profile — not an acquired “farm” taste."
+}

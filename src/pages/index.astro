@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const teas = await getCollection('teas');
+const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
+---
+
+<Base title="Tea Atlas">
+  <div class="wrap">
+    <section class="hero">
+      <p class="kicker">A static atlas</p>
+      <h1>Leaves, water, and a clock you can trust.</h1>
+      <p class="lede">
+        Forty-five teas from China, Taiwan, and Japan — each one a typed record of terroir, processing, and a brewing
+        schedule that drives both the table and the timer. No backend. No database. `astro build` is the whole ship.
+      </p>
+      <div class="cluster" style="margin-top: 1.2rem">
+        <a class="btn" href="/atlas">Browse the atlas</a>
+        <a class="btn secondary" href="/brewing">Brewing guides</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Enter by craft</h2>
+      <div class="grid card-grid">
+        {
+          countries.map((country) => (
+            <a class="card" href={`/atlas?country=${encodeURIComponent(country)}`}>
+              <p class="kicker">Origin</p>
+              <h3>{country}</h3>
+              <p class="meta">{teas.filter((t) => t.data.origin.country === country).length} entries</p>
+            </a>
+          ))
+        }
+        <a class="card" href="/regions">
+          <p class="kicker">Terroir</p>
+          <h3>Regions</h3>
+          <p class="meta">Wuyi cliffs to Uji shade, with the teas that grow there.</p>
+        </a>
+        <a class="card" href="/glossary">
+          <p class="kicker">Language</p>
+          <h3>Glossary</h3>
+          <p class="meta">杀青, 焙火, 蒸し, 荒茶 — bilingual terms used throughout the atlas.</p>
+        </a>
+      </div>
+    </section>
+
+    <section style="margin-top: 2.5rem">
+      <h2>Method guides</h2>
+      <div class="grid card-grid">
+        {
+          guides.map((g) => (
+            <a class="card" href={`/brewing/${g.id}`}>
+              <p class="kicker">{g.data.group}</p>
+              <h3>{g.data.title}</h3>
+              <p class="meta">{g.data.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Base>

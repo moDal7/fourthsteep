@@ -1,0 +1,119 @@
+{
+  "name": "Dong Fang Mei Ren",
+  "nameNative": "東方美人",
+  "romanization": "Dōngfāng Měirén",
+  "translation": "Oriental Beauty",
+  "origin": {
+    "country": "Taiwan",
+    "region": "Hsinchu / Miaoli",
+    "subregion": "Beipu and neighbouring hills"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Qing Xin Da Mao",
+    "Bai Mao Hou"
+  ],
+  "harvest": {
+    "season": "summer",
+    "pluckingStage": "leaf bitten by Jacobiasca formosana leafhopper"
+  },
+  "oxidation": 70,
+  "roast": "light",
+  "processing": [
+    {
+      "step": "Insect bite",
+      "description": "Leafhopper feeding triggers honey-muscatel compounds. No bite, no true Mei Ren."
+    },
+    {
+      "step": "Heavy wither",
+      "description": "High oxidation for an oolong, toward white-tea fruit."
+    },
+    {
+      "step": "Roll and dry",
+      "description": "Light roast only; the honey is from the bug, not the charcoal."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "muscat grape",
+      "honey",
+      "ripe peach",
+      "black tea edge"
+    ],
+    "taste": [
+      "honeyed fruit",
+      "bergamot-adjacent",
+      "soft tannin"
+    ],
+    "mouthfeel": "silky, amber, dessert-like",
+    "finish": "lingering muscatel"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:20",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 210
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 8,
+      "notes": "Cold brew is almost a dessert wine."
+    }
+  },
+  "water": "Medium, 90 °C. Boiling pushes it into ordinary black-tea tannin.",
+  "storage": "Airtight, cool. Honey notes fade with heat and age.",
+  "qualityMarkers": [
+    "white-tipped bitten leaf",
+    "summer harvest",
+    "natural muscat, not flavouring"
+  ],
+  "commonFaults": [
+    "unbitten summer oolong sold as Mei Ren",
+    "added honey flavour",
+    "over-oxidised bitterness"
+  ],
+  "similarTo": [
+    "jin-jun-mei",
+    "mi-lan-xiang-dan-cong",
+    "bai-mu-dan"
+  ],
+  "summary": "Bug-bitten Taiwan oolong: muscat honey from leafhoppers, closer to a fragrant black than to jade oolong."
+}

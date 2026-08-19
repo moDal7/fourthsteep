@@ -1,0 +1,97 @@
+{
+  "name": "Tamaryokucha",
+  "nameNative": "玉緑茶",
+  "romanization": "Tamaryokucha",
+  "translation": "Coiled green tea (guricha)",
+  "origin": {
+    "country": "Japan",
+    "region": "Kyushu",
+    "subregion": "Saga, Nagasaki, Kumamoto, Miyazaki"
+  },
+  "category": "green",
+  "japaneseType": "tamaryokucha",
+  "cultivar": [
+    "Yabukita",
+    "Saemidori",
+    "local Kyushu"
+  ],
+  "harvest": {
+    "season": "ichibancha",
+    "pluckingStage": "steamed or pan-fired, then rolled into curls not needles"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Steam or kama-iri",
+      "description": "Two families: mushi-sei (steamed) and kama-iri (pan-fired) tamaryokucha."
+    },
+    {
+      "step": "Curl",
+      "description": "Final roll is a comma-shaped curl, not sencha’s needle — export history toward the continent."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "steamed: sencha-like; pan-fired: chestnut and toast"
+    ],
+    "taste": [
+      "mellow green, often less sharp than Shizuoka sencha"
+    ],
+    "mouthfeel": "round, Kyushu warmth",
+    "finish": "sweet, sometimes roasted-nut if kamairi"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:15",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 55
+        },
+        {
+          "n": 2,
+          "seconds": 25
+        },
+        {
+          "n": 3,
+          "seconds": 45
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 180,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 70
+        },
+        {
+          "n": 2,
+          "seconds": 50
+        }
+      ]
+    }
+  },
+  "water": "Soft, 70–80 °C. Kamairi lots can take a little more heat.",
+  "storage": "Fridge for steamed; pan-fired keeps slightly longer.",
+  "qualityMarkers": [
+    "comma-shaped leaf",
+    "Kyushu origin",
+    "stated steamed vs pan-fired"
+  ],
+  "commonFaults": [
+    "generic sencha in a curl",
+    "stale fishy steam"
+  ],
+  "similarTo": [
+    "kamairicha",
+    "sencha-asamushi",
+    "long-jing"
+  ],
+  "summary": "Kyushu curled green: sencha’s cousin with optional pan-fire chestnut, shaped for a different market."
+}

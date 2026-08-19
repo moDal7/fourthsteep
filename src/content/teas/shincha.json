@@ -1,0 +1,97 @@
+{
+  "name": "Shincha",
+  "nameNative": "新茶",
+  "romanization": "Shincha",
+  "translation": "New tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Kagoshima / Shizuoka",
+    "subregion": "earliest national flushes"
+  },
+  "category": "green",
+  "japaneseType": "sencha",
+  "cultivar": [
+    "Yutakamidori",
+    "Saemidori",
+    "Yabukita"
+  ],
+  "harvest": {
+    "season": "first days of ichibancha, rushed to market",
+    "pluckingStage": "youngest shoots, often light-steamed"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Rush shiage",
+      "description": "Minimal resting; shincha is sencha sold as the year’s first news from the field."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "fresh seaweed",
+      "spring grass",
+      "citrus"
+    ],
+    "taste": [
+      "vivid umami",
+      "sweet green",
+      "fleeting aroma"
+    ],
+    "mouthfeel": "lively, lighter roast-dry than autumn sencha",
+    "finish": "short, sparkling"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:16",
+      "waterTemp": 70,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 50
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 170,
+      "waterTemp": 70,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 50
+        },
+        {
+          "n": 2,
+          "seconds": 25
+        }
+      ]
+    }
+  },
+  "water": "Soft, cool. Shincha is fragile.",
+  "storage": "Buy small, drink now. The point is the season.",
+  "qualityMarkers": [
+    "harvest week on the bag",
+    "electric freshness",
+    "southern origins arriving first"
+  ],
+  "commonFaults": [
+    "ordinary sencha relabelled shincha in August",
+    "stale “new tea”"
+  ],
+  "similarTo": [
+    "sencha-asamushi",
+    "kabusecha",
+    "gyokuro"
+  ],
+  "summary": "The first sencha of the year: a seasonal designation more than a separate process."
+}

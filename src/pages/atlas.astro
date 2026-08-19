@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import TeaCard from '../components/TeaCard.astro';
+import { getCollection } from 'astro:content';
+
+const teas = (await getCollection('teas')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
+const categories = [...new Set(teas.map((t) => t.data.category))].sort();
+const roasts = [...new Set(teas.map((t) => t.data.roast))];
+const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
+---
+
+<Base title="Atlas · Tea Atlas" description="Filter and search the tea collection.">
+  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+    <p class="kicker">Collection</p>
+    <h1>Atlas</h1>
+    <p class="lede">
+      Client-side filters over a build-time index. Search names, regions, and summaries. Oxidation bands are numbers,
+      not colour alone.
+    </p>
+
+    <form class="filters" data-atlas-filters>
+      <label class="field">
+        Search
+        <input type="search" name="q" placeholder="Long Jing, 玉露, Wuyi…" />
+      </label>
+      <label class="field">
+        Country
+        <select name="country">
+          <option value="">Any</option>
+          {countries.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        Category
+        <select name="category">
+          <option value="">Any</option>
+          {categories.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        Roast
+        <select name="roast">
+          <option value="">Any</option>
+          {roasts.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        Oxidation
+        <select name="ox">
+          <option value="">Any</option>
+          <option value="low">Low (0–20)</option>
+          <option value="mid">Mid (21–70)</option>
+          <option value="high">High (71–100)</option>
+        </select>
+      </label>
+      <label class="field">
+        Region
+        <select name="region">
+          <option value="">Any</option>
+          {regions.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </label>
+    </form>
+
+    <p class="meta"><span data-count></span> · also available as <a href="/atlas.json">atlas.json</a></p>
+
+    <div class="grid card-grid" data-atlas-grid>
+      {
+        teas.map((t) => (
+          <TeaCard
+            id={t.id}
+            name={t.data.name}
+            nameNative={t.data.nameNative}
+            country={t.data.origin.country}
+            region={t.data.origin.region}
+            category={t.data.category}
+            oxidation={t.data.oxidation}
+            roast={t.data.roast}
+            summary={t.data.summary}
+          />
+        ))
+      }
+    </div>
+    <p class="empty" data-empty hidden>No teas match those filters.</p>
+  </div>
+</Base>
+
+<script>
+  import '../scripts/atlas-filter.js';
+</script>

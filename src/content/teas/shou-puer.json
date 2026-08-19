@@ -1,0 +1,127 @@
+{
+  "name": "Shou Puer",
+  "nameNative": "熟普洱",
+  "romanization": "Shóu pǔ'ěr",
+  "translation": "Ripe puer",
+  "origin": {
+    "country": "China",
+    "region": "Yunnan",
+    "subregion": "fermented in factories across the province"
+  },
+  "category": "dark",
+  "cultivar": [
+    "Yunnan large-leaf / assamica"
+  ],
+  "harvest": {
+    "season": "various maocha blended",
+    "pluckingStage": "wo dui pile-fermented after sun-dry"
+  },
+  "oxidation": 15,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Maocha",
+      "description": "Sun-dried large-leaf as for sheng."
+    },
+    {
+      "step": "Wo dui",
+      "description": "Piled, watered, and turned for weeks — accelerated fermentation invented in the 1970s."
+    },
+    {
+      "step": "Press",
+      "description": "Cakes or loose ripe puer."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "damp earth",
+      "cocoa",
+      "date",
+      "jujube"
+    ],
+    "taste": [
+      "smooth earth",
+      "brown sugar",
+      "wood"
+    ],
+    "mouthfeel": "thick, low astringency when well fermented and rested",
+    "finish": "sweet, grounding"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing or gaiwan",
+      "ratio": "1:12",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 10,
+          "notes": "rinse is almost mandatory on young shou"
+        },
+        {
+          "n": 2,
+          "seconds": 8
+        },
+        {
+          "n": 3,
+          "seconds": 12
+        },
+        {
+          "n": 4,
+          "seconds": 18
+        },
+        {
+          "n": 5,
+          "seconds": 25
+        },
+        {
+          "n": 6,
+          "seconds": 40
+        },
+        {
+          "n": 7,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 12,
+      "volume": 500,
+      "hours": 10,
+      "notes": "Surprisingly chocolatey cold."
+    }
+  },
+  "water": "Boiling. Shou can handle high leaf and many steeps.",
+  "storage": "Air a new shou a few weeks if it smells like fish or pond; then airtight-ish, dry.",
+  "qualityMarkers": [
+    "clean earth-cocoa, not fishy",
+    "rested after wo dui",
+    "red-brown clear liquor"
+  ],
+  "commonFaults": [
+    "wo dui fishiness",
+    "muddy liquor",
+    "carbon-black over-fermentation"
+  ],
+  "similarTo": [
+    "liu-bao",
+    "fu-zhuan",
+    "dian-hong"
+  ],
+  "summary": "Pile-fermented “ripe” puer: date, cocoa, and thickness without a decade of waiting."
+}

@@ -1,0 +1,126 @@
+{
+  "name": "Young Sheng Puer",
+  "nameNative": "生普洱（新）",
+  "romanization": "Shēng pǔ'ěr",
+  "translation": "Raw puer, young",
+  "origin": {
+    "country": "China",
+    "region": "Yunnan",
+    "subregion": "Xishuangbanna, Pu’er, Lincang"
+  },
+  "category": "dark",
+  "cultivar": [
+    "Yunnan large-leaf / assamica"
+  ],
+  "harvest": {
+    "season": "spring maocha prized",
+    "pluckingStage": "one bud and two leaves, then steamed and pressed"
+  },
+  "oxidation": 5,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Kill-green",
+      "description": "Wok sha qing, often a little greener than eastern greens so the leaf can age."
+    },
+    {
+      "step": "Sun dry",
+      "description": "Maocha dried in the sun — the signature that lets microbes and slow oxidation work later."
+    },
+    {
+      "step": "Steam and press",
+      "description": "Cakes, bricks, or tuo. Young sheng is drunk as a bitter-floral green-adjacent tea or stored."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "fresh hay",
+      "apricot",
+      "smoke (some villages)",
+      "orchid"
+    ],
+    "taste": [
+      "bitter-sweet",
+      "huigan returning sweetness",
+      "floral"
+    ],
+    "mouthfeel": "astringent then coating; cooling",
+    "finish": "hui gan — sweetness that rises in the throat"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing or gaiwan",
+      "ratio": "1:15",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 10,
+          "notes": "quick rinse to wake the cake"
+        },
+        {
+          "n": 2,
+          "seconds": 8
+        },
+        {
+          "n": 3,
+          "seconds": 10
+        },
+        {
+          "n": 4,
+          "seconds": 15
+        },
+        {
+          "n": 5,
+          "seconds": 20
+        },
+        {
+          "n": 6,
+          "seconds": 30
+        },
+        {
+          "n": 7,
+          "seconds": 45
+        },
+        {
+          "n": 8,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60
+        },
+        {
+          "n": 2,
+          "seconds": 90
+        }
+      ]
+    }
+  },
+  "water": "Boiling for compressed tea. Young sheng can be dropped a few degrees if overly bitter.",
+  "storage": "Clean, stable humidity (~50–70%), no perfume. This is a tea meant to change.",
+  "qualityMarkers": [
+    "clear village / mountain",
+    "spring material",
+    "bitterness that turns sweet",
+    "clean sun-dry"
+  ],
+  "commonFaults": [
+    "wet-stored sour young cakes",
+    "heavy smoke covering thin leaf",
+    "pesticide-green industrial sheng"
+  ],
+  "similarTo": [
+    "sheng-puer-aged",
+    "liu-an-gua-pian",
+    "liu-bao"
+  ],
+  "summary": "Sun-dried Yunnan raw puer in its youth: bitter-floral, built to age, gongfu in short flashes."
+}

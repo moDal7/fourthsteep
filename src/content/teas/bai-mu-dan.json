@@ -1,0 +1,118 @@
+{
+  "name": "Bai Mu Dan",
+  "nameNative": "白牡丹",
+  "romanization": "Báimǔdān",
+  "translation": "White Peony",
+  "origin": {
+    "country": "China",
+    "region": "Fuding",
+    "subregion": "Fujian"
+  },
+  "category": "white",
+  "cultivar": [
+    "Da Bai",
+    "Shui Xian"
+  ],
+  "harvest": {
+    "season": "spring",
+    "pluckingStage": "one bud and one or two leaves"
+  },
+  "oxidation": 12,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "Bud-and-leaf sets, more body than Yin Zhen."
+    },
+    {
+      "step": "Wither",
+      "description": "Extended wither develops muscatel-honey notes."
+    },
+    {
+      "step": "Dry",
+      "description": "Sun and/or indoor dry."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "peony",
+      "dried apricot",
+      "honey",
+      "hay"
+    ],
+    "taste": [
+      "stone fruit",
+      "mild tannin",
+      "floral"
+    ],
+    "mouthfeel": "rounder than Yin Zhen, light amber",
+    "finish": "honeyed, faintly woody"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or pot",
+      "ratio": "1:18",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 30
+        },
+        {
+          "n": 2,
+          "seconds": 25
+        },
+        {
+          "n": 3,
+          "seconds": 40
+        },
+        {
+          "n": 4,
+          "seconds": 55
+        },
+        {
+          "n": 5,
+          "seconds": 80
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 210
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 8
+    }
+  },
+  "water": "Medium-soft; a little more mineral than Yin Zhen can support the leaf tannin.",
+  "storage": "Excellent ager. Keep dry; white tea loves humidity too much.",
+  "qualityMarkers": [
+    "clear bud-and-leaf sets",
+    "grey-green leaf with silver buds",
+    "apricot-honey aroma"
+  ],
+  "commonFaults": [
+    "brown, over-oxidised cheap white",
+    "dusty fannings",
+    "smoke from careless drying"
+  ],
+  "similarTo": [
+    "bai-hao-yin-zhen",
+    "shou-mei",
+    "an-ji-bai-cha"
+  ],
+  "summary": "White peony: bud plus leaf, more colour and apricot-honey than Silver Needle, still a wither-only tea."
+}

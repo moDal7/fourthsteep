@@ -1,0 +1,90 @@
+{
+  "name": "Genmaicha",
+  "nameNative": "玄米茶",
+  "romanization": "Genmaicha",
+  "translation": "Brown-rice tea",
+  "origin": {
+    "country": "Japan",
+    "region": "nationwide",
+    "subregion": "bancha or sencha blended with popped rice"
+  },
+  "category": "green",
+  "japaneseType": "genmaicha",
+  "cultivar": [
+    "Yabukita plus toasted rice"
+  ],
+  "harvest": {
+    "season": "base tea various",
+    "pluckingStage": "green tea blended with roasted popped rice"
+  },
+  "oxidation": 0,
+  "roast": "medium",
+  "processing": [
+    {
+      "step": "Blend",
+      "description": "Toasted and popped rice (not genmai porridge) mixed into bancha or sencha; some lots include matcha."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "popcorn",
+      "toasted rice",
+      "green tea"
+    ],
+    "taste": [
+      "cereal-sweet",
+      "mild green"
+    ],
+    "mouthfeel": "comforting, light",
+    "finish": "snack-like, clean"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:14",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 45
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 220,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        }
+      ]
+    }
+  },
+  "water": "80–85 °C. Rice can go starchy if boiled hard for ages.",
+  "storage": "Airtight; rice oils stale. Finish opened bags promptly.",
+  "qualityMarkers": [
+    "real tea under the rice",
+    "popped rice not burnt",
+    "optional matcha dust vivid not brown"
+  ],
+  "commonFaults": [
+    "all rice, little tea",
+    "rancid grain"
+  ],
+  "similarTo": [
+    "hojicha",
+    "bancha",
+    "sencha-asamushi"
+  ],
+  "summary": "Green tea cut with popped toasted rice: popcorn comfort, still a Japanese green."
+}

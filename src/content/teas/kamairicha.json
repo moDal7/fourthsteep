@@ -1,0 +1,97 @@
+{
+  "name": "Kamairicha",
+  "nameNative": "釜炒り茶",
+  "romanization": "Kamairicha",
+  "translation": "Pan-fired tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Kyushu",
+    "subregion": "Miyazaki, Saga, Kumamoto"
+  },
+  "category": "green",
+  "japaneseType": "kamairicha",
+  "cultivar": [
+    "local Kyushu cultivars"
+  ],
+  "harvest": {
+    "season": "first and later flushes",
+    "pluckingStage": "pan-fired in an iron kama instead of steamed"
+  },
+  "oxidation": 0,
+  "roast": "light",
+  "processing": [
+    {
+      "step": "Kill-green in wok",
+      "description": "The Chinese-style exception in Japan: kamairi, not mushi."
+    },
+    {
+      "step": "Roll",
+      "description": "Often curly like tamaryokucha, with a toasted-bean note from the pan."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "roasted soybean",
+      "chestnut",
+      "light smoke-sweet"
+    ],
+    "taste": [
+      "pan-fired green, closer to Long Jing than to sencha"
+    ],
+    "mouthfeel": "dry-toasty, medium",
+    "finish": "nutty"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu or gaiwan",
+      "ratio": "1:16",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 50
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    }
+  },
+  "water": "80 °C, soft to medium. The pan already did some work.",
+  "storage": "Airtight; more stable than deep-steamed sencha.",
+  "qualityMarkers": [
+    "true kama-iri (not steamed then roasted)",
+    "chestnut aroma",
+    "Kyushu"
+  ],
+  "commonFaults": [
+    "hojicha sold as kamairicha",
+    "smoky scorch"
+  ],
+  "similarTo": [
+    "long-jing",
+    "tamaryokucha",
+    "hojicha"
+  ],
+  "summary": "Japanese pan-fired green: the wok cousin of Long Jing, mostly surviving in Kyushu."
+}

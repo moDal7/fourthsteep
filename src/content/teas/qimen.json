@@ -1,0 +1,109 @@
+{
+  "name": "Qimen",
+  "nameNative": "祁门红茶",
+  "romanization": "Qímén hóngchá",
+  "translation": "Keemun",
+  "origin": {
+    "country": "China",
+    "region": "Qimen",
+    "subregion": "Anhui"
+  },
+  "category": "black",
+  "cultivar": [
+    "Zhuye",
+    "Qimen local"
+  ],
+  "harvest": {
+    "season": "spring and summer",
+    "pluckingStage": "one bud and one or two leaves, orthodox strip"
+  },
+  "oxidation": 100,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Wither and roll",
+      "description": "Orthodox black-tea make."
+    },
+    {
+      "step": "Oxidise",
+      "description": "Full oxidation; Qimen’s “keemun aroma” is floral-cocoa, not malt-Assam."
+    },
+    {
+      "step": "Dry",
+      "description": "Clean dry, historically a small-leaf Chinese black."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "orchid",
+      "cocoa",
+      "dried stone fruit",
+      "light smoke memory"
+    ],
+    "taste": [
+      "winey fruit",
+      "cocoa",
+      "gentle malt"
+    ],
+    "mouthfeel": "smooth, medium body, low punch compared with Assam",
+    "finish": "orchid-cocoa"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "porcelain pot",
+      "ratio": "1:18",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    }
+  },
+  "water": "Boiling, medium mineral. Milk is traditional in the West; unmilk it to taste orchid.",
+  "storage": "Airtight, opaque. Orthodox blacks last 18–24 months well.",
+  "qualityMarkers": [
+    "tight dark strips",
+    "orchid-cocoa, not generic malt",
+    "Anhui Qimen"
+  ],
+  "commonFaults": [
+    "CTC dust labelled Keemun",
+    "sour under-oxidation",
+    "stale cardboard"
+  ],
+  "similarTo": [
+    "dian-hong",
+    "zheng-shan-xiao-zhong",
+    "dong-fang-mei-ren"
+  ],
+  "summary": "Anhui’s classic Chinese black: orchid-cocoa “keemun aroma”, orthodox strips, gentle body."
+}

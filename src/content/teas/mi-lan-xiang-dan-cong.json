@@ -1,0 +1,124 @@
+{
+  "name": "Mi Lan Xiang Dan Cong",
+  "nameNative": "蜜兰香单丛",
+  "romanization": "Mìlánxiāng Dāncóng",
+  "translation": "Honey Orchid Single Bush",
+  "origin": {
+    "country": "China",
+    "region": "Phoenix Mountain",
+    "subregion": "Chaozhou, Guangdong"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Mi Lan Xiang"
+  ],
+  "harvest": {
+    "season": "spring",
+    "pluckingStage": "open leaf from single-bush selections"
+  },
+  "oxidation": 35,
+  "roast": "medium",
+  "processing": [
+    {
+      "step": "Wither and shake",
+      "description": "High-aroma dan cong protocol; edges oxidise, centres stay green."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Fired to lock honey-orchid."
+    },
+    {
+      "step": "Twist",
+      "description": "Long, wiry leaves."
+    },
+    {
+      "step": "Roast",
+      "description": "Medium charcoal to dry and round the perfume."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "honey",
+      "orchid",
+      "ripe peach"
+    ],
+    "taste": [
+      "floral honey",
+      "stone fruit",
+      "light roast"
+    ],
+    "mouthfeel": "aromatic, medium body, a little bite on the edge",
+    "finish": "perfumed honey that fills the room"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or Chaozhou clay",
+      "ratio": "1:16",
+      "waterTemp": 98,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 8,
+          "notes": "very short first steeps; aroma is volatile"
+        },
+        {
+          "n": 2,
+          "seconds": 6
+        },
+        {
+          "n": 3,
+          "seconds": 10
+        },
+        {
+          "n": 4,
+          "seconds": 15
+        },
+        {
+          "n": 5,
+          "seconds": 22
+        },
+        {
+          "n": 6,
+          "seconds": 35
+        },
+        {
+          "n": 7,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 98,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 130
+        }
+      ]
+    }
+  },
+  "water": "Near boiling. Short steeps — dan cong turns bitter if soaked.",
+  "storage": "Airtight, away from other teas; it will scent the cupboard.",
+  "qualityMarkers": [
+    "natural honey-orchid, not added flavour",
+    "Phoenix Mountain elevation",
+    "wiry whole leaf"
+  ],
+  "commonFaults": [
+    "scented fakes",
+    "over-oxidised jamminess",
+    "bitterness from long western steeps"
+  ],
+  "similarTo": [
+    "ya-shi-xiang-dan-cong",
+    "da-hong-pao",
+    "dong-fang-mei-ren"
+  ],
+  "summary": "Phoenix dan cong selected for honey-orchid perfume: wiry leaves, short gongfu steeps."
+}

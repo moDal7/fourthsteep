@@ -1,0 +1,118 @@
+{
+  "name": "Dian Hong",
+  "nameNative": "滇红",
+  "romanization": "Diānhóng",
+  "translation": "Yunnan Black",
+  "origin": {
+    "country": "China",
+    "region": "Yunnan",
+    "subregion": "Fengqing, Lincang, and others"
+  },
+  "category": "black",
+  "cultivar": [
+    "Assamica / Yunnan Daye"
+  ],
+  "harvest": {
+    "season": "spring golden-bud lots; summer more robust",
+    "pluckingStage": "buds and leaf, often golden-tipped"
+  },
+  "oxidation": 100,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Wither and roll",
+      "description": "Large-leaf assamica handled as black tea."
+    },
+    {
+      "step": "Oxidise",
+      "description": "Full oxidation to malt, cocoa and sweet potato."
+    },
+    {
+      "step": "Dry",
+      "description": "Clean dry; golden pekoe grades show the tips."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "malt",
+      "sweet potato",
+      "cocoa",
+      "honey"
+    ],
+    "taste": [
+      "malty sweet",
+      "brown sugar",
+      "soft spice"
+    ],
+    "mouthfeel": "thicker than Qimen, still smooth",
+    "finish": "sweet, warming"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or pot",
+      "ratio": "1:18",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 12
+        },
+        {
+          "n": 3,
+          "seconds": 20
+        },
+        {
+          "n": 4,
+          "seconds": 30
+        },
+        {
+          "n": 5,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 8
+    }
+  },
+  "water": "Boiling is comfortable. Golden-bud Dian Hong can go a few degrees cooler.",
+  "storage": "Airtight. Large-leaf blacks are sturdy.",
+  "qualityMarkers": [
+    "golden tips",
+    "sweet-potato malt",
+    "Yunnan large-leaf",
+    "not smoky"
+  ],
+  "commonFaults": [
+    "dusty broken leaf",
+    "overstewed bitterness",
+    "confused with Dian Hong golden-tips flavoured blends"
+  ],
+  "similarTo": [
+    "qimen",
+    "jin-jun-mei",
+    "shou-puer"
+  ],
+  "summary": "Yunnan large-leaf black: malt, cocoa, sweet potato, often gold-tipped."
+}

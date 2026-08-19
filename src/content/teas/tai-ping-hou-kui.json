@@ -1,0 +1,105 @@
+{
+  "name": "Tai Ping Hou Kui",
+  "nameNative": "太平猴魁",
+  "romanization": "Tàipíng Hóukuí",
+  "translation": "Peaceful Monkey Leader",
+  "origin": {
+    "country": "China",
+    "region": "Huangshan",
+    "subregion": "Hou Keng, Anhui"
+  },
+  "category": "green",
+  "cultivar": [
+    "Shi Da Cha"
+  ],
+  "harvest": {
+    "season": "Qing Ming to Guyu",
+    "pluckingStage": "one bud between two long leaves, pressed flat"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "Large-leaf Shi Da Cha, buds nested between two leaves."
+    },
+    {
+      "step": "Press",
+      "description": "Pressed between cloths into long, flat “lances” up to 15 cm."
+    },
+    {
+      "step": "Bake",
+      "description": "Repeated baking over charcoal to dry without breaking the silhouette."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "orchid",
+      "fresh sugarcane",
+      "wet stone"
+    ],
+    "taste": [
+      "sweet vegetal",
+      "chestnut edge",
+      "mineral"
+    ],
+    "mouthfeel": "juicy, surprisingly full for a green",
+    "finish": "long orchid-cane sweetness"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "tall glass",
+      "ratio": "1:30",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 30,
+          "notes": "leaves need space to stand upright"
+        },
+        {
+          "n": 2,
+          "seconds": 25
+        },
+        {
+          "n": 3,
+          "seconds": 40
+        },
+        {
+          "n": 4,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 2.5,
+      "volume": 300,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        }
+      ]
+    }
+  },
+  "water": "Soft, cool-side 85 °C. Overheating turns the long leaf bitter.",
+  "storage": "Keep flat if possible; the leaves crush easily. Drink within the year.",
+  "qualityMarkers": [
+    "straight, intact two-leaf spears",
+    "pale veins visible",
+    "orchid aroma",
+    "no broken fragments"
+  ],
+  "commonFaults": [
+    "machine-flattened fakes",
+    "shattered leaf",
+    "grassy cheap cousins"
+  ],
+  "similarTo": [
+    "huangshan-mao-feng",
+    "long-jing",
+    "an-ji-bai-cha"
+  ],
+  "summary": "Dramatic pressed-leaf green from Hou Keng: orchid-cane aroma and a liquor that looks like a vase of spears."
+}

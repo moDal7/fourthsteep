@@ -1,0 +1,120 @@
+{
+  "name": "Aged Sheng Puer",
+  "nameNative": "生普洱（陈）",
+  "romanization": "Chén shēng pǔ'ěr",
+  "translation": "Raw puer, aged",
+  "origin": {
+    "country": "China",
+    "region": "Yunnan",
+    "subregion": "stored in Yunnan, Guangdong, or Taiwan"
+  },
+  "category": "dark",
+  "cultivar": [
+    "Yunnan large-leaf / assamica"
+  ],
+  "harvest": {
+    "season": "originally spring maocha",
+    "pluckingStage": "pressed cake aged a decade or more"
+  },
+  "oxidation": 20,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Same make as young sheng",
+      "description": "The extra “process” is time: slow oxidation, polymerisation, microbial change."
+    },
+    {
+      "step": "Storage",
+      "description": "Dry-stored vs traditionally damper southern storage produce different profiles."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "camphor",
+      "dried plum",
+      "forest floor",
+      "aged wood"
+    ],
+    "taste": [
+      "smooth sweet",
+      "ginseng",
+      "dark fruit"
+    ],
+    "mouthfeel": "velvet, much less bite than young sheng",
+    "finish": "cooling camphor, long"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing",
+      "ratio": "1:14",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 10
+        },
+        {
+          "n": 3,
+          "seconds": 15
+        },
+        {
+          "n": 4,
+          "seconds": 20
+        },
+        {
+          "n": 5,
+          "seconds": 30
+        },
+        {
+          "n": 6,
+          "seconds": 45
+        },
+        {
+          "n": 7,
+          "seconds": 70
+        },
+        {
+          "n": 8,
+          "seconds": 100
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    }
+  },
+  "water": "Fully boiling, mineral-okay. Aged cakes like heat.",
+  "storage": "Keep the storage style stable; do not fridge. Cakes continue to evolve.",
+  "qualityMarkers": [
+    "clean camphor-plums, not must",
+    "paper and leaf integrity",
+    "documented age and storage"
+  ],
+  "commonFaults": [
+    "wet-stored mould",
+    "forced “rapid aging” sourness",
+    "counterfeit old wrappers"
+  ],
+  "similarTo": [
+    "sheng-puer-young",
+    "liu-bao",
+    "shou-mei"
+  ],
+  "summary": "The same raw cake after years: camphor, plum, and a softer body — storage is the craft."
+}

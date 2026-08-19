@@ -1,0 +1,93 @@
+{
+  "name": "Kukicha",
+  "nameNative": "茎茶",
+  "romanization": "Kukicha",
+  "translation": "Stem tea (karigane when from gyokuro/sencha)",
+  "origin": {
+    "country": "Japan",
+    "region": "Uji / nationwide",
+    "subregion": "stems sorted during shiage"
+  },
+  "category": "green",
+  "japaneseType": "kukicha",
+  "cultivar": [
+    "depends on parent tea"
+  ],
+  "harvest": {
+    "season": "same as parent sencha or gyokuro",
+    "pluckingStage": "stems and twigs, karigane if from shaded lots"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Sort",
+      "description": "Stems sieved out during refinement. Karigane is the shaded, sweeter subset."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "sweet stem",
+      "mild nori",
+      "fresh wood"
+    ],
+    "taste": [
+      "light umami",
+      "sweet, low catechin bite"
+    ],
+    "mouthfeel": "soft, round, easy",
+    "finish": "gentle sweetness"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:14",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 50
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 200,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 70
+        },
+        {
+          "n": 2,
+          "seconds": 50
+        }
+      ]
+    }
+  },
+  "water": "70–80 °C. Karigane can go cooler like gyokuro.",
+  "storage": "Fridge if karigane; pantry if roasted kukicha.",
+  "qualityMarkers": [
+    "pale stems, not brown sticks",
+    "sweetness from shaded parents"
+  ],
+  "commonFaults": [
+    "woody floor stems",
+    "confusion with roasted twig tea"
+  ],
+  "similarTo": [
+    "gyokuro",
+    "bancha",
+    "hojicha"
+  ],
+  "summary": "Stem tea: lighter, sweeter, and cheaper than the leaf it was sorted from — karigane when shaded."
+}

@@ -1,0 +1,121 @@
+{
+  "name": "Huangshan Mao Feng",
+  "nameNative": "黄山毛峰",
+  "romanization": "Huángshān Máofēng",
+  "translation": "Yellow Mountain Fur Peak",
+  "origin": {
+    "country": "China",
+    "region": "Huangshan",
+    "subregion": "Anhui"
+  },
+  "category": "green",
+  "cultivar": [
+    "Huangshan local",
+    "Shi Feng"
+  ],
+  "harvest": {
+    "season": "Qing Ming through Guyu",
+    "pluckingStage": "plump bud with one or two leaves, visible pekoe"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "High-mountain spring flush from misty Yellow Mountain gardens."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Pan-fired to a lighter toast than Long Jing, preserving floral-orchard notes."
+    },
+    {
+      "step": "Shaping",
+      "description": "Slightly twisted, not flattened; buds keep their “peak” silhouette."
+    },
+    {
+      "step": "Bake-dry",
+      "description": "Gentle charcoal or electric dry."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "orchid",
+      "fresh bamboo",
+      "honeyed green"
+    ],
+    "taste": [
+      "sweet grass",
+      "apricot",
+      "mineral"
+    ],
+    "mouthfeel": "soft, round, low astringency",
+    "finish": "clean mountain-water finish"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:20",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 130
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 6
+    }
+  },
+  "water": "Soft to lightly mineral. A touch of calcium can sharpen the mountain finish.",
+  "storage": "Airtight, cool, dark. Best within the harvest year.",
+  "qualityMarkers": [
+    "intact furred buds",
+    "uniform olive-green",
+    "orchid aroma without smoke"
+  ],
+  "commonFaults": [
+    "broken fannings",
+    "stale hay",
+    "over-fired toast"
+  ],
+  "similarTo": [
+    "tai-ping-hou-kui",
+    "bi-luo-chun",
+    "liu-an-gua-pian"
+  ],
+  "summary": "Anhui high-mountain green with orchid aroma and a plump, pekoe-dusted leaf."
+}

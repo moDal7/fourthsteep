@@ -1,0 +1,112 @@
+{
+  "name": "Dong Ding",
+  "nameNative": "凍頂",
+  "romanization": "Dòngdǐng",
+  "translation": "Frozen Summit",
+  "origin": {
+    "country": "Taiwan",
+    "region": "Nantou",
+    "subregion": "Lugu"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Qing Xin",
+    "Jin Xuan"
+  ],
+  "harvest": {
+    "season": "winter and spring",
+    "pluckingStage": "open leaf, ball-rolled"
+  },
+  "oxidation": 30,
+  "roast": "medium",
+  "processing": [
+    {
+      "step": "Wither and toss",
+      "description": "Taiwanese oolong oxidation, traditionally deeper than jade TGY."
+    },
+    {
+      "step": "Ball roll",
+      "description": "Repeated cloth-ball rolling."
+    },
+    {
+      "step": "Roast",
+      "description": "Charcoal or electric roast; traditional Dong Ding is brown-toasty, not jade-green."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "baked sugar",
+      "osmanthus",
+      "toasted grain"
+    ],
+    "taste": [
+      "caramel",
+      "orchid",
+      "warm wood"
+    ],
+    "mouthfeel": "round, comforting, medium-full",
+    "finish": "toasty sweetness"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or zisha",
+      "ratio": "1:18",
+      "waterTemp": 96,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25,
+          "notes": "rinse to open the ball"
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 96,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 120
+        },
+        {
+          "n": 2,
+          "seconds": 150
+        }
+      ]
+    }
+  },
+  "water": "Near boiling. Roast-forward Dong Ding likes a bit of mineral.",
+  "storage": "Airtight. Traditional roast rests and improves for months.",
+  "qualityMarkers": [
+    "Lugu / Dong Ding mountain",
+    "roast integrated not ashy",
+    "Qing Xin cultivar"
+  ],
+  "commonFaults": [
+    "green high-mountain sold as Dong Ding",
+    "sugar-roast covering poor leaf"
+  ],
+  "similarTo": [
+    "tie-guan-yin",
+    "alishan",
+    "shui-xian"
+  ],
+  "summary": "Nantou’s traditional roasted ball oolong: caramel-osmanthus rather than jade-floral."
+}

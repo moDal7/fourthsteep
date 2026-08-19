@@ -1,0 +1,107 @@
+{
+  "name": "Jin Jun Mei",
+  "nameNative": "金骏眉",
+  "romanization": "Jīnjùnměi",
+  "translation": "Golden Steed Eyebrow",
+  "origin": {
+    "country": "China",
+    "region": "Wuyi",
+    "subregion": "Tongmu"
+  },
+  "category": "black",
+  "cultivar": [
+    "Qi Zhong"
+  ],
+  "harvest": {
+    "season": "early spring",
+    "pluckingStage": "buds only, golden after make"
+  },
+  "oxidation": 90,
+  "roast": "light",
+  "processing": [
+    {
+      "step": "Bud pluck",
+      "description": "A 21st-century Tongmu style using only buds, not smoked like traditional Xiao Zhong."
+    },
+    {
+      "step": "Oxidise and dry",
+      "description": "Honey-gold buds, light drying, no pine smoke."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "honey",
+      "sweet potato",
+      "floral",
+      "cocoa"
+    ],
+    "taste": [
+      "honey malt",
+      "stone fruit",
+      "cream"
+    ],
+    "mouthfeel": "silky, luxurious, low smoke",
+    "finish": "long honey"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:20",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        },
+        {
+          "n": 5,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 2.5,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 200
+        }
+      ]
+    }
+  },
+  "water": "90 °C, not rolling boil, to keep honey without stewed notes.",
+  "storage": "Airtight, cool. Bud blacks stale into cardboard.",
+  "qualityMarkers": [
+    "golden buds, little black leaf",
+    "Tongmu",
+    "honey not sugar-syrup"
+  ],
+  "commonFaults": [
+    "dyed fakes",
+    "non-Tongmu golden blacks at “JJM” prices"
+  ],
+  "similarTo": [
+    "zheng-shan-xiao-zhong",
+    "dian-hong",
+    "dong-fang-mei-ren"
+  ],
+  "summary": "Tongmu bud black: honey-gold, unsmoked, a modern luxury sibling of Zheng Shan Xiao Zhong."
+}
