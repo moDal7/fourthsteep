@@ -1,0 +1,46 @@
+---
+import { liquorStyle } from '../lib/atlas.js';
+import { withBase } from '../lib/paths.js';
+
+interface Props {
+  teas: { id: string; data: Record<string, any> }[];
+}
+
+const { teas } = Astro.props;
+const ordered = teas
+  .slice()
+  .sort((a, b) => a.data.oxidation - b.data.oxidation || a.data.name.localeCompare(b.data.name));
+---
+
+<section class="spectrum" aria-labelledby="spectrum-title">
+  <div class="section-head">
+    <h2 id="spectrum-title">The whole atlas, by oxidation</h2>
+    <p class="meta">Bar height is oxidation; colour is the cup it pours</p>
+  </div>
+
+  <ol class="spectrum-strip">
+    {
+      ordered.map((tea, i) => (
+        <li style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}>
+          <a href={withBase(`/tea/${tea.id}`)}>
+            <span class="spectrum-tick" style={`--h: ${28 + tea.data.oxidation * 0.72}%`} />
+            <span class="sr-only">{tea.data.name}</span>
+          </a>
+          <span class="spectrum-read" aria-hidden="true">
+            <b>{tea.data.name}</b>
+            <span class="native">{tea.data.nameNative}</span>
+            <span class="meta">
+              {tea.data.origin.country} · oxidation {tea.data.oxidation}
+            </span>
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="spectrum-axis">
+    <span>0 — unoxidised</span>
+    <span class="spectrum-hint">Hover a bar for the tea</span>
+    <span>100 — fully oxidised</span>
+  </p>
+</section>
