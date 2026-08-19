@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Scale from '../../components/Scale.astro';
 import BrewTimer from '../../components/BrewTimer.astro';
 import RatioCalculator from '../../components/RatioCalculator.astro';
+import InfusionTable from '../../components/InfusionTable.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { parseRatio, liquorStyle, roastRank } from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
@@ -16,130 +17,137 @@ const { tea } = Astro.props;
 const d = tea.data;
 const liquor = liquorStyle({ ...d, id: tea.id });
 const ratio = parseRatio(d.brewing.gongfu.ratio);
-const similar = (
-  await Promise.all(d.similarTo.map((id) => getEntry('teas', id)))
-).filter((e) => e !== undefined);
+const similar = (await Promise.all(d.similarTo.map((id) => getEntry('teas', id)))).filter((e) => e !== undefined);
 const roastPct = (roastRank[d.roast] / 4) * 100;
+const roastLabel = d.roast === 'none' ? 'unroasted' : d.roast;
 ---
 
-<Base title={`${d.name} · Tea Atlas`} description={d.summary}>
-  <article class="wrap" style={`padding-top: 2rem; padding-bottom: 3rem; ${liquor}`}>
-    <p class="kicker">{d.origin.country} · {d.category}{d.japaneseType ? ` · ${d.japaneseType}` : ''}</p>
-    <h1>{d.name}</h1>
-    <p class="native">{d.nameNative} · {d.romanization} · {d.translation}</p>
-    <p class="lede">{d.summary}</p>
-
-    <div class="cluster" style="margin: 1rem 0 2rem">
-      <span class="chip">{d.origin.region}{d.origin.subregion ? ` · ${d.origin.subregion}` : ''}</span>
-      {d.cultivar.map((c) => <span class="chip">{c}</span>)}
-      <span class="chip">{d.harvest.season}</span>
-      <span class="chip">{d.harvest.pluckingStage}</span>
-    </div>
+<Base title={`${d.name} · Tea Atlas`} description={d.summary} liquor={liquor}>
+  <article class="wrap tea">
+    <header class="tea-hero">
+      <span class="tea-hero__watermark" aria-hidden="true">{d.nameNative}</span>
+      <span class="tea-hero__cup morph-target" aria-hidden="true"></span>
+      <p class="kicker">{d.origin.country} · {d.category}{d.japaneseType ? ` · ${d.japaneseType}` : ''}</p>
+      <h1>{d.name}</h1>
+      <p class="native tea-hero__native">{d.nameNative}</p>
+      <p class="meta">{d.romanization} · {d.translation}</p>
+      <p class="lede">{d.summary}</p>
+      <div class="cluster">
+        <span class="chip">{d.origin.region}{d.origin.subregion ? ` · ${d.origin.subregion}` : ''}</span>
+        {d.cultivar.map((c) => <span class="chip">{c}</span>)}
+        <span class="chip">{d.harvest.season}</span>
+        <span class="chip">{d.harvest.pluckingStage}</span>
+      </div>
+    </header>
 
     <div class="two-col">
       <div>
-        <h2>Identity</h2>
-        <Scale label="Oxidation" value={d.oxidation} print={`${d.oxidation} / 100`} />
-        <div style="height: 0.8rem"></div>
-        <Scale label="Roast" value={roastPct} print={d.roast} />
+        <div class="section-head"><h2>Identity</h2></div>
+        <div class="scale-stack">
+          <Scale label="Oxidation" value={d.oxidation} print={`${d.oxidation} / 100`} />
+          <Scale label="Firing" value={roastPct} print={roastLabel} />
+        </div>
 
-        <h2>Flavour</h2>
-        <p><strong>Aroma.</strong> {d.profile.aroma.join(', ')}</p>
-        <p><strong>Taste.</strong> {d.profile.taste.join(', ')}</p>
-        <p><strong>Mouthfeel.</strong> {d.profile.mouthfeel}</p>
-        <p><strong>Finish.</strong> {d.profile.finish}</p>
+        <div class="section-head"><h2>Flavour</h2></div>
+        <dl class="deflist">
+          <dt>Aroma</dt>
+          <dd>{d.profile.aroma.join(', ')}</dd>
+          <dt>Taste</dt>
+          <dd>{d.profile.taste.join(', ')}</dd>
+          <dt>Mouthfeel</dt>
+          <dd>{d.profile.mouthfeel}</dd>
+          <dt>Finish</dt>
+          <dd>{d.profile.finish}</dd>
+        </dl>
 
-        <h2>Processing chain</h2>
-        <ol class="process-list">
-          {d.processing.map((step) => (
-            <li>
-              <strong>{step.step}.</strong> {step.description}
-            </li>
-          ))}
+        <div class="section-head"><h2>Processing chain</h2></div>
+        <ol class="timeline">
+          {
+            d.processing.map((step) => (
+              <li>
+                <h3>{step.step}</h3>
+                <p>{step.description}</p>
+              </li>
+            ))
+          }
         </ol>
       </div>
-      <aside>
-        <BrewTimer infusions={d.brewing.gongfu.infusions} caption={`${d.brewing.gongfu.vessel} · ${d.brewing.gongfu.ratio} · ${d.brewing.gongfu.waterTemp} °C`} />
-        <div style="height: 1rem"></div>
+      <aside class="tea-aside">
+        <BrewTimer
+          infusions={d.brewing.gongfu.infusions}
+          caption={`${d.brewing.gongfu.vessel} · ${d.brewing.gongfu.ratio} · ${d.brewing.gongfu.waterTemp} °C`}
+        />
         <RatioCalculator ratio={ratio} />
       </aside>
     </div>
 
-    <h2>Gongfu</h2>
-    <p class="meta">{d.brewing.gongfu.vessel} at {d.brewing.gongfu.waterTemp} °C, ratio {d.brewing.gongfu.ratio}.</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Infusion</th>
-            <th>Seconds</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {d.brewing.gongfu.infusions.map((row) => (
-            <tr>
-              <td>{row.n}</td>
-              <td>{row.seconds}</td>
-              <td>{row.notes ?? '—'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="section-head">
+      <h2>Gongfu</h2>
+      <p class="meta">{d.brewing.gongfu.vessel} · {d.brewing.gongfu.waterTemp} °C · ratio {d.brewing.gongfu.ratio}</p>
     </div>
+    <InfusionTable infusions={d.brewing.gongfu.infusions} caption="Gongfu infusion schedule" />
 
-    <h2>Western</h2>
-    <p class="meta">
-      {d.brewing.western.grams} g in {d.brewing.western.volume} ml at {d.brewing.western.waterTemp} °C.
-    </p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Infusion</th>
-            <th>Seconds</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {d.brewing.western.infusions.map((row) => (
-            <tr>
-              <td>{row.n}</td>
-              <td>{row.seconds}</td>
-              <td>{row.notes ?? '—'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    {d.brewing.coldBrew && (
-      <p>
-        <strong>Cold brew.</strong> {d.brewing.coldBrew.grams} g / {d.brewing.coldBrew.volume} ml for {d.brewing.coldBrew.hours} h
-        {d.brewing.coldBrew.notes ? ` — ${d.brewing.coldBrew.notes}` : '.'}
+    <div class="section-head">
+      <h2>Western</h2>
+      <p class="meta">
+        {d.brewing.western.grams} g in {d.brewing.western.volume} ml · {d.brewing.western.waterTemp} °C
       </p>
-    )}
-
-    <h2>Water and storage</h2>
-    <p>{d.water}</p>
-    <p>{d.storage}</p>
-
-    <h2>Quality markers</h2>
-    <ul>
-      {d.qualityMarkers.map((x) => <li>{x}</li>)}
-    </ul>
-    <h2>Common faults</h2>
-    <ul>
-      {d.commonFaults.map((x) => <li>{x}</li>)}
-    </ul>
-
-    <h2>Similar teas</h2>
-    <div class="cluster">
-      {similar.map((s) => (
-        <a class="chip" href={withBase(`/tea/${s.id}`)}>
-          {s.data.name} · {s.data.nameNative}
-        </a>
-      ))}
     </div>
+    <InfusionTable infusions={d.brewing.western.infusions} caption="Western infusion schedule" />
+
+    {
+      d.brewing.coldBrew && (
+        <p class="note">
+          <strong>Cold brew.</strong> {d.brewing.coldBrew.grams} g / {d.brewing.coldBrew.volume} ml for{' '}
+          {d.brewing.coldBrew.hours} h{d.brewing.coldBrew.notes ? ` — ${d.brewing.coldBrew.notes}` : '.'}
+        </p>
+      )
+    }
+
+    <div class="section-head"><h2>Keeping it right</h2></div>
+    <div class="notes-grid">
+      <div class="note-card">
+        <p class="kicker">Water</p>
+        <p>{d.water}</p>
+      </div>
+      <div class="note-card">
+        <p class="kicker">Storage</p>
+        <p>{d.storage}</p>
+      </div>
+      <div class="note-card">
+        <p class="kicker">Quality markers</p>
+        <ul class="ticks">{d.qualityMarkers.map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <div class="note-card faults">
+        <p class="kicker">Common faults</p>
+        <ul class="ticks">{d.commonFaults.map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </div>
+
+    {
+      similar.length > 0 && (
+        <Fragment>
+          <div class="section-head">
+            <h2>Drink next</h2>
+          </div>
+          <div class="rows">
+            {similar.map((s) => (
+              <a class="row" href={withBase(`/tea/${s.id}`)} style={liquorStyle({ ...s.data, id: s.id })}>
+                <span class="row__swatch" aria-hidden="true" />
+                <span class="row__body">
+                  <h3>{s.data.name}</h3>
+                  <p class="meta">
+                    {s.data.nameNative} · {s.data.origin.region} · oxidation {s.data.oxidation}
+                  </p>
+                </span>
+                <span class="arrow" aria-hidden="true">
+                  &rarr;
+                </span>
+              </a>
+            ))}
+          </div>
+        </Fragment>
+      )
+    }
   </article>
 </Base>

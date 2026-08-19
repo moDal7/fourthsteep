@@ -31,6 +31,8 @@ function initTimer(root) {
   const display = root.querySelector('[data-display]');
   const meta = root.querySelector('[data-meta]');
   const notes = root.querySelector('[data-notes]');
+  const live = root.querySelector('[data-live]');
+  const pips = [...root.querySelectorAll('[data-pips] li')];
   const startBtn = root.querySelector('[data-start]');
   const pauseBtn = root.querySelector('[data-pause]');
   const nextBtn = root.querySelector('[data-next]');
@@ -41,16 +43,43 @@ function initTimer(root) {
   let running = false;
   let last = 0;
   let raf = 0;
+  let announced = '';
 
   const render = () => {
     const step = infusions[index];
+    const elapsed = step.seconds > 0 ? 1 - remaining / step.seconds : 1;
+
+    // One property drives the ring, the current pip, and the flare radius.
+    root.style.setProperty('--progress', String(Math.min(1, Math.max(0, elapsed))));
+    root.classList.toggle('is-running', running);
+
     if (display) display.textContent = format(remaining);
-    if (meta) {
-      meta.textContent = `Infusion ${step.n} of ${infusions.length} · ${step.seconds}s target`;
-    }
+    if (meta) meta.textContent = `Infusion ${step.n} of ${infusions.length} · ${step.seconds}s target`;
     if (notes) notes.textContent = step.notes || 'No extra note for this steep.';
+
+    pips.forEach((pip, i) => {
+      pip.classList.toggle('done', i < index);
+      pip.classList.toggle('current', i === index);
+    });
+
     if (startBtn) startBtn.disabled = running;
     if (pauseBtn) pauseBtn.disabled = !running;
+
+    // The display itself updates every frame, which is far too chatty for a
+    // live region, so only the change of steep is announced.
+    const label = `Infusion ${step.n} of ${infusions.length}`;
+    if (live && label !== announced) {
+      announced = label;
+      live.textContent = label;
+    }
+  };
+
+  const flare = () => {
+    root.classList.remove('is-chime');
+    // Reading the box forces the class removal to take effect before it is
+    // added back, so consecutive steeps each get their own flare.
+    void root.offsetWidth;
+    root.classList.add('is-chime');
   };
 
   const tick = (now) => {
@@ -62,6 +91,7 @@ function initTimer(root) {
       remaining = 0;
       running = false;
       chime();
+      flare();
       render();
       if (index < infusions.length - 1) {
         index += 1;
@@ -104,6 +134,10 @@ function initTimer(root) {
     index = 0;
     remaining = infusions[0].seconds;
     render();
+  });
+
+  root.addEventListener('animationend', (event) => {
+    if (event.animationName === 'flare') root.classList.remove('is-chime');
   });
 
   render();

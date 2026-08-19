@@ -1,0 +1,49 @@
+---
+interface Infusion {
+  n: number;
+  seconds: number;
+  notes?: string;
+}
+
+interface Props {
+  infusions: Infusion[];
+  caption: string;
+}
+
+const { infusions, caption } = Astro.props;
+// Bars are drawn against the longest steep in this schedule, so the shape of
+// the ramp is readable without doing the arithmetic.
+const longest = Math.max(...infusions.map((i) => i.seconds), 1);
+const format = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${s % 60 ? `${s % 60}s` : ''}`.trim() : `${s}s`);
+---
+
+<div class="table-wrap">
+  <table>
+    <caption class="sr-only">{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Infusion</th>
+        <th scope="col">Steep</th>
+        <th scope="col">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        infusions.map((row) => (
+          <tr>
+            <td class="num">{row.n}</td>
+            <td>
+              <span class="steep-cell">
+                <span class="steep-bar" aria-hidden="true">
+                  <span style={`--value: ${(row.seconds / longest) * 100}%`} />
+                </span>
+                <span class="num">{format(row.seconds)}</span>
+              </span>
+            </td>
+            <td>{row.notes ?? '—'}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
