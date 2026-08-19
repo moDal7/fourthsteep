@@ -38,6 +38,12 @@
 :root {
   color-scheme: light;
 
+  /* The default cup, for pages that are not about one particular tea. Also
+     the fallback where @property is unsupported. */
+  --lq-l: 0.78;
+  --lq-c: 0.1;
+  --lq-h: 78;
+
   --paper: #f2ece0;
   --paper-raised: #fbf7ee;
   --paper-sunk: #e8e0d0;
@@ -48,13 +54,13 @@
   --jade: #2c5a4e;
   --amber: #b8601f;
 
-  /* The cup, and the ramp derived from it. */
-  --liquor: oklch(var(--lq-l) var(--lq-c) var(--lq-h));
-  --liquor-deep: oklch(calc(var(--lq-l) - 0.17) calc(var(--lq-c) * 0.94) calc(var(--lq-h) - 4));
-  --liquor-pale: oklch(calc(var(--lq-l) + 0.09) calc(var(--lq-c) * 0.55) var(--lq-h));
-  --liquor-wash: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.2);
-  --liquor-veil: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.08);
-  --liquor-ink: oklch(clamp(0.3, calc(var(--lq-l) - 0.34), 0.5) calc(var(--lq-c) * 0.95) var(--lq-h));
+  /* How the ramp below is bent for this theme. Kept as plain inherited
+     numbers so that the one derivation rule works in both themes. */
+  --ink-shift: -0.34;
+  --ink-floor: 0.3;
+  --ink-ceil: 0.5;
+  --wash-a: 0.2;
+  --veil-a: 0.08;
 
   --serif: 'Fraunces', 'Iowan Old Style', Palatino, Georgia, serif;
   --sans: ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -81,6 +87,27 @@
   --grain-blend: multiply;
 }
 
+/* The cup, and the ramp derived from it.
+ *
+ * This has to be declared on every element rather than once on :root. A
+ * custom property's var() references are substituted where the property is
+ * *declared*, so a ramp declared on :root would resolve against the root's
+ * --lq-* once and ignore the per-tea values set further down the tree — which
+ * is exactly how every swatch on the atlas ends up the same colour. */
+*,
+*::before,
+*::after {
+  --liquor: oklch(var(--lq-l) var(--lq-c) var(--lq-h));
+  --liquor-deep: oklch(calc(var(--lq-l) - 0.17) calc(var(--lq-c) * 0.94) calc(var(--lq-h) - 4));
+  --liquor-pale: oklch(calc(var(--lq-l) + 0.09) calc(var(--lq-c) * 0.55) var(--lq-h));
+  --liquor-wash: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / var(--wash-a));
+  --liquor-veil: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / var(--veil-a));
+  --liquor-ink: oklch(
+    clamp(var(--ink-floor), calc(var(--lq-l) + var(--ink-shift)), var(--ink-ceil)) calc(var(--lq-c) * 0.95)
+      var(--lq-h)
+  );
+}
+
 html[data-theme='dark'] {
   color-scheme: dark;
   --paper: #12100d;
@@ -92,9 +119,11 @@ html[data-theme='dark'] {
   --line-soft: #262019;
   --jade: #8fbfad;
   --amber: #e09a5b;
-  --liquor-ink: oklch(clamp(0.74, calc(var(--lq-l) + 0.06), 0.9) calc(var(--lq-c) * 0.8) var(--lq-h));
-  --liquor-wash: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.16);
-  --liquor-veil: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.07);
+  --ink-shift: 0.06;
+  --ink-floor: 0.74;
+  --ink-ceil: 0.9;
+  --wash-a: 0.16;
+  --veil-a: 0.07;
   --shadow-flat: 0 1px 2px oklch(0 0 0 / 0.4);
   --shadow-lift: 0 1.5rem 2.5rem -1.25rem oklch(0 0 0 / 0.7), 0 0.25rem 0.6rem -0.4rem oklch(0 0 0 / 0.5);
   --grain-opacity: 0.16;
@@ -113,9 +142,11 @@ html[data-theme='dark'] {
     --line-soft: #262019;
     --jade: #8fbfad;
     --amber: #e09a5b;
-    --liquor-ink: oklch(clamp(0.74, calc(var(--lq-l) + 0.06), 0.9) calc(var(--lq-c) * 0.8) var(--lq-h));
-    --liquor-wash: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.16);
-    --liquor-veil: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.07);
+    --ink-shift: 0.06;
+    --ink-floor: 0.74;
+    --ink-ceil: 0.9;
+    --wash-a: 0.16;
+    --veil-a: 0.07;
     --shadow-flat: 0 1px 2px oklch(0 0 0 / 0.4);
     --shadow-lift: 0 1.5rem 2.5rem -1.25rem oklch(0 0 0 / 0.7), 0 0.25rem 0.6rem -0.4rem oklch(0 0 0 / 0.5);
     --grain-opacity: 0.16;
@@ -343,9 +374,9 @@ p {
   border-radius: 50%;
   border: 1.5px solid var(--line);
   background:
-    linear-gradient(to top, var(--liquor) calc(var(--wash) * 100%), transparent 0) no-repeat,
-    var(--paper-raised);
-  box-shadow: inset 0 0 0 3px var(--paper-raised);
+    radial-gradient(circle at 34% 26%, oklch(1 0 0 / 0.45), transparent 42%),
+    linear-gradient(to top, var(--liquor-deep) 0, var(--liquor) calc(var(--wash) * 100%), var(--paper-raised) 0)
+      no-repeat;
   transition: --wash var(--dur-3) var(--ease-pour), border-color var(--dur-2) var(--ease-steep);
 }
 
@@ -644,7 +675,28 @@ html[data-theme='dark'] .toggle-steam {
 }
 
 .card-grid {
+  position: relative;
   grid-template-columns: repeat(auto-fill, minmax(clamp(230px, 26vw, 275px), 1fr));
+}
+
+.result-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.result-bar .num {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .card {
@@ -993,10 +1045,14 @@ select:focus {
   box-shadow: var(--shadow-flat);
 }
 
-@media (min-width: 760px) {
+@media (min-width: 700px) {
   .filters {
-    grid-template-columns: 1.6fr repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
     align-items: end;
+  }
+
+  .filters .field:first-child {
+    grid-column: span 2;
   }
 }
 

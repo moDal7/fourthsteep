@@ -12,12 +12,12 @@ const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
 ---
 
 <Base title="Atlas · Tea Atlas" description="Filter and search the tea collection.">
-  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+  <div class="wrap" style="padding-top: 2.5rem; padding-bottom: 3rem">
     <p class="kicker">Collection</p>
     <h1>Atlas</h1>
     <p class="lede">
-      Client-side filters over a build-time index. Search names, regions, and summaries. Oxidation bands are numbers,
-      not colour alone.
+      Forty-five entries, each swatch mixed from its own oxidation, firing, and origin. Filters run client-side over a
+      build-time index; oxidation is printed as a number, never colour alone.
     </p>
 
     <form class="filters" data-atlas-filters>
@@ -64,13 +64,17 @@ const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
       </label>
     </form>
 
-    <p class="meta"><span data-count></span> · also available as <a href={withBase('/atlas.json')}>atlas.json</a></p>
+    <p class="result-bar">
+      <span class="num" data-count></span>
+      <span>also available as <a href={withBase('/atlas.json')}>atlas.json</a></span>
+    </p>
 
     <div class="grid card-grid" data-atlas-grid>
       {
-        teas.map((t) => (
+        teas.map((t, i) => (
           <TeaCard
             id={t.id}
+            index={i}
             name={t.data.name}
             nameNative={t.data.nameNative}
             country={t.data.origin.country}

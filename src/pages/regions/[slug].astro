@@ -33,9 +33,10 @@ const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =
     {
       teas.length ? (
         <div class="grid card-grid">
-          {teas.map((t) => (
+          {teas.map((t, i) => (
             <TeaCard
               id={t.id}
+              index={i}
               name={t.data.name}
               nameNative={t.data.nameNative}
               country={t.data.origin.country}
