@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { withBase } from '../lib/paths.js';
 
 type Props = {
   title: string;
@@ -7,8 +8,13 @@ type Props = {
 };
 
 const { title, description = 'A static atlas of Chinese, Taiwanese, and Japanese teas — terroir, processing, and brewing as data.' } = Astro.props;
-const path = Astro.url.pathname;
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  if (href === '/') return path === (base || '/');
+  const target = `${base}${href}`;
+  return path === target || path.startsWith(`${target}/`);
+};
 ---
 
 <!doctype html>
@@ -18,7 +24,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,15 +46,15 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">
+        <a class="brand" href={withBase('/')}>
           Tea Atlas
           <small>leaves, water, time</small>
         </a>
         <nav class="primary" aria-label="Primary">
-          <a href="/atlas" aria-current={isCurrent('/atlas') ? 'page' : undefined}>Atlas</a>
-          <a href="/regions" aria-current={isCurrent('/regions') ? 'page' : undefined}>Regions</a>
-          <a href="/brewing" aria-current={isCurrent('/brewing') ? 'page' : undefined}>Brewing</a>
-          <a href="/glossary" aria-current={isCurrent('/glossary') ? 'page' : undefined}>Glossary</a>
+          <a href={withBase('/atlas')} aria-current={isCurrent('/atlas') ? 'page' : undefined}>Atlas</a>
+          <a href={withBase('/regions')} aria-current={isCurrent('/regions') ? 'page' : undefined}>Regions</a>
+          <a href={withBase('/brewing')} aria-current={isCurrent('/brewing') ? 'page' : undefined}>Brewing</a>
+          <a href={withBase('/glossary')} aria-current={isCurrent('/glossary') ? 'page' : undefined}>Glossary</a>
           <button class="theme-toggle" type="button" data-theme-toggle>Theme</button>
         </nav>
       </div>

@@ -5,6 +5,7 @@ import BrewTimer from '../../components/BrewTimer.astro';
 import RatioCalculator from '../../components/RatioCalculator.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { parseRatio, oxidationTone, roastRank } from '../../lib/atlas.js';
+import { withBase } from '../../lib/paths.js';
 
 export async function getStaticPaths() {
   const teas = await getCollection('teas');
@@ -134,7 +135,7 @@ const roastPct = (roastRank[d.roast] / 4) * 100;
     <h2>Similar teas</h2>
     <div class="cluster">
       {similar.map((s) => (
-        <a class="chip" href={`/tea/${s.id}`}>
+        <a class="chip" href={withBase(`/tea/${s.id}`)}>
           {s.data.name} · {s.data.nameNative}
         </a>
       ))}

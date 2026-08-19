@@ -1,5 +1,6 @@
 ---
 import { oxidationTone } from '../lib/atlas.js';
+import { withBase } from '../lib/paths.js';
 
 interface Props {
   id: string;
@@ -21,7 +22,7 @@ const search = [tea.name, tea.nameNative, tea.country, tea.region, tea.category,
 
 <a
   class="card"
-  href={`/tea/${tea.id}`}
+  href={withBase(`/tea/${tea.id}`)}
   data-tea-card
   data-search={search}
   data-country={tea.country}

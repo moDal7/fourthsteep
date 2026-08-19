@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/paths.js';
 
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
 const methods = guides.filter((g) => g.data.group === 'method');
@@ -19,7 +20,7 @@ const knowledge = guides.filter((g) => g.data.group === 'knowledge');
     <div class="grid card-grid">
       {
         methods.map((g) => (
-          <a class="card" href={`/brewing/${g.id}`}>
+          <a class="card" href={withBase(`/brewing/${g.id}`)}>
             <h3>{g.data.title}</h3>
             <p class="meta">{g.data.description}</p>
           </a>
@@ -30,7 +31,7 @@ const knowledge = guides.filter((g) => g.data.group === 'knowledge');
     <div class="grid card-grid">
       {
         knowledge.map((g) => (
-          <a class="card" href={`/brewing/${g.id}`}>
+          <a class="card" href={withBase(`/brewing/${g.id}`)}>
             <h3>{g.data.title}</h3>
             <p class="meta">{g.data.description}</p>
           </a>

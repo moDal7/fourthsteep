@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/paths.js';
 
 const regions = (await getCollection('regions')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
@@ -13,7 +14,7 @@ const regions = (await getCollection('regions')).sort((a, b) => a.data.name.loca
     <div class="grid card-grid">
       {
         regions.map((r) => (
-          <a class="card" href={`/regions/${r.id}`}>
+          <a class="card" href={withBase(`/regions/${r.id}`)}>
             <p class="kicker">{r.data.country}</p>
             <h3>{r.data.name}</h3>
             <p class="native">{r.data.nameNative}</p>

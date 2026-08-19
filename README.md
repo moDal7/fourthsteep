@@ -2,6 +2,8 @@
 
 A static encyclopaedia of Chinese, Taiwanese, and Japanese teas. Typed content collections, hand-written CSS, and a handful of vanilla-JS islands. There is no backend and no database: `npm run build` emits HTML into `dist/`.
 
+**Live site (GitHub Pages):** [https://modal7.github.io/fourthsteep/](https://modal7.github.io/fourthsteep/)
+
 ## Why this repo
 
 The original project lived in a Cursor cloud workspace with no GitHub remote — only a plan. This repository is that plan built out: Astro 7, MDX guides, and brewing schedules stored as data so the tables and the brew timer cannot disagree.

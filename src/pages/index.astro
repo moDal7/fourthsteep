@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { withBase } from '../lib/paths.js';
 
 const teas = await getCollection('teas');
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
@@ -17,8 +18,8 @@ const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
         schedule that drives both the table and the timer. No backend. No database. `astro build` is the whole ship.
       </p>
       <div class="cluster" style="margin-top: 1.2rem">
-        <a class="btn" href="/atlas">Browse the atlas</a>
-        <a class="btn secondary" href="/brewing">Brewing guides</a>
+        <a class="btn" href={withBase('/atlas')}>Browse the atlas</a>
+        <a class="btn secondary" href={withBase('/brewing')}>Brewing guides</a>
       </div>
     </section>
 
@@ -27,19 +28,19 @@ const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
       <div class="grid card-grid">
         {
           countries.map((country) => (
-            <a class="card" href={`/atlas?country=${encodeURIComponent(country)}`}>
+            <a class="card" href={`${withBase('/atlas')}?country=${encodeURIComponent(country)}`}>
               <p class="kicker">Origin</p>
               <h3>{country}</h3>
               <p class="meta">{teas.filter((t) => t.data.origin.country === country).length} entries</p>
             </a>
           ))
         }
-        <a class="card" href="/regions">
+        <a class="card" href={withBase('/regions')}>
           <p class="kicker">Terroir</p>
           <h3>Regions</h3>
           <p class="meta">Wuyi cliffs to Uji shade, with the teas that grow there.</p>
         </a>
-        <a class="card" href="/glossary">
+        <a class="card" href={withBase('/glossary')}>
           <p class="kicker">Language</p>
           <h3>Glossary</h3>
           <p class="meta">杀青, 焙火, 蒸し, 荒茶 — bilingual terms used throughout the atlas.</p>
@@ -52,7 +53,7 @@ const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
       <div class="grid card-grid">
         {
           guides.map((g) => (
-            <a class="card" href={`/brewing/${g.id}`}>
+            <a class="card" href={withBase(`/brewing/${g.id}`)}>
               <p class="kicker">{g.data.group}</p>
               <h3>{g.data.title}</h3>
               <p class="meta">{g.data.description}</p>
