@@ -2,7 +2,7 @@
 
 A static encyclopaedia of Chinese, Taiwanese, and Japanese teas. Typed content collections, hand-written CSS, and a handful of vanilla-JS islands. There is no backend and no database: `npm run build` emits HTML into `dist/`.
 
-**Live site (GitHub Pages):** [https://modal7.github.io/fourthsteep/](https://modal7.github.io/fourthsteep/)
+**Live site (GitHub Pages):** [https://www.topeki.com/fourthsteep/](https://www.topeki.com/fourthsteep/)
 
 ## Why this repo
 
