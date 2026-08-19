@@ -1228,6 +1228,11 @@ select:focus {
   navigation: auto;
 }
 
+/* The element the atlas grid morphs into on a tea page. */
+.morph-target {
+  view-transition-name: active-tea;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(root) {
     animation: vt-out 220ms var(--ease-steep) both;
