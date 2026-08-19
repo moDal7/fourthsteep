@@ -1,5 +1,5 @@
 ---
-import { oxidationTone } from '../lib/atlas.js';
+import { liquorStyle } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 interface Props {
@@ -30,7 +30,7 @@ const search = [tea.name, tea.nameNative, tea.country, tea.region, tea.category,
   data-category={tea.category}
   data-roast={tea.roast}
   data-oxidation={String(tea.oxidation)}
-  style={`--ox: ${oxidationTone(tea.oxidation)}`}
+  style={liquorStyle(tea)}
 >
   <p class="kicker">{tea.country} · {tea.category} · {tea.region}</p>
   <h3>{tea.name}</h3>

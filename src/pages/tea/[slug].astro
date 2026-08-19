@@ -4,7 +4,7 @@ import Scale from '../../components/Scale.astro';
 import BrewTimer from '../../components/BrewTimer.astro';
 import RatioCalculator from '../../components/RatioCalculator.astro';
 import { getCollection, getEntry } from 'astro:content';
-import { parseRatio, oxidationTone, roastRank } from '../../lib/atlas.js';
+import { parseRatio, liquorStyle, roastRank } from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
 
 export async function getStaticPaths() {
@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 
 const { tea } = Astro.props;
 const d = tea.data;
+const liquor = liquorStyle({ ...d, id: tea.id });
 const ratio = parseRatio(d.brewing.gongfu.ratio);
 const similar = (
   await Promise.all(d.similarTo.map((id) => getEntry('teas', id)))
@@ -22,7 +23,7 @@ const roastPct = (roastRank[d.roast] / 4) * 100;
 ---
 
 <Base title={`${d.name} · Tea Atlas`} description={d.summary}>
-  <article class="wrap" style={`padding-top: 2rem; padding-bottom: 3rem; --ox: ${oxidationTone(d.oxidation)}`}>
+  <article class="wrap" style={`padding-top: 2rem; padding-bottom: 3rem; ${liquor}`}>
     <p class="kicker">{d.origin.country} · {d.category}{d.japaneseType ? ` · ${d.japaneseType}` : ''}</p>
     <h1>{d.name}</h1>
     <p class="native">{d.nameNative} · {d.romanization} · {d.translation}</p>
