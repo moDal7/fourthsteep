@@ -1,8 +1,8 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import TeaCard from '../../../components/TeaCard.astro';
+import Base from '../../layouts/Base.astro';
+import TeaCard from '../../components/TeaCard.astro';
 import { getCollection, render } from 'astro:content';
-import { teasForRegion } from '../../../lib/atlas.js';
+import { teasForRegion } from '../../lib/atlas.js';
 
 export async function getStaticPaths() {
   const regions = await getCollection('regions');
