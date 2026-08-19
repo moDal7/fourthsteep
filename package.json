@@ -1,0 +1,19 @@
+{
+  "name": "tea-atlas",
+  "type": "module",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/check-similar-to.mjs && astro build",
+    "preview": "astro preview",
+    "check": "node scripts/check-similar-to.mjs && astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.5",
+    "astro": "^7.2.2"
+  }
+}

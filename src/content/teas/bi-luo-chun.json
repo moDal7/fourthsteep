@@ -1,0 +1,117 @@
+{
+  "name": "Bi Luo Chun",
+  "nameNative": "碧螺春",
+  "romanization": "Bìluóchūn",
+  "translation": "Green Snail Spring",
+  "origin": {
+    "country": "China",
+    "region": "Dongting",
+    "subregion": "Taihu, Jiangsu"
+  },
+  "category": "green",
+  "cultivar": [
+    "Dongting local"
+  ],
+  "harvest": {
+    "season": "late March–early April",
+    "pluckingStage": "one bud and one tiny leaf, extremely fine"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "Minute buds picked around orchards of peach, plum and loquat."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Gentle pan-fire; fruit-blossom aromatics from neighbouring trees cling to the downy buds."
+    },
+    {
+      "step": "Rolling",
+      "description": "Rolled into tight spirals — the “green snails”."
+    },
+    {
+      "step": "Dry",
+      "description": "Finished at low heat so the white pekoe remains visible."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "orchid",
+      "unripe peach",
+      "fresh hay"
+    ],
+    "taste": [
+      "floral",
+      "sweet green",
+      "stone fruit"
+    ],
+    "mouthfeel": "delicate, slightly viscous from the down",
+    "finish": "short floral aftertaste"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "glass or small gaiwan",
+      "ratio": "1:25",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 75,
+          "notes": "leaves can be dropped onto water to watch them unfurl"
+        },
+        {
+          "n": 2,
+          "seconds": 100
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 7,
+      "volume": 500,
+      "hours": 5
+    }
+  },
+  "water": "Very soft water; high mineral content flattens the floral top.",
+  "storage": "Refrigerate sealed if keeping past early summer. Hygroscopic down picks up fridge smells — double-bag.",
+  "qualityMarkers": [
+    "tight spirals covered in pekoe",
+    "intense floral hit on dry leaf",
+    "pale gold-green liquor"
+  ],
+  "commonFaults": [
+    "large coarse leaf sold as Bi Luo Chun",
+    "sour under-fired green",
+    "perfume-like added flavour"
+  ],
+  "similarTo": [
+    "huangshan-mao-feng",
+    "an-ji-bai-cha",
+    "long-jing"
+  ],
+  "summary": "Downy spiral greens from Taihu orchards, famous for a floral, fruity lift unusual among pan-fired greens."
+}

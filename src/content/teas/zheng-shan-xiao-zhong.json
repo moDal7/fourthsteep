@@ -1,0 +1,113 @@
+{
+  "name": "Zheng Shan Xiao Zhong",
+  "nameNative": "正山小种",
+  "romanization": "Zhèngshān Xiǎozhǒng",
+  "translation": "Lapsang from the True Mountain",
+  "origin": {
+    "country": "China",
+    "region": "Wuyi",
+    "subregion": "Tongmu, Fujian"
+  },
+  "category": "black",
+  "cultivar": [
+    "Qi Zhong",
+    "local Xiao Zhong"
+  ],
+  "harvest": {
+    "season": "spring",
+    "pluckingStage": "small-leaf Tongmu bushes"
+  },
+  "oxidation": 95,
+  "roast": "heavy",
+  "processing": [
+    {
+      "step": "Wither",
+      "description": "Indoor wither in smoke-scented rooms for traditional lots."
+    },
+    {
+      "step": "Oxidise",
+      "description": "Full black-tea oxidation."
+    },
+    {
+      "step": "Pine smoke dry",
+      "description": "Traditional Tongmu drying over Chinese red pine; unsmoked Zheng Shan also exists."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "pine",
+      "longan",
+      "dried longan",
+      "campfire (traditional)"
+    ],
+    "taste": [
+      "sweet smoke",
+      "dried fruit",
+      "malt"
+    ],
+    "mouthfeel": "round, not ashy if well made",
+    "finish": "longan-sweet, pine on traditional lots"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or pot",
+      "ratio": "1:18",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 12
+        },
+        {
+          "n": 3,
+          "seconds": 20
+        },
+        {
+          "n": 4,
+          "seconds": 30
+        },
+        {
+          "n": 5,
+          "seconds": 45
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    }
+  },
+  "water": "Boiling is fine. Smoke-forward lots can take a pot.",
+  "storage": "Airtight; smoke will colonise nearby teas.",
+  "qualityMarkers": [
+    "Tongmu origin",
+    "longan sweetness under smoke",
+    "not tarry cheap lapsang"
+  ],
+  "commonFaults": [
+    "industrial tar smoke",
+    "non-Tongmu “lapsang”",
+    "thin sour black"
+  ],
+  "similarTo": [
+    "jin-jun-mei",
+    "qimen",
+    "da-hong-pao"
+  ],
+  "summary": "Tongmu black tea, ancestor of Lapsang: pine-dried or clean, always with dried-longan sweetness."
+}

@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const terms = (await getCollection('glossary')).sort((a, b) => a.data.term.localeCompare(b.data.term));
+---
+
+<Base title="Glossary · Tea Atlas" description="Bilingual tea vocabulary used in the atlas.">
+  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+    <p class="kicker">Vocabulary</p>
+    <h1>Glossary</h1>
+    <p class="lede">Chinese, Japanese, and English terms the entries assume you can look up.</p>
+    {
+      terms.map((t) => (
+        <section class="glossary-item" id={t.id}>
+          <h2>{t.data.term}</h2>
+          <p class="native">
+            {t.data.native} · {t.data.romanization}
+          </p>
+          <p>{t.data.definition}</p>
+        </section>
+      ))
+    }
+  </div>
+</Base>

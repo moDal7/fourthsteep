@@ -1,0 +1,102 @@
+{
+  "name": "Hojicha",
+  "nameNative": "ほうじ茶",
+  "romanization": "Hōjicha",
+  "translation": "Roasted tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Kyoto / nationwide",
+    "subregion": "often bancha or sencha roasted"
+  },
+  "category": "green",
+  "japaneseType": "hojicha",
+  "cultivar": [
+    "Yabukita and others, roasted"
+  ],
+  "harvest": {
+    "season": "later leaf roasted year-round",
+    "pluckingStage": "bancha or sencha, then high-fire roast"
+  },
+  "oxidation": 0,
+  "roast": "heavy",
+  "processing": [
+    {
+      "step": "Base tea",
+      "description": "Usually coarser Japanese green."
+    },
+    {
+      "step": "Roast",
+      "description": "200 °C-class roast develops pyrazines; caffeine often lower than sencha."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "toasted rice",
+      "cocoa husk",
+      "woodsmoke-sweet"
+    ],
+    "taste": [
+      "roasted grain",
+      "mild, low bitterness"
+    ],
+    "mouthfeel": "light, evening-friendly",
+    "finish": "clean toast"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu or pot",
+      "ratio": "1:15",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 30
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60
+        },
+        {
+          "n": 2,
+          "seconds": 90
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 4
+    }
+  },
+  "water": "Near boiling is fine; hojicha is robust.",
+  "storage": "Airtight; roast aroma fades. Keep away from sencha.",
+  "qualityMarkers": [
+    "even brown, not scorched black",
+    "sweet roast, not ash"
+  ],
+  "commonFaults": [
+    "burnt cheap twigs",
+    "stale popcorn"
+  ],
+  "similarTo": [
+    "genmaicha",
+    "bancha",
+    "kukicha"
+  ],
+  "summary": "Roasted Japanese green: evening toast, lower tension than sencha, still a green in process."
+}

@@ -1,0 +1,114 @@
+{
+  "name": "Meng Ding Huang Ya",
+  "nameNative": "蒙顶黄芽",
+  "romanization": "Méngdǐng Huángyá",
+  "translation": "Mengding Yellow Bud",
+  "origin": {
+    "country": "China",
+    "region": "Mengding",
+    "subregion": "Ya’an, Sichuan"
+  },
+  "category": "yellow",
+  "cultivar": [
+    "Mengding local"
+  ],
+  "harvest": {
+    "season": "early spring",
+    "pluckingStage": "one bud and one leaf, yellowed"
+  },
+  "oxidation": 12,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "High gardens on Mengding Shan, among China’s oldest tea mountains."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Pan-fire."
+    },
+    {
+      "step": "Men Huang",
+      "description": "Wrapped yellowing, slightly longer than Junshan, more leaf in the mix."
+    },
+    {
+      "step": "Dry",
+      "description": "Low bake."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "baked squash",
+      "osmanthus",
+      "hay"
+    ],
+    "taste": [
+      "mellow sweet",
+      "chestnut",
+      "yellow fruit"
+    ],
+    "mouthfeel": "soft, enveloping",
+    "finish": "gentle and long"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:20",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 120
+        },
+        {
+          "n": 2,
+          "seconds": 180
+        }
+      ]
+    }
+  },
+  "water": "Soft to medium. Heat around 85 °C keeps the yellowing sweetness.",
+  "storage": "Airtight, away from spice. Best in the harvest year.",
+  "qualityMarkers": [
+    "even yellow-olive buds",
+    "no green rawness",
+    "Sichuan highland origin"
+  ],
+  "commonFaults": [
+    "unfinished yellowing (still green)",
+    "over-baked dullness"
+  ],
+  "similarTo": [
+    "jun-shan-yin-zhen",
+    "long-jing",
+    "bai-mu-dan"
+  ],
+  "summary": "Sichuan yellow bud from Mengding: squash-osmanthus sweetness from the men huang wrap."
+}

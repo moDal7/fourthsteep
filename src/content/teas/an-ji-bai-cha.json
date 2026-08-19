@@ -1,0 +1,118 @@
+{
+  "name": "An Ji Bai Cha",
+  "nameNative": "安吉白茶",
+  "romanization": "Ānjí Báichá",
+  "translation": "Anji White Tea",
+  "origin": {
+    "country": "China",
+    "region": "Anji",
+    "subregion": "Zhejiang"
+  },
+  "category": "green",
+  "cultivar": [
+    "Bai Ye Yi Hao"
+  ],
+  "harvest": {
+    "season": "pre-Qing Ming pale flush",
+    "pluckingStage": "one bud and one leaf while the leaf is still yellow-white"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "Harvested in a narrow window when chlorophyll is suppressed by cool nights."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Light pan-fire; processed as green tea despite the “white” name."
+    },
+    {
+      "step": "Dry",
+      "description": "Quick dry to keep the pale colour and high amino-acid sweetness."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "fresh soybean",
+      "lilac",
+      "cream"
+    ],
+    "taste": [
+      "umami",
+      "sweet corn",
+      "soft floral"
+    ],
+    "mouthfeel": "brothy, almost gyokuro-like viscosity",
+    "finish": "savoury-sweet, very little bite"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or glass",
+      "ratio": "1:20",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        },
+        {
+          "n": 5,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 80
+        },
+        {
+          "n": 2,
+          "seconds": 110
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 7,
+      "volume": 500,
+      "hours": 5,
+      "notes": "Exceptional cold: pure umami."
+    }
+  },
+  "water": "Very soft. This tea is mostly theanine; minerals mute it.",
+  "storage": "Freeze sealed extra if you want the pale colour to last; otherwise cool pantry for a few months.",
+  "qualityMarkers": [
+    "pale yellow-green dry leaf",
+    "high umami",
+    "lime-jade liquor",
+    "Bai Ye cultivar"
+  ],
+  "commonFaults": [
+    "green Anji sold as Bai Cha after the pale window",
+    "thin later flushes",
+    "overbrewed bitterness"
+  ],
+  "similarTo": [
+    "long-jing",
+    "gyokuro",
+    "kabusecha"
+  ],
+  "summary": "A green tea in process, “white” only in cultivar colour: high theanine, creamy umami, lime-pale liquor."
+}

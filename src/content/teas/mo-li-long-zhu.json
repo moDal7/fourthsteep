@@ -1,0 +1,108 @@
+{
+  "name": "Mo Li Long Zhu",
+  "nameNative": "茉莉龙珠",
+  "romanization": "Mòlì lóngzhū",
+  "translation": "Jasmine Dragon Pearls",
+  "origin": {
+    "country": "China",
+    "region": "Fuzhou / Guangxi base",
+    "subregion": "jasmine-scented green"
+  },
+  "category": "scented",
+  "cultivar": [
+    "green-tea base, often Funing or similar"
+  ],
+  "harvest": {
+    "season": "spring green base; summer jasmine blossoms",
+    "pluckingStage": "tips rolled into pearls, scented over nights"
+  },
+  "oxidation": 2,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Green base",
+      "description": "Young leaf processed as green tea, then rolled into pearls."
+    },
+    {
+      "step": "Scenting",
+      "description": "Layered with fresh jasmine over several nights; flowers are removed. Grade is number of scentings."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "jasmine",
+      "fresh green",
+      "night garden"
+    ],
+    "taste": [
+      "floral sweet",
+      "soft green",
+      "honey"
+    ],
+    "mouthfeel": "light, perfumed, should still taste like tea",
+    "finish": "jasmine that does not turn soapy if well scented"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan or glass",
+      "ratio": "1:20",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 35
+        },
+        {
+          "n": 4,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 5
+    }
+  },
+  "water": "Soft, 75–80 °C. Boiling cooks the blossom into perfume-cleaner.",
+  "storage": "Triple-sealed; jasmine evaporates and also contaminates other teas.",
+  "qualityMarkers": [
+    "multiple scentings, no leftover flowers in the tin",
+    "tea still visible under jasmine",
+    "pearls unfurl cleanly"
+  ],
+  "commonFaults": [
+    "artificial jasmine oil",
+    "old base tea",
+    "soapy over-scenting"
+  ],
+  "similarTo": [
+    "bi-luo-chun",
+    "wenshan-baozhong",
+    "tie-guan-yin"
+  ],
+  "summary": "Green pearls scented overnight with real jasmine: garden perfume that should still drink as tea."
+}

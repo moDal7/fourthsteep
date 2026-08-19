@@ -1,0 +1,112 @@
+{
+  "name": "Jun Shan Yin Zhen",
+  "nameNative": "君山银针",
+  "romanization": "Jūnshān Yínzhēn",
+  "translation": "Junshan Silver Needle",
+  "origin": {
+    "country": "China",
+    "region": "Dongting Lake",
+    "subregion": "Junshan Island, Hunan"
+  },
+  "category": "yellow",
+  "cultivar": [
+    "Junshan local"
+  ],
+  "harvest": {
+    "season": "Qing Ming",
+    "pluckingStage": "plump buds only"
+  },
+  "oxidation": 10,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck",
+      "description": "Island buds from Junshan, historically a tribute tea."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Light pan-fire."
+    },
+    {
+      "step": "Men Huang",
+      "description": "Yellowing: wrapped and held warm so chlorophyll transforms without full oxidation."
+    },
+    {
+      "step": "Dry",
+      "description": "Gentle dry; buds should “stand and bow” in the glass."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "sweetcorn",
+      "hay",
+      "apricot"
+    ],
+    "taste": [
+      "mellow yellow",
+      "honey",
+      "soft vegetal"
+    ],
+    "mouthfeel": "rounder than green silver needle, no raw edge",
+    "finish": "sweet, calm, slightly cocoa"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "tall glass or gaiwan",
+      "ratio": "1:25",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 40
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 45
+        },
+        {
+          "n": 4,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 200
+        }
+      ]
+    }
+  },
+  "water": "Soft water. The famous rising-and-sinking buds need a clear glass and patience.",
+  "storage": "Airtight, cool. Yellow teas stale into flat hay if left open.",
+  "qualityMarkers": [
+    "even gold-silver buds",
+    "the “three rises” in glass",
+    "sweetcorn aroma",
+    "true island origin"
+  ],
+  "commonFaults": [
+    "green tea dyed yellow",
+    "broken buds",
+    "sour men-huang"
+  ],
+  "similarTo": [
+    "meng-ding-huang-ya",
+    "bai-hao-yin-zhen",
+    "an-ji-bai-cha"
+  ],
+  "summary": "Rare Hunan yellow bud tea: men huang mellowing, sweetcorn honey, and needles that dance in the glass."
+}

@@ -1,0 +1,116 @@
+{
+  "name": "Alishan",
+  "nameNative": "阿里山",
+  "romanization": "Ālǐshān",
+  "translation": "Mount Ali",
+  "origin": {
+    "country": "Taiwan",
+    "region": "Alishan",
+    "subregion": "Chiayi County"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Qing Xin",
+    "Jinxuan"
+  ],
+  "harvest": {
+    "season": "spring and winter",
+    "pluckingStage": "high-mountain open leaf"
+  },
+  "oxidation": 22,
+  "roast": "light",
+  "processing": [
+    {
+      "step": "High-elevation wither",
+      "description": "Cool nights concentrate amino acids and floral oils."
+    },
+    {
+      "step": "Light oxidation",
+      "description": "Greener than Dong Ding, still oolong."
+    },
+    {
+      "step": "Ball roll and light roast",
+      "description": "Mostly a drying roast to preserve gardenia-cream."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "gardenia",
+      "cream",
+      "fresh mountain air"
+    ],
+    "taste": [
+      "buttery floral",
+      "sweet green",
+      "light mineral"
+    ],
+    "mouthfeel": "creamy, high-mountain viscosity",
+    "finish": "cool, lingering flowers"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:18",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 65
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 6
+    }
+  },
+  "water": "Soft to medium, 90 °C. Boiling can strip the cream note.",
+  "storage": "Vacuum or fridge for jade-style high mountain; drink within a year.",
+  "qualityMarkers": [
+    "elevation stated (1000 m+)",
+    "creamy gardenia",
+    "tight balls, whole leaf"
+  ],
+  "commonFaults": [
+    "lowland “Alishan style”",
+    "Jin Xuan milk-scent flavouring added"
+  ],
+  "similarTo": [
+    "li-shan",
+    "tie-guan-yin",
+    "dong-ding"
+  ],
+  "summary": "Taiwan high-mountain oolong: gardenia-cream, light roast, cool-night sweetness."
+}

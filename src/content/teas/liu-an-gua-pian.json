@@ -1,0 +1,115 @@
+{
+  "name": "Liu An Gua Pian",
+  "nameNative": "六安瓜片",
+  "romanization": "Lù'ān Guāpiàn",
+  "translation": "Melon Seed",
+  "origin": {
+    "country": "China",
+    "region": "Lu'an",
+    "subregion": "Dabie Mountains, Anhui"
+  },
+  "category": "green",
+  "cultivar": [
+    "Qunti"
+  ],
+  "harvest": {
+    "season": "Guyu, later than most greens",
+    "pluckingStage": "second leaf only — buds and stems removed"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Pluck and sort",
+      "description": "Buds and stems are stripped; only the second leaf is kept."
+    },
+    {
+      "step": "Bake",
+      "description": "Unique sequential baking rather than a single wok kill-green."
+    },
+    {
+      "step": "Shape",
+      "description": "Leaves take a melon-seed silhouette, slightly cupped."
+    },
+    {
+      "step": "Charcoal finish",
+      "description": "A last charcoal pass adds a faint cooked-melon warmth without true roast."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "cooked melon",
+      "orchid",
+      "toasted leaf"
+    ],
+    "taste": [
+      "sweet vegetal",
+      "pumpkin seed",
+      "gentle toast"
+    ],
+    "mouthfeel": "thick for a green, almost broth-like",
+    "finish": "warm, lingering sweetness"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:18",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 120
+        },
+        {
+          "n": 2,
+          "seconds": 150
+        }
+      ]
+    }
+  },
+  "water": "Medium-soft. A little more heat than typical greens is welcome.",
+  "storage": "Airtight; the baked finish keeps slightly longer than unbaked greens.",
+  "qualityMarkers": [
+    "uniform seed-shaped leaves without stems",
+    "deep jade",
+    "melon-seed aroma"
+  ],
+  "commonFaults": [
+    "stemmy cheap grades",
+    "charcoal smoke",
+    "thin liquor"
+  ],
+  "similarTo": [
+    "huangshan-mao-feng",
+    "tai-ping-hou-kui",
+    "long-jing"
+  ],
+  "summary": "The only classic Chinese green made solely from leaves, baked into a melon-seed shape with unusual body."
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Bancha",
+  "nameNative": "番茶",
+  "romanization": "Bancha",
+  "translation": "Late tea / everyday tea",
+  "origin": {
+    "country": "Japan",
+    "region": "nationwide",
+    "subregion": "regional bancha styles vary widely"
+  },
+  "category": "green",
+  "japaneseType": "bancha",
+  "cultivar": [
+    "Yabukita and local"
+  ],
+  "harvest": {
+    "season": "summer and autumn, or first-flush coarse leaf",
+    "pluckingStage": "larger, more mature leaf and stems"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Steam and dry",
+      "description": "Often lighter rolling; some regional banchas are roasted or fermented (not covered here)."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "toasted leaf",
+      "straw",
+      "mild green"
+    ],
+    "taste": [
+      "simple, low umami, gentle astringency"
+    ],
+    "mouthfeel": "light, thirst-quenching",
+    "finish": "short, clean"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "pot",
+      "ratio": "1:14",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 40
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 5,
+      "volume": 300,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    }
+  },
+  "water": "Hotter than gyokuro; bancha is the household workhorse.",
+  "storage": "Airtight pantry is acceptable; less fragile than gyokuro.",
+  "qualityMarkers": [
+    "regional honesty (Kyoto bancha vs generic)",
+    "clean straw, not dust"
+  ],
+  "commonFaults": [
+    "floor sweepings",
+    "stale cardboard"
+  ],
+  "similarTo": [
+    "kukicha",
+    "hojicha",
+    "sencha-asamushi"
+  ],
+  "summary": "Everyday Japanese green from later or coarser leaf: simple, hot, and built for a pot."
+}

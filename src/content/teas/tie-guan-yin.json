@@ -1,0 +1,129 @@
+{
+  "name": "Tie Guan Yin",
+  "nameNative": "铁观音",
+  "romanization": "Tiěguānyīn",
+  "translation": "Iron Goddess of Mercy",
+  "origin": {
+    "country": "China",
+    "region": "Anxi",
+    "subregion": "Fujian"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Tie Guan Yin"
+  ],
+  "harvest": {
+    "season": "spring and autumn",
+    "pluckingStage": "open leaf, three to four leaves, stem on"
+  },
+  "oxidation": 18,
+  "roast": "light",
+  "processing": [
+    {
+      "step": "Wither",
+      "description": "Sun and indoor wither."
+    },
+    {
+      "step": "Shake",
+      "description": "Lang qing: bruising leaf edges to start oxidation."
+    },
+    {
+      "step": "Kill-green",
+      "description": "Fired when floral aroma peaks."
+    },
+    {
+      "step": "Roll",
+      "description": "Cloth-ball rolled into tight beads."
+    },
+    {
+      "step": "Roast",
+      "description": "Modern jade TGY is lightly roasted; traditional is darker."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "orchid",
+      "lilac",
+      "fresh cream"
+    ],
+    "taste": [
+      "floral",
+      "silken green",
+      "light mineral"
+    ],
+    "mouthfeel": "thick, bouncing “guan yin yun”",
+    "finish": "orchid that returns after swallowing"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:18",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20,
+          "notes": "5s rinse to open beads"
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 20
+        },
+        {
+          "n": 4,
+          "seconds": 30
+        },
+        {
+          "n": 5,
+          "seconds": 45
+        },
+        {
+          "n": 6,
+          "seconds": 70
+        },
+        {
+          "n": 7,
+          "seconds": 100
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    }
+  },
+  "water": "Low-to-medium mineral. Boiling is fine for rolled oolong.",
+  "storage": "Jade style: drink fresh, refrigerate sealed. Roasted style: airtight pantry.",
+  "qualityMarkers": [
+    "heavy beads that rattle",
+    "orchid aftertaste",
+    "spring flush",
+    "Anxi origin"
+  ],
+  "commonFaults": [
+    "green-tea TGY with perfume",
+    "sour under-oxidised beads",
+    "old dusty autumn"
+  ],
+  "similarTo": [
+    "wenshan-baozhong",
+    "dong-ding",
+    "alishan"
+  ],
+  "summary": "Anxi’s bead-rolled oolong: jade-floral modern style or traditional roast, famous for returning orchid."
+}

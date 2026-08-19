@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import TeaCard from '../../components/TeaCard.astro';
+import { getCollection, render } from 'astro:content';
+import { teasForRegion } from '../../lib/atlas.js';
+
+export async function getStaticPaths() {
+  const regions = await getCollection('regions');
+  return regions.map((region) => ({ params: { slug: region.id }, props: { region } }));
+}
+
+const { region } = Astro.props;
+const { Content } = await render(region);
+const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+---
+
+<Base title={`${region.data.name} · Tea Atlas`} description={region.data.summary}>
+  <article class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+    <p class="kicker">{region.data.country}</p>
+    <h1>{region.data.name}</h1>
+    <p class="native">{region.data.nameNative}</p>
+    <p class="lede">{region.data.summary}</p>
+    <p class="meta"><strong>Climate.</strong> {region.data.climate}</p>
+    <div class="cluster" style="margin-bottom: 1.5rem">
+      {region.data.knownFor.map((k) => <span class="chip">{k}</span>)}
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+    <h2>Teas in this atlas</h2>
+    {
+      teas.length ? (
+        <div class="grid card-grid">
+          {teas.map((t) => (
+            <TeaCard
+              id={t.id}
+              name={t.data.name}
+              nameNative={t.data.nameNative}
+              country={t.data.origin.country}
+              region={t.data.origin.region}
+              category={t.data.category}
+              oxidation={t.data.oxidation}
+              roast={t.data.roast}
+              summary={t.data.summary}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="empty">No numbered entries are filed here yet — the page stands as map context.</p>
+      )
+    }
+  </article>
+</Base>

@@ -1,0 +1,109 @@
+{
+  "name": "Sencha Asamushi",
+  "nameNative": "浅蒸し煎茶",
+  "romanization": "Asamushi sencha",
+  "translation": "Light-steamed sencha",
+  "origin": {
+    "country": "Japan",
+    "region": "Shizuoka",
+    "subregion": "classic sencha districts"
+  },
+  "category": "green",
+  "japaneseType": "sencha",
+  "cultivar": [
+    "Yabukita",
+    "Saemidori",
+    "others"
+  ],
+  "harvest": {
+    "season": "ichibancha (first flush)",
+    "pluckingStage": "young shoots, steamed briefly (~30 s)"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Steam",
+      "description": "Short mushi preserves needle shape and a clearer, more vegetal liquor."
+    },
+    {
+      "step": "Roll and dry",
+      "description": "Standard sencha rolling into needles; aracha then refined (shiage)."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "fresh cut grass",
+      "nori",
+      "citrus zest"
+    ],
+    "taste": [
+      "bright vegetal",
+      "light umami",
+      "clean astringency"
+    ],
+    "mouthfeel": "lighter than fukamushi, more structure",
+    "finish": "refreshing, slightly dry"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:15",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60,
+          "notes": "Japanese style: fewer, longer infusions than gongfu oolong"
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 45
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 180,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 4,
+      "notes": "Mizudashi: excellent."
+    }
+  },
+  "water": "Soft, 70–80 °C. Hard water kills sencha.",
+  "storage": "Refrigerate sealed after opening; finish the bag in weeks.",
+  "qualityMarkers": [
+    "intact needles",
+    "ichi-bancha date",
+    "clear yellow-green not murky"
+  ],
+  "commonFaults": [
+    "stale fishy nori",
+    "overbrewed bitterness",
+    "dusty deep-steam sold as asamushi"
+  ],
+  "similarTo": [
+    "sencha-fukamushi",
+    "shincha",
+    "wenshan-baozhong"
+  ],
+  "summary": "Light-steamed Japanese sencha: needle leaf, bright grass-nori, the clear end of the sencha spectrum."
+}

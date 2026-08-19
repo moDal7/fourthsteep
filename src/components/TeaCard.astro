@@ -1,0 +1,38 @@
+---
+import { oxidationTone } from '../lib/atlas.js';
+
+interface Props {
+  id: string;
+  name: string;
+  nameNative: string;
+  country: string;
+  region: string;
+  category: string;
+  oxidation: number;
+  roast: string;
+  summary: string;
+}
+
+const tea = Astro.props;
+const search = [tea.name, tea.nameNative, tea.country, tea.region, tea.category, tea.roast, tea.summary]
+  .join(' ')
+  .toLowerCase();
+---
+
+<a
+  class="card"
+  href={`/tea/${tea.id}`}
+  data-tea-card
+  data-search={search}
+  data-country={tea.country}
+  data-region={tea.region}
+  data-category={tea.category}
+  data-roast={tea.roast}
+  data-oxidation={String(tea.oxidation)}
+  style={`--ox: ${oxidationTone(tea.oxidation)}`}
+>
+  <p class="kicker">{tea.country} · {tea.category} · {tea.region}</p>
+  <h3>{tea.name}</h3>
+  <p class="native">{tea.nameNative}</p>
+  <p class="meta">{tea.summary}</p>
+</a>

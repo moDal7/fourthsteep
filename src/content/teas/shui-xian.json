@@ -1,0 +1,112 @@
+{
+  "name": "Shui Xian",
+  "nameNative": "水仙",
+  "romanization": "Shuǐxiān",
+  "translation": "Narcissus",
+  "origin": {
+    "country": "China",
+    "region": "Wuyi",
+    "subregion": "old-bush cliff gardens"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Shui Xian"
+  ],
+  "harvest": {
+    "season": "May",
+    "pluckingStage": "open leaf from often ancient bushes"
+  },
+  "oxidation": 42,
+  "roast": "charcoal",
+  "processing": [
+    {
+      "step": "Wither",
+      "description": "Slightly deeper oxidation than light TGY, less spicy than Rou Gui."
+    },
+    {
+      "step": "Twist and roast",
+      "description": "Charcoal layers over a naturally woody, floral cultivar."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "narcissus",
+      "cedar",
+      "dried plum",
+      "charcoal"
+    ],
+    "taste": [
+      "woody floral",
+      "mineral",
+      "brown sugar"
+    ],
+    "mouthfeel": "broad, mellow, old-bush depth when lao cong",
+    "finish": "long, less spicy than Rou Gui"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing",
+      "ratio": "1:16",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 12
+        },
+        {
+          "n": 2,
+          "seconds": 10
+        },
+        {
+          "n": 3,
+          "seconds": 15
+        },
+        {
+          "n": 4,
+          "seconds": 25
+        },
+        {
+          "n": 5,
+          "seconds": 40
+        },
+        {
+          "n": 6,
+          "seconds": 60
+        },
+        {
+          "n": 7,
+          "seconds": 90
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        }
+      ]
+    }
+  },
+  "water": "Boiling mineral water. Old-bush Shui Xian wants a clay pot.",
+  "storage": "Airtight. Lao cong lots rest well for a year after roast.",
+  "qualityMarkers": [
+    "lao cong (old bush) stated",
+    "floral under the roast",
+    "thick liquor"
+  ],
+  "commonFaults": [
+    "anonymous cheap Shui Xian",
+    "ashy roast",
+    "thin young-bush lots sold as lao cong"
+  ],
+  "similarTo": [
+    "da-hong-pao",
+    "rou-gui",
+    "dong-ding"
+  ],
+  "summary": "Narcissus yancha, often from old bushes: cedar-plum breadth under charcoal."
+}

@@ -1,0 +1,97 @@
+{
+  "name": "Kabusecha",
+  "nameNative": "かぶせ茶",
+  "romanization": "Kabusecha",
+  "translation": "Covered tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Yame / Mie / Shizuoka",
+    "subregion": "partial-shade gardens"
+  },
+  "category": "green",
+  "japaneseType": "kabusecha",
+  "cultivar": [
+    "Yabukita",
+    "Saemidori"
+  ],
+  "harvest": {
+    "season": "first flush after ~7–14 days of direct cover",
+    "pluckingStage": "shaded less than gyokuro"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Short shade",
+      "description": "Jikagise cloth for a week or two — halfway to gyokuro."
+    },
+    {
+      "step": "Sencha make",
+      "description": "Steamed and rolled like sencha, not as heavily kneaded as gyokuro."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "nori",
+      "sweet grass",
+      "mild cream"
+    ],
+    "taste": [
+      "umami plus sencha snap",
+      "balanced"
+    ],
+    "mouthfeel": "fuller than sencha, less syrup than gyokuro",
+    "finish": "sweet-savoury"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:12",
+      "waterTemp": 65,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 50
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 140,
+      "waterTemp": 65,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 70
+        },
+        {
+          "n": 2,
+          "seconds": 40
+        }
+      ]
+    }
+  },
+  "water": "Soft, 60–70 °C. The compromise temperature between sencha and gyokuro.",
+  "storage": "Fridge, sealed, like other Japanese greens.",
+  "qualityMarkers": [
+    "documented shade period",
+    "umami without gyokuro price fakery"
+  ],
+  "commonFaults": [
+    "ordinary sencha relabelled kabuse"
+  ],
+  "similarTo": [
+    "gyokuro",
+    "sencha-fukamushi",
+    "an-ji-bai-cha"
+  ],
+  "summary": "Partially shaded sencha: a bridge between bright sencha and broth-like gyokuro."
+}

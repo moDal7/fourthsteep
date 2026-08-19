@@ -1,0 +1,115 @@
+{
+  "name": "Rou Gui",
+  "nameNative": "肉桂",
+  "romanization": "Ròuguì",
+  "translation": "Cassia",
+  "origin": {
+    "country": "China",
+    "region": "Wuyi",
+    "subregion": "Niu Lan Keng and other zheng yan sites"
+  },
+  "category": "oolong",
+  "cultivar": [
+    "Rou Gui"
+  ],
+  "harvest": {
+    "season": "May",
+    "pluckingStage": "open leaf"
+  },
+  "oxidation": 40,
+  "roast": "charcoal",
+  "processing": [
+    {
+      "step": "Wither and bruise",
+      "description": "Oxidation aimed at spice aromatics."
+    },
+    {
+      "step": "Twist",
+      "description": "Strip-style yancha roll."
+    },
+    {
+      "step": "Charcoal roast",
+      "description": "Roast tuned to cinnamon bark rather than chocolate."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "cassia bark",
+      "pepper",
+      "orchid",
+      "mineral"
+    ],
+    "taste": [
+      "spicy-sweet",
+      "rock",
+      "dark honey"
+    ],
+    "mouthfeel": "punchy, more vertical than Shui Xian",
+    "finish": "cinnamon-cooling yan yun"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing or gaiwan",
+      "ratio": "1:15",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 10
+        },
+        {
+          "n": 2,
+          "seconds": 8
+        },
+        {
+          "n": 3,
+          "seconds": 12
+        },
+        {
+          "n": 4,
+          "seconds": 18
+        },
+        {
+          "n": 5,
+          "seconds": 28
+        },
+        {
+          "n": 6,
+          "seconds": 45
+        },
+        {
+          "n": 7,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        }
+      ]
+    }
+  },
+  "water": "Boiling, moderate TDS. Spice shows best with a mineral backbone.",
+  "storage": "Airtight, room-stable after roast rest.",
+  "qualityMarkers": [
+    "clear cassia on the hot lid",
+    "zheng yan plots (Niu Lan Keng prized)",
+    "not merely roast spice"
+  ],
+  "commonFaults": [
+    "roast covering empty leaf",
+    "off-site Rou Gui with no rock"
+  ],
+  "similarTo": [
+    "da-hong-pao",
+    "shui-xian",
+    "ya-shi-xiang-dan-cong"
+  ],
+  "summary": "Wuyi cassia cultivar: cinnamon-pepper yancha with a sharper profile than blended Da Hong Pao."
+}

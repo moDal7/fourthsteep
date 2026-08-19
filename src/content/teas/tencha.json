@@ -1,0 +1,89 @@
+{
+  "name": "Tencha",
+  "nameNative": "碾茶",
+  "romanization": "Tencha",
+  "translation": "Milling tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Uji",
+    "subregion": "shaded gardens before the mill"
+  },
+  "category": "green",
+  "japaneseType": "tencha",
+  "cultivar": [
+    "Asahi",
+    "Samidori",
+    "blends"
+  ],
+  "harvest": {
+    "season": "shaded first flush",
+    "pluckingStage": "destemmed, deveined flakes, not rolled"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Shade, steam, dry",
+      "description": "Leaf is not kneaded into needles; it remains flakes for milling."
+    },
+    {
+      "step": "Optional brew",
+      "description": "A few producers sell tencha to brew; most of it becomes matcha."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "shaded nori",
+      "fresh flake",
+      "sweet green"
+    ],
+    "taste": [
+      "umami, lighter than matcha because you do not drink the powder"
+    ],
+    "mouthfeel": "soft infusion if brewed, or none if milled",
+    "finish": "clean shade-sweet"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "kyusu or shiboridashi",
+      "ratio": "1:12",
+      "waterTemp": 60,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 70
+        },
+        {
+          "n": 2,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 120,
+      "waterTemp": 60,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 70
+        }
+      ]
+    }
+  },
+  "water": "Soft, cool. Treat like gyokuro if brewing the flakes.",
+  "storage": "Freezer. Tencha is matcha’s perishable parent.",
+  "qualityMarkers": [
+    "bright flakes without stems",
+    "destined-for-ceremonial lots"
+  ],
+  "commonFaults": [
+    "stale tencha milled into dull matcha"
+  ],
+  "similarTo": [
+    "matcha",
+    "gyokuro",
+    "kabusecha"
+  ],
+  "summary": "Unmilled shaded leaf: the raw material of matcha, occasionally brewed as flakes."
+}

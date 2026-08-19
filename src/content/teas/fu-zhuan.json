@@ -1,0 +1,108 @@
+{
+  "name": "Fu Zhuan",
+  "nameNative": "茯砖",
+  "romanization": "Fúzhuān",
+  "translation": "Fu brick",
+  "origin": {
+    "country": "China",
+    "region": "Hunan / Shaanxi",
+    "subregion": "Anhua and Jingyang traditions"
+  },
+  "category": "dark",
+  "cultivar": [
+    "Hunan dark-tea cultivars"
+  ],
+  "harvest": {
+    "season": "summer mature leaf",
+    "pluckingStage": "coarser leaf pressed into bricks"
+  },
+  "oxidation": 16,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Dark-tea make",
+      "description": "Kill-green, roll, pile."
+    },
+    {
+      "step": "Brick press",
+      "description": "Pressed with a controlled “golden flower” fermentation."
+    },
+    {
+      "step": "Eurotium cristatum",
+      "description": "The golden flowers — a desired mould — define Fu brick."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "mushroom",
+      "woody sweet",
+      "grain",
+      "faint spice"
+    ],
+    "taste": [
+      "mellow dark",
+      "jujube",
+      "clean cellar"
+    ],
+    "mouthfeel": "soft, low bitterness, very drinkable",
+    "finish": "sweet grain"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "pot",
+      "ratio": "1:12",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        },
+        {
+          "n": 5,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 5,
+      "volume": 400,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 240
+        }
+      ]
+    }
+  },
+  "water": "Boiling, plenty of leaf. A frontier tea built for frontier water.",
+  "storage": "Dry enough that flowers stay golden, not green-mouldy. Whole bricks age slowly.",
+  "qualityMarkers": [
+    "visible golden flowers",
+    "sweet not sour",
+    "Anhua or Jingyang pedigree"
+  ],
+  "commonFaults": [
+    "wrong moulds",
+    "damp bricks",
+    "dusty stale herb"
+  ],
+  "similarTo": [
+    "liu-bao",
+    "shou-puer",
+    "shou-mei"
+  ],
+  "summary": "Brick dark tea grown with golden flowers: grain-jujube mildness from Eurotium cristatum."
+}

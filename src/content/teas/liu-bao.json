@@ -1,0 +1,107 @@
+{
+  "name": "Liu Bao",
+  "nameNative": "六堡",
+  "romanization": "Liùbǎo",
+  "translation": "Liubao",
+  "origin": {
+    "country": "China",
+    "region": "Wuzhou",
+    "subregion": "Guangxi"
+  },
+  "category": "dark",
+  "cultivar": [
+    "Guangxi large-leaf"
+  ],
+  "harvest": {
+    "season": "spring and summer",
+    "pluckingStage": "mature leaf, traditionally basket-aged"
+  },
+  "oxidation": 18,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Kill-green and roll",
+      "description": "Dark-tea path, not puers’s sun-dry maocha."
+    },
+    {
+      "step": "Piling / aging",
+      "description": "Microbial aging in bamboo baskets; betel-nut and camphor develop with years."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "betel nut",
+      "camphor",
+      "old bamboo",
+      "jujube"
+    ],
+    "taste": [
+      "woody sweet",
+      "herbal",
+      "mild earth"
+    ],
+    "mouthfeel": "smooth, medicinal-clean when aged",
+    "finish": "camphor-cooling"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "yixing or porcelain",
+      "ratio": "1:14",
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 12
+        },
+        {
+          "n": 3,
+          "seconds": 18
+        },
+        {
+          "n": 4,
+          "seconds": 25
+        },
+        {
+          "n": 5,
+          "seconds": 40
+        },
+        {
+          "n": 6,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 210
+        }
+      ]
+    }
+  },
+  "water": "Boiling. Aged Liu Bao is a morning pot tea in Guangxi heat.",
+  "storage": "Baskets historically breathe; modern cakes should stay dry and clean.",
+  "qualityMarkers": [
+    "betel-nut (bin lang) aroma",
+    "Wuzhou origin",
+    "clean aging"
+  ],
+  "commonFaults": [
+    "musty wet storage",
+    "young sour Liu Bao sold as aged"
+  ],
+  "similarTo": [
+    "shou-puer",
+    "sheng-puer-aged",
+    "fu-zhuan"
+  ],
+  "summary": "Guangxi dark tea aged in bamboo: betel-nut, camphor, and a cousin to puer rather than a copy."
+}

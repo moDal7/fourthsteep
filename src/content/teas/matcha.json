@@ -1,0 +1,96 @@
+{
+  "name": "Matcha",
+  "nameNative": "抹茶",
+  "romanization": "Matcha",
+  "translation": "Powdered tea",
+  "origin": {
+    "country": "Japan",
+    "region": "Uji",
+    "subregion": "also Nishio, Yame"
+  },
+  "category": "green",
+  "japaneseType": "matcha",
+  "cultivar": [
+    "Asahi",
+    "Samidori",
+    "Uji Hikari",
+    "blends"
+  ],
+  "harvest": {
+    "season": "shaded first flush, stone-milled from tencha",
+    "pluckingStage": "same shaded leaf as gyokuro, destemmed and degveined"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Shade and steam",
+      "description": "Like gyokuro, then dried without rolling — that unswept leaf is tencha."
+    },
+    {
+      "step": "Stone mill",
+      "description": "Tencha ground to matcha. Ceremonial vs culinary is leaf grade plus mill freshness."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "fresh nori",
+      "chocolate-green",
+      "sweet cream"
+    ],
+    "taste": [
+      "usucha: frothy umami; koicha: dense sweet broth"
+    ],
+    "mouthfeel": "suspension, not an infusion — the leaf is drunk",
+    "finish": "lingering marine-sweet"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "chawan and chasen",
+      "ratio": "1:35",
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15,
+          "notes": "Usucha: ~2 g / 70 ml, whisk into foam"
+        },
+        {
+          "n": 2,
+          "seconds": 20,
+          "notes": "Koicha: ~4 g / 30 ml, knead slowly, no foam"
+        }
+      ]
+    },
+    "western": {
+      "grams": 2,
+      "volume": 70,
+      "waterTemp": 75,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15,
+          "notes": "Whisk, do not steep and discard"
+        }
+      ]
+    }
+  },
+  "water": "Soft, ~75 °C. Sift the powder. Koicha wants even better leaf than usucha.",
+  "storage": "Freezer, then fridge; small tins. Matcha dies in weeks once opened.",
+  "qualityMarkers": [
+    "vivid jade (not olive-brown)",
+    "stone-mill fine, not grit",
+    "umami without fishy stale"
+  ],
+  "commonFaults": [
+    "culinary matcha served as usucha",
+    "bitter over-hot whisk",
+    "oxidised brown powder"
+  ],
+  "similarTo": [
+    "tencha",
+    "gyokuro",
+    "sencha-fukamushi"
+  ],
+  "summary": "Stone-milled shaded tencha: usucha froth and koicha paste are two ratios of the same powder."
+}

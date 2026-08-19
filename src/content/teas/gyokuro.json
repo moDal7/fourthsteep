@@ -1,0 +1,104 @@
+{
+  "name": "Gyokuro",
+  "nameNative": "玉露",
+  "romanization": "Gyokuro",
+  "translation": "Jade dew",
+  "origin": {
+    "country": "Japan",
+    "region": "Uji",
+    "subregion": "also Yame, Okabe"
+  },
+  "category": "green",
+  "japaneseType": "gyokuro",
+  "cultivar": [
+    "Asahi",
+    "Gokou",
+    "Uji Hikari",
+    "Saemidori"
+  ],
+  "harvest": {
+    "season": "late first flush after shading",
+    "pluckingStage": "shaded 20+ days, then steamed and kneaded"
+  },
+  "oxidation": 0,
+  "roast": "none",
+  "processing": [
+    {
+      "step": "Shade",
+      "description": "Tana or jikagise covers starve the leaf of light; theanine stays, catechins drop."
+    },
+    {
+      "step": "Steam and knead",
+      "description": "Finer, more careful rolling than sencha; liquor is broth."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "nori",
+      "fresh cream",
+      "shaded leaf"
+    ],
+    "taste": [
+      "intense umami",
+      "sweet broth",
+      "almost no astringency if cool"
+    ],
+    "mouthfeel": "syrupy, coating",
+    "finish": "marine-sweet, long"
+  },
+  "brewing": {
+    "gongfu": {
+      "vessel": "shiboridashi or small kyusu",
+      "ratio": "1:10",
+      "waterTemp": 50,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90,
+          "notes": "50–60 °C is the point; hot water makes it bitter"
+        },
+        {
+          "n": 2,
+          "seconds": 60
+        },
+        {
+          "n": 3,
+          "seconds": 90
+        }
+      ]
+    },
+    "western": {
+      "grams": 5,
+      "volume": 80,
+      "waterTemp": 55,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 60
+        }
+      ]
+    }
+  },
+  "water": "Very soft, 40–60 °C. Preheat the vessel, not the leaf.",
+  "storage": "Freezer sealed, then fridge; portion out. Gyokuro oxidises in air.",
+  "qualityMarkers": [
+    "named cultivar and garden",
+    "deep umami at low temperature",
+    "dark needle, intense aroma"
+  ],
+  "commonFaults": [
+    "sencha sold as gyokuro",
+    "hot-water bitterness",
+    "stale fish"
+  ],
+  "similarTo": [
+    "kabusecha",
+    "matcha",
+    "an-ji-bai-cha"
+  ],
+  "summary": "Shaded, kneaded “jade dew”: brew cool and thick, almost a soup of theanine."
+}

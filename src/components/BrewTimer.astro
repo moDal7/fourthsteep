@@ -1,0 +1,33 @@
+---
+interface Infusion {
+  n: number;
+  seconds: number;
+  notes?: string;
+}
+
+interface Props {
+  infusions: Infusion[];
+  caption: string;
+}
+
+const { infusions, caption } = Astro.props;
+---
+
+<section class="island" data-brew-timer aria-label="Brew timer">
+  <h2>Brew timer</h2>
+  <p class="meta">{caption}</p>
+  <script type="application/json" set:html={JSON.stringify(infusions)} />
+  <div class="timer-display" data-display aria-live="polite">00:00</div>
+  <p class="meta" data-meta></p>
+  <p data-notes></p>
+  <div class="controls">
+    <button class="btn" type="button" data-start>Start</button>
+    <button class="btn secondary" type="button" data-pause>Pause</button>
+    <button class="btn secondary" type="button" data-next>Next steep</button>
+    <button class="btn secondary" type="button" data-reset>Reset</button>
+  </div>
+  <p class="meta">Chime uses the Web Audio API in this browser — no extra libraries.</p>
+</section>
+<script>
+  import '../scripts/brew-timer.js';
+</script>

@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const regions = (await getCollection('regions')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<Base title="Regions · Tea Atlas" description="Tea-growing regions mapped to the atlas.">
+  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+    <p class="kicker">Terroir</p>
+    <h1>Regions</h1>
+    <p class="lede">Eleven named mountains and coasts from the original plan, plus the Taiwan high-mountain counties the oolongs actually require.</p>
+    <div class="grid card-grid">
+      {
+        regions.map((r) => (
+          <a class="card" href={`/regions/${r.id}`}>
+            <p class="kicker">{r.data.country}</p>
+            <h3>{r.data.name}</h3>
+            <p class="native">{r.data.nameNative}</p>
+            <p class="meta">{r.data.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Base>
