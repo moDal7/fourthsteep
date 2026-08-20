@@ -1,15 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
-import SteepMark from '../components/SteepMark.astro';
 import Spectrum from '../components/Spectrum.astro';
+import TeaCard from '../components/TeaCard.astro';
 import { getCollection } from 'astro:content';
 import { liquorStyle } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 const teas = await getCollection('teas');
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+const methodGuides = guides.filter((g) => g.data.group === 'method');
 const glossary = await getCollection('glossary');
 const regions = await getCollection('regions');
+
+// The cup that dyes this page. A fixed slug, on purpose: a tea picked at
+// build time would repaint the homepage on every deploy, which reads as a
+// bug, not a feature. Change it here when the season changes.
+const FEATURED = 'da-hong-pao';
+const featured = teas.find((t) => t.id === FEATURED);
+if (!featured) throw new Error(`Featured tea "${FEATURED}" is not in the collection.`);
+const featuredLiquor = liquorStyle({ ...featured.data, id: featured.id });
+const gongfu = featured.data.brewing.gongfu;
+const firstSteep = gongfu.infusions[0];
+
+// Three doors into the collection: one tea per country, chosen so the three
+// cups do not share a colour — a steamed green, a high-mountain gold, a
+// pile-fermented dark.
+const CARD_SLUGS = ['gyokuro', 'alishan', 'shou-puer'];
+const cardTeas = CARD_SLUGS.map((slug) => teas.find((t) => t.id === slug)).filter((t) => t !== undefined);
+
+// A few bars named at rest, so the spectrum teaches without hover. Chosen
+// for recognisability and spacing along the strip, not importance.
+const SPECTRUM_ANCHORS = ['long-jing', 'shou-puer', 'dian-hong'];
+
+const nativeCountry: Record<string, string> = { China: '中国', Taiwan: '台灣', Japan: '日本' };
 
 const countries = ['China', 'Taiwan', 'Japan']
   .map((country) => {
@@ -28,14 +51,26 @@ const countries = ['China', 'Taiwan', 'Japan']
   })
   .filter((c) => c.entries.length);
 
+// The spectrum regrouped: one chip per category, tinted by its median tea
+// and ordered the way the strip reads — palest cup first.
+const categories = [...new Set(teas.map((t) => t.data.category))]
+  .map((category) => {
+    const entries = teas
+      .filter((t) => t.data.category === category)
+      .sort((a, b) => a.data.oxidation - b.data.oxidation);
+    return { category, count: entries.length, median: entries[Math.floor(entries.length / 2)] };
+  })
+  .sort((a, b) => a.median.data.oxidation - b.median.data.oxidation || a.category.localeCompare(b.category));
+
 const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.'];
+const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — every entry pours its own cup colour and steeps to its own schedule, table and timer from the same numbers.`;
 ---
 
-<Base title="Tea Atlas">
+<Base title="Tea Atlas" description={description} liquor={featuredLiquor}>
   <div class="wrap">
     <section class="hero hero-split">
       <div>
-        <p class="kicker">A static atlas</p>
+        <p class="kicker">China · Taiwan · Japan</p>
         <h1>
           {
             title.map((word, i) => (
@@ -48,19 +83,76 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
           }
         </h1>
         <p class="lede">
-          Forty-five teas from China, Taiwan, and Japan. Every entry is a typed record of terroir, processing, and a
-          brewing schedule that drives the table and the timer from the same numbers — and mixes its own colour from
-          its own oxidation, firing, and origin.
+          Pick any of the {teas.length} teas here and the page pours it: the colour of the cup, mixed from the leaf's
+          own oxidation, firing, and origin — and a steep schedule you can run. The table and the timer read the same
+          numbers, so they cannot disagree.
         </p>
         <div class="cluster" style="margin-top: 1.6rem">
           <a class="btn" href={withBase('/atlas')}>Browse the atlas <span class="arrow">&rarr;</span></a>
           <a class="btn secondary" href={withBase('/brewing')}>Brewing guides</a>
         </div>
       </div>
-      <SteepMark />
+      <a class="hero-pour" href={withBase(`/tea/${featured.id}`)} style={featuredLiquor} data-tea-card>
+        <span class="hero-pour__native" aria-hidden="true">{featured.data.nameNative}</span>
+        <svg class="hero-pour__steam" viewBox="0 0 60 40" aria-hidden="true">
+          <path d="M18 38c0-10 8-13 8-24" />
+          <path d="M30 38c0-8 7-11 7-20" />
+          <path d="M42 38c0-10 8-13 8-24" />
+        </svg>
+        <span class="hero-pour__cup" data-morph aria-hidden="true"></span>
+        <span class="hero-pour__name">
+          <b>{featured.data.name}</b>
+          <span class="meta">{gongfu.vessel} · {gongfu.ratio} · {gongfu.waterTemp} °C</span>
+        </span>
+        <span class="hero-pour__steep">
+          <span>First steep</span>
+          <span class="hero-pour__bar" aria-hidden="true"><i style={`--steep-dur: ${firstSteep.seconds}s`}></i></span>
+          <span class="num">{firstSteep.seconds} s</span>
+        </span>
+        {firstSteep.notes && <span class="hero-pour__note meta">{firstSteep.notes}</span>}
+        <span class="hero-pour__cta">Open the timer <span class="arrow">&rarr;</span></span>
+      </a>
     </section>
 
-    <Spectrum teas={teas} />
+    <Spectrum teas={teas} anchors={SPECTRUM_ANCHORS} />
+
+    <nav class="cluster spectrum-cats" aria-label="Browse by category">
+      {
+        categories.map((c) => (
+          <a
+            class="chip"
+            href={`${withBase('/atlas')}?category=${encodeURIComponent(c.category)}`}
+            style={liquorStyle({ ...c.median.data, id: c.median.id })}
+          >
+            <span class="dot" aria-hidden="true" />
+            {c.category} <span class="num">{c.count}</span>
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="section-head">
+      <h2>Three cups to start</h2>
+      <p class="meta">One per country — a steamed green, a high-mountain oolong, a ripe dark</p>
+    </div>
+    <div class="grid card-grid">
+      {
+        cardTeas.map((t, i) => (
+          <TeaCard
+            id={t.id}
+            index={i}
+            name={t.data.name}
+            nameNative={t.data.nameNative}
+            country={t.data.origin.country}
+            region={t.data.origin.region}
+            category={t.data.category}
+            oxidation={t.data.oxidation}
+            roast={t.data.roast}
+            summary={t.data.summary}
+          />
+        ))
+      }
+    </div>
 
     <div class="section-head">
       <h2>Enter by origin</h2>
@@ -74,11 +166,14 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
             href={`${withBase('/atlas')}?country=${encodeURIComponent(c.country)}`}
             style={liquorStyle({ ...c.median.data, id: c.median.id })}
           >
-            <span class="row__n">{String(c.entries.length).padStart(2, '0')}</span>
+            <span class="row__n">{c.entries.length}</span>
             <span class="row__body">
-              <h3>{c.country}</h3>
+              <h3>
+                {c.country} <span class="native">{nativeCountry[c.country]}</span>
+              </h3>
               <p class="meta">
-                {c.regions} regions · {c.categories.join(', ')}
+                {c.regions} region{c.regions === 1 ? '' : 's'} ·{' '}
+                {c.categories.length > 2 ? `${c.categories.length} categories` : c.categories.join(', ')}
               </p>
             </span>
             <span class="row__dots" aria-hidden="true">
@@ -95,12 +190,14 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
     </div>
 
     <div class="section-head">
-      <h2>Method guides</h2>
-      <p class="meta">Long-form, in reading order</p>
+      <h2>How to brew</h2>
+      <p class="meta">
+        <a href={withBase('/brewing')}>All {guides.length} guides, in reading order &rarr;</a>
+      </p>
     </div>
     <ol class="rows numbered">
       {
-        guides.map((g, i) => (
+        methodGuides.map((g, i) => (
           <li>
             <a class="row" href={withBase(`/brewing/${g.id}`)}>
               <span class="row__n">{String(i + 1).padStart(2, '0')}</span>
@@ -108,7 +205,6 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
                 <h3>{g.data.title}</h3>
                 <p class="meta">{g.data.description}</p>
               </span>
-              <span class="chip">{g.data.group}</span>
               <span class="arrow" aria-hidden="true">
                 &rarr;
               </span>
@@ -121,7 +217,7 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
     <div class="section-head">
       <h2>Also here</h2>
     </div>
-    <div class="grid card-grid" style="margin-bottom: 2rem">
+    <div class="grid card-grid">
       <a class="card" href={withBase('/regions')}>
         <p class="kicker">Terroir</p>
         <h3>Regions</h3>
@@ -134,10 +230,24 @@ const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.']
         <h3>Glossary</h3>
         <p class="meta">{glossary.length} bilingual terms: 杀青, 焙火, 蒸し, 荒茶.</p>
       </a>
-      <a class="card" href={withBase('/atlas.json')}>
-        <p class="kicker">Data</p>
-        <h3>atlas.json</h3>
-        <p class="meta">The same build-time index the filters read, straight from the source.</p>
+    </div>
+
+    <div class="rows rows--close">
+      <a class="row" href={withBase('/atlas')}>
+        <span class="row__n">{teas.length}</span>
+        <span class="row__body">
+          <h3>Browse the whole atlas</h3>
+          <p class="meta">Search by name or script; filter by country, category, roast, oxidation, or region.</p>
+        </span>
+        <span class="row__dots" aria-hidden="true">
+          {
+            teas
+              .slice()
+              .sort((a, b) => a.data.oxidation - b.data.oxidation)
+              .map((t) => <span class="dot" style={liquorStyle({ ...t.data, id: t.id })} />)
+          }
+        </span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
       </a>
     </div>
   </div>

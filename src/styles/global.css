@@ -1363,7 +1363,7 @@ select:focus {
   }
 }
 
-/* --------------------------------------------------------- hero mark --- */
+/* ------------------------------------------------ hero: the first pour --- */
 
 .hero-split {
   display: grid;
@@ -1378,42 +1378,137 @@ select:focus {
   }
 }
 
-.steep-mark {
-  width: clamp(160px, 24vw, 280px);
-  height: auto;
+/* The featured tea, already poured: its cup, its steam, its gongfu caption,
+   and a first-steep bar that fills in real time. The whole thing links into
+   the profile, where the disc morphs into the tea page's cup. */
+.hero-pour {
+  position: relative;
+  isolation: isolate;
   justify-self: center;
+  display: grid;
+  justify-items: center;
+  gap: 0.85rem;
+  max-width: 17rem;
+  padding: 0.5rem 0.5rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+}
+
+/* The native name hung beside the cup like a scroll, not a caption. */
+.hero-pour__native {
+  position: absolute;
+  top: -0.6rem;
+  right: -2.4rem;
+  z-index: -1;
+  writing-mode: vertical-rl;
+  font-family: var(--cjk);
+  font-size: clamp(3rem, 6vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--liquor);
+  opacity: 0.18;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-pour__steam {
+  width: 3.4rem;
+  height: 2.4rem;
+  margin-bottom: -0.9rem;
   overflow: visible;
 }
 
-.steep-mark__blade {
-  fill: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.42);
-  stroke: var(--liquor-ink);
-  stroke-width: 3;
-  stroke-linejoin: round;
-}
-
-.steep-mark__vein,
-.steep-mark__ribs path {
-  fill: none;
-  stroke: var(--liquor-ink);
-  stroke-linecap: round;
-}
-
-.steep-mark__vein {
-  stroke-width: 2.4;
-}
-
-.steep-mark__ribs path {
-  stroke-width: 1.8;
-  opacity: 0.5;
-}
-
-.steep-mark__steam path {
+.hero-pour__steam path {
   fill: none;
   stroke: var(--liquor-ink);
   stroke-width: 3;
   stroke-linecap: round;
   opacity: 0;
+}
+
+.hero-pour__cup {
+  display: block;
+  width: clamp(8.5rem, 15vw, 11.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, var(--liquor-pale), var(--liquor) 52%, var(--liquor-deep));
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14), inset 0 -0.7rem 1.5rem oklch(0 0 0 / 0.2),
+    0 1.1rem 2.6rem -0.9rem var(--liquor);
+  transition: transform var(--dur-3) var(--ease-steep);
+}
+
+.hero-pour:hover .hero-pour__cup,
+.hero-pour:focus-visible .hero-pour__cup {
+  transform: scale(1.045);
+}
+
+.hero-pour__name {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.hero-pour__name b {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* The first infusion, printed as a number and drawn as a bar that fills over
+   that many real seconds — the schedule is watchable before it is run. */
+.hero-pour__steep {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.hero-pour__steep .num {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.hero-pour__bar {
+  flex: 1;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--paper-sunk);
+  box-shadow: inset 0 0 0 1px var(--line-soft);
+  overflow: hidden;
+}
+
+.hero-pour__bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--liquor), var(--liquor-deep));
+  transform-origin: left;
+}
+
+.hero-pour__note {
+  margin-top: -0.45rem;
+  font-size: 0.8rem;
+}
+
+.hero-pour__cta {
+  font-size: 0.88rem;
+  color: var(--liquor-ink);
+}
+
+.hero-pour:hover .hero-pour__cta .arrow {
+  transform: translateX(3px);
 }
 
 /* ------------------------------------------------------ the spectrum --- */
@@ -1463,6 +1558,7 @@ select:focus {
 }
 
 .spectrum-strip li:hover .spectrum-tick,
+.spectrum-strip li.is-selected .spectrum-tick,
 .spectrum-strip a:focus-visible .spectrum-tick {
   transform: scaleX(1.85) scaleY(1.05);
   box-shadow: 0 0.4rem 1rem -0.4rem oklch(0.2 0.04 70 / 0.5);
@@ -1496,8 +1592,42 @@ select:focus {
 }
 
 .spectrum-strip li:hover .spectrum-read,
+.spectrum-strip li.is-selected .spectrum-read,
 .spectrum-strip li:focus-within .spectrum-read {
   opacity: 1;
+  transform: none;
+}
+
+/* A few bars named at rest, positioned as fractions of the evenly flexed
+   strip — the picture identifies itself without hover or touch. */
+.spectrum-anchors {
+  position: relative;
+  height: 1rem;
+  margin: 0.45rem 0 0.55rem;
+  transition: opacity var(--dur-2) var(--ease-steep);
+}
+
+.spectrum-anchors span {
+  position: absolute;
+  top: 0;
+  left: var(--x, 50%);
+  transform: translateX(-50%);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.spectrum-anchors span.edge-start {
+  left: 0;
+  transform: none;
+}
+
+.spectrum-anchors span.edge-end {
+  left: auto;
+  right: 0;
   transform: none;
 }
 
@@ -1516,14 +1646,51 @@ select:focus {
 }
 
 .spectrum:has(.spectrum-strip li:hover) .spectrum-axis,
+.spectrum:has(.spectrum-strip li.is-selected) .spectrum-axis,
 .spectrum:has(.spectrum-strip li:focus-within) .spectrum-axis {
   opacity: 0;
 }
 
-@media (max-width: 640px) {
-  .spectrum-hint {
+/* The readout takes the anchors' place while a bar is named. */
+.spectrum:has(.spectrum-strip li:hover) .spectrum-anchors,
+.spectrum:has(.spectrum-strip li.is-selected) .spectrum-anchors,
+.spectrum:has(.spectrum-strip li:focus-within) .spectrum-anchors {
+  opacity: 0;
+}
+
+/* Hover advice for mice, tap advice for fingers. */
+.spectrum-hint--coarse {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .spectrum-hint--fine {
     display: none;
   }
+
+  .spectrum-hint--coarse {
+    display: inline;
+  }
+}
+
+@media (max-width: 640px) {
+  .spectrum-hint--fine {
+    display: none;
+  }
+}
+
+/* The strip regrouped: one chip per category, tinted by its median tea. */
+.spectrum-cats {
+  margin-top: 1.05rem;
+}
+
+.spectrum-cats .chip {
+  text-transform: capitalize;
+}
+
+.spectrum-cats .num {
+  color: var(--ink-muted);
+  font-size: 0.74rem;
 }
 
 /* ----------------------------------------------------------- row list --- */
@@ -1591,6 +1758,12 @@ select:focus {
   margin: 0 0 0.15rem;
 }
 
+.row__body h3 .native {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin-left: 0.25rem;
+}
+
 .row__body p {
   margin: 0;
 }
@@ -1619,6 +1792,15 @@ select:focus {
   .row__dots {
     display: none;
   }
+}
+
+/* The closing band: the whole collection restated as one wide row. */
+.rows--close {
+  margin: 2.4rem 0 2rem;
+}
+
+.rows--close .row__dots {
+  max-width: 19rem;
 }
 
 .sr-only {
@@ -2048,25 +2230,6 @@ select:focus {
   }
 }
 
-/* Paths carry pathLength="1", so one dash length covers any of them. */
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes steep-fill {
-  from {
-    fill-opacity: 0;
-  }
-  to {
-    fill-opacity: 1;
-  }
-}
-
 @keyframes grow-y {
   from {
     transform: scaleY(0);
@@ -2107,47 +2270,22 @@ select:focus {
     animation-delay: calc(var(--i, 0) * 90ms);
   }
 
-  /* The leaf draws itself, floods with colour, then starts giving off steam. */
-  .steep-mark__blade,
-  .steep-mark__vein,
-  .steep-mark__ribs path {
-    stroke-dasharray: 1;
-  }
-
-  .steep-mark__blade {
-    animation: draw 1.6s var(--ease-steep) both, steep-fill 1.4s var(--ease-steep) 800ms both;
-  }
-
-  .steep-mark__vein {
-    animation: draw 1.1s var(--ease-steep) 600ms both;
-  }
-
-  .steep-mark__ribs path {
-    animation: draw 700ms var(--ease-steep) both;
-  }
-
-  .steep-mark__ribs path:nth-child(1) {
-    animation-delay: 1.1s;
-  }
-
-  .steep-mark__ribs path:nth-child(2) {
-    animation-delay: 1.25s;
-  }
-
-  .steep-mark__ribs path:nth-child(3) {
-    animation-delay: 1.4s;
-  }
-
-  .steep-mark__steam path {
+  /* The featured cup steams, and its first steep pours in real time — the
+     bar takes exactly as many seconds as the schedule says it should. */
+  .hero-pour__steam path {
     animation: steam-drift 5s var(--ease-steep) infinite;
   }
 
-  .steep-mark__steam path:nth-child(2) {
+  .hero-pour__steam path:nth-child(2) {
     animation-delay: 1.6s;
   }
 
-  .steep-mark__steam path:nth-child(3) {
+  .hero-pour__steam path:nth-child(3) {
     animation-delay: 3.1s;
+  }
+
+  .hero-pour__bar i {
+    animation: fill-x var(--steep-dur, 20s) linear 1.2s both;
   }
 
   /* Steam only while the steep is actually running. */
