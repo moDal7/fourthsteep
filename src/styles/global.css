@@ -1757,7 +1757,7 @@ select:focus {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .spectrum-anchors span:nth-child(2) {
     display: none;
   }
