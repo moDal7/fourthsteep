@@ -47,6 +47,10 @@ npm run build   # also verifies similarTo slugs
 npm run preview
 ```
 
+## Homepage brief
+
+`docs/homepage-structure.md` is a copy-pastable structure document for another model: current homepage anatomy, design-system invariants, and ranked impact work. Live site: [topeki.com/fourthsteep](https://www.topeki.com/fourthsteep/).
+
 ## Routes
 
 | Path | Purpose |
