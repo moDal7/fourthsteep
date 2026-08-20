@@ -16,6 +16,28 @@ The original project lived in a Cursor cloud workspace with no GitHub remote —
 - Design tokens in `src/styles/global.css` — no CSS framework
 - Islands: brew timer (Web Audio chime) and leaf-ratio calculator
 
+## The liquor colour
+
+Every tea carries three numbers — the OKLCH components of the cup it pours — computed by `liquorPalette()` in `src/lib/atlas.js` from its oxidation, firing, category, and origin. They ship as `--lq-l`, `--lq-c`, and `--lq-h` on the element, and `global.css` derives the rest of the ramp from them:
+
+| Token | Used for |
+| --- | --- |
+| `--liquor` | swatches, bars, ring fill |
+| `--liquor-deep` / `--liquor-pale` | gradient ends |
+| `--liquor-wash` / `--liquor-veil` | page ambience, hover floods |
+| `--liquor-ink` | text and rules, clamped for contrast per theme |
+
+Two rules keep this working:
+
+- The ramp is declared on `*`, not `:root`. A custom property's `var()` references are substituted where the property is **declared**, so a ramp on `:root` resolves against the root's `--lq-*` once and ignores every per-tea value below it.
+- Per-theme differences are numeric knobs (`--ink-shift`, `--wash-a`, …) rather than a second copy of the ramp, so one derivation serves both themes.
+
+Colour is never the only channel: oxidation and firing are printed as numbers beside their bars.
+
+## Motion
+
+Animation is transform, opacity, and custom properties only. Anything that would otherwise leave content invisible lives inside `@media (prefers-reduced-motion: no-preference)`, and a global `reduce` block cuts every remaining duration — the settled state is always the meaningful one. The header condenses on a `scroll()` timeline and the atlas grid reflows with a FLIP in `src/scripts/atlas-filter.js`; navigation uses CSS cross-document view transitions, with `src/scripts/morph.js` tagging only the clicked card.
+
 ## Scripts
 
 ```bash

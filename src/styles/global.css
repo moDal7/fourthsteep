@@ -34,6 +34,13 @@
   inherits: true;
   initial-value: 0;
 }
+/* Registered so the header can interpolate it; an unregistered custom
+   property would jump halfway through the keyframe instead of easing. */
+@property --header-pad {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 18px;
+}
 
 :root {
   color-scheme: light;
@@ -314,8 +321,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: var(--header-pad, 1.15rem) 0;
-  transition: padding var(--dur-2) var(--ease-steep);
+  padding: var(--header-pad) 0;
 }
 
 /* The header condenses as you scroll, driven by the scroll position itself —
@@ -332,7 +338,7 @@ p {
 
 @keyframes header-condense {
   to {
-    --header-pad: 0.55rem;
+    --header-pad: 9px;
     border-bottom-color: var(--line);
     box-shadow: 0 0.6rem 1.4rem -1rem oklch(0.2 0.04 70 / 0.35);
   }
@@ -363,6 +369,51 @@ p {
   text-transform: uppercase;
   color: var(--ink-muted);
   line-height: 1.4;
+  white-space: nowrap;
+}
+
+.brand > span:last-child {
+  white-space: nowrap;
+}
+
+/* Below this the wordmark and five controls cannot share a line without the
+   name breaking across three of them, so the nav takes a row of its own. */
+@media (max-width: 640px) {
+  .header-inner {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .brand {
+    flex: 1 0 100%;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  nav.primary {
+    flex: 1 0 100%;
+    justify-content: space-between;
+    gap: 0.2rem;
+  }
+
+  nav.primary a {
+    padding: 0.35rem 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Lifted onto the wordmark's row so the four links keep one row to
+     themselves rather than pushing it onto a third. */
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+  }
 }
 
 /* A cup that fills with the current page's liquor as you hover the wordmark. */
@@ -1127,6 +1178,21 @@ th {
 .controls .btn {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
+}
+
+.ratio-fields {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ratio-out {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--liquor-ink);
 }
 
 /* ------------------------------------------------------------- fields --- */
