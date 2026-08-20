@@ -29,8 +29,9 @@ const CARD_SLUGS = ['gyokuro', 'alishan', 'shou-puer'];
 const cardTeas = CARD_SLUGS.map((slug) => teas.find((t) => t.id === slug)).filter((t) => t !== undefined);
 
 // A few bars named at rest, so the spectrum teaches without hover. Chosen
-// for recognisability and spacing along the strip, not importance.
-const SPECTRUM_ANCHORS = ['long-jing', 'shou-puer', 'dian-hong'];
+// for recognisability and spacing along the strip — green, the featured
+// mid-oxidation oolong, and a fully oxidised black — not importance.
+const SPECTRUM_ANCHORS = ['long-jing', 'da-hong-pao', 'dian-hong'];
 
 const nativeCountry: Record<string, string> = { China: '中国', Taiwan: '台灣', Japan: '日本' };
 

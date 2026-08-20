@@ -438,6 +438,44 @@ p {
     left: 0.35rem;
     right: 0.35rem;
   }
+
+  /* Two-row header is ~8rem; keep letter stickies and jump links below it. */
+  .glossary-letter {
+    top: 8.5rem;
+  }
+
+  .glossary-group,
+  .glossary-item {
+    scroll-margin-top: 9rem;
+  }
+
+  .steep-cell {
+    min-width: 0;
+  }
+
+  th,
+  td {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .timer-face {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .timer-side {
+    flex: 1 1 100%;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controls .btn {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* A cup that fills with the current page's liquor as you hover the wordmark. */
@@ -1404,6 +1442,14 @@ select:focus {
   }
 }
 
+/* Below the split, the cup is the first screen; the headline stays first
+   in the DOM for screen readers. */
+@media (max-width: 899px) {
+  .hero-pour {
+    order: -1;
+  }
+}
+
 /* The featured tea, already poured: its cup, its steam, its gongfu caption,
    and a first-steep bar that fills in real time. The whole thing links into
    the profile, where the disc morphs into the tea page's cup. */
@@ -1711,6 +1757,12 @@ select:focus {
   }
 }
 
+@media (max-width: 380px) {
+  .spectrum-anchors span:nth-child(2) {
+    display: none;
+  }
+}
+
 /* The strip regrouped: one chip per category, tinted by its median tea. */
 .spectrum-cats {
   margin-top: 1.05rem;
@@ -1819,9 +1871,10 @@ select:focus {
 @media (max-width: 700px) {
   .row {
     grid-template-columns: auto minmax(0, 1fr) auto;
+    padding-inline: 0;
   }
 
-  .row__dots {
+  .row > .row__dots {
     display: none;
   }
 }
@@ -1920,6 +1973,18 @@ select:focus {
       radial-gradient(26rem 20rem at 6% 6%, var(--liquor-veil), var(--liquor-fade) 76%);
   }
 
+  h1 {
+    font-size: clamp(2.15rem, 8vw, 3.2rem);
+  }
+
+  .hero {
+    padding: clamp(1.4rem, 6vw, 3rem) 0 2rem;
+  }
+
+  .section-head {
+    margin-top: 2.4rem;
+  }
+
   .tea-hero::before {
     background:
       radial-gradient(130% 95% at 28% -18%, var(--liquor-wash), var(--liquor-fade) 74%),
@@ -1938,11 +2003,9 @@ select:focus {
     opacity: 0.13;
   }
 
-  .hero-pour {
-    max-width: 100%;
-    justify-self: stretch;
-  }
-
+  /* Keep the pour a centered object so the native name sits beside the cup,
+     not at the page gutter. Inset rather than hanging, so overflow-x: hidden
+     on body does not clip it. */
   .hero-pour__native {
     right: 0.1rem;
     top: -0.15rem;
@@ -2416,7 +2479,16 @@ select:focus {
 
 @media (max-width: 800px) {
   .geo-atlas {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(18rem, 82vw);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.4rem;
+  }
+
+  .geo-atlas__panel {
+    scroll-snap-align: start;
   }
 }
 
