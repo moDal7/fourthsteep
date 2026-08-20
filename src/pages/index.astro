@@ -1,66 +1,144 @@
 ---
 import Base from '../layouts/Base.astro';
+import SteepMark from '../components/SteepMark.astro';
+import Spectrum from '../components/Spectrum.astro';
 import { getCollection } from 'astro:content';
+import { liquorStyle } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 const teas = await getCollection('teas');
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
-const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
+const glossary = await getCollection('glossary');
+const regions = await getCollection('regions');
+
+const countries = ['China', 'Taiwan', 'Japan']
+  .map((country) => {
+    const entries = teas.filter((t) => t.data.origin.country === country);
+    // Each origin is tinted by the tea sitting at its median oxidation, so the
+    // row colour is drawn from the collection rather than picked by hand.
+    const byOxidation = entries.slice().sort((a, b) => a.data.oxidation - b.data.oxidation);
+    const median = byOxidation[Math.floor(byOxidation.length / 2)];
+    return {
+      country,
+      entries: byOxidation,
+      median,
+      regions: new Set(entries.map((t) => t.data.origin.region)).size,
+      categories: [...new Set(entries.map((t) => t.data.category))],
+    };
+  })
+  .filter((c) => c.entries.length);
+
+const title = ['Leaves,', 'water,', 'and', 'a', 'clock', 'you', 'can', 'trust.'];
 ---
 
 <Base title="Tea Atlas">
   <div class="wrap">
-    <section class="hero">
-      <p class="kicker">A static atlas</p>
-      <h1>Leaves, water, and a clock you can trust.</h1>
-      <p class="lede">
-        Forty-five teas from China, Taiwan, and Japan — each one a typed record of terroir, processing, and a brewing
-        schedule that drives both the table and the timer. No backend. No database. `astro build` is the whole ship.
-      </p>
-      <div class="cluster" style="margin-top: 1.2rem">
-        <a class="btn" href={withBase('/atlas')}>Browse the atlas</a>
-        <a class="btn secondary" href={withBase('/brewing')}>Brewing guides</a>
+    <section class="hero hero-split">
+      <div>
+        <p class="kicker">A static atlas</p>
+        <h1>
+          {
+            title.map((word, i) => (
+              <Fragment>
+                <span class="reveal-word" style={`--i: ${i}`}>
+                  <span>{word}</span>
+                </span>{' '}
+              </Fragment>
+            ))
+          }
+        </h1>
+        <p class="lede">
+          Forty-five teas from China, Taiwan, and Japan. Every entry is a typed record of terroir, processing, and a
+          brewing schedule that drives the table and the timer from the same numbers — and mixes its own colour from
+          its own oxidation, firing, and origin.
+        </p>
+        <div class="cluster" style="margin-top: 1.6rem">
+          <a class="btn" href={withBase('/atlas')}>Browse the atlas <span class="arrow">&rarr;</span></a>
+          <a class="btn secondary" href={withBase('/brewing')}>Brewing guides</a>
+        </div>
       </div>
+      <SteepMark />
     </section>
 
-    <section>
-      <h2>Enter by craft</h2>
-      <div class="grid card-grid">
-        {
-          countries.map((country) => (
-            <a class="card" href={`${withBase('/atlas')}?country=${encodeURIComponent(country)}`}>
-              <p class="kicker">Origin</p>
-              <h3>{country}</h3>
-              <p class="meta">{teas.filter((t) => t.data.origin.country === country).length} entries</p>
-            </a>
-          ))
-        }
-        <a class="card" href={withBase('/regions')}>
-          <p class="kicker">Terroir</p>
-          <h3>Regions</h3>
-          <p class="meta">Wuyi cliffs to Uji shade, with the teas that grow there.</p>
-        </a>
-        <a class="card" href={withBase('/glossary')}>
-          <p class="kicker">Language</p>
-          <h3>Glossary</h3>
-          <p class="meta">杀青, 焙火, 蒸し, 荒茶 — bilingual terms used throughout the atlas.</p>
-        </a>
-      </div>
-    </section>
+    <Spectrum teas={teas} />
 
-    <section style="margin-top: 2.5rem">
+    <div class="section-head">
+      <h2>Enter by origin</h2>
+      <p class="meta">{teas.length} entries across {regions.length} mapped regions</p>
+    </div>
+    <div class="rows">
+      {
+        countries.map((c) => (
+          <a
+            class="row"
+            href={`${withBase('/atlas')}?country=${encodeURIComponent(c.country)}`}
+            style={liquorStyle({ ...c.median.data, id: c.median.id })}
+          >
+            <span class="row__n">{String(c.entries.length).padStart(2, '0')}</span>
+            <span class="row__body">
+              <h3>{c.country}</h3>
+              <p class="meta">
+                {c.regions} regions · {c.categories.join(', ')}
+              </p>
+            </span>
+            <span class="row__dots" aria-hidden="true">
+              {c.entries.map((t) => (
+                <span class="dot" style={liquorStyle({ ...t.data, id: t.id })} />
+              ))}
+            </span>
+            <span class="arrow" aria-hidden="true">
+              &rarr;
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="section-head">
       <h2>Method guides</h2>
-      <div class="grid card-grid">
-        {
-          guides.map((g) => (
-            <a class="card" href={withBase(`/brewing/${g.id}`)}>
-              <p class="kicker">{g.data.group}</p>
-              <h3>{g.data.title}</h3>
-              <p class="meta">{g.data.description}</p>
+      <p class="meta">Long-form, in reading order</p>
+    </div>
+    <ol class="rows numbered">
+      {
+        guides.map((g, i) => (
+          <li>
+            <a class="row" href={withBase(`/brewing/${g.id}`)}>
+              <span class="row__n">{String(i + 1).padStart(2, '0')}</span>
+              <span class="row__body">
+                <h3>{g.data.title}</h3>
+                <p class="meta">{g.data.description}</p>
+              </span>
+              <span class="chip">{g.data.group}</span>
+              <span class="arrow" aria-hidden="true">
+                &rarr;
+              </span>
             </a>
-          ))
-        }
-      </div>
-    </section>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="section-head">
+      <h2>Also here</h2>
+    </div>
+    <div class="grid card-grid" style="margin-bottom: 2rem">
+      <a class="card" href={withBase('/regions')}>
+        <p class="kicker">Terroir</p>
+        <h3>Regions</h3>
+        <p class="meta">
+          Wuyi cliffs to Uji shade — {regions.length} places, each with the teas the atlas files there.
+        </p>
+      </a>
+      <a class="card" href={withBase('/glossary')}>
+        <p class="kicker">Language</p>
+        <h3>Glossary</h3>
+        <p class="meta">{glossary.length} bilingual terms: 杀青, 焙火, 蒸し, 荒茶.</p>
+      </a>
+      <a class="card" href={withBase('/atlas.json')}>
+        <p class="kicker">Data</p>
+        <h3>atlas.json</h3>
+        <p class="meta">The same build-time index the filters read, straight from the source.</p>
+      </a>
+    </div>
   </div>
 </Base>

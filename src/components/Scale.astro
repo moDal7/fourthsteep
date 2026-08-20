@@ -13,7 +13,7 @@ const pct = Math.max(0, Math.min(100, (value / max) * 100));
 <div class="scale">
   <div class="scale-label">
     <span>{label}</span>
-    <span>{print}</span>
+    <b>{print}</b>
   </div>
   <div class="scale-track" role="meter" aria-label={label} aria-valuemin="0" aria-valuemax={max} aria-valuenow={value}>
     <div class="scale-fill" style={`--value: ${pct}%`}></div>

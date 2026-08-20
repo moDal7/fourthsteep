@@ -1,5 +1,5 @@
 ---
-import { oxidationTone } from '../lib/atlas.js';
+import { liquorStyle, roastRank } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 interface Props {
@@ -12,16 +12,20 @@ interface Props {
   oxidation: number;
   roast: string;
   summary: string;
+  index?: number;
 }
 
-const tea = Astro.props;
+const { index = 0, ...tea } = Astro.props;
 const search = [tea.name, tea.nameNative, tea.country, tea.region, tea.category, tea.roast, tea.summary]
   .join(' ')
   .toLowerCase();
+// The stagger is capped so a late card in a long grid is not left waiting.
+const delay = Math.min(index, 14) * 45;
+const roastLabel = tea.roast === 'none' ? 'unroasted' : `${tea.roast} roast`;
 ---
 
 <a
-  class="card"
+  class="card tea-card steep-in"
   href={withBase(`/tea/${tea.id}`)}
   data-tea-card
   data-search={search}
@@ -30,10 +34,30 @@ const search = [tea.name, tea.nameNative, tea.country, tea.region, tea.category,
   data-category={tea.category}
   data-roast={tea.roast}
   data-oxidation={String(tea.oxidation)}
-  style={`--ox: ${oxidationTone(tea.oxidation)}`}
+  style={`${liquorStyle(tea)}; --delay: ${delay}ms`}
 >
-  <p class="kicker">{tea.country} · {tea.category} · {tea.region}</p>
-  <h3>{tea.name}</h3>
+  <div class="tea-card__top">
+    <p class="kicker">{tea.country} · {tea.category}</p>
+    <span class="tea-card__swatch" data-morph aria-hidden="true"></span>
+  </div>
   <p class="native">{tea.nameNative}</p>
-  <p class="meta">{tea.summary}</p>
+  <h3>{tea.name}</h3>
+  <p class="tea-card__summary">{tea.summary}</p>
+  <div class="card-foot">
+    <p class="mini-meter">
+      <span>Ox</span>
+      <span class="mini-meter__track">
+        <span class="mini-meter__fill" style={`--value: ${tea.oxidation}%`}></span>
+      </span>
+      <span class="num">{tea.oxidation}</span>
+    </p>
+    <p class="mini-meter">
+      <span>Fire</span>
+      <span class="mini-meter__track">
+        <span class="mini-meter__fill" style={`--value: ${(roastRank[tea.roast] / 4) * 100}%`}></span>
+      </span>
+      <span class="num">{roastLabel}</span>
+    </p>
+    <p class="meta">{tea.region}</p>
+  </div>
 </a>

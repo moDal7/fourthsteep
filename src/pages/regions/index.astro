@@ -1,27 +1,57 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { teasForRegion, liquorStyle } from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
 
-const regions = (await getCollection('regions')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const regions = (await getCollection('regions')).sort(
+  (a, b) => a.data.country.localeCompare(b.data.country) || a.data.name.localeCompare(b.data.name),
+);
+const teas = await getCollection('teas');
+const countries = [...new Set(regions.map((r) => r.data.country))];
 ---
 
 <Base title="Regions · Tea Atlas" description="Tea-growing regions mapped to the atlas.">
-  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+  <div class="wrap" style="padding-top: 2.5rem; padding-bottom: 3rem">
     <p class="kicker">Terroir</p>
     <h1>Regions</h1>
-    <p class="lede">Eleven named mountains and coasts from the original plan, plus the Taiwan high-mountain counties the oolongs actually require.</p>
-    <div class="grid card-grid">
-      {
-        regions.map((r) => (
-          <a class="card" href={withBase(`/regions/${r.id}`)}>
-            <p class="kicker">{r.data.country}</p>
-            <h3>{r.data.name}</h3>
-            <p class="native">{r.data.nameNative}</p>
-            <p class="meta">{r.data.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <p class="lede">
+      Named mountains and coasts from Wuyi's cliffs to Uji's shade, each with the teas the atlas files there.
+    </p>
+
+    {
+      countries.map((country) => (
+        <Fragment>
+          <div class="section-head">
+            <h2>{country}</h2>
+            <p class="meta">{regions.filter((r) => r.data.country === country).length} regions</p>
+          </div>
+          <div class="grid card-grid">
+            {regions
+              .filter((r) => r.data.country === country)
+              .map((r, i) => {
+                const grown = teasForRegion(teas, r.id);
+                return (
+                  <a class="card region-card steep-in" href={withBase(`/regions/${r.id}`)} style={`--delay: ${Math.min(i, 8) * 45}ms`}>
+                    <p class="native region-card__native">{r.data.nameNative}</p>
+                    <h3>{r.data.name}</h3>
+                    <p class="meta">{r.data.summary}</p>
+                    <div class="card-foot">
+                      <p class="mini-meter">
+                        <span>{grown.length ? `${grown.length} in atlas` : 'map context'}</span>
+                      </p>
+                      <span class="row__dots" aria-hidden="true">
+                        {grown.map((t) => (
+                          <span class="dot" style={liquorStyle({ ...t.data, id: t.id })} />
+                        ))}
+                      </span>
+                    </div>
+                  </a>
+                );
+              })}
+          </div>
+        </Fragment>
+      ))
+    }
   </div>
 </Base>

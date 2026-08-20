@@ -17,25 +17,40 @@ const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =
 ---
 
 <Base title={`${region.data.name} · Tea Atlas`} description={region.data.summary}>
-  <article class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
-    <p class="kicker">{region.data.country}</p>
-    <h1>{region.data.name}</h1>
-    <p class="native">{region.data.nameNative}</p>
-    <p class="lede">{region.data.summary}</p>
-    <p class="meta"><strong>Climate.</strong> {region.data.climate}</p>
-    <div class="cluster" style="margin-bottom: 1.5rem">
-      {region.data.knownFor.map((k) => <span class="chip">{k}</span>)}
-    </div>
+  <article class="wrap tea">
+    <header class="tea-hero region-hero">
+      <span class="tea-hero__watermark" aria-hidden="true">{region.data.nameNative}</span>
+      <p class="kicker">{region.data.country} · terroir</p>
+      <h1>{region.data.name}</h1>
+      <p class="native tea-hero__native">{region.data.nameNative}</p>
+      <p class="lede">{region.data.summary}</p>
+      <dl class="deflist region-facts">
+        <dt>Climate</dt>
+        <dd>{region.data.climate}</dd>
+        <dt>Known for</dt>
+        <dd>
+          <span class="cluster">
+            {region.data.knownFor.map((k) => <span class="chip">{k}</span>)}
+          </span>
+        </dd>
+      </dl>
+    </header>
+
     <div class="prose">
       <Content />
     </div>
-    <h2>Teas in this atlas</h2>
+
+    <div class="section-head">
+      <h2>Teas in this atlas</h2>
+      {teas.length > 0 && <p class="meta">{teas.length} entries filed here</p>}
+    </div>
     {
       teas.length ? (
         <div class="grid card-grid">
-          {teas.map((t) => (
+          {teas.map((t, i) => (
             <TeaCard
               id={t.id}
+              index={i}
               name={t.data.name}
               nameNative={t.data.nameNative}
               country={t.data.origin.country}

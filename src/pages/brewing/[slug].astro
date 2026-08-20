@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import { withBase } from '../../lib/paths.js';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -9,15 +10,43 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const { Content } = await render(guide);
+
+const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+const at = guides.findIndex((g) => g.id === guide.id);
+const previous = guides[at - 1];
+const next = guides[at + 1];
 ---
 
 <Base title={`${guide.data.title} · Tea Atlas`} description={guide.data.description}>
-  <article class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
-    <p class="kicker">{guide.data.group}</p>
-    <h1>{guide.data.title}</h1>
-    <p class="lede">{guide.data.description}</p>
+  <article class="wrap guide">
+    <header class="guide-head">
+      <p class="kicker">{guide.data.group}</p>
+      <h1>{guide.data.title}</h1>
+      <p class="lede">{guide.data.description}</p>
+    </header>
     <div class="prose">
       <Content />
     </div>
+
+    <nav class="pager" aria-label="Guides">
+      {
+        previous ? (
+          <a class="pager__link" href={withBase(`/brewing/${previous.id}`)} rel="prev">
+            <span class="kicker">Previous</span>
+            <span>{previous.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="pager__link pager__link--next" href={withBase(`/brewing/${next.id}`)} rel="next">
+            <span class="kicker">Next</span>
+            <span>{next.data.title}</span>
+          </a>
+        )
+      }
+    </nav>
   </article>
 </Base>
