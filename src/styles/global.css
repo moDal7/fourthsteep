@@ -1,5 +1,5 @@
 /* =========================================================================
-   Tea Atlas — "Liquor & Steam"
+   fourthsteep — "Liquor & Steam"
 
    Every tea carries three numbers (--lq-l, --lq-c, --lq-h): the OKLCH
    components of its brewed cup, computed in src/lib/atlas.js. Everything
@@ -69,9 +69,10 @@
   --wash-a: 0.2;
   --veil-a: 0.08;
 
-  --serif: 'Fraunces', 'Iowan Old Style', Palatino, Georgia, serif;
-  --sans: ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --cjk: 'Hiragino Mincho ProN', 'Yu Mincho', 'Songti SC', 'Noto Serif CJK SC', 'Noto Serif JP', serif;
+  --sans: 'Source Sans 3', ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif: var(--sans);
+  --cjk: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'PingFang SC', 'Source Han Sans SC',
+    'Noto Sans CJK SC', 'Noto Sans JP', sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --measure: 66ch;
@@ -243,11 +244,10 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-variation-settings: 'SOFT' 30, 'WONK' 1;
+  font-family: var(--sans);
+  font-weight: 650;
   line-height: 1.08;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
