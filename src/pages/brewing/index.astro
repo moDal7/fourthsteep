@@ -9,34 +9,58 @@ const knowledge = guides.filter((g) => g.data.group === 'knowledge');
 ---
 
 <Base title="Brewing · Tea Atlas" description="Gongfu, western, Japanese, and the knowledge around them.">
-  <div class="wrap" style="padding-top: 2rem; padding-bottom: 3rem">
+  <div class="wrap" style="padding-top: 2.5rem; padding-bottom: 3rem">
     <p class="kicker">Guides</p>
     <h1>Brewing</h1>
     <p class="lede">
       Long-form MDX. Methods first, then water, ware, storage, and tasting. The timer on each tea page is the short
       version of the gongfu guide.
     </p>
-    <h2>Methods</h2>
-    <div class="grid card-grid">
+
+    <div class="section-head">
+      <h2>Methods</h2>
+      <p class="meta">How to actually make the tea</p>
+    </div>
+    <ol class="rows numbered">
       {
-        methods.map((g) => (
-          <a class="card" href={withBase(`/brewing/${g.id}`)}>
-            <h3>{g.data.title}</h3>
-            <p class="meta">{g.data.description}</p>
-          </a>
+        methods.map((g, i) => (
+          <li>
+            <a class="row" href={withBase(`/brewing/${g.id}`)}>
+              <span class="row__n">{String(i + 1).padStart(2, '0')}</span>
+              <span class="row__body">
+                <h3>{g.data.title}</h3>
+                <p class="meta">{g.data.description}</p>
+              </span>
+              <span class="arrow" aria-hidden="true">
+                &rarr;
+              </span>
+            </a>
+          </li>
         ))
       }
+    </ol>
+
+    <div class="section-head">
+      <h2>Knowledge</h2>
+      <p class="meta">What sits underneath the methods</p>
     </div>
-    <h2>Knowledge</h2>
-    <div class="grid card-grid">
+    <ol class="rows numbered">
       {
-        knowledge.map((g) => (
-          <a class="card" href={withBase(`/brewing/${g.id}`)}>
-            <h3>{g.data.title}</h3>
-            <p class="meta">{g.data.description}</p>
-          </a>
+        knowledge.map((g, i) => (
+          <li>
+            <a class="row" href={withBase(`/brewing/${g.id}`)}>
+              <span class="row__n">{String(methods.length + i + 1).padStart(2, '0')}</span>
+              <span class="row__body">
+                <h3>{g.data.title}</h3>
+                <p class="meta">{g.data.description}</p>
+              </span>
+              <span class="arrow" aria-hidden="true">
+                &rarr;
+              </span>
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ol>
   </div>
 </Base>
