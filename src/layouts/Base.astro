@@ -91,7 +91,10 @@ const year = new Date().getFullYear();
     </main>
     <footer class="site-footer">
       <div class="footer-inner">
-        <span>Static site — typed content collections compiled to HTML. No backend, no database.</span>
+        <span>
+          Static site — typed content collections compiled to HTML (<a href={withBase('/atlas.json')}>atlas.json</a>).
+          No backend, no database.
+        </span>
         <span>Tea Atlas · {year}</span>
       </div>
     </footer>

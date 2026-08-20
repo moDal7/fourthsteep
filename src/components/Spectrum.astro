@@ -4,12 +4,26 @@ import { withBase } from '../lib/paths.js';
 
 interface Props {
   teas: { id: string; data: Record<string, any> }[];
+  /** Slugs to name at rest, under their bars — identity without hover. */
+  anchors?: string[];
 }
 
-const { teas } = Astro.props;
+const { teas, anchors = [] } = Astro.props;
 const ordered = teas
   .slice()
   .sort((a, b) => a.data.oxidation - b.data.oxidation || a.data.name.localeCompare(b.data.name));
+
+// Bars flex evenly, so an anchor label's position is its bar's fraction of
+// the strip. Labels near either edge are pinned flush instead of centred,
+// so they cannot hang off the page.
+const anchorLabels = ordered
+  .map((tea, i) => ({ tea, x: ((i + 0.5) / ordered.length) * 100 }))
+  .filter(({ tea }) => anchors.includes(tea.id))
+  .map(({ tea, x }) => ({
+    name: tea.data.name,
+    x: x.toFixed(2),
+    edge: x < 8 ? 'edge-start' : x > 92 ? 'edge-end' : null,
+  }));
 ---
 
 <section class="spectrum" aria-labelledby="spectrum-title">
@@ -18,7 +32,7 @@ const ordered = teas
     <p class="meta">Bar height is oxidation; colour is the cup it pours</p>
   </div>
 
-  <ol class="spectrum-strip">
+  <ol class="spectrum-strip" data-spectrum>
     {
       ordered.map((tea, i) => (
         <li style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}>
@@ -38,9 +52,38 @@ const ordered = teas
     }
   </ol>
 
+  {
+    anchorLabels.length > 0 && (
+      <div class="spectrum-anchors" aria-hidden="true">
+        {anchorLabels.map((a) => (
+          <span class={a.edge ?? undefined} style={`--x: ${a.x}%`}>
+            {a.name}
+          </span>
+        ))}
+      </div>
+    )
+  }
+
   <p class="spectrum-axis">
     <span>0 — unoxidised</span>
-    <span class="spectrum-hint">Hover a bar for the tea</span>
+    <span class="spectrum-hint spectrum-hint--fine">Hover a bar for the tea</span>
+    <span class="spectrum-hint spectrum-hint--coarse">Tap a bar to name it; tap again to open</span>
     <span>100 — fully oxidised</span>
   </p>
 </section>
+
+<script>
+  // Touch has no hover, so the strip speaks in two taps: the first names the
+  // bar (the same readout hover shows), the second follows the link.
+  const strip = document.querySelector('[data-spectrum]');
+  if (strip && window.matchMedia('(pointer: coarse)').matches) {
+    strip.addEventListener('click', (event) => {
+      const target = event.target;
+      const li = target instanceof Element ? target.closest('li') : null;
+      if (!li || !strip.contains(li) || li.classList.contains('is-selected')) return;
+      event.preventDefault();
+      strip.querySelector('.is-selected')?.classList.remove('is-selected');
+      li.classList.add('is-selected');
+    });
+  }
+</script>
