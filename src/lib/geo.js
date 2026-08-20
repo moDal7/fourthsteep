@@ -38,6 +38,73 @@ function featureBBox(feature) {
   return geomBBox(feature.geometry);
 }
 
+function vertexCount(geom) {
+  if (!geom) return 0;
+  if (geom.type === 'Polygon') return geom.coordinates.reduce((n, r) => n + r.length, 0);
+  if (geom.type === 'MultiPolygon') return geom.coordinates.reduce((n, p) => n + p.reduce((m, r) => m + r.length, 0), 0);
+  return 0;
+}
+
+function perpDist(p, a, b) {
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  const len2 = dx * dx + dy * dy;
+  if (len2 === 0) return Math.hypot(p[0] - a[0], p[1] - a[1]);
+  const t = Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / len2));
+  return Math.hypot(p[0] - (a[0] + t * dx), p[1] - (a[1] + t * dy));
+}
+
+function rdp(points, epsilon) {
+  if (points.length <= 2) return points;
+  let maxD = 0;
+  let idx = 0;
+  const end = points.length - 1;
+  for (let i = 1; i < end; i += 1) {
+    const d = perpDist(points[i], points[0], points[end]);
+    if (d > maxD) {
+      maxD = d;
+      idx = i;
+    }
+  }
+  if (maxD > epsilon) {
+    const left = rdp(points.slice(0, idx + 1), epsilon);
+    const right = rdp(points.slice(idx), epsilon);
+    return left.slice(0, -1).concat(right);
+  }
+  return [points[0], points[end]];
+}
+
+function simplifyRing(ring, epsilon) {
+  if (ring.length < 4) return ring;
+  const closed = ring[0][0] === ring[ring.length - 1][0] && ring[0][1] === ring[ring.length - 1][1];
+  const open = closed ? ring.slice(0, -1) : ring;
+  const simple = rdp(open, epsilon);
+  if (simple.length < 3) return ring;
+  if (closed) simple.push(simple[0]);
+  return simple;
+}
+
+function simplifyGeom(geom, epsilon) {
+  if (!geom) return geom;
+  if (geom.type === 'Polygon') {
+    return { type: 'Polygon', coordinates: geom.coordinates.map((ring) => simplifyRing(ring, epsilon)) };
+  }
+  if (geom.type === 'MultiPolygon') {
+    const polys = geom.coordinates.map((poly) => poly.map((ring) => simplifyRing(ring, epsilon)));
+    return { type: 'MultiPolygon', coordinates: polys };
+  }
+  return geom;
+}
+
+const thumbCache = new Map();
+function thumbGeom(key, geom, epsilon) {
+  const hit = thumbCache.get(key);
+  if (hit) return hit;
+  const next = vertexCount(geom) > 280 ? simplifyGeom(geom, epsilon) : geom;
+  thumbCache.set(key, next);
+  return next;
+}
+
 function bboxesOverlap(a, b) {
   return a[0] <= b[2] && a[2] >= b[0] && a[1] <= b[3] && a[3] >= b[1];
 }
@@ -171,13 +238,15 @@ export function buildRegionMap(regionId, { mode = 'detail', width, height } = {}
     const w = width ?? 320;
     const h = height ?? 200;
     const project = makeProjector(countryBbox, w, h, 10);
-    const highlight = geomToPath(region.geometry, project);
+    const landGeom = thumbGeom(`country-${region.adm0}`, country.geometry, 0.045);
+    const highlightGeom = thumbGeom(`hl-${region.id}`, region.geometry, 0.008);
+    const highlight = geomToPath(highlightGeom, project);
     const [mx, my] = project(region.focus.lng, region.focus.lat);
     return {
       mode,
       width: w,
       height: h,
-      land: geomToPath(country.geometry, project),
+      land: geomToPath(landGeom, project),
       highlight,
       marker: { x: mx, y: my },
       label: region.focus.name,
@@ -245,6 +314,7 @@ export function buildOverviewMaps({ width = 340, height = 280 } = {}) {
   return Object.entries(byCountry).map(([country, adm0]) => {
     const land = countryFeature(adm0);
     const bbox = geomBBox(land.geometry);
+    const landGeom = thumbGeom(`country-${adm0}`, land.geometry, 0.04);
     const project = makeProjector(bbox, width, height, 12);
     const regions = allRegionGeo()
       .filter((r) => r.adm0 === adm0)
@@ -254,7 +324,7 @@ export function buildOverviewMaps({ width = 340, height = 280 } = {}) {
           id: r.id,
           name: r.focus.name,
           admin: r.admin,
-          highlight: geomToPath(r.geometry, project),
+          highlight: geomToPath(thumbGeom(`hl-${r.id}`, r.geometry, 0.01), project),
           marker: { x, y },
         };
       });
@@ -262,7 +332,7 @@ export function buildOverviewMaps({ width = 340, height = 280 } = {}) {
       country,
       width,
       height,
-      land: geomToPath(land.geometry, project),
+      land: geomToPath(landGeom, project),
       regions,
     };
   });
