@@ -1,4 +1,4 @@
-# Tea Atlas
+# fourthsteep
 
 A static encyclopaedia of Chinese, Taiwanese, and Japanese teas. Typed content collections, hand-written CSS, and a handful of vanilla-JS islands. There is no backend and no database: `npm run build` emits HTML into `dist/`.
 

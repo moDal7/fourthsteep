@@ -16,7 +16,7 @@ const swap = () => {
   const next = isDark() ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   try {
-    localStorage.setItem('tea-atlas-theme', next);
+    localStorage.setItem('fourthsteep-theme', next);
   } catch (e) {}
   sync();
 };

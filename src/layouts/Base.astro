@@ -10,7 +10,7 @@ type Props = {
 
 const {
   title,
-  description = 'A static atlas of Chinese, Taiwanese, and Japanese teas — terroir, processing, and brewing as data.',
+  description = 'fourthsteep — a static atlas of Chinese, Taiwanese, and Japanese teas: terroir, processing, and brewing as data.',
   liquor,
 } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -34,13 +34,13 @@ const year = new Date().getFullYear();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
     <script is:inline>
       (function () {
         try {
-          var stored = localStorage.getItem('tea-atlas-theme');
+          var stored = localStorage.getItem('fourthsteep-theme') || localStorage.getItem('tea-atlas-theme');
           if (stored === 'light' || stored === 'dark') {
             document.documentElement.setAttribute('data-theme', stored);
           }
@@ -55,7 +55,7 @@ const year = new Date().getFullYear();
         <a class="brand" href={withBase('/')}>
           <span class="brand-mark" aria-hidden="true"></span>
           <span>
-            Tea Atlas
+            fourthsteep
             <small>leaves, water, time</small>
           </span>
         </a>
@@ -95,7 +95,7 @@ const year = new Date().getFullYear();
           Static site — typed content collections compiled to HTML (<a href={withBase('/atlas.json')}>atlas.json</a>).
           No backend, no database.
         </span>
-        <span>Tea Atlas · {year}</span>
+        <span>fourthsteep · {year}</span>
       </div>
     </footer>
     <script>
