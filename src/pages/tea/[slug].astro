@@ -4,9 +4,11 @@ import Scale from '../../components/Scale.astro';
 import BrewTimer from '../../components/BrewTimer.astro';
 import RatioCalculator from '../../components/RatioCalculator.astro';
 import InfusionTable from '../../components/InfusionTable.astro';
+import RegionMap from '../../components/RegionMap.astro';
 import { getCollection, getEntry } from 'astro:content';
-import { parseRatio, liquorStyle, roastRank } from '../../lib/atlas.js';
+import { parseRatio, liquorStyle, roastRank, regionIdForOrigin } from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
+import { getRegionGeo, formatCoords } from '../../lib/geo.js';
 
 export async function getStaticPaths() {
   const teas = await getCollection('teas');
@@ -20,6 +22,8 @@ const ratio = parseRatio(d.brewing.gongfu.ratio);
 const similar = (await Promise.all(d.similarTo.map((id) => getEntry('teas', id)))).filter((e) => e !== undefined);
 const roastPct = (roastRank[d.roast] / 4) * 100;
 const roastLabel = d.roast === 'none' ? 'unroasted' : d.roast;
+const originRegionId = regionIdForOrigin(d.origin.region);
+const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
 ---
 
 <Base title={`${d.name} · fourthsteep`} description={d.summary} liquor={liquor}>
@@ -33,7 +37,19 @@ const roastLabel = d.roast === 'none' ? 'unroasted' : d.roast;
       <p class="meta">{d.romanization} · {d.translation}</p>
       <p class="lede">{d.summary}</p>
       <div class="cluster">
-        <span class="chip">{d.origin.region}{d.origin.subregion ? ` · ${d.origin.subregion}` : ''}</span>
+        {
+          originRegionId ? (
+            <a class="chip" href={withBase(`/regions/${originRegionId}`)}>
+              {d.origin.region}
+              {d.origin.subregion ? ` · ${d.origin.subregion}` : ''}
+            </a>
+          ) : (
+            <span class="chip">
+              {d.origin.region}
+              {d.origin.subregion ? ` · ${d.origin.subregion}` : ''}
+            </span>
+          )
+        }
         {d.cultivar.map((c) => <span class="chip">{c}</span>)}
         <span class="chip">{d.harvest.season}</span>
         <span class="chip">{d.harvest.pluckingStage}</span>
@@ -47,6 +63,27 @@ const roastLabel = d.roast === 'none' ? 'unroasted' : d.roast;
           <Scale label="Oxidation" value={d.oxidation} print={`${d.oxidation} / 100`} />
           <Scale label="Firing" value={roastPct} print={roastLabel} />
         </div>
+
+        {
+          originRegionId && originGeo && (
+            <div class="origin-map">
+              <div class="section-head">
+                <h2>Origin</h2>
+                <p class="meta">
+                  <a href={withBase(`/regions/${originRegionId}`)}>{originGeo.admin}</a>
+                  {' · '}
+                  {formatCoords(originGeo.focus.lat, originGeo.focus.lng)}
+                </p>
+              </div>
+              <a class="origin-map__frame" href={withBase(`/regions/${originRegionId}`)}>
+                <RegionMap regionId={originRegionId} name={d.origin.region} mode="card" />
+                <span class="origin-map__go">
+                  Region page <span class="arrow" aria-hidden="true">&rarr;</span>
+                </span>
+              </a>
+            </div>
+          )
+        }
 
         <div class="section-head"><h2>Flavour</h2></div>
         <dl class="deflist">

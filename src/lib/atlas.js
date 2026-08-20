@@ -179,6 +179,18 @@ export function teasForRegion(teas, regionId) {
   return teas.filter((t) => group.names.some((n) => t.data.origin.region === n || t.data.origin.region.includes(n)));
 }
 
+/** Map a tea's origin.region string to a terroir page id, or null. */
+export function regionIdForOrigin(regionName) {
+  const name = String(regionName || '');
+  const exact = regionGroups.find((g) => g.names.includes(name));
+  if (exact) return exact.id;
+  return (
+    regionGroups.find((g) =>
+      g.names.some((n) => name.startsWith(`${n} /`) || name.endsWith(` / ${n}`) || name.includes(` / ${n} /`)),
+    )?.id ?? null
+  );
+}
+
 export function atlasRecord(entry) {
   const { id, data } = entry;
   return {

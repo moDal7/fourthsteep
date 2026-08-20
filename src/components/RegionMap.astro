@@ -1,0 +1,118 @@
+---
+import { buildRegionMap, geoAttribution } from '../lib/geo.js';
+
+interface Props {
+  regionId: string;
+  name: string;
+  nameNative?: string;
+  mode?: 'detail' | 'card';
+}
+
+const { regionId, name, nameNative, mode = 'detail' } = Astro.props;
+const map = buildRegionMap(regionId, { mode });
+if (!map) {
+  throw new Error(`No precise geo record for region "${regionId}". Re-run scripts/fetch-geo.mjs.`);
+}
+
+const label = `Map of ${name}${nameNative ? ` (${nameNative})` : ''}, highlighting ${map.facts?.focus ?? name}`;
+---
+
+{
+  mode === 'card' && (
+    <svg
+      class="geo-map geo-map--card"
+      viewBox={`0 0 ${map.width} ${map.height}`}
+      role="img"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path class="geo-map__land" d={map.land} fill-rule="evenodd" />
+      <path class="geo-map__highlight" d={map.highlight} fill-rule="evenodd" />
+      <circle class="geo-map__mark" cx={map.marker.x} cy={map.marker.y} r="5" />
+    </svg>
+  )
+}
+
+{
+  mode === 'detail' && map.facts && (
+    <figure class="geo-plate">
+      <svg
+        class="geo-map geo-map--detail"
+        viewBox={`0 0 ${map.width} ${map.height}`}
+        role="img"
+        aria-labelledby={`geo-title-${regionId}`}
+        aria-describedby={`geo-desc-${regionId}`}
+      >
+        <title id={`geo-title-${regionId}`}>{label}</title>
+        <desc id={`geo-desc-${regionId}`}>
+          {map.facts.focus} at {map.facts.coords}. Administrative unit: {map.facts.admin}.
+          {map.facts.elevation ? ` Elevation ${map.facts.elevation}.` : ''} Web Mercator from OpenStreetMap
+          boundaries and Natural Earth provinces.
+        </desc>
+        <rect class="geo-map__sea" x="0" y="0" width={map.width} height={map.height} />
+        {
+          map.land.map((unit) => (
+            <path class="geo-map__admin" d={unit.d} fill-rule="evenodd">
+              <title>{unit.name}</title>
+            </path>
+          ))
+        }
+        <path class="geo-map__highlight" d={map.highlight} fill-rule="evenodd" />
+        <g class="geo-map__pin" transform={`translate(${map.marker.x} ${map.marker.y})`}>
+          <circle class="geo-map__mark-halo" r="9" />
+          <circle class="geo-map__mark" r="4.2" />
+        </g>
+        <g class="geo-map__scale" transform={`translate(${map.scale.x} ${map.scale.y})`}>
+          <rect x="0" y="0" width={map.scale.width} height="2.4" />
+          <rect x="0" y="-3" width="2" height="8.4" />
+          <rect x={map.scale.width - 2} y="-3" width="2" height="8.4" />
+          <text x={map.scale.width / 2} y="-8" text-anchor="middle">
+            {map.scale.label}
+          </text>
+        </g>
+        <g class="geo-map__inset" transform={`translate(${map.inset.x} ${map.inset.y})`}>
+          <rect class="geo-map__inset-frame" x="0" y="0" width={map.inset.width} height={map.inset.height} />
+          <path class="geo-map__inset-land" d={map.inset.land} fill-rule="evenodd" />
+          <rect
+            class="geo-map__locator"
+            x={map.inset.locator.x}
+            y={map.inset.locator.y}
+            width={Math.max(map.inset.locator.width, 4)}
+            height={Math.max(map.inset.locator.height, 4)}
+          />
+          <circle class="geo-map__inset-mark" cx={map.inset.mark.x} cy={map.inset.mark.y} r="2.6" />
+        </g>
+      </svg>
+      <figcaption class="geo-plate__caption">
+        <dl class="deflist geo-facts">
+          <dt>Location</dt>
+          <dd>
+            {map.facts.focus}
+            <span class="geo-coords"> · {map.facts.coords}</span>
+          </dd>
+          {
+            map.facts.elevation && (
+              <>
+                <dt>Elevation</dt>
+                <dd>{map.facts.elevation}</dd>
+              </>
+            )
+          }
+          <dt>Admin</dt>
+          <dd>
+            {map.facts.admin}
+            {map.facts.osm && (
+              <>
+                {' · '}
+                <a href={map.facts.osm} rel="noreferrer">
+                  OSM boundary
+                </a>
+              </>
+            )}
+          </dd>
+        </dl>
+        <p class="geo-plate__source">{geoAttribution}</p>
+      </figcaption>
+    </figure>
+  )
+}

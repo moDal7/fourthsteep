@@ -1,8 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TeaCard from '../../components/TeaCard.astro';
+import RegionMap from '../../components/RegionMap.astro';
 import { getCollection, render } from 'astro:content';
-import { teasForRegion } from '../../lib/atlas.js';
+import { teasForRegion, liquorStyle } from '../../lib/atlas.js';
 
 export async function getStaticPaths() {
   const regions = await getCollection('regions');
@@ -14,9 +15,12 @@ const { Content } = await render(region);
 const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =>
   a.data.name.localeCompare(b.data.name),
 );
+const byOxidation = teas.slice().sort((a, b) => a.data.oxidation - b.data.oxidation);
+const median = byOxidation[Math.floor(byOxidation.length / 2)];
+const liquor = median ? liquorStyle({ ...median.data, id: median.id }) : undefined;
 ---
 
-<Base title={`${region.data.name} · fourthsteep`} description={region.data.summary}>
+<Base title={`${region.data.name} · fourthsteep`} description={region.data.summary} liquor={liquor}>
   <article class="wrap tea">
     <header class="tea-hero region-hero">
       <span class="tea-hero__watermark" aria-hidden="true">{region.data.nameNative}</span>
@@ -35,6 +39,8 @@ const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =
         </dd>
       </dl>
     </header>
+
+    <RegionMap regionId={region.id} name={region.data.name} nameNative={region.data.nameNative} />
 
     <div class="prose">
       <Content />
