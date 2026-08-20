@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import RegionMap from '../../components/RegionMap.astro';
+import RegionAtlas from '../../components/RegionAtlas.astro';
 import { getCollection } from 'astro:content';
 import { teasForRegion, liquorStyle } from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
@@ -17,7 +19,10 @@ const countries = [...new Set(regions.map((r) => r.data.country))];
     <h1>Regions</h1>
     <p class="lede">
       Named mountains and coasts from Wuyi's cliffs to Uji's shade, each with the teas the atlas files there.
+      Boundaries are OpenStreetMap administrative polygons; the locator silhouettes are Natural Earth.
     </p>
+
+    <RegionAtlas hrefs={regions.map((r) => ({ id: r.id, name: r.data.name }))} />
 
     {
       countries.map((country) => (
@@ -31,8 +36,17 @@ const countries = [...new Set(regions.map((r) => r.data.country))];
               .filter((r) => r.data.country === country)
               .map((r, i) => {
                 const grown = teasForRegion(teas, r.id);
+                const median = grown.slice().sort((a, b) => a.data.oxidation - b.data.oxidation)[
+                  Math.floor(grown.length / 2)
+                ];
+                const tint = median ? liquorStyle({ ...median.data, id: median.id }) : '';
                 return (
-                  <a class="card region-card steep-in" href={withBase(`/regions/${r.id}`)} style={`--delay: ${Math.min(i, 8) * 45}ms`}>
+                  <a
+                    class="card region-card steep-in"
+                    href={withBase(`/regions/${r.id}`)}
+                    style={`${tint}; --delay: ${Math.min(i, 8) * 45}ms`}
+                  >
+                    <RegionMap regionId={r.id} name={r.data.name} mode="card" />
                     <p class="native region-card__native">{r.data.nameNative}</p>
                     <h3>{r.data.name}</h3>
                     <p class="meta">{r.data.summary}</p>

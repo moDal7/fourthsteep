@@ -1,0 +1,45 @@
+---
+import { buildOverviewMaps } from '../lib/geo.js';
+import { withBase } from '../lib/paths.js';
+
+interface RegionLink {
+  id: string;
+  name: string;
+}
+
+interface Props {
+  hrefs: RegionLink[];
+}
+
+const { hrefs } = Astro.props;
+const maps = buildOverviewMaps();
+const titleFor = Object.fromEntries(hrefs.map((r) => [r.id, r.name]));
+---
+
+<div class="geo-atlas" role="group" aria-label="Tea regions of China, Taiwan, and Japan">
+  {
+    maps.map((map) => (
+      <figure class="geo-atlas__panel">
+        <figcaption class="geo-atlas__label">{map.country}</figcaption>
+        <svg
+          class="geo-map geo-map--overview"
+          viewBox={`0 0 ${map.width} ${map.height}`}
+          role="img"
+          aria-label={`${map.country}, with tea regions marked`}
+        >
+          <rect class="geo-map__sea" x="0" y="0" width={map.width} height={map.height} />
+          <path class="geo-map__land" d={map.land} fill-rule="evenodd" />
+          {map.regions.map((r) => (
+            <a href={withBase(`/regions/${r.id}`)}>
+              <title>
+                {titleFor[r.id] ?? r.name} — {r.admin}
+              </title>
+              <path class="geo-map__highlight" d={r.highlight} fill-rule="evenodd" />
+              <circle class="geo-map__mark" cx={r.marker.x} cy={r.marker.y} r="4.2" />
+            </a>
+          ))}
+        </svg>
+      </figure>
+    ))
+  }
+</div>
