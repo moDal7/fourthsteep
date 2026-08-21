@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Spectrum from '../components/Spectrum.astro';
 import TeaCard from '../components/TeaCard.astro';
 import { getCollection } from 'astro:content';
-import { liquorStyle } from '../lib/atlas.js';
+import { liquorStyle, isInfusion, firstDrinkingSteep, originLabel, regionMapFromCollection } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 const teas = await getCollection('teas');
@@ -19,8 +19,9 @@ const FEATURED = 'da-hong-pao';
 const featured = teas.find((t) => t.id === FEATURED);
 if (!featured) throw new Error(`Featured tea "${FEATURED}" is not in the collection.`);
 const featuredLiquor = liquorStyle({ ...featured.data, id: featured.id });
-const gongfu = featured.data.brewing.gongfu;
-const firstSteep = gongfu.infusions[0];
+const gongfu = isInfusion(featured.data.brewing) ? featured.data.brewing.gongfu : null;
+const firstSteep = gongfu ? firstDrinkingSteep(gongfu) : null;
+const regionById = regionMapFromCollection(regions);
 
 // Three doors into the collection: one tea per country, chosen so the three
 // cups do not share a colour — a steamed green, a high-mountain gold, a
@@ -31,7 +32,7 @@ const cardTeas = CARD_SLUGS.map((slug) => teas.find((t) => t.id === slug)).filte
 // A few bars named at rest, so the spectrum teaches without hover. Chosen
 // for position along the flexed strip, not oxidation number: greens occupy
 // the first half, so a mid-oxidation oolong would sit on top of the blacks.
-const SPECTRUM_ANCHORS = ['gyokuro', 'shou-puer', 'dian-hong'];
+const SPECTRUM_ANCHORS = ['gyokuro', 'da-hong-pao', 'shou-puer'];
 
 const nativeCountry: Record<string, string> = { China: '中国', Taiwan: '台灣', Japan: '日本' };
 
@@ -46,7 +47,7 @@ const countries = ['China', 'Taiwan', 'Japan']
       country,
       entries: byOxidation,
       median,
-      regions: new Set(entries.map((t) => t.data.origin.region)).size,
+      regions: regions.filter((r) => r.data.country === country).length,
       categories: [...new Set(entries.map((t) => t.data.category))],
     };
   })
@@ -84,9 +85,10 @@ const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — ev
           }
         </h1>
         <p class="lede">
-          Pick any of the {teas.length} teas here and the page pours it: the colour of the cup, mixed from the leaf's
+          Pick any of the {teas.length} teas here and the page pours it: the colour of the cup, mixed from the leaf’s
           own oxidation, firing, and origin — and a steep schedule you can run. The table and the timer read the same
-          numbers, so they cannot disagree.
+          numbers, so they cannot disagree. The atlas is China, Taiwan, and Japan: process classes from those three
+          trades, not the whole of Camellia sinensis.
         </p>
         <div class="cluster" style="margin-top: 1.6rem">
           <a class="btn" href={withBase('/atlas')}>Browse the atlas <span class="arrow">&rarr;</span></a>
@@ -104,14 +106,18 @@ const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — ev
         <span class="hero-pour__cup" data-morph aria-hidden="true"></span>
         <span class="hero-pour__name">
           <b>{featured.data.name}</b>
-          <span class="meta">{gongfu.vessel} · {gongfu.ratio} · {gongfu.waterTemp} °C</span>
+          <span class="meta">{gongfu ? `${gongfu.vessel} · ${gongfu.ratio} · ${gongfu.waterTemp} °C` : featured.data.category}</span>
         </span>
-        <span class="hero-pour__steep">
-          <span>First steep</span>
-          <span class="hero-pour__bar" aria-hidden="true"><i style={`--steep-dur: ${firstSteep.seconds}s`}></i></span>
-          <span class="num">{firstSteep.seconds} s</span>
-        </span>
-        {firstSteep.notes && <span class="hero-pour__note meta">{firstSteep.notes}</span>}
+        {
+          firstSteep && (
+            <span class="hero-pour__steep">
+              <span>First steep</span>
+              <span class="hero-pour__bar" aria-hidden="true"><i style={`--steep-dur: ${firstSteep.seconds}s`}></i></span>
+              <span class="num">{firstSteep.seconds} s</span>
+            </span>
+          )
+        }
+        {firstSteep?.notes && <span class="hero-pour__note meta">{firstSteep.notes}</span>}
         <span class="hero-pour__cta">Open the timer <span class="arrow">&rarr;</span></span>
       </a>
     </section>
@@ -162,7 +168,7 @@ const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — ev
             name={t.data.name}
             nameNative={t.data.nameNative}
             country={t.data.origin.country}
-            region={t.data.origin.region}
+            region={originLabel(t.data.origin, regionById)}
             category={t.data.category}
             oxidation={t.data.oxidation}
             roast={t.data.roast}

@@ -1,3 +1,7 @@
+/**
+ * HISTORICAL. Glossary JSON under src/content/glossary is the source of truth.
+ * Do not re-run this script — it would clobber later terms.
+ */
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -5,24 +5,36 @@
   "translation": "Late tea / everyday tea",
   "origin": {
     "country": "Japan",
-    "region": "nationwide",
+    "regions": [],
+    "regionNote": "nationwide — a style, not a garden",
     "subregion": "regional bancha styles vary widely"
   },
   "category": "green",
-  "japaneseType": "bancha",
+  "subtype": "bancha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita and local"
   ],
   "harvest": {
-    "season": "summer and autumn, or first-flush coarse leaf",
-    "pluckingStage": "larger, more mature leaf and stems"
+    "window": "summer and autumn, or first-flush coarse leaf"
   },
+  "pluckStandard": "larger, more mature leaf and stems",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
-      "step": "Steam and dry",
-      "description": "Often lighter rolling; some regional banchas are roasted or fermented (not covered here)."
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "Steamed like sencha, often lighter rolling; some regional banchas are roasted or lactic-fermented and live on their own pages."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll and dry",
+      "description": "Coarser leaf and stems; everyday Japanese green, not a failed sencha."
     }
   ],
   "profile": {
@@ -38,6 +50,7 @@
     "finish": "short, clean"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "pot",
       "ratio": "1:14",
@@ -55,7 +68,8 @@
           "n": 3,
           "seconds": 50
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 5,
@@ -71,17 +85,44 @@
           "seconds": 120
         }
       ]
+    },
+    "decoction": {
+      "when": "a kettle on the table, not a timed steep",
+      "minutes": [
+        3,
+        8
+      ],
+      "notes": "煮茶 — hojicha and bancha are often simmered. The roast already did the work; heat just lifts it."
     }
   },
-  "water": "Hotter than gyokuro; bancha is the household workhorse.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 85,
+    "note": "Hotter than gyokuro; bancha is the household workhorse."
+  },
   "storage": "Airtight pantry is acceptable; less fragile than gyokuro.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "within a year of roast or packing"
+  },
   "qualityMarkers": [
-    "regional honesty (Kyoto bancha vs generic)",
-    "clean straw, not dust"
+    {
+      "claim": "regional honesty (Kyoto bancha vs generic)"
+    },
+    {
+      "claim": "clean straw, not dust"
+    }
   ],
   "commonFaults": [
-    "floor sweepings",
-    "stale cardboard"
+    {
+      "name": "floor sweepings"
+    },
+    {
+      "name": "stale cardboard"
+    }
   ],
   "similarTo": [
     "kukicha",

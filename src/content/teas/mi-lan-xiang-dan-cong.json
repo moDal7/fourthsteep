@@ -5,33 +5,44 @@
   "translation": "Honey Orchid Single Bush",
   "origin": {
     "country": "China",
-    "region": "Phoenix Mountain",
+    "regions": [
+      "phoenix-mountain"
+    ],
     "subregion": "Chaozhou, Guangdong"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Mi Lan Xiang"
   ],
   "harvest": {
-    "season": "spring",
-    "pluckingStage": "open leaf from single-bush selections"
+    "window": "spring"
   },
+  "pluckStandard": "open leaf from single-bush selections",
   "oxidation": 35,
   "roast": "medium",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 35
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither and shake",
       "description": "High-aroma dan cong protocol; edges oxidise, centres stay green."
     },
     {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Fired to lock honey-orchid."
     },
     {
+      "verb": "roll",
       "step": "Twist",
       "description": "Long, wiry leaves."
     },
     {
+      "verb": "roast",
       "step": "Roast",
       "description": "Medium charcoal to dry and round the perfume."
     }
@@ -51,6 +62,7 @@
     "finish": "perfumed honey that fills the room"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or Chaozhou clay",
       "ratio": "1:16",
@@ -103,17 +115,41 @@
       ]
     }
   },
-  "water": "Near boiling. Short steeps — dan cong turns bitter if soaked.",
+  "water": {
+    "tdsPpm": [
+      50,
+      150
+    ],
+    "tempC": 98,
+    "note": "Near boiling. Short steeps — dan cong turns bitter if soaked."
+  },
   "storage": "Airtight, away from other teas; it will scent the cupboard.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast",
+    "note": "Some are deliberately re-roasted every few years."
+  },
   "qualityMarkers": [
-    "natural honey-orchid, not added flavour",
-    "Phoenix Mountain elevation",
-    "wiry whole leaf"
+    {
+      "claim": "natural honey-orchid, not added flavour"
+    },
+    {
+      "claim": "Phoenix Mountain elevation"
+    },
+    {
+      "claim": "wiry whole leaf"
+    }
   ],
   "commonFaults": [
-    "scented fakes",
-    "over-oxidised jamminess",
-    "bitterness from long western steeps"
+    {
+      "name": "scented fakes"
+    },
+    {
+      "name": "over-oxidised jamminess"
+    },
+    {
+      "name": "bitterness from long western steeps"
+    }
   ],
   "similarTo": [
     "ya-shi-xiang-dan-cong",

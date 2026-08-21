@@ -1,0 +1,112 @@
+---
+import { processingVerbs } from '../lib/atlas.js';
+import { withBase } from '../lib/paths.js';
+
+interface Step {
+  verb: string;
+  step: string;
+  description: string;
+}
+
+interface TeaRef {
+  id: string;
+  name: string;
+  nameNative: string;
+  processing: Step[];
+}
+
+interface Props {
+  a: TeaRef;
+  b: TeaRef;
+}
+
+const { a, b } = Astro.props;
+
+const verbsA = a.processing.map((s) => s.verb);
+const verbsB = b.processing.map((s) => s.verb);
+const max = Math.max(a.processing.length, b.processing.length);
+
+function sameAt(i: number) {
+  const sa = a.processing[i];
+  const sb = b.processing[i];
+  if (!sa || !sb) return false;
+  return sa.verb === sb.verb;
+}
+
+function divergeIndex() {
+  const n = Math.min(a.processing.length, b.processing.length);
+  for (let i = 0; i < n; i += 1) {
+    if (a.processing[i].verb !== b.processing[i].verb) return i;
+  }
+  if (a.processing.length !== b.processing.length) return n;
+  return -1;
+}
+
+const split = divergeIndex();
+const shared = split === 0 ? 'They share no opening verb.' : split < 0 ? 'The verb sequence matches.' : `They share steps 1–${split} and diverge at ${processingVerbs[a.processing[split]?.verb]?.label ?? a.processing[split]?.step}.`;
+---
+
+<div class="chain-diff">
+  <div class="section-head">
+    <h2>Processing, side by side</h2>
+    <p class="meta">{shared}</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <caption class="sr-only">Processing chain comparison</caption>
+      <thead>
+        <tr>
+          <th scope="col">Step</th>
+          <th scope="col">
+            <a href={withBase(`/tea/${a.id}`)}>{a.name}</a>
+            <span class="native"> {a.nameNative}</span>
+          </th>
+          <th scope="col">
+            <a href={withBase(`/tea/${b.id}`)}>{b.name}</a>
+            <span class="native"> {b.nameNative}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          Array.from({ length: max }, (_, i) => {
+            const sa = a.processing[i];
+            const sb = b.processing[i];
+            const match = sameAt(i);
+            return (
+              <tr class={match ? 'is-shared' : 'is-split'}>
+                <td class="num">{i + 1}</td>
+                <td>
+                  {sa ? (
+                    <>
+                      <b>{processingVerbs[sa.verb]?.label ?? sa.step}</b>
+                      {processingVerbs[sa.verb]?.native ? <span class="native"> {processingVerbs[sa.verb].native}</span> : ''}
+                      <span class="meta">{sa.description}</span>
+                    </>
+                  ) : (
+                    '—'
+                  )}
+                </td>
+                <td>
+                  {sb ? (
+                    <>
+                      <b>{processingVerbs[sb.verb]?.label ?? sb.step}</b>
+                      {processingVerbs[sb.verb]?.native ? <span class="native"> {processingVerbs[sb.verb].native}</span> : ''}
+                      <span class="meta">{sb.description}</span>
+                    </>
+                  ) : (
+                    '—'
+                  )}
+                </td>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="meta">
+    Shared verbs {verbsA.filter((v, i) => verbsB[i] === v).length} of {Math.max(verbsA.length, verbsB.length)}. Classes
+    are processes, not colours.
+  </p>
+</div>

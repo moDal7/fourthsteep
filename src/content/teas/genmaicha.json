@@ -5,22 +5,30 @@
   "translation": "Brown-rice tea",
   "origin": {
     "country": "Japan",
-    "region": "nationwide",
+    "regions": [],
+    "regionNote": "nationwide — a style, not a garden",
     "subregion": "bancha or sencha blended with popped rice"
   },
   "category": "green",
-  "japaneseType": "genmaicha",
+  "subtype": "genmaicha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita plus toasted rice"
   ],
   "harvest": {
-    "season": "base tea various",
-    "pluckingStage": "green tea blended with roasted popped rice"
+    "window": "base tea various"
   },
+  "pluckStandard": "green tea blended with roasted popped rice",
   "oxidation": 0,
   "roast": "medium",
+  "transformation": {
+    "kind": "roast",
+    "index": 35,
+    "note": "The leaf is still a green tea; toasted rice and a medium fire colour the cup."
+  },
   "processing": [
     {
+      "verb": "other",
       "step": "Blend",
       "description": "Toasted and popped rice (not genmai porridge) mixed into bancha or sencha; some lots include matcha."
     }
@@ -39,6 +47,7 @@
     "finish": "snack-like, clean"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu",
       "ratio": "1:14",
@@ -56,7 +65,8 @@
           "n": 3,
           "seconds": 50
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -70,16 +80,37 @@
       ]
     }
   },
-  "water": "80–85 °C. Rice can go starchy if boiled hard for ages.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "80–85 °C. Rice can go starchy if boiled hard for ages."
+  },
   "storage": "Airtight; rice oils stale. Finish opened bags promptly.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "within a year of roast or packing"
+  },
   "qualityMarkers": [
-    "real tea under the rice",
-    "popped rice not burnt",
-    "optional matcha dust vivid not brown"
+    {
+      "claim": "real tea under the rice"
+    },
+    {
+      "claim": "popped rice not burnt"
+    },
+    {
+      "claim": "optional matcha dust vivid not brown"
+    }
   ],
   "commonFaults": [
-    "all rice, little tea",
-    "rancid grain"
+    {
+      "name": "all rice, little tea"
+    },
+    {
+      "name": "rancid grain"
+    }
   ],
   "similarTo": [
     "hojicha",

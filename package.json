@@ -8,9 +8,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-similar-to.mjs && node scripts/check-geo.mjs && astro build",
+    "build": "node scripts/check-content.mjs && node scripts/check-geo.mjs && astro build",
     "preview": "astro preview",
-    "check": "node scripts/check-similar-to.mjs && node scripts/check-geo.mjs && astro check"
+    "check": "node scripts/check-content.mjs && node scripts/check-geo.mjs && astro check"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",

@@ -1,3 +1,7 @@
+/**
+ * HISTORICAL. Tea JSON under src/content/teas is the source of truth.
+ * Do not re-run this script — it would clobber rinses, transformation, and typed regions.
+ */
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

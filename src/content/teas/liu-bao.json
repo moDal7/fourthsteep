@@ -5,25 +5,36 @@
   "translation": "Liubao",
   "origin": {
     "country": "China",
-    "region": "Wuzhou",
+    "regions": [
+      "wuzhou"
+    ],
     "subregion": "Guangxi"
   },
   "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "sinensis",
   "cultivar": [
     "Guangxi large-leaf"
   ],
   "harvest": {
-    "season": "spring and summer",
-    "pluckingStage": "mature leaf, traditionally basket-aged"
+    "window": "spring and summer"
   },
+  "pluckStandard": "mature leaf, traditionally basket-aged",
   "oxidation": 18,
   "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 70,
+    "note": "Basket-aged Guangxi dark tea. Microbial, not a light oolong that happens to sit at 18."
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Kill-green and roll",
       "description": "Dark-tea path, not puers’s sun-dry maocha."
     },
     {
+      "verb": "other",
       "step": "Piling / aging",
       "description": "Microbial aging in bamboo baskets; betel-nut and camphor develop with years."
     }
@@ -44,33 +55,36 @@
     "finish": "camphor-cooling"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing or porcelain",
       "ratio": "1:14",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 15,
+          "notes": "rinse the basket-aged leaf"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 15
-        },
-        {
-          "n": 2,
           "seconds": 12
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 18
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 25
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 40
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 60
         }
       ]
@@ -85,23 +99,58 @@
           "seconds": 210
         }
       ]
+    },
+    "decoction": {
+      "when": "after the gongfu session, or as a separate pot",
+      "minutes": [
+        8,
+        20
+      ],
+      "notes": "煮茶 — simmer the spent leaf. Dark teas can take a boil; this is the extra cup the name 第四泡 points at."
     }
   },
-  "water": "Boiling. Aged Liu Bao is a morning pot tea in Guangxi heat.",
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 100,
+    "note": "Boiling. Aged Liu Bao is a morning pot tea in Guangxi heat."
+  },
   "storage": "Baskets historically breathe; modern cakes should stay dry and clean.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change",
+    "note": "Most teas are food. A few teas are projects."
+  },
   "qualityMarkers": [
-    "betel-nut (bin lang) aroma",
-    "Wuzhou origin",
-    "clean aging"
+    {
+      "claim": "betel-nut (bin lang) aroma"
+    },
+    {
+      "claim": "Wuzhou origin"
+    },
+    {
+      "claim": "clean aging"
+    }
   ],
   "commonFaults": [
-    "musty wet storage",
-    "young sour Liu Bao sold as aged"
+    {
+      "name": "musty wet storage"
+    },
+    {
+      "name": "young sour Liu Bao sold as aged"
+    }
   ],
   "similarTo": [
-    "shou-puer",
-    "sheng-puer-aged",
-    "fu-zhuan"
+    "fu-zhuan",
+    "qian-liang",
+    "shou-puer"
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui"
   ],
   "summary": "Guangxi dark tea aged in bamboo: betel-nut, camphor, and a cousin to puer rather than a copy."
 }

@@ -5,28 +5,38 @@
   "translation": "Coiled green tea (guricha)",
   "origin": {
     "country": "Japan",
-    "region": "Kyushu",
+    "regions": [
+      "kagoshima"
+    ],
+    "regionNote": "Kyushu (Saga, Nagasaki, Kumamoto, Miyazaki as well as Kagoshima)",
     "subregion": "Saga, Nagasaki, Kumamoto, Miyazaki"
   },
   "category": "green",
-  "japaneseType": "tamaryokucha",
+  "subtype": "tamaryokucha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita",
     "Saemidori",
     "local Kyushu"
   ],
   "harvest": {
-    "season": "ichibancha",
-    "pluckingStage": "steamed or pan-fired, then rolled into curls not needles"
+    "window": "ichibancha"
   },
+  "pluckStandard": "steamed or pan-fired, then rolled into curls not needles",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Steam or kama-iri",
       "description": "Two families: mushi-sei (steamed) and kama-iri (pan-fired) tamaryokucha."
     },
     {
+      "verb": "roll",
       "step": "Curl",
       "description": "Final roll is a comma-shaped curl, not sencha’s needle — export history toward the continent."
     }
@@ -42,6 +52,7 @@
     "finish": "sweet, sometimes roasted-nut if kamairi"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu",
       "ratio": "1:15",
@@ -59,7 +70,8 @@
           "n": 3,
           "seconds": 45
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -77,16 +89,38 @@
       ]
     }
   },
-  "water": "Soft, 70–80 °C. Kamairi lots can take a little more heat.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "Soft, 70–80 °C. Kamairi lots can take a little more heat."
+  },
   "storage": "Fridge for steamed; pan-fired keeps slightly longer.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "comma-shaped leaf",
-    "Kyushu origin",
-    "stated steamed vs pan-fired"
+    {
+      "claim": "comma-shaped leaf"
+    },
+    {
+      "claim": "Kyushu origin"
+    },
+    {
+      "claim": "stated steamed vs pan-fired"
+    }
   ],
   "commonFaults": [
-    "generic sencha in a curl",
-    "stale fishy steam"
+    {
+      "name": "generic sencha in a curl"
+    },
+    {
+      "name": "stale fishy steam"
+    }
   ],
   "similarTo": [
     "kamairicha",

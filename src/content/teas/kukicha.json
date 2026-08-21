@@ -5,24 +5,33 @@
   "translation": "Stem tea (karigane when from gyokuro/sencha)",
   "origin": {
     "country": "Japan",
-    "region": "Uji / nationwide",
+    "regions": [
+      "uji"
+    ],
+    "regionNote": "nationwide packing from Uji lots and others",
     "subregion": "stems sorted during shiage"
   },
   "category": "green",
-  "japaneseType": "kukicha",
+  "subtype": "kukicha",
+  "variety": "sinensis",
   "cultivar": [
     "depends on parent tea"
   ],
   "harvest": {
-    "season": "same as parent sencha or gyokuro",
-    "pluckingStage": "stems and twigs, karigane if from shaded lots"
+    "window": "same as parent sencha or gyokuro"
   },
+  "pluckStandard": "stems and twigs, karigane if from shaded lots",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "refine",
       "step": "Sort",
-      "description": "Stems sieved out during refinement. Karigane is the shaded, sweeter subset."
+      "description": "Stems sieved out during 仕上げ. Karigane is the shaded, sweeter subset. Not a shade step of its own."
     }
   ],
   "profile": {
@@ -39,6 +48,7 @@
     "finish": "gentle sweetness"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu",
       "ratio": "1:14",
@@ -56,7 +66,8 @@
           "n": 3,
           "seconds": 50
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -74,15 +85,35 @@
       ]
     }
   },
-  "water": "70–80 °C. Karigane can go cooler like gyokuro.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "70–80 °C. Karigane can go cooler like gyokuro."
+  },
   "storage": "Fridge if karigane; pantry if roasted kukicha.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "pale stems, not brown sticks",
-    "sweetness from shaded parents"
+    {
+      "claim": "pale stems, not brown sticks"
+    },
+    {
+      "claim": "sweetness from shaded parents"
+    }
   ],
   "commonFaults": [
-    "woody floor stems",
-    "confusion with roasted twig tea"
+    {
+      "name": "woody floor stems"
+    },
+    {
+      "name": "confusion with roasted twig tea"
+    }
   ],
   "similarTo": [
     "gyokuro",

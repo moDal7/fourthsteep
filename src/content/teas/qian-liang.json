@@ -1,0 +1,179 @@
+{
+  "name": "Qian Liang",
+  "nameNative": "千两茶",
+  "romanization": "Qiānliǎng chá",
+  "translation": "Thousand-tael tea",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "anhua"
+    ],
+    "subregion": "Anhua, Hunan"
+  },
+  "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "sinensis",
+  "cultivar": [
+    "Hunan dark-tea cultivars"
+  ],
+  "harvest": {
+    "window": "summer mature leaf"
+  },
+  "pluckStandard": "coarse leaf steamed and packed into a bamboo log",
+  "oxidation": 18,
+  "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 72,
+    "note": "Anhua hei cha compressed as a 花卷 log. Microbial change in the column, not a light oolong at oxidation 18, and not 渥堆 in the puer sense."
+  },
+  "processing": [
+    {
+      "verb": "kill-green",
+      "step": "Kill-green",
+      "description": "Dark-tea sha qing on Hunan leaf; this is 黑茶 as a class, not a translation problem."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Maocha rolled, then gathered for the log."
+    },
+    {
+      "verb": "press",
+      "step": "Hua juan",
+      "description": "Steamed and packed into bamboo and palm-leaf as 花卷. The “thousand taels” is a traditional size of that column, not a tasting note."
+    },
+    {
+      "verb": "pile-ferment",
+      "step": "Age in the log",
+      "description": "Slow microbial change inside the wrapped column. Related to Anhua hei cha and Fu brick, not a shortcut wo dui."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "bamboo",
+      "dried jujube",
+      "pinewood",
+      "clean cellar"
+    ],
+    "taste": [
+      "mellow dark",
+      "grain-sweet",
+      "gentle camphor"
+    ],
+    "mouthfeel": "thick, low bitterness, built for a long session or a boil",
+    "finish": "sweet wood"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "pot or gaiwan",
+      "ratio": "1:12",
+      "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 10,
+          "notes": "rinse the broken log; the first water is not a cup"
+        }
+      ],
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        },
+        {
+          "n": 5,
+          "seconds": 60
+        },
+        {
+          "n": 6,
+          "seconds": 90
+        }
+      ]
+    },
+    "western": {
+      "grams": 5,
+      "volume": 400,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 240
+        }
+      ]
+    },
+    "decoction": {
+      "when": "after the gongfu session, or as a separate pot",
+      "minutes": [
+        10,
+        25
+      ],
+      "notes": "煮茶 — simmer the spent log. Dark teas can take a boil; this is the extra cup the name 第四泡 points at."
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 100,
+    "note": "Boiling, mineral water is comfortable. A frontier tea built for frontier water."
+  },
+  "storage": "Dry, whole logs or well-wrapped chunks. Damp storage is mould, not “camphor”.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change",
+    "note": "Most teas are food. A few teas are projects."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "bamboo-wrapped log or a clearly cut slice"
+    },
+    {
+      "claim": "sweet grain, not sour"
+    },
+    {
+      "claim": "Anhua pedigree"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "wet-stored sourness"
+    },
+    {
+      "name": "dust sold as “huajuan crumbs”"
+    },
+    {
+      "name": "confused with Fu brick golden flowers"
+    }
+  ],
+  "similarTo": [
+    "fu-zhuan",
+    "liu-bao",
+    "shou-puer"
+  ],
+  "compare": [
+    {
+      "teaId": "fu-zhuan",
+      "differentiator": "Same Anhua dark-tea family. Fu brick is flowered; Qian Liang is the bamboo log. Neither is puer."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui"
+  ],
+  "summary": "Anhua’s bamboo-log dark tea: thousand-tael 花卷, grain-jujube depth, a boil at the end of the session."
+}

@@ -5,11 +5,14 @@
   "translation": "Jade dew",
   "origin": {
     "country": "Japan",
-    "region": "Uji",
+    "regions": [
+      "uji"
+    ],
     "subregion": "also Yame, Okabe"
   },
   "category": "green",
-  "japaneseType": "gyokuro",
+  "subtype": "gyokuro",
+  "variety": "sinensis",
   "cultivar": [
     "Asahi",
     "Gokou",
@@ -17,19 +20,30 @@
     "Saemidori"
   ],
   "harvest": {
-    "season": "late first flush after shading",
-    "pluckingStage": "shaded 20+ days, then steamed and kneaded"
+    "window": "late first flush after shading"
   },
+  "pluckStandard": "shaded 20+ days, then steamed and kneaded",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "shade",
       "step": "Shade",
       "description": "Tana or jikagise covers starve the leaf of light; theanine stays, catechins drop."
     },
     {
-      "step": "Steam and knead",
-      "description": "Finer, more careful rolling than sencha; liquor is broth."
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "蒸青 — the same halt as sencha, finer and cooler."
+    },
+    {
+      "verb": "roll",
+      "step": "Knead",
+      "description": "揉捻 into needles. This is the fork with tencha and matcha, which are never rolled."
     }
   ],
   "profile": {
@@ -47,6 +61,7 @@
     "finish": "marine-sweet, long"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "shiboridashi or small kyusu",
       "ratio": "1:10",
@@ -65,7 +80,8 @@
           "n": 3,
           "seconds": 90
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 5,
@@ -81,24 +97,64 @@
           "seconds": 60
         }
       ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 6,
+      "notes": "氷出し / kōridashi — ice on the leaf, melt, no kettle. A canonical Japanese cold brew, not a leftover trick."
     }
   },
-  "water": "Very soft, 40–60 °C. Preheat the vessel, not the leaf.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 50,
+    "note": "Very soft, 40–60 °C. Preheat the vessel, not the leaf."
+  },
   "storage": "Freezer sealed, then fridge; portion out. Gyokuro oxidises in air.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "named cultivar and garden",
-    "deep umami at low temperature",
-    "dark needle, intense aroma"
+    {
+      "claim": "named cultivar and garden"
+    },
+    {
+      "claim": "deep umami at low temperature"
+    },
+    {
+      "claim": "dark needle, intense aroma"
+    }
   ],
   "commonFaults": [
-    "sencha sold as gyokuro",
-    "hot-water bitterness",
-    "stale fish"
+    {
+      "name": "sencha sold as gyokuro"
+    },
+    {
+      "name": "hot-water bitterness"
+    },
+    {
+      "name": "stale fish"
+    }
   ],
   "similarTo": [
     "kabusecha",
     "matcha",
     "an-ji-bai-cha"
   ],
-  "summary": "Shaded, kneaded “jade dew”: brew cool and thick, almost a soup of theanine."
+  "compare": [
+    {
+      "teaId": "matcha",
+      "differentiator": "Shade and steam are shared. Gyokuro is kneaded; matcha’s parent tencha is not."
+    }
+  ],
+  "summary": "Shaded, kneaded “jade dew”: brew cool and thick, almost a soup of theanine.",
+  "glossaryRefs": [
+    "ichibancha",
+    "mushi"
+  ]
 }

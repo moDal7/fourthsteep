@@ -2,13 +2,17 @@
 import Base from '../layouts/Base.astro';
 import TeaCard from '../components/TeaCard.astro';
 import { getCollection } from 'astro:content';
+import { originLabel, regionMapFromCollection } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 const teas = (await getCollection('teas')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const regionRecords = (await getCollection('regions')).sort(
+  (a, b) => a.data.country.localeCompare(b.data.country) || a.data.name.localeCompare(b.data.name),
+);
+const regionById = regionMapFromCollection(regionRecords);
 const countries = [...new Set(teas.map((t) => t.data.origin.country))].sort();
 const categories = [...new Set(teas.map((t) => t.data.category))].sort();
 const roasts = [...new Set(teas.map((t) => t.data.roast))];
-const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
 ---
 
 <Base title="Atlas · fourthsteep" description="Filter and search the tea collection.">
@@ -16,8 +20,8 @@ const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
     <p class="kicker">Collection</p>
     <h1>Atlas</h1>
     <p class="lede">
-      Forty-five entries, each swatch mixed from its own oxidation, firing, and origin. Filters run client-side over a
-      build-time index; oxidation is printed as a number, never colour alone.
+      {teas.length} entries, each swatch mixed from its own oxidation, firing, and origin. Filters run client-side over a
+      build-time index; oxidation is printed as a number, never colour alone. China, Taiwan, and Japan — not Darjeeling.
     </p>
 
     <form class="filters" data-atlas-filters>
@@ -59,7 +63,7 @@ const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
         Region
         <select name="region">
           <option value="">Any</option>
-          {regions.map((c) => <option value={c}>{c}</option>)}
+          {regionRecords.map((r) => <option value={r.id}>{r.data.name}</option>)}
         </select>
       </label>
     </form>
@@ -78,7 +82,8 @@ const regions = [...new Set(teas.map((t) => t.data.origin.region))].sort();
             name={t.data.name}
             nameNative={t.data.nameNative}
             country={t.data.origin.country}
-            region={t.data.origin.region}
+            region={originLabel(t.data.origin, regionById)}
+            regionIds={t.data.origin.regions.join(',')}
             category={t.data.category}
             oxidation={t.data.oxidation}
             roast={t.data.roast}

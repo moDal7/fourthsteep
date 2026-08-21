@@ -5,11 +5,15 @@
   "translation": "Powdered tea",
   "origin": {
     "country": "Japan",
-    "region": "Uji",
-    "subregion": "also Nishio, Yame"
+    "regions": [
+      "uji"
+    ],
+    "subregion": "also Nishio, Yame",
+    "regionNote": "also Nishio, Yame"
   },
   "category": "green",
-  "japaneseType": "matcha",
+  "subtype": "matcha",
+  "variety": "sinensis",
   "cultivar": [
     "Asahi",
     "Samidori",
@@ -17,19 +21,30 @@
     "blends"
   ],
   "harvest": {
-    "season": "shaded first flush, stone-milled from tencha",
-    "pluckingStage": "same shaded leaf as gyokuro, destemmed and degveined"
+    "window": "shaded first flush, stone-milled from tencha"
   },
+  "pluckStandard": "same shaded leaf as gyokuro, destemmed and deveined",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "shade",
       "step": "Shade and steam",
       "description": "Like gyokuro, then dried without rolling — that unswept leaf is tencha."
     },
     {
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "蒸青, then the leaf is dried as flakes. No 揉捻."
+    },
+    {
+      "verb": "mill",
       "step": "Stone mill",
-      "description": "Tencha ground to matcha. Ceremonial vs culinary is leaf grade plus mill freshness."
+      "description": "Tencha ground to matcha. The term “ceremonial grade” has no legal or industry definition in Japan or anywhere else — it is export marketing. Leaf grade and mill freshness are what you can actually check."
     }
   ],
   "profile": {
@@ -45,52 +60,78 @@
     "finish": "lingering marine-sweet"
   },
   "brewing": {
-    "gongfu": {
-      "vessel": "chawan and chasen",
-      "ratio": "1:35",
-      "waterTemp": 75,
-      "infusions": [
-        {
-          "n": 1,
-          "seconds": 15,
-          "notes": "Usucha: ~2 g / 70 ml, whisk into foam"
-        },
-        {
-          "n": 2,
-          "seconds": 20,
-          "notes": "Koicha: ~4 g / 30 ml, knead slowly, no foam"
-        }
-      ]
-    },
-    "western": {
-      "grams": 2,
-      "volume": 70,
-      "waterTemp": 75,
-      "infusions": [
-        {
-          "n": 1,
-          "seconds": 15,
-          "notes": "Whisk, do not steep and discard"
-        }
-      ]
-    }
+    "kind": "suspension",
+    "variants": [
+      {
+        "label": "Usucha",
+        "nameNative": "薄茶",
+        "romanization": "usucha",
+        "grams": 2,
+        "ml": 70,
+        "tempC": 75,
+        "method": "whisk into foam"
+      },
+      {
+        "label": "Koicha",
+        "nameNative": "濃茶",
+        "romanization": "koicha",
+        "grams": 4,
+        "ml": 30,
+        "tempC": 70,
+        "method": "knead slowly, no foam"
+      }
+    ]
   },
-  "water": "Soft, ~75 °C. Sift the powder. Koicha wants even better leaf than usucha.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "Soft, ~75 °C. Sift the powder. Koicha wants even better leaf than usucha."
+  },
   "storage": "Freezer, then fridge; small tins. Matcha dies in weeks once opened.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "weeks once opened",
+    "note": "Warm the sealed packet to room temperature before opening."
+  },
   "qualityMarkers": [
-    "vivid jade (not olive-brown)",
-    "stone-mill fine, not grit",
-    "umami without fishy stale"
+    {
+      "claim": "vivid jade (not olive-brown)"
+    },
+    {
+      "claim": "stone-mill fine, not grit"
+    },
+    {
+      "claim": "umami without fishy stale"
+    }
   ],
   "commonFaults": [
-    "culinary matcha served as usucha",
-    "bitter over-hot whisk",
-    "oxidised brown powder"
+    {
+      "name": "culinary matcha served as usucha"
+    },
+    {
+      "name": "bitter over-hot whisk"
+    },
+    {
+      "name": "oxidised brown powder"
+    }
   ],
   "similarTo": [
     "tencha",
     "gyokuro",
     "sencha-fukamushi"
+  ],
+  "compare": [
+    {
+      "teaId": "gyokuro",
+      "differentiator": "They share shade and steam. Matcha is never rolled; gyokuro is kneaded. That missing 揉捻 is the whole distinction."
+    },
+    {
+      "teaId": "tencha",
+      "differentiator": "Tencha is the unswept leaf. Matcha is that leaf put through a stone mill."
+    }
   ],
   "summary": "Stone-milled shaded tencha: usucha froth and koicha paste are two ratios of the same powder."
 }

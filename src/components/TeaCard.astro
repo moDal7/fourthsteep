@@ -8,6 +8,7 @@ interface Props {
   nameNative: string;
   country: string;
   region: string;
+  regionIds?: string;
   category: string;
   oxidation: number;
   roast: string;
@@ -30,7 +31,7 @@ const roastLabel = tea.roast === 'none' ? 'unroasted' : `${tea.roast} roast`;
   data-tea-card
   data-search={search}
   data-country={tea.country}
-  data-region={tea.region}
+  data-region={tea.regionIds || tea.region}
   data-category={tea.category}
   data-roast={tea.roast}
   data-oxidation={String(tea.oxidation)}

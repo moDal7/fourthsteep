@@ -5,25 +5,40 @@
   "translation": "Golden Steed Eyebrow",
   "origin": {
     "country": "China",
-    "region": "Wuyi",
+    "regions": [
+      "wuyi"
+    ],
     "subregion": "Tongmu"
   },
   "category": "black",
+  "categoryNote": "English black tea is 红茶, named for the liquor. Chinese 黑茶 is the post-fermented class this atlas files as dark.",
+  "variety": "sinensis",
   "cultivar": [
     "Qi Zhong"
   ],
   "harvest": {
-    "season": "early spring",
-    "pluckingStage": "buds only, golden after make"
+    "window": "early spring"
   },
+  "pluckStandard": "buds only, golden after make",
   "oxidation": 90,
   "roast": "light",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 90
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Bud pluck",
       "description": "A 21st-century Tongmu style using only buds, not smoked like traditional Xiao Zhong."
     },
     {
+      "verb": "wither",
+      "step": "Wither",
+      "description": "Orthodox wither on buds."
+    },
+    {
+      "verb": "oxidise",
       "step": "Oxidise and dry",
       "description": "Honey-gold buds, light drying, no pine smoke."
     }
@@ -44,6 +59,7 @@
     "finish": "long honey"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:20",
@@ -87,21 +103,51 @@
       ]
     }
   },
-  "water": "90 °C, not rolling boil, to keep honey without stewed notes.",
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 90,
+    "note": "90 °C, not rolling boil, to keep honey without stewed notes."
+  },
   "storage": "Airtight, cool. Bud blacks stale into cardboard.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "years in an airtight tin",
+    "note": "Stable, not a project."
+  },
   "qualityMarkers": [
-    "golden buds, little black leaf",
-    "Tongmu",
-    "honey not sugar-syrup"
+    {
+      "claim": "orthodox leaf, not CTC",
+      "test": "whole twisted leaf you can unfurl; grains from a cutter are a different tea"
+    },
+    {
+      "claim": "golden buds, little black leaf"
+    },
+    {
+      "claim": "Tongmu"
+    },
+    {
+      "claim": "honey not sugar-syrup"
+    }
   ],
   "commonFaults": [
-    "dyed fakes",
-    "non-Tongmu golden blacks at “JJM” prices"
+    {
+      "name": "dyed fakes"
+    },
+    {
+      "name": "non-Tongmu golden blacks at “JJM” prices"
+    }
   ],
   "similarTo": [
     "zheng-shan-xiao-zhong",
     "dian-hong",
     "dong-fang-mei-ren"
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
   ],
   "summary": "Tongmu bud black: honey-gold, unsmoked, a modern luxury sibling of Zheng Shan Xiao Zhong."
 }

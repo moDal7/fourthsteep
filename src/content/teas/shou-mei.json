@@ -5,26 +5,35 @@
   "translation": "Longevity Eyebrow",
   "origin": {
     "country": "China",
-    "region": "Fuding",
+    "regions": [
+      "fujian"
+    ],
     "subregion": "Fujian"
   },
   "category": "white",
+  "variety": "sinensis",
   "cultivar": [
     "Da Bai",
     "Qunti"
   ],
   "harvest": {
-    "season": "late spring and autumn",
-    "pluckingStage": "more leaf than bud, later pluck"
+    "window": "late spring and autumn"
   },
+  "pluckStandard": "more leaf than bud, later pluck",
   "oxidation": 18,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 18
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Later, coarser leaf than Bai Mu Dan."
     },
     {
+      "verb": "wither",
       "step": "Wither and dry",
       "description": "Same white-tea path; often pressed into cakes for aging."
     }
@@ -45,6 +54,7 @@
     "finish": "warming, good for aged cake brewing"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "clay pot or gaiwan",
       "ratio": "1:15",
@@ -97,22 +107,47 @@
       "hours": 10
     }
   },
-  "water": "Can take mineral water and near-boiling when aged.",
+  "water": {
+    "tdsPpm": [
+      30,
+      100
+    ],
+    "tempC": 95,
+    "note": "Can take mineral water and near-boiling when aged."
+  },
   "storage": "The white tea most often aged; cakes breathe slowly in a dry-cabinet.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "cakes breathe if ageing is the point",
+    "note": "Sealed if drinking fresh, breathable if ageing. Both are legitimate and they are different intentions."
+  },
   "qualityMarkers": [
-    "clean herb-jujube, not compost",
-    "whole leaf in cakes",
-    "red-amber aged liquor"
+    {
+      "claim": "clean herb-jujube, not compost"
+    },
+    {
+      "claim": "whole leaf in cakes"
+    },
+    {
+      "claim": "red-amber aged liquor"
+    }
   ],
   "commonFaults": [
-    "wet-stored sourness",
-    "dirt-cheap broken leaf",
-    "smoke"
+    {
+      "name": "wet-stored sourness"
+    },
+    {
+      "name": "dirt-cheap broken leaf"
+    },
+    {
+      "name": "smoke"
+    }
   ],
   "similarTo": [
-    "bai-mu-dan",
-    "sheng-puer-aged",
-    "liu-bao"
+    "gong-mei",
+    "shou-mei-aged",
+    "bai-mu-dan"
   ],
-  "summary": "The rustic white: later leaf, date-and-herb depth, and the usual candidate for aging into cakes."
+  "summary": "The rustic white: later leaf, date-and-herb depth, and the usual candidate for aging into cakes.",
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green."
 }

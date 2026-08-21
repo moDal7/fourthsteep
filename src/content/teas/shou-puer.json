@@ -5,29 +5,46 @@
   "translation": "Ripe puer",
   "origin": {
     "country": "China",
-    "region": "Yunnan",
+    "regions": [
+      "yunnan"
+    ],
     "subregion": "fermented in factories across the province"
   },
   "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "assamica",
   "cultivar": [
     "Yunnan large-leaf / assamica"
   ],
   "harvest": {
-    "season": "various maocha blended",
-    "pluckingStage": "wo dui pile-fermented after sun-dry"
+    "window": "various maocha blended"
   },
+  "pluckStandard": "wo dui pile-fermented after sun-dry",
   "oxidation": 15,
   "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 85,
+    "note": "渥堆 — a wet microbial pile. One of the most transformed teas in the atlas, whatever the oxidation scalar says."
+  },
   "processing": [
     {
-      "step": "Maocha",
-      "description": "Sun-dried large-leaf as for sheng."
+      "verb": "kill-green",
+      "step": "Kill-green",
+      "description": "Same sha qing as sheng. The fork has not happened yet."
     },
     {
+      "verb": "dry",
+      "step": "Sun dry",
+      "description": "Maocha, 晒青, as for sheng."
+    },
+    {
+      "verb": "pile-ferment",
       "step": "Wo dui",
-      "description": "Piled, watered, and turned for weeks — accelerated fermentation invented in the 1970s."
+      "description": "Piled, watered, and turned for weeks — accelerated fermentation invented in the 1970s. This is the hatch on the chart."
     },
     {
+      "verb": "press",
       "step": "Press",
       "description": "Cakes or loose ripe puer."
     }
@@ -48,38 +65,40 @@
     "finish": "sweet, grounding"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing or gaiwan",
       "ratio": "1:12",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 10,
+          "notes": "rinse is almost mandatory on young shou"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 10,
-          "notes": "rinse is almost mandatory on young shou"
-        },
-        {
-          "n": 2,
           "seconds": 8
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 12
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 18
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 25
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 40
         },
         {
-          "n": 7,
+          "n": 6,
           "seconds": 60
         }
       ]
@@ -104,24 +123,69 @@
       "volume": 500,
       "hours": 10,
       "notes": "Surprisingly chocolatey cold."
+    },
+    "decoction": {
+      "when": "after the gongfu session, or as a separate pot",
+      "minutes": [
+        8,
+        20
+      ],
+      "notes": "煮茶 — simmer the spent leaf. Dark teas can take a boil; this is the extra cup the name 第四泡 points at."
     }
   },
-  "water": "Boiling. Shou can handle high leaf and many steeps.",
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 100,
+    "note": "Boiling. Shou can handle high leaf and many steeps."
+  },
   "storage": "Air a new shou a few weeks if it smells like fish or pond; then airtight-ish, dry.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change",
+    "note": "Most teas are food. A few teas are projects."
+  },
   "qualityMarkers": [
-    "clean earth-cocoa, not fishy",
-    "rested after wo dui",
-    "red-brown clear liquor"
+    {
+      "claim": "clean earth-cocoa, not fishy"
+    },
+    {
+      "claim": "rested after wo dui"
+    },
+    {
+      "claim": "red-brown clear liquor"
+    }
   ],
   "commonFaults": [
-    "wo dui fishiness",
-    "muddy liquor",
-    "carbon-black over-fermentation"
+    {
+      "name": "wo dui fishiness"
+    },
+    {
+      "name": "muddy liquor"
+    },
+    {
+      "name": "carbon-black over-fermentation"
+    }
   ],
   "similarTo": [
     "liu-bao",
     "fu-zhuan",
     "dian-hong"
   ],
-  "summary": "Pile-fermented “ripe” puer: date, cocoa, and thickness without a decade of waiting."
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui",
+    "shai-qing",
+    "maocha"
+  ],
+  "summary": "Pile-fermented “ripe” puer: date, cocoa, and thickness without a decade of waiting.",
+  "compare": [
+    {
+      "teaId": "sheng-puer-young",
+      "differentiator": "Same sun-dried leaf until 渥堆. Sheng skipped the pile."
+    }
+  ]
 }

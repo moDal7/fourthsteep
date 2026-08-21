@@ -1,18 +1,55 @@
 ---
+interface Variant {
+  label: string;
+  nameNative?: string;
+  grams: number;
+  ml: number;
+  tempC?: number;
+  method?: string;
+}
+
 interface Props {
   ratio: number;
   seedMl?: number;
+  caption?: string;
+  variants?: Variant[];
 }
 
-const { ratio, seedMl = 120 } = Astro.props;
+const { ratio, seedMl = 120, caption, variants = [] } = Astro.props;
 const seedG = (seedMl / ratio).toFixed(1);
 ---
 
-<section class="island" data-ratio-calc data-ratio={String(ratio)} aria-label="Leaf ratio calculator">
+<section
+  class="island"
+  data-ratio-calc
+  data-ratio={String(ratio)}
+  aria-label="Leaf ratio calculator"
+>
   <div>
     <h2>Ratio calculator</h2>
-    <p class="meta">Seeded from this tea’s gongfu ratio of 1:{ratio} — millilitres per gram.</p>
+    <p class="meta" data-caption>
+      {caption ?? `Seeded from this tea’s gongfu ratio of 1:${ratio} — millilitres per gram.`}
+    </p>
   </div>
+  {
+    variants.length > 0 && (
+      <div class="cluster variant-switch" data-variants>
+        {variants.map((v, i) => (
+          <button
+            class="chip"
+            type="button"
+            data-variant
+            data-grams={String(v.grams)}
+            data-ml={String(v.ml)}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {v.label}
+            {v.nameNative ? ` · ${v.nameNative}` : ''}
+          </button>
+        ))}
+      </div>
+    )
+  }
   <div class="ratio-fields">
     <label class="field">
       Vessel (ml)

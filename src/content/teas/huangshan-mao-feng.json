@@ -5,34 +5,45 @@
   "translation": "Yellow Mountain Fur Peak",
   "origin": {
     "country": "China",
-    "region": "Huangshan",
+    "regions": [
+      "huangshan"
+    ],
     "subregion": "Anhui"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Huangshan local",
     "Shi Feng"
   ],
   "harvest": {
-    "season": "Qing Ming through Guyu",
-    "pluckingStage": "plump bud with one or two leaves, visible pekoe"
+    "window": "Qing Ming through Guyu"
   },
+  "pluckStandard": "plump bud with one or two leaves, visible pekoe",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "High-mountain spring flush from misty Yellow Mountain gardens."
     },
     {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Pan-fired to a lighter toast than Long Jing, preserving floral-orchard notes."
     },
     {
+      "verb": "roll",
       "step": "Shaping",
       "description": "Slightly twisted, not flattened; buds keep their “peak” silhouette."
     },
     {
+      "verb": "roast",
       "step": "Bake-dry",
       "description": "Gentle charcoal or electric dry."
     }
@@ -52,6 +63,7 @@
     "finish": "clean mountain-water finish"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:20",
@@ -100,17 +112,40 @@
       "hours": 6
     }
   },
-  "water": "Soft to lightly mineral. A touch of calcium can sharpen the mountain finish.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "Soft to lightly mineral. A touch of calcium can sharpen the mountain finish."
+  },
   "storage": "Airtight, cool, dark. Best within the harvest year.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "intact furred buds",
-    "uniform olive-green",
-    "orchid aroma without smoke"
+    {
+      "claim": "intact furred buds"
+    },
+    {
+      "claim": "uniform olive-green"
+    },
+    {
+      "claim": "orchid aroma without smoke"
+    }
   ],
   "commonFaults": [
-    "broken fannings",
-    "stale hay",
-    "over-fired toast"
+    {
+      "name": "broken fannings"
+    },
+    {
+      "name": "stale hay"
+    },
+    {
+      "name": "over-fired toast"
+    }
   ],
   "similarTo": [
     "tai-ping-hou-kui",

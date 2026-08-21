@@ -1,19 +1,18 @@
 ---
-interface Infusion {
-  n: number;
+interface Step {
+  kind?: 'rinse' | 'steep';
+  n?: number;
   seconds: number;
   notes?: string;
 }
 
 interface Props {
-  infusions: Infusion[];
+  steps: Step[];
   caption: string;
 }
 
-const { infusions, caption } = Astro.props;
-// Bars are drawn against the longest steep in this schedule, so the shape of
-// the ramp is readable without doing the arithmetic.
-const longest = Math.max(...infusions.map((i) => i.seconds), 1);
+const { steps, caption } = Astro.props;
+const longest = Math.max(...steps.map((i) => i.seconds), 1);
 const format = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${s % 60 ? `${s % 60}s` : ''}`.trim() : `${s}s`);
 ---
 
@@ -29,9 +28,9 @@ const format = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${s % 60 ? `${s
     </thead>
     <tbody>
       {
-        infusions.map((row) => (
-          <tr>
-            <td class="num">{row.n}</td>
+        steps.map((row) => (
+          <tr class={row.kind === 'rinse' ? 'is-rinse' : undefined}>
+            <td class="num">{row.kind === 'rinse' ? 'rinse' : row.n}</td>
             <td>
               <span class="steep-cell">
                 <span class="steep-bar" aria-hidden="true">
@@ -40,7 +39,7 @@ const format = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${s % 60 ? `${s
                 <span class="num">{format(row.seconds)}</span>
               </span>
             </td>
-            <td>{row.notes ?? '—'}</td>
+            <td>{row.kind === 'rinse' ? `${row.notes ?? 'Discard'}` : (row.notes ?? '—')}</td>
           </tr>
         ))
       }

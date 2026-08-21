@@ -1,0 +1,164 @@
+{
+  "name": "Gong Mei",
+  "nameNative": "贡眉",
+  "romanization": "Gòngméi",
+  "translation": "Tribute eyebrow",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "fujian"
+    ],
+    "regionNote": "Fuding and Zhenghe; traditionally 菜茶 / small-leaf, not Da Bai",
+    "subregion": "Fuding / Zhenghe"
+  },
+  "category": "white",
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green.",
+  "variety": "sinensis",
+  "cultivar": [
+    "Cai Cha",
+    "Xiao Bai"
+  ],
+  "harvest": {
+    "window": "spring, later than Yin Zhen"
+  },
+  "pluckStandard": "bud and leaf from small-leaf bushes; not the Da Bai ladder",
+  "oxidation": 14,
+  "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 14
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Pluck",
+      "description": "Traditionally 菜茶 / 小白, not Fuding Da Bai. The market often files Gong Mei as a prettier name for Shou Mei; the older distinction is the bush."
+    },
+    {
+      "verb": "wither",
+      "step": "Wither",
+      "description": "The white-tea process: long wither, weather-dependent, no kill-green."
+    },
+    {
+      "verb": "dry",
+      "step": "Dry",
+      "description": "Sun and/or indoor dry. May be packed loose or pressed."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "dried herb",
+      "hay",
+      "light jujube",
+      "white flower"
+    ],
+    "taste": [
+      "mild date",
+      "husky tea",
+      "soft tannin"
+    ],
+    "mouthfeel": "between Bai Mu Dan’s silk and Shou Mei’s rusticity",
+    "finish": "warming, clean"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "gaiwan or pot",
+      "ratio": "1:16",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 8
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      30,
+      100
+    ],
+    "tempC": 90,
+    "note": "Medium-soft. Can take a little more heat than Yin Zhen."
+  },
+  "storage": "Dry and odour-free. Ages, but less often pressed than Shou Mei.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "cakes breathe if ageing is the point",
+    "note": "Sealed if drinking fresh, breathable if ageing. Both are legitimate and they are different intentions."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "small-leaf / 菜茶 named, not just “white tea grade 3”"
+    },
+    {
+      "claim": "herb-hay, not compost"
+    },
+    {
+      "claim": "Fuding or Zhenghe"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "Da Bai Shou Mei relabelled Gong Mei",
+      "cause": "market conflation",
+      "tell": "fat Da Bai buds and a Shou Mei price"
+    },
+    {
+      "name": "wet-stored sourness"
+    }
+  ],
+  "similarTo": [
+    "shou-mei",
+    "bai-mu-dan",
+    "bai-hao-yin-zhen"
+  ],
+  "compare": [
+    {
+      "teaId": "shou-mei",
+      "differentiator": "Shou Mei is later Da Bai leaf. Gong Mei, in the older sense, is a different bush. Bags that use the names interchangeably are telling you the market, not the garden."
+    }
+  ],
+  "glossaryRefs": [
+    "qunti-zhong",
+    "ye-di"
+  ],
+  "summary": "The white-tea eyebrow that is supposed to be small-leaf 菜茶, sitting between White Peony and Shou Mei — when the name is honest."
+}

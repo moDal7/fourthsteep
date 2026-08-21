@@ -5,29 +5,40 @@
   "translation": "Yunnan Black",
   "origin": {
     "country": "China",
-    "region": "Yunnan",
+    "regions": [
+      "yunnan"
+    ],
     "subregion": "Fengqing, Lincang, and others"
   },
   "category": "black",
+  "categoryNote": "English black tea is 红茶, named for the liquor. Chinese 黑茶 is the post-fermented class this atlas files as dark.",
+  "variety": "assamica",
   "cultivar": [
     "Assamica / Yunnan Daye"
   ],
   "harvest": {
-    "season": "spring golden-bud lots; summer more robust",
-    "pluckingStage": "buds and leaf, often golden-tipped"
+    "window": "spring golden-bud lots; summer more robust"
   },
+  "pluckStandard": "buds and leaf, often golden-tipped",
   "oxidation": 100,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 100
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither and roll",
       "description": "Large-leaf assamica handled as black tea."
     },
     {
+      "verb": "oxidise",
       "step": "Oxidise",
       "description": "Full oxidation to malt, cocoa and sweet potato."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Clean dry; golden pekoe grades show the tips."
     }
@@ -48,6 +59,7 @@
     "finish": "sweet, warming"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or pot",
       "ratio": "1:18",
@@ -96,23 +108,57 @@
       "hours": 8
     }
   },
-  "water": "Boiling is comfortable. Golden-bud Dian Hong can go a few degrees cooler.",
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 95,
+    "note": "Boiling is comfortable. Golden-bud Dian Hong can go a few degrees cooler."
+  },
   "storage": "Airtight. Large-leaf blacks are sturdy.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "years in an airtight tin",
+    "note": "Stable, not a project."
+  },
   "qualityMarkers": [
-    "golden tips",
-    "sweet-potato malt",
-    "Yunnan large-leaf",
-    "not smoky"
+    {
+      "claim": "orthodox leaf, not CTC",
+      "test": "whole twisted leaf you can unfurl; grains from a cutter are a different tea"
+    },
+    {
+      "claim": "golden tips"
+    },
+    {
+      "claim": "sweet-potato malt"
+    },
+    {
+      "claim": "Yunnan large-leaf"
+    },
+    {
+      "claim": "not smoky"
+    }
   ],
   "commonFaults": [
-    "dusty broken leaf",
-    "overstewed bitterness",
-    "confused with Dian Hong golden-tips flavoured blends"
+    {
+      "name": "dusty broken leaf"
+    },
+    {
+      "name": "overstewed bitterness"
+    },
+    {
+      "name": "confused with Dian Hong golden-tips flavoured blends"
+    }
   ],
   "similarTo": [
     "qimen",
-    "jin-jun-mei",
-    "shou-puer"
+    "ruby-18",
+    "jin-jun-mei"
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
   ],
   "summary": "Yunnan large-leaf black: malt, cocoa, sweet potato, often gold-tipped."
 }

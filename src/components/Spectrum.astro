@@ -1,5 +1,5 @@
 ---
-import { liquorStyle } from '../lib/atlas.js';
+import { liquorStyle, transformationIndex, transformationKind } from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 interface Props {
@@ -11,11 +11,18 @@ interface Props {
 const { teas, anchors = [] } = Astro.props;
 const ordered = teas
   .slice()
-  .sort((a, b) => a.data.oxidation - b.data.oxidation || a.data.name.localeCompare(b.data.name));
+  .sort(
+    (a, b) =>
+      transformationIndex(a.data) - transformationIndex(b.data) || a.data.name.localeCompare(b.data.name),
+  );
 
-// Bars flex evenly, so an anchor label's position is its bar's fraction of
-// the strip. Labels near either edge are pinned flush instead of centred,
-// so they cannot hang off the page.
+const kindLabel = {
+  none: 'untransformed',
+  enzymatic: 'enzymatic oxidation',
+  microbial: 'microbial',
+  roast: 'roast',
+};
+
 const anchorLabels = ordered
   .map((tea, i) => ({ tea, x: ((i + 0.5) / ordered.length) * 100 }))
   .filter(({ tea }) => anchors.includes(tea.id))
@@ -28,27 +35,38 @@ const anchorLabels = ordered
 
 <section class="spectrum" aria-labelledby="spectrum-title">
   <div class="section-head">
-    <h2 id="spectrum-title">The whole atlas, by oxidation</h2>
-    <p class="meta">Bar height is oxidation; colour is the cup it pours</p>
+    <h2 id="spectrum-title">The whole atlas, by transformation</h2>
+    <p class="meta">
+      Bar height is a transformation index, not one process. Hatch is microbial; dots are roast. Colour is still the
+      cup — mixed from enzymatic oxidation, firing, and origin.
+    </p>
   </div>
 
   <ol class="spectrum-strip" data-spectrum>
     {
-      ordered.map((tea, i) => (
-        <li style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}>
-          <a href={withBase(`/tea/${tea.id}`)}>
-            <span class="spectrum-tick" style={`--h: ${28 + tea.data.oxidation * 0.72}%`} />
-            <span class="sr-only">{tea.data.name}</span>
-          </a>
-          <span class="spectrum-read" aria-hidden="true">
-            <b>{tea.data.name}</b>
-            <span class="native">{tea.data.nameNative}</span>
-            <span class="meta">
-              {tea.data.origin.country} · oxidation {tea.data.oxidation}
+      ordered.map((tea, i) => {
+        const kind = transformationKind(tea.data);
+        const index = transformationIndex(tea.data);
+        return (
+          <li
+            class={kind === 'microbial' ? 'is-microbial' : kind === 'roast' ? 'is-roast' : undefined}
+            style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}
+          >
+            <a href={withBase(`/tea/${tea.id}`)}>
+              <span class={`spectrum-tick kind-${kind}`} style={`--h: ${28 + index * 0.72}%`} />
+              <span class="sr-only">{tea.data.name}</span>
+            </a>
+            <span class="spectrum-read" aria-hidden="true">
+              <b>{tea.data.name}</b>
+              <span class="native">{tea.data.nameNative}</span>
+              <span class="meta">
+                {tea.data.origin.country} · {kindLabel[kind]} {index}
+                {kind !== 'enzymatic' && kind !== 'none' ? ` · oxidation ${tea.data.oxidation}` : ''}
+              </span>
             </span>
-          </span>
-        </li>
-      ))
+          </li>
+        );
+      })
     }
   </ol>
 
@@ -65,16 +83,18 @@ const anchorLabels = ordered
   }
 
   <p class="spectrum-axis">
-    <span>0 — unoxidised</span>
+    <span>0 — none</span>
+    <span class="spectrum-legend">
+      <i class="legend-swatch legend-microbial" aria-hidden="true" /> microbial
+      <i class="legend-swatch legend-roast" aria-hidden="true" /> roast
+    </span>
     <span class="spectrum-hint spectrum-hint--fine">Hover a bar for the tea</span>
     <span class="spectrum-hint spectrum-hint--coarse">Tap a bar to name it; tap again to open</span>
-    <span>100 — fully oxidised</span>
+    <span>100 — fully transformed</span>
   </p>
 </section>
 
 <script>
-  // Touch has no hover, so the strip speaks in two taps: the first names the
-  // bar (the same readout hover shows), the second follows the link.
   const strip = document.querySelector('[data-spectrum]');
   if (strip && window.matchMedia('(pointer: coarse)').matches) {
     strip.addEventListener('click', (event) => {

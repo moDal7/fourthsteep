@@ -5,30 +5,41 @@
   "translation": "Lapsang from the True Mountain",
   "origin": {
     "country": "China",
-    "region": "Wuyi",
+    "regions": [
+      "wuyi"
+    ],
     "subregion": "Tongmu, Fujian"
   },
   "category": "black",
+  "categoryNote": "English black tea is 红茶, named for the liquor. Chinese 黑茶 is the post-fermented class this atlas files as dark.",
+  "variety": "sinensis",
   "cultivar": [
     "Qi Zhong",
     "local Xiao Zhong"
   ],
   "harvest": {
-    "season": "spring",
-    "pluckingStage": "small-leaf Tongmu bushes"
+    "window": "spring"
   },
+  "pluckStandard": "small-leaf Tongmu bushes",
   "oxidation": 95,
   "roast": "heavy",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 95
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither",
       "description": "Indoor wither in smoke-scented rooms for traditional lots."
     },
     {
+      "verb": "oxidise",
       "step": "Oxidise",
       "description": "Full black-tea oxidation."
     },
     {
+      "verb": "roast",
       "step": "Pine smoke dry",
       "description": "Traditional Tongmu drying over Chinese red pine; unsmoked Zheng Shan also exists."
     }
@@ -49,6 +60,7 @@
     "finish": "longan-sweet, pine on traditional lots"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or pot",
       "ratio": "1:18",
@@ -92,22 +104,66 @@
       ]
     }
   },
-  "water": "Boiling is fine. Smoke-forward lots can take a pot.",
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 95,
+    "note": "Boiling is fine. Smoke-forward lots can take a pot."
+  },
   "storage": "Airtight; smoke will colonise nearby teas.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "years in an airtight tin",
+    "note": "Stable, not a project."
+  },
   "qualityMarkers": [
-    "Tongmu origin",
-    "longan sweetness under smoke",
-    "not tarry cheap lapsang"
+    {
+      "claim": "orthodox leaf, not CTC",
+      "test": "whole twisted leaf you can unfurl; grains from a cutter are a different tea"
+    },
+    {
+      "claim": "Tongmu origin"
+    },
+    {
+      "claim": "longan sweetness under smoke"
+    },
+    {
+      "claim": "not tarry cheap lapsang"
+    }
   ],
   "commonFaults": [
-    "industrial tar smoke",
-    "non-Tongmu “lapsang”",
-    "thin sour black"
+    {
+      "name": "industrial tar smoke"
+    },
+    {
+      "name": "non-Tongmu “lapsang”"
+    },
+    {
+      "name": "thin sour black"
+    }
   ],
   "similarTo": [
     "jin-jun-mei",
     "qimen",
     "da-hong-pao"
+  ],
+  "variants": [
+    {
+      "label": "Smoked",
+      "nameNative": "正山小种",
+      "differentiator": "Traditional Tongmu drying over Chinese red pine. Smoke is a process, not a flavour oil."
+    },
+    {
+      "label": "Unsmoked",
+      "nameNative": "烟熏以外",
+      "differentiator": "Same small-leaf Tongmu oxidised black, no pine. Still Zheng Shan; Lapsang is the export name, not a guarantee of smoke."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
   ],
   "summary": "Tongmu black tea, ancestor of Lapsang: pine-dried or clean, always with dried-longan sweetness."
 }

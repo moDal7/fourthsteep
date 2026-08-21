@@ -1,0 +1,178 @@
+{
+  "name": "Aged Shou Mei",
+  "nameNative": "老寿眉",
+  "romanization": "Lǎo shòuméi",
+  "translation": "Aged longevity eyebrow",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "fujian"
+    ],
+    "subregion": "Fuding leaf, stored dry"
+  },
+  "category": "white",
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green. Ageing is time on that withered leaf, not a pile.",
+  "variety": "sinensis",
+  "cultivar": [
+    "Da Bai",
+    "Qunti"
+  ],
+  "harvest": {
+    "window": "originally late spring or autumn leaf, then years"
+  },
+  "pluckStandard": "later leaf, usually pressed, then stored dry for years",
+  "oxidation": 28,
+  "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 40,
+    "note": "Slow change in a dry cake. Not 渥堆. The darker cup is time on a white tea, which is why this bar is taller than young Shou Mei and not hatched as microbial."
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Same make as Shou Mei",
+      "description": "Later leaf, long wither, dry. The extra process is storage."
+    },
+    {
+      "verb": "wither",
+      "step": "Wither and dry",
+      "description": "White-tea path; often pressed so the cake can be kept as a project."
+    },
+    {
+      "verb": "other",
+      "step": "Dry storage",
+      "description": "Years in a dry cabinet. Damp cupboards are mould. The storage guide’s line applies: most teas are food; this one is a project."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "jujube",
+      "herb medicine cabinet",
+      "dried longan",
+      "paper"
+    ],
+    "taste": [
+      "date",
+      "gentle spice",
+      "husky sweetness"
+    ],
+    "mouthfeel": "thicker, red-amber, low bitterness if stored dry",
+    "finish": "warming, long"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "clay pot or gaiwan",
+      "ratio": "1:14",
+      "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 8,
+          "notes": "optional rinse on a pressed cake; the drinking curve starts after"
+        }
+      ],
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        },
+        {
+          "n": 6,
+          "seconds": 100
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 300,
+      "waterTemp": 100,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 240
+        },
+        {
+          "n": 2,
+          "seconds": 300
+        }
+      ]
+    },
+    "decoction": {
+      "when": "after the session, or as a separate pot of the last leaves",
+      "minutes": [
+        8,
+        20
+      ],
+      "notes": "煮茶 — aged white will take a simmer. Young Yin Zhen will not thank you for this."
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 100,
+    "note": "Boiling, with some mineral. The cake has already done the delicate years."
+  },
+  "storage": "Keep dry. This is already the project; wet-stored sourness is not “aged character”.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change if actually dry",
+    "note": "Most teas are food. A few teas are projects."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "red-amber liquor, not black soup"
+    },
+    {
+      "claim": "jujube-sweet, not compost"
+    },
+    {
+      "claim": "harvest year and storage story that match"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "wet-stored sourness sold as age"
+    },
+    {
+      "name": "young Shou Mei at aged prices"
+    },
+    {
+      "name": "smoke from careless drying"
+    }
+  ],
+  "similarTo": [
+    "shou-mei",
+    "sheng-puer-aged",
+    "liu-bao"
+  ],
+  "compare": [
+    {
+      "teaId": "shou-mei",
+      "differentiator": "Same wither-only make. Age is the second process. Young Shou Mei is herb-hay; this is date and amber."
+    }
+  ],
+  "glossaryRefs": [
+    "ye-di",
+    "hui-gan"
+  ],
+  "summary": "Shou Mei after the years: a dry-stored white cake that drinks as dates and amber, still not a pile-fermented dark tea."
+}

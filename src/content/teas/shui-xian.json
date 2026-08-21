@@ -5,25 +5,34 @@
   "translation": "Narcissus",
   "origin": {
     "country": "China",
-    "region": "Wuyi",
+    "regions": [
+      "wuyi"
+    ],
     "subregion": "old-bush cliff gardens"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Shui Xian"
   ],
   "harvest": {
-    "season": "May",
-    "pluckingStage": "open leaf from often ancient bushes"
+    "window": "May"
   },
+  "pluckStandard": "open leaf from often ancient bushes",
   "oxidation": 42,
   "roast": "charcoal",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 42
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither",
       "description": "Slightly deeper oxidation than light TGY, less spicy than Rou Gui."
     },
     {
+      "verb": "roast",
       "step": "Twist and roast",
       "description": "Charcoal layers over a naturally woody, floral cultivar."
     }
@@ -44,37 +53,40 @@
     "finish": "long, less spicy than Rou Gui"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing",
       "ratio": "1:16",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 12,
+          "notes": "quick rinse to open the twist"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 12
-        },
-        {
-          "n": 2,
           "seconds": 10
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 15
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 25
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 40
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 60
         },
         {
-          "n": 7,
+          "n": 6,
           "seconds": 90
         }
       ]
@@ -91,22 +103,46 @@
       ]
     }
   },
-  "water": "Boiling mineral water. Old-bush Shui Xian wants a clay pot.",
+  "water": {
+    "tdsPpm": [
+      50,
+      150
+    ],
+    "tempC": 100,
+    "note": "Boiling mineral water. Old-bush Shui Xian wants a clay pot."
+  },
   "storage": "Airtight. Lao cong lots rest well for a year after roast.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast",
+    "note": "Some are deliberately re-roasted every few years."
+  },
   "qualityMarkers": [
-    "lao cong (old bush) stated",
-    "floral under the roast",
-    "thick liquor"
+    {
+      "claim": "lao cong (old bush) stated"
+    },
+    {
+      "claim": "floral under the roast"
+    },
+    {
+      "claim": "thick liquor"
+    }
   ],
   "commonFaults": [
-    "anonymous cheap Shui Xian",
-    "ashy roast",
-    "thin young-bush lots sold as lao cong"
+    {
+      "name": "anonymous cheap Shui Xian"
+    },
+    {
+      "name": "ashy roast"
+    },
+    {
+      "name": "thin young-bush lots sold as lao cong"
+    }
   ],
   "similarTo": [
-    "da-hong-pao",
     "rou-gui",
-    "dong-ding"
+    "da-hong-pao",
+    "zhang-ping-shui-xian"
   ],
   "summary": "Narcissus yancha, often from old bushes: cedar-plum breadth under charcoal."
 }

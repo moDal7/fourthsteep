@@ -5,32 +5,47 @@
   "translation": "Mount Ali",
   "origin": {
     "country": "Taiwan",
-    "region": "Alishan",
+    "regions": [
+      "alishan"
+    ],
     "subregion": "Chiayi County"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Qing Xin",
     "Jinxuan"
   ],
   "harvest": {
-    "season": "spring and winter",
-    "pluckingStage": "high-mountain open leaf"
+    "window": "spring and winter"
   },
+  "pluckStandard": "high-mountain open leaf",
   "oxidation": 22,
   "roast": "light",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 22
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "High-elevation wither",
       "description": "Cool nights concentrate amino acids and floral oils."
     },
     {
-      "step": "Light oxidation",
-      "description": "Greener than Dong Ding, still oolong."
+      "verb": "shake",
+      "step": "Light shake",
+      "description": "Greener than Dong Ding, still an oolong because of 摇青, not because of a percentage."
     },
     {
-      "step": "Ball roll and light roast",
-      "description": "Mostly a drying roast to preserve gardenia-cream."
+      "verb": "roll",
+      "step": "Ball roll",
+      "description": "Tight jade beads."
+    },
+    {
+      "verb": "roast",
+      "step": "Light roast",
+      "description": "A drying roast, not Dong Ding charcoal."
     }
   ],
   "profile": {
@@ -48,6 +63,7 @@
     "finish": "cool, lingering flowers"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:18",
@@ -96,21 +112,48 @@
       "hours": 6
     }
   },
-  "water": "Soft to medium, 90 °C. Boiling can strip the cream note.",
+  "water": {
+    "tdsPpm": [
+      30,
+      90
+    ],
+    "tempC": 90,
+    "note": "Soft to medium, 90 °C. Boiling can strip the cream note."
+  },
   "storage": "Vacuum or fridge for jade-style high mountain; drink within a year.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within a year",
+    "note": "Jade oolong is food. Refrigerate sealed."
+  },
   "qualityMarkers": [
-    "elevation stated (1000 m+)",
-    "creamy gardenia",
-    "tight balls, whole leaf"
+    {
+      "claim": "elevation stated (1000 m+)"
+    },
+    {
+      "claim": "creamy gardenia"
+    },
+    {
+      "claim": "tight balls, whole leaf"
+    }
   ],
   "commonFaults": [
-    "lowland “Alishan style”",
-    "Jin Xuan milk-scent flavouring added"
+    {
+      "name": "lowland “Alishan style”"
+    },
+    {
+      "name": "Jin Xuan milk-scent flavouring added"
+    }
   ],
   "similarTo": [
     "li-shan",
     "tie-guan-yin",
     "dong-ding"
   ],
-  "summary": "Taiwan high-mountain oolong: gardenia-cream, light roast, cool-night sweetness."
+  "summary": "Taiwan high-mountain oolong: gardenia-cream, light roast, cool-night sweetness.",
+  "glossaryRefs": [
+    "gao-shan",
+    "yao-qing",
+    "qing-xin"
+  ]
 }

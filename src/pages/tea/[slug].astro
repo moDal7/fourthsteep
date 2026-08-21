@@ -5,8 +5,20 @@ import BrewTimer from '../../components/BrewTimer.astro';
 import RatioCalculator from '../../components/RatioCalculator.astro';
 import InfusionTable from '../../components/InfusionTable.astro';
 import RegionMap from '../../components/RegionMap.astro';
+import ProcessingDiff from '../../components/ProcessingDiff.astro';
 import { getCollection, getEntry } from 'astro:content';
-import { parseRatio, liquorStyle, roastRank, regionIdForOrigin } from '../../lib/atlas.js';
+import {
+  parseRatio,
+  liquorStyle,
+  roastRank,
+  primaryRegionId,
+  originLabel,
+  regionMapFromCollection,
+  isInfusion,
+  isSuspension,
+  brewingSteps,
+  processingVerbs,
+} from '../../lib/atlas.js';
 import { withBase } from '../../lib/paths.js';
 import { getRegionGeo, formatCoords } from '../../lib/geo.js';
 
@@ -18,12 +30,32 @@ export async function getStaticPaths() {
 const { tea } = Astro.props;
 const d = tea.data;
 const liquor = liquorStyle({ ...d, id: tea.id });
-const ratio = parseRatio(d.brewing.gongfu.ratio);
+const infusion = isInfusion(d.brewing);
+const suspension = isSuspension(d.brewing);
+const gongfu = infusion ? d.brewing.gongfu : null;
+const ratio = gongfu ? parseRatio(gongfu.ratio) : suspension ? d.brewing.variants[0].ml / d.brewing.variants[0].grams : 20;
 const similar = (await Promise.all(d.similarTo.map((id) => getEntry('teas', id)))).filter((e) => e !== undefined);
+const compareTargetId = d.compare?.[0]?.teaId;
+const compareFromField = compareTargetId ? await getEntry('teas', compareTargetId) : undefined;
 const roastPct = (roastRank[d.roast] / 4) * 100;
 const roastLabel = d.roast === 'none' ? 'unroasted' : d.roast;
-const originRegionId = regionIdForOrigin(d.origin.region);
+const regionRecords = regionMapFromCollection(await getCollection('regions'));
+const originRegionId = primaryRegionId(d.origin);
 const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
+const regionNames = originLabel(d.origin, regionRecords);
+const steps = gongfu ? brewingSteps(gongfu) : [];
+const usucha = suspension ? d.brewing.variants[0] : null;
+const glossary = d.glossaryRefs
+  ? (await Promise.all(d.glossaryRefs.map((id) => getEntry('glossary', id)))).filter((e) => e !== undefined)
+  : [];
+const comparePeer = compareFromField ?? similar[0];
+const showTransform = d.transformation.kind === 'microbial' || d.transformation.kind === 'roast';
+const kindPrint = {
+  none: 'none',
+  enzymatic: 'enzymatic',
+  microbial: 'microbial',
+  roast: 'roast',
+};
 ---
 
 <Base title={`${d.name} · fourthsteep`} description={d.summary} liquor={liquor}>
@@ -31,29 +63,42 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
     <header class="tea-hero">
       <span class="tea-hero__watermark" aria-hidden="true">{d.nameNative}</span>
       <span class="tea-hero__cup morph-target" aria-hidden="true"></span>
-      <p class="kicker">{d.origin.country} · {d.category}{d.japaneseType ? ` · ${d.japaneseType}` : ''}</p>
+      <p class="kicker">
+        {d.origin.country} · {d.category}
+        {d.subtype ? ` · ${d.subtype}` : ''}
+        {d.baseCategory ? ` · base ${d.baseCategory}` : ''}
+      </p>
       <h1>{d.name}</h1>
       <p class="native tea-hero__native">{d.nameNative}</p>
       <p class="meta">{d.romanization} · {d.translation}</p>
       <p class="lede">{d.summary}</p>
+      {
+        d.categoryNote && (
+          <p class="meta">{d.categoryNote}</p>
+        )
+      }
       <div class="cluster">
         {
-          originRegionId ? (
-            <a class="chip" href={withBase(`/regions/${originRegionId}`)}>
-              {d.origin.region}
-              {d.origin.subregion ? ` · ${d.origin.subregion}` : ''}
-            </a>
-          ) : (
-            <span class="chip">
-              {d.origin.region}
-              {d.origin.subregion ? ` · ${d.origin.subregion}` : ''}
-            </span>
-          )
+          d.origin.regions.map((rid) => {
+            const rec = regionRecords.get(rid);
+            const label = rec ? rec.data.name : rid;
+            return rec ? (
+              <a class="chip chip--region" href={withBase(`/regions/${rid}`)}>
+                {label}
+                {rec.data.nameNative ? ` · ${rec.data.nameNative}` : ''}
+              </a>
+            ) : (
+              <span class="chip chip--region">{label}</span>
+            );
+          })
         }
-        {d.cultivar.map((c) => <span class="chip">{c}</span>)}
-        <span class="chip">{d.harvest.season}</span>
-        <span class="chip">{d.harvest.pluckingStage}</span>
+        {d.origin.regionNote && <span class="chip chip--region">{d.origin.regionNote}</span>}
+        {d.variety && <span class="chip chip--variety">var. {d.variety}</span>}
+        {d.cultivar.map((c) => <span class="chip chip--cultivar">{c}</span>)}
+        <span class="chip chip--harvest">{d.harvest.window}{d.harvest.flush ? ` · ${d.harvest.flush}` : ''}</span>
+        <span class="chip chip--pluck">{d.pluckStandard}</span>
       </div>
+      {d.harvest.note && <p class="meta">{d.harvest.note}</p>}
     </header>
 
     <div class="two-col">
@@ -62,7 +107,17 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
         <div class="scale-stack">
           <Scale label="Oxidation" value={d.oxidation} print={`${d.oxidation} / 100`} />
           <Scale label="Firing" value={roastPct} print={roastLabel} />
+          {
+            showTransform && (
+              <Scale
+                label="Transformation"
+                value={d.transformation.index}
+                print={`${d.transformation.index} · ${kindPrint[d.transformation.kind]}`}
+              />
+            )
+          }
         </div>
+        {d.transformation.note && <p class="meta">{d.transformation.note}</p>}
 
         {
           originRegionId && originGeo && (
@@ -76,7 +131,7 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
                 </p>
               </div>
               <a class="origin-map__frame" href={withBase(`/regions/${originRegionId}`)}>
-                <RegionMap regionId={originRegionId} name={d.origin.region} mode="card" />
+                <RegionMap regionId={originRegionId} name={regionNames} mode="card" />
                 <span class="origin-map__go">
                   Region page <span class="arrow" aria-hidden="true">&rarr;</span>
                 </span>
@@ -102,7 +157,12 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
           {
             d.processing.map((step) => (
               <li>
-                <h3>{step.step}</h3>
+                <h3>
+                  {step.step}
+                  {processingVerbs[step.verb]?.native ? (
+                    <span class="native"> · {processingVerbs[step.verb].native}</span>
+                  ) : null}
+                </h3>
                 <p>{step.description}</p>
               </li>
             ))
@@ -110,34 +170,107 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
         </ol>
       </div>
       <aside class="tea-aside">
-        <BrewTimer
-          infusions={d.brewing.gongfu.infusions}
-          caption={`${d.brewing.gongfu.vessel} · ${d.brewing.gongfu.ratio} · ${d.brewing.gongfu.waterTemp} °C`}
-        />
-        <RatioCalculator ratio={ratio} />
+        {
+          infusion && gongfu && (
+            <BrewTimer
+              steps={steps}
+              caption={`${gongfu.vessel} · ${gongfu.ratio} · ${gongfu.waterTemp} °C`}
+            />
+          )
+        }
+        {
+          suspension && (
+            <section class="island">
+              <h2>Two ratios of the same powder</h2>
+              <p class="meta">Not two infusions. Pick a preparation; the calculator follows it.</p>
+              <ul class="ticks">
+                {d.brewing.variants.map((v) => (
+                  <li>
+                    <b>{v.label}</b>
+                    {v.nameNative ? ` · ${v.nameNative}` : ''} — {v.grams} g / {v.ml} ml · {v.tempC} °C · {v.method}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+        {
+          infusion && gongfu ? (
+            <RatioCalculator ratio={ratio} />
+          ) : (
+            suspension &&
+            usucha && (
+              <RatioCalculator
+                ratio={usucha.ml / usucha.grams}
+                seedMl={usucha.ml}
+                caption={`Seeded from ${usucha.label} — ${usucha.grams} g / ${usucha.ml} ml.`}
+                variants={d.brewing.variants}
+              />
+            )
+          )
+        }
       </aside>
     </div>
 
-    <div class="section-head">
-      <h2>Gongfu</h2>
-      <p class="meta">{d.brewing.gongfu.vessel} · {d.brewing.gongfu.waterTemp} °C · ratio {d.brewing.gongfu.ratio}</p>
-    </div>
-    <InfusionTable infusions={d.brewing.gongfu.infusions} caption="Gongfu infusion schedule" />
+    {
+      infusion && gongfu && (
+        <>
+          <div class="section-head">
+            <h2>Gongfu</h2>
+            <p class="meta">
+              {gongfu.vessel} · {gongfu.waterTemp} °C · ratio {gongfu.ratio}
+              {gongfu.curveException ? ` — ${gongfu.curveException}` : ''}
+            </p>
+          </div>
+          <InfusionTable steps={steps} caption="Gongfu infusion schedule" />
 
-    <div class="section-head">
-      <h2>Western</h2>
-      <p class="meta">
-        {d.brewing.western.grams} g in {d.brewing.western.volume} ml · {d.brewing.western.waterTemp} °C
-      </p>
-    </div>
-    <InfusionTable infusions={d.brewing.western.infusions} caption="Western infusion schedule" />
+          <div class="section-head">
+            <h2>Western</h2>
+            <p class="meta">
+              {d.brewing.western.grams} g in {d.brewing.western.volume} ml · {d.brewing.western.waterTemp} °C
+            </p>
+          </div>
+          <InfusionTable
+            steps={d.brewing.western.infusions.map((row) => ({ kind: 'steep', ...row }))}
+            caption="Western infusion schedule"
+          />
+
+          {d.brewing.coldBrew && (
+            <p class="note">
+              <strong>Cold brew.</strong> {d.brewing.coldBrew.grams} g / {d.brewing.coldBrew.volume} ml for{' '}
+              {d.brewing.coldBrew.hours} h{d.brewing.coldBrew.notes ? ` — ${d.brewing.coldBrew.notes}` : '.'}
+            </p>
+          )}
+          {d.brewing.decoction && (
+            <p class="note">
+              <strong>Decoction · 煮茶.</strong> {d.brewing.decoction.when}. Simmer {d.brewing.decoction.minutes[0]}–
+              {d.brewing.decoction.minutes[1]} min. {d.brewing.decoction.notes}
+            </p>
+          )}
+        </>
+      )
+    }
 
     {
-      d.brewing.coldBrew && (
-        <p class="note">
-          <strong>Cold brew.</strong> {d.brewing.coldBrew.grams} g / {d.brewing.coldBrew.volume} ml for{' '}
-          {d.brewing.coldBrew.hours} h{d.brewing.coldBrew.notes ? ` — ${d.brewing.coldBrew.notes}` : '.'}
-        </p>
+      d.variants && d.variants.length > 0 && (
+        <Fragment>
+          <div class="section-head">
+            <h2>Styles</h2>
+            <p class="meta">Same name, different teas — water and storage follow the style, not the label.</p>
+          </div>
+          <div class="notes-grid">
+            {d.variants.map((v) => (
+              <div class="note-card">
+                <p class="kicker">
+                  {v.label}
+                  {v.nameNative ? ` · ${v.nameNative}` : ''}
+                </p>
+                <p>{v.differentiator}</p>
+                {v.notes && <p class="meta">{v.notes}</p>}
+              </div>
+            ))}
+          </div>
+        </Fragment>
       )
     }
 
@@ -145,21 +278,80 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
     <div class="notes-grid">
       <div class="note-card">
         <p class="kicker">Water</p>
-        <p>{d.water}</p>
+        <p>
+          {d.water.tdsPpm ? `${d.water.tdsPpm[0]}–${d.water.tdsPpm[1]} ppm · ` : ''}
+          {d.water.tempC} °C. {d.water.note}
+        </p>
       </div>
       <div class="note-card">
         <p class="kicker">Storage</p>
         <p>{d.storage}</p>
+        {
+          d.shelfLife && (
+            <p class="meta">
+              {d.shelfLife.kind}
+              {d.shelfLife.window ? ` · ${d.shelfLife.window}` : ''}
+              {d.shelfLife.note ? ` — ${d.shelfLife.note}` : ''}
+            </p>
+          )
+        }
       </div>
       <div class="note-card">
         <p class="kicker">Quality markers</p>
-        <ul class="ticks">{d.qualityMarkers.map((x) => <li>{x}</li>)}</ul>
+        <ul class="ticks">
+          {
+            d.qualityMarkers.map((x) => (
+              <li>
+                {x.claim}
+                {x.test ? <span class="meta"> — {x.test}</span> : ''}
+              </li>
+            ))
+          }
+        </ul>
       </div>
       <div class="note-card faults">
         <p class="kicker">Common faults</p>
-        <ul class="ticks">{d.commonFaults.map((x) => <li>{x}</li>)}</ul>
+        <ul class="ticks">
+          {
+            d.commonFaults.map((x) => (
+              <li>
+                {x.name}
+                {x.cause ? <span class="meta"> — {x.cause}</span> : ''}
+                {x.tell ? <span class="meta"> Tell: {x.tell}</span> : ''}
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
+
+    {
+      glossary.length > 0 && (
+        <p class="meta">
+          Glossary:{' '}
+          {glossary.map((g, i) => (
+            <Fragment>
+              {i > 0 ? ' · ' : ''}
+              <a href={`${withBase('/glossary')}#${g.id}`}>{g.data.term}</a>
+            </Fragment>
+          ))}
+        </p>
+      )
+    }
+
+    {
+      comparePeer && (
+        <ProcessingDiff
+          a={{ id: tea.id, name: d.name, nameNative: d.nameNative, processing: d.processing }}
+          b={{
+            id: comparePeer.id,
+            name: comparePeer.data.name,
+            nameNative: comparePeer.data.nameNative,
+            processing: comparePeer.data.processing,
+          }}
+        />
+      )
+    }
 
     {
       similar.length > 0 && (
@@ -168,20 +360,24 @@ const originGeo = originRegionId ? getRegionGeo(originRegionId) : null;
             <h2>Drink next</h2>
           </div>
           <div class="rows">
-            {similar.map((s) => (
-              <a class="row" href={withBase(`/tea/${s.id}`)} style={liquorStyle({ ...s.data, id: s.id })}>
-                <span class="row__swatch" aria-hidden="true" />
-                <span class="row__body">
-                  <h3>{s.data.name}</h3>
-                  <p class="meta">
-                    {s.data.nameNative} · {s.data.origin.region} · oxidation {s.data.oxidation}
-                  </p>
-                </span>
-                <span class="arrow" aria-hidden="true">
-                  &rarr;
-                </span>
-              </a>
-            ))}
+            {similar.map((s) => {
+              const diff = d.compare?.find((c) => c.teaId === s.id);
+              return (
+                <a class="row" href={withBase(`/tea/${s.id}`)} style={liquorStyle({ ...s.data, id: s.id })}>
+                  <span class="row__swatch" aria-hidden="true" />
+                  <span class="row__body">
+                    <h3>{s.data.name}</h3>
+                    <p class="meta">
+                      {s.data.nameNative} · {originLabel(s.data.origin, regionRecords)} · oxidation {s.data.oxidation}
+                      {diff ? ` — ${diff.differentiator}` : ''}
+                    </p>
+                  </span>
+                  <span class="arrow" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </Fragment>
       )

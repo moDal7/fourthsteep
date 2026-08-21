@@ -22,11 +22,17 @@ function format(seconds) {
   return `${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`;
 }
 
+function stepLabel(step, steps) {
+  if (step.kind === 'rinse') return 'Rinse — discard';
+  const drinks = steps.filter((s) => s.kind === 'steep').length;
+  return `Infusion ${step.n} of ${drinks}`;
+}
+
 function initTimer(root) {
   const jsonEl = root.querySelector('script[type="application/json"]');
   if (!jsonEl) return;
-  const infusions = JSON.parse(jsonEl.textContent || '[]');
-  if (!infusions.length) return;
+  const steps = JSON.parse(jsonEl.textContent || '[]');
+  if (!steps.length) return;
 
   const display = root.querySelector('[data-display]');
   const meta = root.querySelector('[data-meta]');
@@ -39,23 +45,26 @@ function initTimer(root) {
   const resetBtn = root.querySelector('[data-reset]');
 
   let index = 0;
-  let remaining = infusions[0].seconds;
+  let remaining = steps[0].seconds;
   let running = false;
   let last = 0;
   let raf = 0;
   let announced = '';
 
   const render = () => {
-    const step = infusions[index];
+    const step = steps[index];
     const elapsed = step.seconds > 0 ? 1 - remaining / step.seconds : 1;
 
-    // One property drives the ring, the current pip, and the flare radius.
     root.style.setProperty('--progress', String(Math.min(1, Math.max(0, elapsed))));
     root.classList.toggle('is-running', running);
+    root.classList.toggle('is-rinse', step.kind === 'rinse');
 
     if (display) display.textContent = format(remaining);
-    if (meta) meta.textContent = `Infusion ${step.n} of ${infusions.length} · ${step.seconds}s target`;
-    if (notes) notes.textContent = step.notes || 'No extra note for this steep.';
+    if (meta) meta.textContent = `${stepLabel(step, steps)} · ${step.seconds}s target`;
+    if (notes) {
+      notes.textContent =
+        step.notes || (step.kind === 'rinse' ? 'Discard this pour.' : 'No extra note for this steep.');
+    }
 
     pips.forEach((pip, i) => {
       pip.classList.toggle('done', i < index);
@@ -65,9 +74,7 @@ function initTimer(root) {
     if (startBtn) startBtn.disabled = running;
     if (pauseBtn) pauseBtn.disabled = !running;
 
-    // The display itself updates every frame, which is far too chatty for a
-    // live region, so only the change of steep is announced.
-    const label = `Infusion ${step.n} of ${infusions.length}`;
+    const label = stepLabel(step, steps);
     if (live && label !== announced) {
       announced = label;
       live.textContent = label;
@@ -76,8 +83,6 @@ function initTimer(root) {
 
   const flare = () => {
     root.classList.remove('is-chime');
-    // Reading the box forces the class removal to take effect before it is
-    // added back, so consecutive steeps each get their own flare.
     void root.offsetWidth;
     root.classList.add('is-chime');
   };
@@ -93,9 +98,9 @@ function initTimer(root) {
       chime();
       flare();
       render();
-      if (index < infusions.length - 1) {
+      if (index < steps.length - 1) {
         index += 1;
-        remaining = infusions[index].seconds;
+        remaining = steps[index].seconds;
         running = true;
         last = performance.now();
         raf = requestAnimationFrame(tick);
@@ -121,9 +126,9 @@ function initTimer(root) {
   });
 
   nextBtn?.addEventListener('click', () => {
-    if (index >= infusions.length - 1) return;
+    if (index >= steps.length - 1) return;
     index += 1;
-    remaining = infusions[index].seconds;
+    remaining = steps[index].seconds;
     last = performance.now();
     render();
   });
@@ -132,7 +137,7 @@ function initTimer(root) {
     running = false;
     cancelAnimationFrame(raf);
     index = 0;
-    remaining = infusions[0].seconds;
+    remaining = steps[0].seconds;
     render();
   });
 

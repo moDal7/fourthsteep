@@ -5,25 +5,34 @@
   "translation": "Duck Shit Aroma",
   "origin": {
     "country": "China",
-    "region": "Phoenix Mountain",
+    "regions": [
+      "phoenix-mountain"
+    ],
     "subregion": "Chaozhou, Guangdong"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Ya Shi Xiang"
   ],
   "harvest": {
-    "season": "spring",
-    "pluckingStage": "open leaf"
+    "window": "spring"
   },
+  "pluckStandard": "open leaf",
   "oxidation": 32,
   "roast": "medium",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 32
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither and shake",
       "description": "Aromatic dan cong craft; name is folk camouflage, not flavour."
     },
     {
+      "verb": "roast",
       "step": "Twist and roast",
       "description": "Medium roast over a creamy-floral cultivar."
     }
@@ -44,6 +53,7 @@
     "finish": "magnolia-milk aftertaste"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:16",
@@ -91,16 +101,38 @@
       ]
     }
   },
-  "water": "Near boiling, flash steeps. Creamy aromatics collapse if boiled too long in the cup.",
+  "water": {
+    "tdsPpm": [
+      50,
+      150
+    ],
+    "tempC": 98,
+    "note": "Near boiling, flash steeps. Creamy aromatics collapse if boiled too long in the cup."
+  },
   "storage": "Airtight. Drink within 18 months of roast for the milk-floral top.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast",
+    "note": "Some are deliberately re-roasted every few years."
+  },
   "qualityMarkers": [
-    "creamy magnolia, not farmyard",
-    "Phoenix high gardens",
-    "whole wiry leaf"
+    {
+      "claim": "creamy magnolia, not farmyard"
+    },
+    {
+      "claim": "Phoenix high gardens"
+    },
+    {
+      "claim": "whole wiry leaf"
+    }
   ],
   "commonFaults": [
-    "novelty-name marketing on generic dan cong",
-    "added milk-scent flavouring"
+    {
+      "name": "novelty-name marketing on generic dan cong"
+    },
+    {
+      "name": "added milk-scent flavouring"
+    }
   ],
   "similarTo": [
     "mi-lan-xiang-dan-cong",

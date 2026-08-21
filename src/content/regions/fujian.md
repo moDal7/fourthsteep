@@ -7,6 +7,7 @@ climate: Maritime subtropical on the Fuding coast; mountains inland.
 knownFor:
   - Bai Hao Yin Zhen
   - Bai Mu Dan
+  - Gong Mei
   - Shou Mei
   - jasmine scenting around Fuzhou
 ---
