@@ -162,6 +162,9 @@ html[data-theme='dark'] {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
@@ -178,6 +181,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.55;
   overflow-x: hidden;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -389,97 +393,6 @@ p {
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  :root {
-    --page-gutter: 1.35rem;
-    --header-pad: 16px;
-    --frame: 3px;
-  }
-
-  .header-inner {
-    flex-wrap: wrap;
-    column-gap: 0.75rem;
-    row-gap: 0.35rem;
-  }
-
-  .header-inner .brand {
-    flex: 1 1 auto;
-    margin-right: 0;
-    min-width: 0;
-    order: 1;
-  }
-
-  .brand small {
-    display: none;
-  }
-
-  .theme-toggle {
-    order: 2;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0;
-  }
-
-  nav.primary {
-    order: 3;
-    flex: 1 0 100%;
-    justify-content: space-between;
-    gap: 0.15rem;
-  }
-
-  nav.primary a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0.5rem 0.15rem;
-    font-size: 0.78rem;
-  }
-
-  nav.primary a::after {
-    left: 0.2rem;
-    right: 0.2rem;
-  }
-
-  .glossary-letter {
-    top: 8.5rem;
-  }
-
-  .glossary-group,
-  .glossary-item {
-    scroll-margin-top: 9rem;
-  }
-
-  .steep-cell {
-    min-width: 0;
-  }
-
-  th,
-  td {
-    padding: 0.55rem 0.65rem;
-  }
-
-  .timer-face {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .timer-side {
-    flex: 1 1 100%;
-  }
-
-  .controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .controls .btn {
-    justify-content: center;
-    width: 100%;
-  }
-}
-
 .brand-mark {
   --wash: 0.55;
   width: 1.85rem;
@@ -635,7 +548,9 @@ html[data-theme='dark'] .toggle-steam {
 /* ------------------------------------------------------------- ticker --- */
 
 .ticker {
+  position: relative;
   overflow: hidden;
+  max-width: 100%;
   border-block: 4px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
@@ -759,6 +674,8 @@ html[data-theme='dark'] .toggle-steam {
   flex-wrap: wrap;
   margin: 3.2rem 0 1.3rem;
   padding: 0.75rem 1rem;
+  min-width: 0;
+  max-width: 100%;
   border: 3px solid var(--ink);
   background: var(--paper-raised);
   box-shadow: 6px 6px 0 var(--liquor);
@@ -766,6 +683,7 @@ html[data-theme='dark'] .toggle-steam {
 
 .section-head h2 {
   margin: 0;
+  min-width: 0;
 }
 
 .section-head .meta {
@@ -1070,6 +988,7 @@ html[data-theme='dark'] .toggle-steam {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+  min-width: 0;
 }
 
 .chip {
@@ -1273,7 +1192,10 @@ tr.is-rinse .steep-bar span {
   background: var(--paper-raised);
   padding: 1.25rem;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.85rem;
+  min-width: 0;
+  max-width: 100%;
   box-shadow: var(--shadow-lift);
 }
 
@@ -1297,6 +1219,7 @@ tr.is-rinse .steep-bar span {
   align-items: center;
   gap: 1.1rem;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .timer-ring {
@@ -1410,6 +1333,7 @@ tr.is-rinse .steep-bar span {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .controls .btn {
@@ -1420,7 +1344,8 @@ tr.is-rinse .steep-bar span {
 .ratio-fields {
   display: grid;
   gap: 0.7rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-width: 0;
 }
 
 .ratio-out {
@@ -1440,6 +1365,8 @@ tr.is-rinse .steep-bar span {
 label.field {
   display: grid;
   gap: 0.3rem;
+  min-width: 0;
+  max-width: 100%;
   font-family: var(--display);
   font-size: 0.78rem;
   font-weight: 800;
@@ -1455,6 +1382,9 @@ select {
   letter-spacing: 0;
   text-transform: none;
   font-weight: 400;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 0.5rem 0.65rem;
   border: 2.5px solid var(--ink);
   background: var(--paper);
@@ -1623,12 +1553,18 @@ select:focus {
 
 .two-col {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.6rem;
+}
+
+.two-col > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (min-width: 900px) {
   .two-col {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     align-items: start;
   }
 
@@ -2204,6 +2140,7 @@ html[data-theme='dark'] .spectrum-tick {
 .tea {
   padding-top: 2rem;
   padding-bottom: 4rem;
+  max-width: 100%;
 }
 
 .tea-hero {
@@ -2313,6 +2250,8 @@ html[data-theme='dark'] .tea-hero__watermark {
   .tea-hero {
     margin-inline: 0;
     padding-inline: 0.9rem;
+    max-width: 100%;
+    box-shadow: 6px 6px 0 var(--liquor);
   }
 
   .tea-hero::before {
@@ -2354,6 +2293,8 @@ html[data-theme='dark'] .tea-hero__watermark {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0 1.4rem;
   margin: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .deflist dt {
@@ -2441,7 +2382,7 @@ html[data-theme='dark'] .tea-hero__watermark {
 .notes-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
 }
 
 .note-card {
@@ -2494,6 +2435,8 @@ html[data-theme='dark'] .tea-hero__watermark {
 .tea-aside {
   display: grid;
   gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ----------------------------------------------------------- glossary --- */
@@ -2656,6 +2599,7 @@ html[data-theme='dark'] .tea-hero__watermark {
 .geo-map {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -2793,11 +2737,15 @@ html[data-theme='dark'] .tea-hero__watermark {
 
 .origin-map {
   margin-top: 1.4rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .origin-map__frame {
   display: block;
   position: relative;
+  max-width: 100%;
+  min-width: 0;
   border: 3px solid var(--ink);
   overflow: hidden;
   text-decoration: none;
@@ -2877,6 +2825,116 @@ html[data-theme='dark'] .tea-hero__watermark {
 
 .region-facts dd .cluster {
   display: flex;
+}
+
+/* ---------------------------------------------------------- mobile --- */
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 1.75rem;
+    --header-pad: 16px;
+    --frame: 3px;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    row-gap: 0.35rem;
+  }
+
+  .header-inner .brand {
+    flex: 1 1 auto;
+    margin-right: 0;
+    min-width: 0;
+    order: 1;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .theme-toggle {
+    order: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+  }
+
+  nav.primary {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: space-between;
+    gap: 0.15rem;
+  }
+
+  nav.primary a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.5rem 0.12rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  nav.primary a::after {
+    left: 0.2rem;
+    right: 0.2rem;
+  }
+
+  .glossary-letter {
+    top: 8.5rem;
+  }
+
+  .glossary-group,
+  .glossary-item {
+    scroll-margin-top: 9rem;
+  }
+
+  .steep-cell {
+    min-width: 0;
+  }
+
+  th,
+  td {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .timer-face {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .timer-side {
+    flex: 1 1 100%;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .controls .btn {
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding-inline: 0.45rem;
+    letter-spacing: 0.06em;
+  }
+
+  .deflist,
+  .timeline,
+  .scale-stack,
+  .notes-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .chip {
+    max-width: 100%;
+  }
 }
 
 /* ---------------------------------------------------------- animation --- */
