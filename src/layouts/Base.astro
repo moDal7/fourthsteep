@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
     <script is:inline>
@@ -49,6 +49,7 @@ const year = new Date().getFullYear();
     </script>
   </head>
   <body>
+    <div class="rails" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
@@ -56,7 +57,7 @@ const year = new Date().getFullYear();
           <span class="brand-mark" aria-hidden="true"></span>
           <span>
             fourthsteep
-            <small>leaves, water, time</small>
+            <small>steam · voltage · leaves</small>
           </span>
         </a>
         <nav class="primary" aria-label="Primary">
@@ -90,6 +91,35 @@ const year = new Date().getFullYear();
       <slot />
     </main>
     <footer class="site-footer">
+      <div class="ticker ticker--footer" aria-hidden="true">
+        <div class="ticker__track">
+          {
+            {
+              const terms = [
+                '杀青',
+                '焙火',
+                '蒸し',
+                '岩韵',
+                '回甘',
+                'gongfu',
+                'grandpa',
+                'kyusu',
+                '渥堆',
+                'no photographs',
+                'the cup is the picture',
+                'table = timer',
+                '玉露',
+                '大红袍',
+                '第四泡',
+              ];
+              return [...terms, ...terms].map((term) => <span>{term}</span>);
+            }
+          }
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="footer-wordmark" aria-hidden="true">fourthsteep</div>
+      </div>
       <div class="footer-inner">
         <span>
           Static site — typed content collections compiled to HTML (<a href={withBase('/atlas.json')}>atlas.json</a>).
