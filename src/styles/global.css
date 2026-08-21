@@ -1902,8 +1902,8 @@ html[data-theme='dark'] .hero-pour__native {
   top: 50%;
   left: var(--x, 50%);
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(var(--cols, 1), var(--mark));
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--mark-gap);
   transform: translate(-50%, -50%);
 }
@@ -1927,6 +1927,7 @@ html[data-theme='dark'] .hero-pour__native {
 .spectrum-mark {
   position: relative;
   display: block;
+  flex: 0 0 var(--mark);
   width: var(--mark);
   height: var(--mark);
   background: linear-gradient(160deg, var(--liquor-pale), var(--liquor) 42%, var(--liquor-deep));
@@ -2042,16 +2043,16 @@ html[data-theme='dark'] .hero-pour__native {
   background-size: 4.5px 4.5px;
 }
 
-.spectrum-hint--coarse {
+.spectrum-legend .spectrum-hint--coarse {
   display: none;
 }
 
 @media (pointer: coarse) {
-  .spectrum-hint--fine {
+  .spectrum-legend .spectrum-hint--fine {
     display: none;
   }
 
-  .spectrum-hint--coarse {
+  .spectrum-legend .spectrum-hint--coarse {
     display: inline-flex;
   }
 }
@@ -3158,8 +3159,7 @@ html[data-theme='dark'] .tea-hero__watermark {
   }
 
   .spectrum-mark {
-    animation: pop-mark 520ms var(--ease-steep) both;
-    animation-delay: calc(var(--i, 0) * 14ms);
+    animation: pop-mark 480ms var(--ease-steep) both;
   }
 
   .ticker__track {

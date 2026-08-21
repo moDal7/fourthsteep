@@ -130,7 +130,7 @@ let markIndex = 0;
               {lane.clusters.map((cluster) => (
                 <div
                   class:list={['spectrum-cluster', cluster.edge || undefined]}
-                  style={`--x: ${cluster.x.toFixed(2)}%; --cols: ${cluster.cols}`}
+                  style={`--x: ${cluster.x.toFixed(2)}%; width: calc(${cluster.cols} * (var(--mark) + var(--mark-gap)) - var(--mark-gap))`}
                 >
                   {cluster.items.map((tea) => {
                     const kind = kindOf(tea);
