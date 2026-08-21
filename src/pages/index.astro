@@ -29,9 +29,8 @@ const regionById = regionMapFromCollection(regions);
 const CARD_SLUGS = ['gyokuro', 'alishan', 'shou-puer'];
 const cardTeas = CARD_SLUGS.map((slug) => teas.find((t) => t.id === slug)).filter((t) => t !== undefined);
 
-// A few bars named at rest, so the spectrum teaches without hover. Chosen
-// for position along the flexed strip, not oxidation number: greens occupy
-// the first half, so a mid-oxidation oolong would sit on top of the blacks.
+// Named at rest in the spectrum readout, and ringed on the plot: a green
+// at 0, a roasted oolong in the middle, a microbial dark at the right.
 const SPECTRUM_ANCHORS = ['gyokuro', 'da-hong-pao', 'shou-puer'];
 
 const nativeCountry: Record<string, string> = { China: '中国', Taiwan: '台灣', Japan: '日本' };

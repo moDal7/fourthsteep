@@ -1,20 +1,20 @@
 ---
-import { liquorStyle, transformationIndex, transformationKind } from '../lib/atlas.js';
+import {
+  CATEGORY_ORDER,
+  categoryLabel,
+  liquorStyle,
+  transformationIndex,
+  transformationKind,
+} from '../lib/atlas.js';
 import { withBase } from '../lib/paths.js';
 
 interface Props {
   teas: { id: string; data: Record<string, any> }[];
-  /** Slugs to name at rest, under their bars — identity without hover. */
+  /** Slugs named in the rest-state readout, and ringed on the plot. */
   anchors?: string[];
 }
 
 const { teas, anchors = [] } = Astro.props;
-const ordered = teas
-  .slice()
-  .sort(
-    (a, b) =>
-      transformationIndex(a.data) - transformationIndex(b.data) || a.data.name.localeCompare(b.data.name),
-  );
 
 const kindLabel = {
   none: 'untransformed',
@@ -23,87 +23,212 @@ const kindLabel = {
   roast: 'roast',
 };
 
-const anchorLabels = ordered
-  .map((tea, i) => ({ tea, x: ((i + 0.5) / ordered.length) * 100 }))
-  .filter(({ tea }) => anchors.includes(tea.id))
-  .map(({ tea, x }) => ({
-    name: tea.data.name,
-    x: x.toFixed(2),
-    edge: x < 8 ? 'edge-start' : x > 92 ? 'edge-end' : null,
-  }));
+const CLUSTER_GAP = 6;
+const CLUSTER_COLS = 4;
+
+function clusterTeas(entries: Props['teas']) {
+  const sorted = entries.slice().sort((a, b) => {
+    const d = transformationIndex(a.data) - transformationIndex(b.data);
+    return d || a.data.name.localeCompare(b.data.name);
+  });
+
+  const groups: { items: Props['teas']; sum: number; last: number }[] = [];
+  for (const tea of sorted) {
+    const index = transformationIndex(tea.data);
+    const current = groups[groups.length - 1];
+    if (current && index - current.last <= CLUSTER_GAP) {
+      current.items.push(tea);
+      current.sum += index;
+      current.last = index;
+    } else {
+      groups.push({ items: [tea], sum: index, last: index });
+    }
+  }
+
+  return groups.map((group) => {
+    const x = group.sum / group.items.length;
+    return {
+      x,
+      edge: x <= 8 ? 'edge-start' : x >= 92 ? 'edge-end' : '',
+      cols: Math.min(CLUSTER_COLS, group.items.length),
+      items: group.items,
+    };
+  });
+}
+
+type Kind = keyof typeof kindLabel;
+
+function kindOf(tea: Props['teas'][number]): Kind {
+  const kind = transformationKind(tea.data);
+  return kind in kindLabel ? (kind as Kind) : 'enzymatic';
+}
+
+function readMeta(tea: Props['teas'][number]) {
+  const kind = kindOf(tea);
+  const extra = kind !== 'enzymatic' && kind !== 'none' ? ` · oxidation ${tea.data.oxidation}` : '';
+  return `${tea.data.origin.country} · ${kindLabel[kind]}${extra}`;
+}
+
+const lanes = CATEGORY_ORDER.flatMap((category) => {
+  const entries = teas.filter((t) => t.data.category === category);
+  if (!entries.length) return [];
+  const clusters = clusterTeas(entries);
+  const rows = Math.max(...clusters.map((c) => Math.ceil(c.items.length / c.cols)));
+  return [{ category, count: entries.length, rows, clusters }];
+});
+
+const defaultTea =
+  (anchors.map((id) => teas.find((t) => t.id === id)).find(Boolean) as Props['teas'][number] | undefined) ??
+  teas.slice().sort((a, b) => transformationIndex(a.data) - transformationIndex(b.data))[0];
+
+let markIndex = 0;
 ---
 
 <section class="spectrum" aria-labelledby="spectrum-title">
   <div class="section-head">
     <h2 id="spectrum-title">The whole atlas, by transformation</h2>
     <p class="meta">
-      Bar height is a transformation index, not one process. Hatch is microbial; dots are roast. Colour is still the
+      Position is the index, not rank and not one process. Hatch is microbial; dots are roast. Colour is still the
       cup — mixed from enzymatic oxidation, firing, and origin.
     </p>
   </div>
 
-  <ol class="spectrum-strip" data-spectrum>
+  <div class="spectrum-board" data-spectrum>
     {
-      ordered.map((tea, i) => {
-        const kind = transformationKind(tea.data);
-        const index = transformationIndex(tea.data);
-        return (
-          <li
-            class={kind === 'microbial' ? 'is-microbial' : kind === 'roast' ? 'is-roast' : undefined}
-            style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}
-          >
-            <a href={withBase(`/tea/${tea.id}`)}>
-              <span class={`spectrum-tick kind-${kind}`} style={`--h: ${28 + index * 0.72}%`} />
-              <span class="sr-only">{tea.data.name}</span>
-            </a>
-            <span class="spectrum-read" aria-hidden="true">
-              <b>{tea.data.name}</b>
-              <span class="native">{tea.data.nameNative}</span>
-              <span class="meta">
-                {tea.data.origin.country} · {kindLabel[kind]} {index}
-                {kind !== 'enzymatic' && kind !== 'none' ? ` · oxidation ${tea.data.oxidation}` : ''}
-              </span>
+      defaultTea && (
+        <a
+          class="spectrum-readout"
+          data-spectrum-read
+          href={withBase(`/tea/${defaultTea.id}`)}
+        >
+          <span class="spectrum-readout__who">
+            <b data-read-name>{defaultTea.data.name}</b>
+            <span class="native" data-read-native>
+              {defaultTea.data.nameNative}
             </span>
-          </li>
-        );
-      })
-    }
-  </ol>
-
-  {
-    anchorLabels.length > 0 && (
-      <div class="spectrum-anchors" aria-hidden="true">
-        {anchorLabels.map((a) => (
-          <span class={a.edge ?? undefined} style={`--x: ${a.x}%`}>
-            {a.name}
+            <span class="meta" data-read-meta>{readMeta(defaultTea)}</span>
           </span>
-        ))}
-      </div>
-    )
-  }
+          <span class="spectrum-readout__n num" data-read-index>
+            {transformationIndex(defaultTea.data)}
+          </span>
+        </a>
+      )
+    }
 
-  <p class="spectrum-axis">
-    <span>0 — none</span>
-    <span class="spectrum-legend">
+    <ol class="spectrum-lanes">
+      {
+        lanes.map((lane) => (
+          <li class="spectrum-lane" style={`--rows: ${lane.rows}`}>
+            <a
+              class="spectrum-lane__label"
+              href={`${withBase('/atlas')}?category=${encodeURIComponent(lane.category)}`}
+            >
+              {categoryLabel(lane.category)}
+              <span class="num">{lane.count}</span>
+            </a>
+            <div class="spectrum-lane__plot">
+              {lane.clusters.map((cluster) => (
+                <div
+                  class:list={['spectrum-cluster', cluster.edge || undefined]}
+                  style={`--x: ${cluster.x.toFixed(2)}%; --cols: ${cluster.cols}`}
+                >
+                  {cluster.items.map((tea) => {
+                    const kind = kindOf(tea);
+                    const index = transformationIndex(tea.data);
+                    const i = markIndex++;
+                    const isAnchor = anchors.includes(tea.id);
+                    const isDefault = defaultTea?.id === tea.id;
+                    return (
+                      <a
+                        class:list={[
+                          'spectrum-mark',
+                          `kind-${kind}`,
+                          isAnchor && 'is-anchor',
+                          isDefault && 'is-current',
+                        ]}
+                        href={withBase(`/tea/${tea.id}`)}
+                        style={`${liquorStyle({ ...tea.data, id: tea.id })}; --i: ${i}`}
+                        data-name={tea.data.name}
+                        data-native={tea.data.nameNative}
+                        data-meta={readMeta(tea)}
+                        data-index={String(index)}
+                      >
+                        <span class="sr-only">
+                          {tea.data.name}, {kindLabel[kind]} {index}, {tea.data.origin.country}
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="spectrum-axis" aria-hidden="true">
+      <span class="spectrum-axis__spacer"></span>
+      <p class="spectrum-axis__ticks">
+        <span>0</span>
+        <span>25</span>
+        <span>50</span>
+        <span>75</span>
+        <span>100</span>
+      </p>
+    </div>
+  </div>
+
+  <p class="spectrum-legend">
+    <span>
       <i class="legend-swatch legend-microbial" aria-hidden="true" /> microbial
+    </span>
+    <span>
       <i class="legend-swatch legend-roast" aria-hidden="true" /> roast
     </span>
-    <span class="spectrum-hint spectrum-hint--fine">Hover a bar for the tea</span>
-    <span class="spectrum-hint spectrum-hint--coarse">Tap a bar to name it; tap again to open</span>
-    <span>100 — fully transformed</span>
+    <span class="spectrum-hint spectrum-hint--fine">Hover a mark to name it</span>
+    <span class="spectrum-hint spectrum-hint--coarse">Tap a mark to name it; tap again to open</span>
   </p>
 </section>
 
 <script>
-  const strip = document.querySelector('[data-spectrum]');
-  if (strip && window.matchMedia('(pointer: coarse)').matches) {
-    strip.addEventListener('click', (event) => {
-      const target = event.target;
-      const li = target instanceof Element ? target.closest('li') : null;
-      if (!li || !strip.contains(li) || li.classList.contains('is-selected')) return;
-      event.preventDefault();
-      strip.querySelector('.is-selected')?.classList.remove('is-selected');
-      li.classList.add('is-selected');
+  const board = document.querySelector('[data-spectrum]');
+  const read = board?.querySelector('[data-spectrum-read]');
+  if (board instanceof HTMLElement && read instanceof HTMLAnchorElement) {
+    const nameEl = read.querySelector('[data-read-name]');
+    const nativeEl = read.querySelector('[data-read-native]');
+    const metaEl = read.querySelector('[data-read-meta]');
+    const indexEl = read.querySelector('[data-read-index]');
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+
+    const paint = (mark: HTMLAnchorElement) => {
+      if (nameEl) nameEl.textContent = mark.dataset.name ?? '';
+      if (nativeEl) nativeEl.textContent = mark.dataset.native ?? '';
+      if (metaEl) metaEl.textContent = mark.dataset.meta ?? '';
+      if (indexEl) indexEl.textContent = mark.dataset.index ?? '';
+      read.href = mark.href;
+      board.querySelectorAll('.spectrum-mark.is-current').forEach((el) => el.classList.remove('is-current'));
+      mark.classList.add('is-current');
+    };
+
+    board.addEventListener('pointerover', (event) => {
+      const mark = event.target instanceof Element ? event.target.closest('.spectrum-mark') : null;
+      if (mark instanceof HTMLAnchorElement && board.contains(mark)) paint(mark);
     });
+
+    board.addEventListener('focusin', (event) => {
+      const mark = event.target instanceof Element ? event.target.closest('.spectrum-mark') : null;
+      if (mark instanceof HTMLAnchorElement) paint(mark);
+    });
+
+    if (coarse) {
+      board.addEventListener('click', (event) => {
+        const mark = event.target instanceof Element ? event.target.closest('.spectrum-mark') : null;
+        if (!(mark instanceof HTMLAnchorElement) || !board.contains(mark)) return;
+        if (mark.classList.contains('is-current')) return;
+        event.preventDefault();
+        paint(mark);
+      });
+    }
   }
 </script>
