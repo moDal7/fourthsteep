@@ -21,6 +21,23 @@ const isCurrent = (href: string) => {
   return path === target || path.startsWith(`${target}/`);
 };
 const year = new Date().getFullYear();
+const tickerTerms = [
+  '杀青',
+  '焙火',
+  '蒸し',
+  '岩韵',
+  '回甘',
+  'gongfu',
+  'grandpa',
+  'kyusu',
+  '渥堆',
+  'no photographs',
+  'the cup is the picture',
+  'table = timer',
+  '玉露',
+  '大红袍',
+  '第四泡',
+];
 ---
 
 <!doctype html>
@@ -93,28 +110,7 @@ const year = new Date().getFullYear();
     <footer class="site-footer">
       <div class="ticker ticker--footer" aria-hidden="true">
         <div class="ticker__track">
-          {
-            {
-              const terms = [
-                '杀青',
-                '焙火',
-                '蒸し',
-                '岩韵',
-                '回甘',
-                'gongfu',
-                'grandpa',
-                'kyusu',
-                '渥堆',
-                'no photographs',
-                'the cup is the picture',
-                'table = timer',
-                '玉露',
-                '大红袍',
-                '第四泡',
-              ];
-              return [...terms, ...terms].map((term) => <span>{term}</span>);
-            }
-          }
+          {[...tickerTerms, ...tickerTerms].map((term) => <span>{term}</span>)}
         </div>
       </div>
       <div class="wrap">
