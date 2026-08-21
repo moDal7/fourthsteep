@@ -5,29 +5,39 @@
   "translation": "Cassia",
   "origin": {
     "country": "China",
-    "region": "Wuyi",
+    "regions": [
+      "wuyi"
+    ],
     "subregion": "Niu Lan Keng and other zheng yan sites"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Rou Gui"
   ],
   "harvest": {
-    "season": "May",
-    "pluckingStage": "open leaf"
+    "window": "May"
   },
+  "pluckStandard": "open leaf",
   "oxidation": 40,
   "roast": "charcoal",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 40
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Wither and bruise",
       "description": "Oxidation aimed at spice aromatics."
     },
     {
+      "verb": "roll",
       "step": "Twist",
       "description": "Strip-style yancha roll."
     },
     {
+      "verb": "roast",
       "step": "Charcoal roast",
       "description": "Roast tuned to cinnamon bark rather than chocolate."
     }
@@ -48,37 +58,40 @@
     "finish": "cinnamon-cooling yan yun"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing or gaiwan",
       "ratio": "1:15",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 10,
+          "notes": "quick rinse; yancha wants the charcoal wet before the first cup"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 10
-        },
-        {
-          "n": 2,
           "seconds": 8
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 12
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 18
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 28
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 45
         },
         {
-          "n": 7,
+          "n": 6,
           "seconds": 70
         }
       ]
@@ -95,16 +108,38 @@
       ]
     }
   },
-  "water": "Boiling, moderate TDS. Spice shows best with a mineral backbone.",
+  "water": {
+    "tdsPpm": [
+      50,
+      150
+    ],
+    "tempC": 100,
+    "note": "Boiling, moderate TDS. Spice shows best with a mineral backbone."
+  },
   "storage": "Airtight, room-stable after roast rest.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast",
+    "note": "Some are deliberately re-roasted every few years."
+  },
   "qualityMarkers": [
-    "clear cassia on the hot lid",
-    "zheng yan plots (Niu Lan Keng prized)",
-    "not merely roast spice"
+    {
+      "claim": "clear cassia on the hot lid"
+    },
+    {
+      "claim": "zheng yan plots (Niu Lan Keng prized)"
+    },
+    {
+      "claim": "not merely roast spice"
+    }
   ],
   "commonFaults": [
-    "roast covering empty leaf",
-    "off-site Rou Gui with no rock"
+    {
+      "name": "roast covering empty leaf"
+    },
+    {
+      "name": "off-site Rou Gui with no rock"
+    }
   ],
   "similarTo": [
     "da-hong-pao",

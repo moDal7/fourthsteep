@@ -5,38 +5,50 @@
   "translation": "Dragon Well",
   "origin": {
     "country": "China",
-    "region": "Xi Hu",
+    "regions": [
+      "xi-hu"
+    ],
     "subregion": "Hangzhou, Zhejiang"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Long Jing #43",
     "Qunti Zhong"
   ],
   "harvest": {
-    "season": "late March–April (Ming Qian prized)",
-    "pluckingStage": "one bud and one or two leaves"
+    "window": "late March–April (Ming Qian prized)"
   },
+  "pluckStandard": "one bud and one or two leaves",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Hand-plucked in cool Hangzhou spring; earliest flushes fetch the highest prices."
     },
     {
+      "verb": "wither",
       "step": "Wither",
       "description": "Brief indoor wither to reduce surface moisture before the wok."
     },
     {
+      "verb": "kill-green",
       "step": "Kill-green",
-      "description": "Pan-fired in a large wok (杀青) to halt oxidation and set the chestnut aroma."
+      "description": "Pan-fired in a large wok (杀青) to halt oxidation and set the chestnut aroma. That halt is why this is a green tea."
     },
     {
+      "verb": "roll",
       "step": "Shaping",
       "description": "Pressed and flattened in the wok into the characteristic sword-like leaf."
     },
     {
+      "verb": "dry",
       "step": "Final dry",
       "description": "Low-fire drying to lock the jade colour and toasted-bean sweetness."
     }
@@ -56,15 +68,22 @@
     "finish": "lingering toasted-nut sweetness"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or glass",
       "ratio": "1:20",
       "waterTemp": 80,
+      "rinses": [
+        {
+          "seconds": 3,
+          "notes": "optional 3s rinse"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
           "seconds": 20,
-          "notes": "optional 3s rinse; first steep shows the chestnut core"
+          "notes": "first steep shows the chestnut core"
         },
         {
           "n": 2,
@@ -106,24 +125,63 @@
       "notes": "Bright, sweet, almost no bitterness."
     }
   },
-  "water": "Soft water, 30–80 ppm. Alkaline tap water greys the liquor and dulls the nutty top notes.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "Soft water, 30–80 ppm. Alkaline tap water greys the liquor and dulls the nutty top notes."
+  },
   "storage": "Airtight, cool, away from light and pantry odours. Drink within 9 months of harvest.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "flat, even, intact leaves",
-    "pale jade liquor",
-    "chestnut aroma without smoke",
-    "Ming Qian harvest date"
+    {
+      "claim": "flat, even, intact leaves",
+      "test": "swords lie in one direction; broken dust is a lower lot or a bad bag"
+    },
+    {
+      "claim": "pale jade liquor"
+    },
+    {
+      "claim": "chestnut aroma without smoke"
+    },
+    {
+      "claim": "Ming Qian harvest date"
+    }
   ],
   "commonFaults": [
-    "smoky wok",
-    "yellowed older leaf",
-    "bitter overbrew",
-    "musty storage"
+    {
+      "name": "smoky wok"
+    },
+    {
+      "name": "yellowed older leaf"
+    },
+    {
+      "name": "bitter overbrew"
+    },
+    {
+      "name": "musty storage"
+    }
   ],
   "similarTo": [
     "an-ji-bai-cha",
     "tai-ping-hou-kui",
     "huangshan-mao-feng"
+  ],
+  "compare": [
+    {
+      "teaId": "bi-luo-chun",
+      "differentiator": "Same pan-fire class; Bi Luo Chun is spiralled, not flattened, and grows on Taihu, not Xi Hu."
+    }
+  ],
+  "glossaryRefs": [
+    "ming-qian",
+    "sha-qing",
+    "qunti-zhong"
   ],
   "summary": "Pan-fired Hangzhou green tea: flattened leaves, chestnut sweetness, and the template for Chinese green-tea craft."
 }

@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProcessingDiff from '../../components/ProcessingDiff.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/paths.js';
+
+export const prerender = true;
+
+const teas = await getCollection('teas');
+const byId = Object.fromEntries(teas.map((t) => [t.id, t]));
+
+const pairs = [
+  {
+    a: 'gyokuro',
+    b: 'matcha',
+    note: 'Same shaded leaf. Gyokuro is rolled into needles; matcha is tencha, unrolled, then milled. The fork is 揉捻 versus its absence, then the mill.',
+  },
+  {
+    a: 'sheng-puer-young',
+    b: 'shou-puer',
+    note: 'Same sun-dried Yunnan leaf until 渥堆. Sheng waits; shou is piled. The chart’s hatch is that pile, not a darker oxidation number.',
+  },
+  {
+    a: 'long-jing',
+    b: 'bi-luo-chun',
+    note: 'Two pan-fired greens. Long Jing is pressed flat in the wok; Bi Luo Chun is rolled into spirals. Kill-green is shared; shaping is not.',
+  },
+  {
+    a: 'sencha-asamushi',
+    b: 'hojicha',
+    note: 'Hojicha is sencha (or bancha) taken to the roaster. Oxidation stays 0; the brown cup is 焙火. The spectrum bar is roast, hatched as such.',
+  },
+].filter((p) => byId[p.a] && byId[p.b]);
+
+function ref(id) {
+  const t = byId[id];
+  return { id: t.id, name: t.data.name, nameNative: t.data.nameNative, processing: t.data.processing };
+}
+---
+<Base
+  title="Processing chains · fourthsteep"
+  description="Four pairs where the verb sequence is the argument: shade versus mill, pile versus wait, flat versus spiral, roast versus not."
+>
+  <article class="wrap guide">
+    <header class="guide-head">
+      <p class="kicker"><a href={withBase('/brewing')}>Brewing</a> · Leaf</p>
+      <h1>Processing chains</h1>
+      <p class="lede">
+        The atlas’s thesis as a table: two teas, two sequences, one fork. No photographs. The verbs are
+        the same closed list used on every tea page.
+      </p>
+    </header>
+
+    {pairs.map((p) => (
+      <section class="pair">
+        <p class="meta pair-note">{p.note}</p>
+        <ProcessingDiff a={ref(p.a)} b={ref(p.b)} />
+      </section>
+    ))}
+  </article>
+</Base>
+
+<style>
+  .pair { margin: 2.5rem 0 3.5rem; }
+  .pair-note { max-width: 40rem; }
+  .pair :global(.chain-diff) { margin-top: 0.75rem; }
+</style>

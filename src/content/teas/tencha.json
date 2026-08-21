@@ -5,30 +5,44 @@
   "translation": "Milling tea",
   "origin": {
     "country": "Japan",
-    "region": "Uji",
+    "regions": [
+      "uji"
+    ],
     "subregion": "shaded gardens before the mill"
   },
   "category": "green",
-  "japaneseType": "tencha",
+  "subtype": "tencha",
+  "variety": "sinensis",
   "cultivar": [
     "Asahi",
     "Samidori",
     "blends"
   ],
   "harvest": {
-    "season": "shaded first flush",
-    "pluckingStage": "destemmed, deveined flakes, not rolled"
+    "window": "shaded first flush"
   },
+  "pluckStandard": "destemmed, deveined flakes, not rolled",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
-      "step": "Shade, steam, dry",
-      "description": "Leaf is not kneaded into needles; it remains flakes for milling."
+      "verb": "shade",
+      "step": "Shade",
+      "description": "Same covers as gyokuro. The leaf is destined for flakes, not needles."
     },
     {
-      "step": "Optional brew",
-      "description": "A few producers sell tencha to brew; most of it becomes matcha."
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "蒸青, then destemmed and deveined. That missing 揉捻 is why tencha is not gyokuro."
+    },
+    {
+      "verb": "dry",
+      "step": "Dry as flakes",
+      "description": "Unrolled leaf. Most of it is milled to matcha. If you brew the flakes, treat them like gyokuro — not as a second timer mode."
     }
   ],
   "profile": {
@@ -44,6 +58,7 @@
     "finish": "clean shade-sweet"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu or shiboridashi",
       "ratio": "1:12",
@@ -57,7 +72,8 @@
           "n": 2,
           "seconds": 40
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -69,16 +85,40 @@
           "seconds": 70
         }
       ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 6,
+      "notes": "氷出し / kōridashi — ice on the leaf, melt, no kettle. A canonical Japanese cold brew, not a leftover trick."
     }
   },
-  "water": "Soft, cool. Treat like gyokuro if brewing the flakes.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 60,
+    "note": "Soft, cool. Treat like gyokuro if brewing the flakes."
+  },
   "storage": "Freezer. Tencha is matcha’s perishable parent.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "weeks once opened",
+    "note": "Warm the sealed packet to room temperature before opening."
+  },
   "qualityMarkers": [
-    "bright flakes without stems",
-    "destined-for-ceremonial lots"
+    {
+      "claim": "bright flakes without stems"
+    },
+    {
+      "claim": "destined-for-ceremonial lots"
+    }
   ],
   "commonFaults": [
-    "stale tencha milled into dull matcha"
+    {
+      "name": "stale tencha milled into dull matcha"
+    }
   ],
   "similarTo": [
     "matcha",

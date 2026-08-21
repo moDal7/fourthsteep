@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TeaCard from '../../components/TeaCard.astro';
 import RegionMap from '../../components/RegionMap.astro';
 import { getCollection, render } from 'astro:content';
-import { teasForRegion, liquorStyle } from '../../lib/atlas.js';
+import { teasForRegion, liquorStyle, originLabel, regionMapFromCollection } from '../../lib/atlas.js';
 
 export async function getStaticPaths() {
   const regions = await getCollection('regions');
@@ -15,6 +15,7 @@ const { Content } = await render(region);
 const teas = teasForRegion(await getCollection('teas'), region.id).sort((a, b) =>
   a.data.name.localeCompare(b.data.name),
 );
+const regionById = regionMapFromCollection(await getCollection('regions'));
 const byOxidation = teas.slice().sort((a, b) => a.data.oxidation - b.data.oxidation);
 const median = byOxidation[Math.floor(byOxidation.length / 2)];
 const liquor = median ? liquorStyle({ ...median.data, id: median.id }) : undefined;
@@ -60,7 +61,8 @@ const liquor = median ? liquorStyle({ ...median.data, id: median.id }) : undefin
               name={t.data.name}
               nameNative={t.data.nameNative}
               country={t.data.origin.country}
-              region={t.data.origin.region}
+              region={originLabel(t.data.origin, regionById)}
+              regionIds={t.data.origin.regions.join(',')}
               category={t.data.category}
               oxidation={t.data.oxidation}
               roast={t.data.roast}
@@ -69,7 +71,11 @@ const liquor = median ? liquorStyle({ ...median.data, id: median.id }) : undefin
           ))}
         </div>
       ) : (
-        <p class="empty">No numbered entries are filed here yet — the page stands as map context.</p>
+        <p class="empty">
+          {region.data.orphan
+            ? 'Marked orphan: map context on purpose, no numbered tea filed here yet.'
+            : 'No numbered entries are filed here yet — the page stands as map context.'}
+        </p>
       )
     }
   </article>

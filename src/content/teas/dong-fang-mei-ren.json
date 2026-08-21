@@ -5,30 +5,42 @@
   "translation": "Oriental Beauty",
   "origin": {
     "country": "Taiwan",
-    "region": "Hsinchu / Miaoli",
+    "regions": [
+      "wenshan"
+    ],
+    "regionNote": "Beipu and the Hsinchu–Miaoli hills",
     "subregion": "Beipu and neighbouring hills"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Qing Xin Da Mao",
     "Bai Mao Hou"
   ],
   "harvest": {
-    "season": "summer",
-    "pluckingStage": "leaf bitten by Jacobiasca formosana leafhopper"
+    "window": "summer",
+    "note": "The inversion: Taiwanese high-mountain oolong prizes spring and winter. Dong Fang Mei Ren requires summer leafhopper activity. Summer leaf is the point, not a compromise."
   },
+  "pluckStandard": "leaf bitten by Jacobiasca formosana leafhopper",
   "oxidation": 70,
   "roast": "light",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 70
+  },
   "processing": [
     {
+      "verb": "other",
       "step": "Insect bite",
       "description": "Leafhopper feeding triggers honey-muscatel compounds. No bite, no true Mei Ren."
     },
     {
+      "verb": "wither",
       "step": "Heavy wither",
       "description": "High oxidation for an oolong, toward white-tea fruit."
     },
     {
+      "verb": "roast",
       "step": "Roll and dry",
       "description": "Light roast only; the honey is from the bug, not the charcoal."
     }
@@ -49,6 +61,7 @@
     "finish": "lingering muscatel"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:20",
@@ -98,17 +111,41 @@
       "notes": "Cold brew is almost a dessert wine."
     }
   },
-  "water": "Medium, 90 °C. Boiling pushes it into ordinary black-tea tannin.",
+  "water": {
+    "tdsPpm": [
+      30,
+      90
+    ],
+    "tempC": 90,
+    "note": "Medium, 90 °C. Boiling pushes it into ordinary black-tea tannin."
+  },
   "storage": "Airtight, cool. Honey notes fade with heat and age.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast",
+    "note": "Some are deliberately re-roasted every few years."
+  },
   "qualityMarkers": [
-    "white-tipped bitten leaf",
-    "summer harvest",
-    "natural muscat, not flavouring"
+    {
+      "claim": "white-tipped bitten leaf"
+    },
+    {
+      "claim": "summer harvest"
+    },
+    {
+      "claim": "natural muscat, not flavouring"
+    }
   ],
   "commonFaults": [
-    "unbitten summer oolong sold as Mei Ren",
-    "added honey flavour",
-    "over-oxidised bitterness"
+    {
+      "name": "unbitten summer oolong sold as Mei Ren"
+    },
+    {
+      "name": "added honey flavour"
+    },
+    {
+      "name": "over-oxidised bitterness"
+    }
   ],
   "similarTo": [
     "jin-jun-mei",

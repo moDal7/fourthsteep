@@ -5,25 +5,37 @@
   "translation": "Jasmine Dragon Pearls",
   "origin": {
     "country": "China",
-    "region": "Fuzhou / Guangxi base",
+    "regions": [
+      "fujian"
+    ],
+    "regionNote": "Fuzhou scenting; Guangxi jasmine base",
     "subregion": "jasmine-scented green"
   },
   "category": "scented",
+  "baseCategory": "green",
+  "categoryNote": "花茶 is a treatment applied to a base tea. Jasmine pearls are a green tea that was scented — scented is not one of the six classes.",
+  "variety": "sinensis",
   "cultivar": [
     "green-tea base, often Funing or similar"
   ],
   "harvest": {
-    "season": "spring green base; summer jasmine blossoms",
-    "pluckingStage": "tips rolled into pearls, scented over nights"
+    "window": "spring green base; summer jasmine blossoms"
   },
+  "pluckStandard": "tips rolled into pearls, scented over nights",
   "oxidation": 2,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 2
+  },
   "processing": [
     {
+      "verb": "roll",
       "step": "Green base",
       "description": "Young leaf processed as green tea, then rolled into pearls."
     },
     {
+      "verb": "scent",
       "step": "Scenting",
       "description": "Layered with fresh jasmine over several nights; flowers are removed. Grade is number of scentings."
     }
@@ -43,6 +55,7 @@
     "finish": "jasmine that does not turn soapy if well scented"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or glass",
       "ratio": "1:20",
@@ -87,17 +100,40 @@
       "hours": 5
     }
   },
-  "water": "Soft, 75–80 °C. Boiling cooks the blossom into perfume-cleaner.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "Soft, 75–80 °C. Boiling cooks the blossom into perfume-cleaner."
+  },
   "storage": "Triple-sealed; jasmine evaporates and also contaminates other teas.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "multiple scentings, no leftover flowers in the tin",
-    "tea still visible under jasmine",
-    "pearls unfurl cleanly"
+    {
+      "claim": "multiple scentings, no leftover flowers in the tin"
+    },
+    {
+      "claim": "tea still visible under jasmine"
+    },
+    {
+      "claim": "pearls unfurl cleanly"
+    }
   ],
   "commonFaults": [
-    "artificial jasmine oil",
-    "old base tea",
-    "soapy over-scenting"
+    {
+      "name": "artificial jasmine oil"
+    },
+    {
+      "name": "old base tea"
+    },
+    {
+      "name": "soapy over-scenting"
+    }
   ],
   "similarTo": [
     "bi-luo-chun",

@@ -202,7 +202,7 @@ Two columns from 900px: copy left, `SteepMark` right (SVG 220×220, sized `clamp
 kicker:  "A static atlas"
 h1:      Leaves, / water, / and / a / clock / you / can / trust.
          (each word wrapped in .reveal-word with --i)
-lede:    Forty-five teas from China, Taiwan, and Japan. Every entry is a typed
+lede:    `{teas.length}` teas from China, Taiwan, and Japan. Every entry is a typed
          record of terroir, processing, and a brewing schedule that drives the
          table and the timer from the same numbers — and mixes its own colour
          from its own oxidation, firing, and origin.
@@ -216,9 +216,9 @@ Headline `h1` is capped at `max-width: 15ch`, so it breaks into a short stacked 
 
 ### Section B — Spectrum (`Spectrum.astro`)
 
-The strongest visual on the page. All 45 teas as a flex strip of bars, sorted by oxidation then name. Bar height is `28 + oxidation * 0.72` percent. Colour is that tea’s liquor. Each bar is a link to `/tea/{id}`.
+The strongest visual on the page. All teas as a flex strip of bars, sorted by transformation index then name. Bar height follows `transformation.index`. Colour is that tea’s liquor. Each bar is a link to `/tea/{id}`.
 
-Hover/focus: the bar scales, and a `.spectrum-read` nameplate (English + native + country · oxidation) fades in **over the axis line**. All 45 nameplates are stacked in one slot; only the hovered one is visible. Pure CSS, no JS.
+Hover/focus: the bar scales, and a `.spectrum-read` nameplate (English + native + country · oxidation) fades in **over the axis line**. All nameplates are stacked in one slot; only the hovered one is visible. Pure CSS, no JS.
 
 Axis: `0 — unoxidised` · `Hover a bar for the tea` · `100 — fully oxidised`. The axis itself fades out while a bar is hovered (`.spectrum:has(...)`). On viewports ≤640px the middle hint is hidden; hover still does not exist on touch.
 

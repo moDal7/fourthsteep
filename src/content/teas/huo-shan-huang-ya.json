@@ -1,0 +1,163 @@
+{
+  "name": "Huo Shan Huang Ya",
+  "nameNative": "霍山黄芽",
+  "romanization": "Huòshān Huángyá",
+  "translation": "Huoshan yellow bud",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "huoshan"
+    ],
+    "subregion": "Huoshan, Anhui"
+  },
+  "category": "yellow",
+  "variety": "sinensis",
+  "cultivar": [
+    "Huoshan local"
+  ],
+  "harvest": {
+    "window": "early spring",
+    "flush": "Ming Qian prized"
+  },
+  "pluckStandard": "one bud and one leaf, yellowed",
+  "oxidation": 10,
+  "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 10
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Pluck",
+      "description": "Dabie Mountain spring buds; a historic Anhui yellow, not a rebranded green."
+    },
+    {
+      "verb": "kill-green",
+      "step": "Kill-green",
+      "description": "Pan-fire, as a green would be — then the class-defining wrap."
+    },
+    {
+      "verb": "yellow",
+      "step": "Men Huang",
+      "description": "闷黄 — wrapped and held warm so chlorophyll transforms without full oxidation. That wrap is why this is not Huo Shan green tea."
+    },
+    {
+      "verb": "dry",
+      "step": "Dry",
+      "description": "Low bake; buds should show a yellow-olive, not a raw green."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "baked corn",
+      "chestnut",
+      "hay",
+      "light floral"
+    ],
+    "taste": [
+      "mellow sweet",
+      "yellow bean",
+      "soft mineral"
+    ],
+    "mouthfeel": "soft, less piercing than a same-garden green",
+    "finish": "gentle and long"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:20",
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 25
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 30
+        },
+        {
+          "n": 4,
+          "seconds": 45
+        },
+        {
+          "n": 5,
+          "seconds": 70
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 85,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 120
+        },
+        {
+          "n": 2,
+          "seconds": 180
+        }
+      ]
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 85,
+    "note": "Soft to medium. Heat around 85 °C keeps the yellowing sweetness."
+  },
+  "storage": "Airtight, away from spice. Best in the harvest year.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within the harvest year"
+  },
+  "qualityMarkers": [
+    {
+      "claim": "even yellow-olive buds"
+    },
+    {
+      "claim": "no green rawness — the wrap happened"
+    },
+    {
+      "claim": "Huoshan, Anhui"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "unfinished yellowing (still a green)"
+    },
+    {
+      "name": "over-baked dullness"
+    },
+    {
+      "name": "Meng Ding or Junshan sold under this name"
+    }
+  ],
+  "similarTo": [
+    "meng-ding-huang-ya",
+    "jun-shan-yin-zhen",
+    "long-jing"
+  ],
+  "compare": [
+    {
+      "teaId": "meng-ding-huang-ya",
+      "differentiator": "Both yellow buds via 闷黄. Meng Ding is Sichuan highland squash-osmanthus; Huo Shan is Anhui corn-chestnut."
+    }
+  ],
+  "glossaryRefs": [
+    "men-huang",
+    "ming-qian",
+    "sha-qing"
+  ],
+  "summary": "Anhui yellow bud from Huoshan: 闷黄 wrap, corn-chestnut sweetness, a green tea plus time in a cloth."
+}

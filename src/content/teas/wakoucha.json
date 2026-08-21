@@ -1,0 +1,159 @@
+{
+  "name": "Wakoucha",
+  "nameNative": "和紅茶",
+  "romanization": "Wakōcha",
+  "translation": "Japanese black tea",
+  "origin": {
+    "country": "Japan",
+    "regions": [
+      "shizuoka"
+    ],
+    "regionNote": "a national style — Kagoshima, Sayama, and others pack it too",
+    "subregion": "often Shizuoka or Kagoshima gardens"
+  },
+  "category": "black",
+  "categoryNote": "English black tea is 红茶, named for the liquor. Chinese 黑茶 is the post-fermented class this atlas files as dark.",
+  "variety": "sinensis",
+  "cultivar": [
+    "Benifuuki",
+    "Benihomare",
+    "Benihikari",
+    "others"
+  ],
+  "harvest": {
+    "window": "first and second flush"
+  },
+  "pluckStandard": "one bud and two leaves, orthodox",
+  "oxidation": 100,
+  "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 100
+  },
+  "processing": [
+    {
+      "verb": "wither",
+      "step": "Wither",
+      "description": "Japanese black tea as an orthodox make — wither, roll, oxidise, dry. Not CTC, not a smoked Tongmu tea."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Orthodox roll on small-leaf sinensis, often Benifuuki and its relatives."
+    },
+    {
+      "verb": "oxidise",
+      "step": "Oxidise and dry",
+      "description": "Full enzymatic oxidation. The cup is 紅茶 in the Chinese sense: red liquor, black class in English."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "malt",
+      "sweet potato",
+      "light floral",
+      "cedar"
+    ],
+    "taste": [
+      "gentle malt",
+      "honey",
+      "soft tannin"
+    ],
+    "mouthfeel": "lighter than Dian Hong, cleaner than cheap Assam",
+    "finish": "sweet, short-to-medium"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "kyusu or pot",
+      "ratio": "1:18",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 210
+        }
+      ]
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 90,
+    "note": "Just off the boil. A kyūsu is allowed; this is still a black tea."
+  },
+  "storage": "Airtight, away from sencha. Stable pantry tea.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "years in an airtight tin",
+    "note": "Stable, not a project."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "orthodox leaf, not CTC",
+      "test": "whole twisted leaf you can unfurl; grains from a cutter are a different tea"
+    },
+    {
+      "claim": "named Japanese cultivar (Benifuuki and kin)"
+    },
+    {
+      "claim": "malt-floral, not stew"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "imported Assam packed as wakoucha"
+    },
+    {
+      "name": "overstewed bitterness"
+    },
+    {
+      "name": "stale cardboard"
+    }
+  ],
+  "similarTo": [
+    "ruby-18",
+    "qimen",
+    "dian-hong"
+  ],
+  "compare": [
+    {
+      "teaId": "ruby-18",
+      "differentiator": "Two island blacks. Ruby 18 is a Taiwanese hybrid with mint-cinnamon; wakoucha is Japanese sinensis, milder malt."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
+  ],
+  "summary": "Japanese orthodox black tea: 和紅茶, malt and honey from Benifuuki and its kin, a kyūsu that is allowed to pour red."
+}

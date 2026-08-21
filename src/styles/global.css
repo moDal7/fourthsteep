@@ -1101,6 +1101,25 @@ a.chip:hover {
   box-shadow: 5px 5px 0 var(--liquor);
 }
 
+.chip--variety {
+  letter-spacing: 0.04em;
+  font-style: italic;
+  text-transform: none;
+}
+
+.chip--pluck {
+  font-weight: 700;
+}
+
+.chip--cultivar {
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+[data-variant][aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 /* ------------------------------------------------------------- scales --- */
 
 .scale {
@@ -1220,6 +1239,31 @@ th {
   width: var(--value, 0%);
   background: var(--liquor);
   transform-origin: left;
+}
+
+tr.is-rinse td {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+tr.is-rinse .steep-bar span {
+  background: repeating-linear-gradient(-45deg, var(--liquor) 0 4px, var(--paper) 4px 8px);
+}
+
+.chain-diff {
+  margin-top: 2.5rem;
+}
+
+.chain-diff td .meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.chain-diff tr.is-split b {
+  box-shadow: inset 0 -0.35em 0 var(--liquor-wash);
 }
 
 /* ------------------------------------------------------------ islands --- */
@@ -1343,6 +1387,11 @@ th {
   height: 100%;
   width: 0;
   background: var(--liquor);
+}
+
+.pips li.pip-rinse {
+  flex: 0.45;
+  background: repeating-linear-gradient(-45deg, var(--paper-sunk) 0 3px, var(--paper) 3px 6px);
 }
 
 .pips li.done span {
@@ -1810,6 +1859,7 @@ html[data-theme='dark'] .hero-pour__native {
 
 .spectrum-tick {
   display: block;
+  position: relative;
   width: 100%;
   height: var(--h, 50%);
   background: linear-gradient(to bottom, var(--liquor-pale), var(--liquor) 40%, var(--liquor-deep));
@@ -1818,6 +1868,53 @@ html[data-theme='dark'] .hero-pour__native {
   transform-origin: bottom;
   mix-blend-mode: multiply;
   transition: transform var(--dur-2) var(--ease-steep);
+}
+
+.spectrum-tick.kind-microbial::after,
+.spectrum-tick.kind-roast::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spectrum-tick.kind-microbial::after {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0 3px,
+    rgb(0 0 0 / 0.2) 3px 5px
+  );
+}
+
+.spectrum-tick.kind-roast::after {
+  background-image: radial-gradient(circle, rgb(0 0 0 / 0.28) 0.9px, transparent 1.1px);
+  background-size: 5px 5px;
+}
+
+.spectrum-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1.5px solid var(--ink);
+  background: var(--liquor);
+}
+
+.legend-microbial {
+  background-image: repeating-linear-gradient(-45deg, transparent 0 2px, rgb(0 0 0 / 0.25) 2px 3px);
+}
+
+.legend-roast {
+  background-image: radial-gradient(circle, rgb(0 0 0 / 0.3) 0.7px, transparent 0.9px);
+  background-size: 4px 4px;
 }
 
 html[data-theme='dark'] .spectrum-tick {

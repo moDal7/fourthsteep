@@ -5,29 +5,42 @@
   "translation": "Fu brick",
   "origin": {
     "country": "China",
-    "region": "Hunan / Shaanxi",
+    "regions": [
+      "anhua"
+    ],
+    "regionNote": "Anhua bricks; Jingyang (Shaanxi) is a sibling tradition",
     "subregion": "Anhua and Jingyang traditions"
   },
   "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "sinensis",
   "cultivar": [
     "Hunan dark-tea cultivars"
   ],
   "harvest": {
-    "season": "summer mature leaf",
-    "pluckingStage": "coarser leaf pressed into bricks"
+    "window": "summer mature leaf"
   },
+  "pluckStandard": "coarser leaf pressed into bricks",
   "oxidation": 16,
   "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 75,
+    "note": "Golden flowers (Eurotium) on a dark-tea brick. The number on the old chart was not oxidation."
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Dark-tea make",
       "description": "Kill-green, roll, pile."
     },
     {
+      "verb": "pile-ferment",
       "step": "Brick press",
       "description": "Pressed with a controlled “golden flower” fermentation."
     },
     {
+      "verb": "pile-ferment",
       "step": "Eurotium cristatum",
       "description": "The golden flowers — a desired mould — define Fu brick."
     }
@@ -48,10 +61,17 @@
     "finish": "sweet grain"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "pot",
       "ratio": "1:12",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 8,
+          "notes": "rinse the brick; golden flowers do not need a long wash"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
@@ -85,24 +105,61 @@
           "seconds": 240
         }
       ]
+    },
+    "decoction": {
+      "when": "after the gongfu session, or as a separate pot",
+      "minutes": [
+        8,
+        20
+      ],
+      "notes": "煮茶 — simmer the spent leaf. Dark teas can take a boil; this is the extra cup the name 第四泡 points at."
     }
   },
-  "water": "Boiling, plenty of leaf. A frontier tea built for frontier water.",
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 100,
+    "note": "Boiling, plenty of leaf. A frontier tea built for frontier water."
+  },
   "storage": "Dry enough that flowers stay golden, not green-mouldy. Whole bricks age slowly.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change",
+    "note": "Most teas are food. A few teas are projects."
+  },
   "qualityMarkers": [
-    "visible golden flowers",
-    "sweet not sour",
-    "Anhua or Jingyang pedigree"
+    {
+      "claim": "visible golden flowers"
+    },
+    {
+      "claim": "sweet not sour"
+    },
+    {
+      "claim": "Anhua or Jingyang pedigree"
+    }
   ],
   "commonFaults": [
-    "wrong moulds",
-    "damp bricks",
-    "dusty stale herb"
+    {
+      "name": "wrong moulds"
+    },
+    {
+      "name": "damp bricks"
+    },
+    {
+      "name": "dusty stale herb"
+    }
   ],
   "similarTo": [
+    "qian-liang",
     "liu-bao",
-    "shou-puer",
-    "shou-mei"
+    "shou-puer"
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui"
   ],
   "summary": "Brick dark tea grown with golden flowers: grain-jujube mildness from Eurotium cristatum."
 }

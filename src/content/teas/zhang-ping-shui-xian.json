@@ -1,0 +1,181 @@
+{
+  "name": "Zhangping Shui Xian",
+  "nameNative": "漳平水仙",
+  "romanization": "Zhāngpíng Shuǐxiān",
+  "translation": "Zhangping narcissus",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "zhangping"
+    ],
+    "subregion": "Zhangping, Longyan, Fujian"
+  },
+  "category": "oolong",
+  "variety": "sinensis",
+  "cultivar": [
+    "Shui Xian"
+  ],
+  "harvest": {
+    "window": "spring and autumn"
+  },
+  "pluckStandard": "open leaf, pressed into a small square",
+  "oxidation": 35,
+  "roast": "medium",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 35
+  },
+  "processing": [
+    {
+      "verb": "wither",
+      "step": "Wither",
+      "description": "Fujian inland oolong wither on Shui Xian leaf — the same cultivar as Wuyi, a different shape."
+    },
+    {
+      "verb": "shake",
+      "step": "Shake",
+      "description": "摇青 starts oxidation at the margin. Oolong is this verb, then a roast."
+    },
+    {
+      "verb": "kill-green",
+      "step": "Kill-green",
+      "description": "Fired when the floral peak is in."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Not a Wuyi strip and not an Anxi bead — prepared for the square."
+    },
+    {
+      "verb": "press",
+      "step": "Square press",
+      "description": "Pressed into a small paper-wrapped square. Unique among oolongs in this atlas; the press is the tell on the table."
+    },
+    {
+      "verb": "roast",
+      "step": "Roast",
+      "description": "Medium roast; orchid and water-lily over charcoal sweetness."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "narcissus",
+      "orchid",
+      "baked sugar",
+      "orchid water"
+    ],
+    "taste": [
+      "floral",
+      "light mineral",
+      "toasted grain"
+    ],
+    "mouthfeel": "thicker than jade TGY, less rock than Wuyi Shui Xian",
+    "finish": "orchid return"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "gaiwan",
+      "ratio": "1:18",
+      "waterTemp": 98,
+      "rinses": [
+        {
+          "seconds": 8,
+          "notes": "rinse to open the square; the first drinking steep is still ahead"
+        }
+      ],
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 35
+        },
+        {
+          "n": 5,
+          "seconds": 50
+        },
+        {
+          "n": 6,
+          "seconds": 75
+        }
+      ]
+    },
+    "western": {
+      "grams": 4,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 150
+        },
+        {
+          "n": 2,
+          "seconds": 210
+        }
+      ]
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      40,
+      120
+    ],
+    "tempC": 98,
+    "note": "Near boiling, moderate minerals. Ultra-soft water makes the square taste thin."
+  },
+  "storage": "Airtight after roast has settled. The squares keep if dry.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "improves for a while after roast"
+  },
+  "qualityMarkers": [
+    {
+      "claim": "intact paper-wrapped square"
+    },
+    {
+      "claim": "Zhangping, not a Wuyi strip in a box"
+    },
+    {
+      "claim": "orchid, not ash"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "Wuyi Shui Xian crumbs pressed and relabelled"
+    },
+    {
+      "name": "over-roast bitterness"
+    },
+    {
+      "name": "stale paper taint"
+    }
+  ],
+  "similarTo": [
+    "shui-xian",
+    "tie-guan-yin",
+    "dong-ding"
+  ],
+  "compare": [
+    {
+      "teaId": "shui-xian",
+      "differentiator": "Same cultivar name. Wuyi Shui Xian is a rock strip; Zhangping is a pressed square from inland Fujian. The mountain is the argument."
+    }
+  ],
+  "glossaryRefs": [
+    "yao-qing",
+    "hong-bei"
+  ],
+  "summary": "The square oolong: Zhangping Shui Xian, paper-wrapped, orchid over a medium roast, not a Wuyi strip."
+}

@@ -10,6 +10,6 @@ knownFor:
   - Ming Qian first flush
 ---
 
-West Lake is not a high mountain, but it is a precise one. The famous Lion Peak and neighbouring gardens sit in a humid basin where spring comes early. Long Jing’s flattened leaf and chestnut wok aroma were standardised here; nearby Zhejiang gardens (Anji, Dongting) share the pan-fire idiom even when the cultivar changes.
+West Lake is not a high mountain, but it is a precise one. The famous Lion Peak and neighbouring gardens sit in a humid basin where spring comes early. Long Jing’s flattened leaf and chestnut wok aroma were standardised here.
 
-Drink Xi Hu teas cooler than oolong, in glass or gaiwan, and treat harvest week as part of the name.
+Anji (pale-leaf greens) and Dongting (Bi Luo Chun, on Taihu in Jiangsu) are not this lake. The atlas used to group them here by a substring. It does not any more.

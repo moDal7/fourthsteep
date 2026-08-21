@@ -1,0 +1,163 @@
+{
+  "name": "Awa Bancha",
+  "nameNative": "阿波晩茶",
+  "romanization": "Awa bancha",
+  "translation": "Awa late tea",
+  "origin": {
+    "country": "Japan",
+    "regions": [
+      "tokushima"
+    ],
+    "subregion": "Kamikatsu and Naka, Tokushima"
+  },
+  "category": "dark",
+  "categoryNote": "A lactic-fermented Japanese tea filed with the dark class by process. Not 渥堆, not English black tea, not a failed sencha.",
+  "variety": "sinensis",
+  "cultivar": [
+    "local Tokushima"
+  ],
+  "harvest": {
+    "window": "late summer",
+    "note": "Bancha as in late leaf — the calendar is the name. This is not first-flush sencha."
+  },
+  "pluckStandard": "mature summer leaf, boiled then lactic-fermented",
+  "oxidation": 8,
+  "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 60,
+    "note": "Anaerobic lactic fermentation after a boil, then sun-dry. Microbial, not enzymatic oxidation, and not puer-style 渥堆."
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Late pluck",
+      "description": "Summer mature leaf in Tokushima. The 晩 is the point."
+    },
+    {
+      "verb": "kill-green",
+      "step": "Boil",
+      "description": "Leaf is boiled, not steamed as sencha and not wok-fired as a Chinese green."
+    },
+    {
+      "verb": "pile-ferment",
+      "step": "Lactic ferment",
+      "description": "Packed anaerobic until lactic acid bacteria sour the leaf. Related in spirit to goishicha; not a wet pile in the Yunnan sense."
+    },
+    {
+      "verb": "dry",
+      "step": "Sun dry",
+      "description": "Unpacked and dried. The sour-pickle register is the process, not a fault."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "pickle",
+      "hay",
+      "sour plum",
+      "wood"
+    ],
+    "taste": [
+      "lactic sour",
+      "light umami",
+      "clean bitterness"
+    ],
+    "mouthfeel": "thin-to-medium, quenching, not creamy",
+    "finish": "sour-sweet, short"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "kyusu or pot",
+      "ratio": "1:16",
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 45,
+          "notes": "longer first steep; this leaf does not open like sencha"
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        },
+        {
+          "n": 3,
+          "seconds": 45
+        }
+      ],
+      "curveException": "Awa bancha is not a Japanese needle green. The first steep is long because the leaf is boiled-and-dried, not rolled-open."
+    },
+    "western": {
+      "grams": 5,
+      "volume": 400,
+      "waterTemp": 90,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        }
+      ]
+    },
+    "decoction": {
+      "when": "a kettle on the table, as the villages often drink it",
+      "minutes": [
+        5,
+        15
+      ],
+      "notes": "煮茶 — simmering is ordinary here. The sour is already in the leaf; heat just lifts it."
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      30,
+      120
+    ],
+    "tempC": 90,
+    "note": "Near boiling is fine. Soft water keeps the sour clean rather than metallic."
+  },
+  "storage": "Airtight. The pickle aroma will scent nearby sencha. Stable compared with ichibancha.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "a year or more in a tin",
+    "note": "Most teas are food. A few teas are projects."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "Tokushima / Awa named"
+    },
+    {
+      "claim": "clean lactic sour, not dirty compost"
+    },
+    {
+      "claim": "late-summer harvest"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "ordinary bancha sold as Awa"
+    },
+    {
+      "name": "rot rather than pickle"
+    },
+    {
+      "name": "confused with hojicha because both are “brown”"
+    }
+  ],
+  "similarTo": [
+    "bancha",
+    "liu-bao",
+    "fu-zhuan"
+  ],
+  "compare": [
+    {
+      "teaId": "bancha",
+      "differentiator": "Everyday bancha is steamed green. Awa bancha is boiled and lactic-fermented — a different class, same late-leaf calendar."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
+  ],
+  "summary": "Tokushima’s lactic late tea: boiled, pickled, sun-dried. A dark tea that tastes of sour plum, not of 渥堆."
+}

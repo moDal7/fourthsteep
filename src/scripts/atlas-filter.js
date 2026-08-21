@@ -21,7 +21,7 @@ function matches(card, query, filters) {
   if (filters.country && card.dataset.country !== filters.country) return false;
   if (filters.category && card.dataset.category !== filters.category) return false;
   if (filters.roast && card.dataset.roast !== filters.roast) return false;
-  if (filters.region && card.dataset.region !== filters.region) return false;
+  if (filters.region && !(card.dataset.region || '').split(',').includes(filters.region)) return false;
   if (filters.ox) {
     const ox = Number(card.dataset.oxidation);
     if (filters.ox === 'low' && ox > 20) return false;

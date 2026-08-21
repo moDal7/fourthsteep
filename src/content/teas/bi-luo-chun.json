@@ -5,33 +5,50 @@
   "translation": "Green Snail Spring",
   "origin": {
     "country": "China",
-    "region": "Dongting",
+    "regions": [
+      "dongting"
+    ],
+    "regionNote": "洞庭 on Taihu, Jiangsu — not the Hunan lake",
     "subregion": "Taihu, Jiangsu"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Dongting local"
   ],
   "harvest": {
-    "season": "late March–early April",
-    "pluckingStage": "one bud and one tiny leaf, extremely fine"
+    "window": "late March–early April"
   },
+  "pluckStandard": "one bud and one tiny leaf, extremely fine",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Minute buds picked around orchards of peach, plum and loquat."
     },
     {
+      "verb": "wither",
+      "step": "Wither",
+      "description": "Brief indoor wither before the wok, as with Long Jing."
+    },
+    {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Gentle pan-fire; fruit-blossom aromatics from neighbouring trees cling to the downy buds."
     },
     {
+      "verb": "roll",
       "step": "Rolling",
-      "description": "Rolled into tight spirals — the “green snails”."
+      "description": "Rolled into tight spirals — the “green snails”. The fork with Long Jing is this shape, not the fire."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Finished at low heat so the white pekoe remains visible."
     }
@@ -51,6 +68,7 @@
     "finish": "short floral aftertaste"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "glass or small gaiwan",
       "ratio": "1:25",
@@ -96,22 +114,51 @@
       "hours": 5
     }
   },
-  "water": "Very soft water; high mineral content flattens the floral top.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "Very soft water; high mineral content flattens the floral top."
+  },
   "storage": "Refrigerate sealed if keeping past early summer. Hygroscopic down picks up fridge smells — double-bag.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "tight spirals covered in pekoe",
-    "intense floral hit on dry leaf",
-    "pale gold-green liquor"
+    {
+      "claim": "tight spirals covered in pekoe"
+    },
+    {
+      "claim": "intense floral hit on dry leaf"
+    },
+    {
+      "claim": "pale gold-green liquor"
+    }
   ],
   "commonFaults": [
-    "large coarse leaf sold as Bi Luo Chun",
-    "sour under-fired green",
-    "perfume-like added flavour"
+    {
+      "name": "large coarse leaf sold as Bi Luo Chun"
+    },
+    {
+      "name": "sour under-fired green"
+    },
+    {
+      "name": "perfume-like added flavour"
+    }
   ],
   "similarTo": [
     "huangshan-mao-feng",
     "an-ji-bai-cha",
     "long-jing"
   ],
-  "summary": "Downy spiral greens from Taihu orchards, famous for a floral, fruity lift unusual among pan-fired greens."
+  "summary": "Downy spiral greens from Taihu orchards, famous for a floral, fruity lift unusual among pan-fired greens.",
+  "compare": [
+    {
+      "teaId": "long-jing",
+      "differentiator": "Same pan-fire class; Long Jing is flattened in the wok, not spiralled, and grows at Xi Hu, not Taihu."
+    }
+  ]
 }

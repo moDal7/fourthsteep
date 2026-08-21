@@ -5,25 +5,36 @@
   "translation": "Raw puer, aged",
   "origin": {
     "country": "China",
-    "region": "Yunnan",
+    "regions": [
+      "yunnan"
+    ],
     "subregion": "stored in Yunnan, Guangdong, or Taiwan"
   },
   "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "assamica",
   "cultivar": [
     "Yunnan large-leaf / assamica"
   ],
   "harvest": {
-    "season": "originally spring maocha",
-    "pluckingStage": "pressed cake aged a decade or more"
+    "window": "originally spring maocha"
   },
+  "pluckStandard": "pressed cake aged a decade or more",
   "oxidation": 20,
   "roast": "none",
+  "transformation": {
+    "kind": "microbial",
+    "index": 55,
+    "note": "Fifteen years of slow change after sha qing. Enzymatic oxidation is not the main part of it."
+  },
   "processing": [
     {
+      "verb": "other",
       "step": "Same make as young sheng",
       "description": "The extra “process” is time: slow oxidation, polymerisation, microbial change."
     },
     {
+      "verb": "other",
       "step": "Storage",
       "description": "Dry-stored vs traditionally damper southern storage produce different profiles."
     }
@@ -44,41 +55,44 @@
     "finish": "cooling camphor, long"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing",
       "ratio": "1:14",
       "waterTemp": 100,
+      "rinses": [
+        {
+          "seconds": 15,
+          "notes": "quick rinse; aged cakes still want a wash"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 15
-        },
-        {
-          "n": 2,
           "seconds": 10
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 15
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 20
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 30
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 45
         },
         {
-          "n": 7,
+          "n": 6,
           "seconds": 70
         },
         {
-          "n": 8,
+          "n": 7,
           "seconds": 100
         }
       ]
@@ -97,24 +111,61 @@
           "seconds": 240
         }
       ]
+    },
+    "decoction": {
+      "when": "after the gongfu session, or as a separate pot",
+      "minutes": [
+        8,
+        20
+      ],
+      "notes": "煮茶 — simmer the spent leaf. Dark teas can take a boil; this is the extra cup the name 第四泡 points at."
     }
   },
-  "water": "Fully boiling, mineral-okay. Aged cakes like heat.",
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 100,
+    "note": "Fully boiling, mineral-okay. Aged cakes like heat."
+  },
   "storage": "Keep the storage style stable; do not fridge. Cakes continue to evolve.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "continues to change",
+    "note": "Most teas are food. A few teas are projects."
+  },
   "qualityMarkers": [
-    "clean camphor-plums, not must",
-    "paper and leaf integrity",
-    "documented age and storage"
+    {
+      "claim": "clean camphor-plums, not must"
+    },
+    {
+      "claim": "paper and leaf integrity"
+    },
+    {
+      "claim": "documented age and storage"
+    }
   ],
   "commonFaults": [
-    "wet-stored mould",
-    "forced “rapid aging” sourness",
-    "counterfeit old wrappers"
+    {
+      "name": "wet-stored mould"
+    },
+    {
+      "name": "forced “rapid aging” sourness"
+    },
+    {
+      "name": "counterfeit old wrappers"
+    }
   ],
   "similarTo": [
     "sheng-puer-young",
     "liu-bao",
     "shou-mei"
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui"
   ],
   "summary": "The same raw cake after years: camphor, plum, and a softer body — storage is the craft."
 }

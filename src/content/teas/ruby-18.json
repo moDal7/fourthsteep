@@ -1,0 +1,161 @@
+{
+  "name": "Ruby 18",
+  "nameNative": "紅玉",
+  "romanization": "Hóngyù",
+  "translation": "Red jade",
+  "origin": {
+    "country": "Taiwan",
+    "regions": [
+      "nantou"
+    ],
+    "regionNote": "Yuchi / Sun Moon Lake is the classic garden; the cultivar travels",
+    "subregion": "Yuchi, Nantou"
+  },
+  "category": "black",
+  "categoryNote": "English black tea is 红茶, named for the liquor. Chinese 黑茶 is the post-fermented class this atlas files as dark.",
+  "variety": "mixed",
+  "cultivar": [
+    "TTES No. 18"
+  ],
+  "harvest": {
+    "window": "summer",
+    "note": "Summer leaf is often the loud mint-cinnamon lot. This is not the high-mountain oolong calendar."
+  },
+  "pluckStandard": "one bud and two leaves, orthodox strip",
+  "oxidation": 100,
+  "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 100
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Pluck",
+      "description": "TTES No. 18 — 紅玉. The tea experiment station’s published parentage is Burma large-leaf B-729 × Taiwan wild B-607, named in 1999. English write-ups disagree on how long the trials ran; this atlas keeps the station’s parentage and the naming year, and does not freeze a folklore chronology."
+    },
+    {
+      "verb": "wither",
+      "step": "Wither and roll",
+      "description": "Orthodox black-tea make on a large-leaf hybrid."
+    },
+    {
+      "verb": "oxidise",
+      "step": "Oxidise and dry",
+      "description": "Full oxidation. The mint-cinnamon (wintergreen) note is the cultivar, not a flavouring."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "wintergreen",
+      "cinnamon",
+      "camphor-mint",
+      "brown sugar"
+    ],
+    "taste": [
+      "mint-sweet malt",
+      "spice",
+      "clean tannin"
+    ],
+    "mouthfeel": "round, medium-full, less punchy than Assam",
+    "finish": "cooling mint after the malt"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "gaiwan or pot",
+      "ratio": "1:18",
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 15
+        },
+        {
+          "n": 2,
+          "seconds": 12
+        },
+        {
+          "n": 3,
+          "seconds": 20
+        },
+        {
+          "n": 4,
+          "seconds": 30
+        },
+        {
+          "n": 5,
+          "seconds": 45
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 95,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 180
+        },
+        {
+          "n": 2,
+          "seconds": 240
+        }
+      ]
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      40,
+      150
+    ],
+    "tempC": 95,
+    "note": "Near boiling, medium mineral. The mint reads more clearly if you do not stew it."
+  },
+  "storage": "Airtight, opaque. Orthodox blacks last 18–24 months well.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "years in an airtight tin",
+    "note": "Stable, not a project."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "orthodox leaf, not CTC",
+      "test": "whole twisted leaf you can unfurl; grains from a cutter are a different tea"
+    },
+    {
+      "claim": "mint-cinnamon from the leaf",
+      "test": "if it tastes of added flavouring oil, it is not this cultivar doing the work"
+    },
+    {
+      "claim": "TTES No. 18 / 紅玉 named on the bag"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "generic Taiwanese black sold as Ruby",
+      "cause": "other cultivars",
+      "tell": "malt without mint"
+    },
+    {
+      "name": "overstewed bitterness"
+    }
+  ],
+  "similarTo": [
+    "dian-hong",
+    "dong-fang-mei-ren",
+    "wakoucha"
+  ],
+  "compare": [
+    {
+      "teaId": "dian-hong",
+      "differentiator": "Both large-leaf orthodox blacks. Ruby’s mint-cinnamon is a Taiwanese hybrid; Dian Hong is Yunnan daye malt and sweet potato."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation"
+  ],
+  "summary": "Taiwan’s named black: TTES No. 18 from Yuchi, orthodox, with a mint-cinnamon register no mainland black shares."
+}

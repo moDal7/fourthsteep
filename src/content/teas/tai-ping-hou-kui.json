@@ -5,29 +5,39 @@
   "translation": "Peaceful Monkey Leader",
   "origin": {
     "country": "China",
-    "region": "Huangshan",
+    "regions": [
+      "huangshan"
+    ],
     "subregion": "Hou Keng, Anhui"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Shi Da Cha"
   ],
   "harvest": {
-    "season": "Qing Ming to Guyu",
-    "pluckingStage": "one bud between two long leaves, pressed flat"
+    "window": "Qing Ming to Guyu"
   },
+  "pluckStandard": "one bud between two long leaves, pressed flat",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Large-leaf Shi Da Cha, buds nested between two leaves."
     },
     {
+      "verb": "press",
       "step": "Press",
       "description": "Pressed between cloths into long, flat “lances” up to 15 cm."
     },
     {
+      "verb": "roast",
       "step": "Bake",
       "description": "Repeated baking over charcoal to dry without breaking the silhouette."
     }
@@ -47,6 +57,7 @@
     "finish": "long orchid-cane sweetness"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "tall glass",
       "ratio": "1:30",
@@ -83,18 +94,43 @@
       ]
     }
   },
-  "water": "Soft, cool-side 85 °C. Overheating turns the long leaf bitter.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 85,
+    "note": "Soft, cool-side 85 °C. Overheating turns the long leaf bitter."
+  },
   "storage": "Keep flat if possible; the leaves crush easily. Drink within the year.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "straight, intact two-leaf spears",
-    "pale veins visible",
-    "orchid aroma",
-    "no broken fragments"
+    {
+      "claim": "straight, intact two-leaf spears"
+    },
+    {
+      "claim": "pale veins visible"
+    },
+    {
+      "claim": "orchid aroma"
+    },
+    {
+      "claim": "no broken fragments"
+    }
   ],
   "commonFaults": [
-    "machine-flattened fakes",
-    "shattered leaf",
-    "grassy cheap cousins"
+    {
+      "name": "machine-flattened fakes"
+    },
+    {
+      "name": "shattered leaf"
+    },
+    {
+      "name": "grassy cheap cousins"
+    }
   ],
   "similarTo": [
     "huangshan-mao-feng",

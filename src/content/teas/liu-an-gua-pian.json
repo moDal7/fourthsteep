@@ -5,33 +5,44 @@
   "translation": "Melon Seed",
   "origin": {
     "country": "China",
-    "region": "Lu'an",
+    "regions": [
+      "luan"
+    ],
     "subregion": "Dabie Mountains, Anhui"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Qunti"
   ],
   "harvest": {
-    "season": "Guyu, later than most greens",
-    "pluckingStage": "second leaf only — buds and stems removed"
+    "window": "Guyu, later than most greens"
   },
+  "pluckStandard": "second leaf only — buds and stems removed",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck and sort",
       "description": "Buds and stems are stripped; only the second leaf is kept."
     },
     {
+      "verb": "kill-green",
       "step": "Bake",
       "description": "Unique sequential baking rather than a single wok kill-green."
     },
     {
+      "verb": "roll",
       "step": "Shape",
       "description": "Leaves take a melon-seed silhouette, slightly cupped."
     },
     {
+      "verb": "roast",
       "step": "Charcoal finish",
       "description": "A last charcoal pass adds a faint cooked-melon warmth without true roast."
     }
@@ -51,6 +62,7 @@
     "finish": "warm, lingering sweetness"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:18",
@@ -94,17 +106,40 @@
       ]
     }
   },
-  "water": "Medium-soft. A little more heat than typical greens is welcome.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 85,
+    "note": "Medium-soft. A little more heat than typical greens is welcome."
+  },
   "storage": "Airtight; the baked finish keeps slightly longer than unbaked greens.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "uniform seed-shaped leaves without stems",
-    "deep jade",
-    "melon-seed aroma"
+    {
+      "claim": "uniform seed-shaped leaves without stems"
+    },
+    {
+      "claim": "deep jade"
+    },
+    {
+      "claim": "melon-seed aroma"
+    }
   ],
   "commonFaults": [
-    "stemmy cheap grades",
-    "charcoal smoke",
-    "thin liquor"
+    {
+      "name": "stemmy cheap grades"
+    },
+    {
+      "name": "charcoal smoke"
+    },
+    {
+      "name": "thin liquor"
+    }
   ],
   "similarTo": [
     "huangshan-mao-feng",

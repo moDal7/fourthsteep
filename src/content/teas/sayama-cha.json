@@ -1,0 +1,161 @@
+{
+  "name": "Sayama-cha",
+  "nameNative": "狭山茶",
+  "romanization": "Sayama-cha",
+  "translation": "Sayama tea",
+  "origin": {
+    "country": "Japan",
+    "regions": [
+      "sayama"
+    ],
+    "subregion": "Iruma and Sayama, Saitama"
+  },
+  "category": "green",
+  "subtype": "sencha",
+  "variety": "sinensis",
+  "cultivar": [
+    "Yabukita",
+    "Sayamakaori",
+    "Fukumidori"
+  ],
+  "harvest": {
+    "window": "ichibancha, then later flushes for everyday lots"
+  },
+  "pluckStandard": "sencha needles with a heavy finishing fire",
+  "oxidation": 0,
+  "roast": "light",
+  "transformation": {
+    "kind": "none",
+    "index": 0,
+    "note": "Still a steamed green. 狭山火入れ is a finishing fire, not hojicha-level 焙火."
+  },
+  "processing": [
+    {
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "Ordinary Japanese mushi. Sayama is not a different class; it is a different finishing fire."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Needles, as for sencha."
+    },
+    {
+      "verb": "refine",
+      "step": "Sayama hiire",
+      "description": "狭山火入れ — a heavier final firing than Uji or Shizuoka typically apply. The cup is thicker and toastier; oxidation stays 0."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "toasted nori",
+      "roasted bean",
+      "warm grass"
+    ],
+    "taste": [
+      "savoury-sweet",
+      "light toast",
+      "umami"
+    ],
+    "mouthfeel": "thicker than Shizuoka asamushi, not opaque like fukamushi",
+    "finish": "warm, short-to-medium"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "kyusu",
+      "ratio": "1:15",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60,
+          "notes": "a few degrees hotter than Uji sencha; the fire can take it"
+        },
+        {
+          "n": 2,
+          "seconds": 20
+        },
+        {
+          "n": 3,
+          "seconds": 45
+        }
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
+    },
+    "western": {
+      "grams": 4,
+      "volume": 180,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 60
+        },
+        {
+          "n": 2,
+          "seconds": 30
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 4,
+      "notes": "Mizudashi still works; the toast is quieter cold."
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "Soft water, 75–85 °C. The finishing fire is not a licence for a rolling boil."
+  },
+  "storage": "Refrigerate sealed after opening; finish the bag in weeks. Keep away from hojicha so the fires do not blur.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
+  "qualityMarkers": [
+    {
+      "claim": "Saitama / Iruma / Sayama named"
+    },
+    {
+      "claim": "toast from 火入れ, not from a hojicha drum"
+    },
+    {
+      "claim": "ichi-bancha date"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "Shizuoka sencha in a Sayama tin"
+    },
+    {
+      "name": "scorched hiire"
+    },
+    {
+      "name": "stale fishy nori"
+    }
+  ],
+  "similarTo": [
+    "sencha-asamushi",
+    "hojicha",
+    "kamairicha"
+  ],
+  "compare": [
+    {
+      "teaId": "sencha-asamushi",
+      "differentiator": "Same steam-and-roll green. Sayama’s distinction is the heavy finishing fire, not a different kill-green."
+    }
+  ],
+  "glossaryRefs": [
+    "ichibancha",
+    "mushi",
+    "aracha"
+  ],
+  "summary": "Kantō sencha with 狭山火入れ: thicker, toastier needles from Saitama, still a steamed green."
+}

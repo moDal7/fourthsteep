@@ -5,24 +5,43 @@
   "translation": "New tea",
   "origin": {
     "country": "Japan",
-    "region": "Kagoshima / Shizuoka",
+    "regions": [
+      "kagoshima",
+      "shizuoka"
+    ],
     "subregion": "earliest national flushes"
   },
   "category": "green",
-  "japaneseType": "sencha",
+  "subtype": "sencha",
+  "variety": "sinensis",
   "cultivar": [
     "Yutakamidori",
     "Saemidori",
     "Yabukita"
   ],
   "harvest": {
-    "season": "first days of ichibancha, rushed to market",
-    "pluckingStage": "youngest shoots, often light-steamed"
+    "window": "first days of ichibancha, rushed to market"
   },
+  "pluckStandard": "youngest shoots, often light-steamed",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "Usually light-steamed first-flush sencha. Shincha is a season, not a separate process."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Needles, as for sencha."
+    },
+    {
+      "verb": "refine",
       "step": "Rush shiage",
       "description": "Minimal resting; shincha is sencha sold as the year’s first news from the field."
     }
@@ -42,6 +61,7 @@
     "finish": "short, sparkling"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu",
       "ratio": "1:16",
@@ -59,7 +79,8 @@
           "n": 3,
           "seconds": 40
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -75,23 +96,54 @@
           "seconds": 25
         }
       ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 6,
+      "notes": "氷出し / kōridashi — ice on the leaf, melt, no kettle. A canonical Japanese cold brew, not a leftover trick."
     }
   },
-  "water": "Soft, cool. Shincha is fragile.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 70,
+    "note": "Soft, cool. Shincha is fragile."
+  },
   "storage": "Buy small, drink now. The point is the season.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "harvest week on the bag",
-    "electric freshness",
-    "southern origins arriving first"
+    {
+      "claim": "harvest week on the bag"
+    },
+    {
+      "claim": "electric freshness"
+    },
+    {
+      "claim": "southern origins arriving first"
+    }
   ],
   "commonFaults": [
-    "ordinary sencha relabelled shincha in August",
-    "stale “new tea”"
+    {
+      "name": "ordinary sencha relabelled shincha in August"
+    },
+    {
+      "name": "stale “new tea”"
+    }
   ],
   "similarTo": [
     "sencha-asamushi",
     "kabusecha",
     "gyokuro"
   ],
-  "summary": "The first sencha of the year: a seasonal designation more than a separate process."
+  "summary": "The first sencha of the year: a seasonal designation more than a separate process.",
+  "glossaryRefs": [
+    "ichibancha"
+  ]
 }

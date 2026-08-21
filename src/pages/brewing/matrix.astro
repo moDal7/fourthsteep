@@ -1,0 +1,121 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/paths.js';
+import { CATEGORY_ORDER, categoryLabel } from '../../lib/atlas.js';
+
+export const prerender = true;
+
+const teas = (await getCollection('teas')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+
+const japaneseNeedle = new Set(['gyokuro', 'kabusecha', 'tencha', 'matcha', 'sencha']);
+
+function cell(tea, method) {
+  const b = tea.data.brewing;
+  switch (method) {
+    case 'gongfu':
+      if (b.kind === 'suspension') return 'wrong';
+      return b.gongfu ? 'suitable' : 'wrong';
+    case 'western':
+      if (b.kind === 'suspension') return 'wrong';
+      return b.western ? 'suitable' : 'workable';
+    case 'grandpa':
+      if (b.kind === 'suspension') return 'wrong';
+      if (japaneseNeedle.has(tea.data.subtype)) return 'wrong';
+      if (['green', 'white', 'yellow', 'oolong', 'dark'].includes(tea.data.category)) return 'suitable';
+      return 'workable';
+    case 'kyusu':
+      if (b.kind === 'suspension') return 'wrong';
+      if (tea.data.origin.country === 'Japan' && tea.data.category === 'green') return 'suitable';
+      if (tea.data.origin.country === 'Japan') return 'workable';
+      return 'wrong';
+    case 'cold':
+      if (b.kind === 'suspension') return 'wrong';
+      return b.coldBrew ? 'suitable' : 'wrong';
+    case 'decoction':
+      if (b.kind === 'suspension') return 'wrong';
+      return b.decoction ? 'suitable' : 'wrong';
+    default:
+      return 'wrong';
+  }
+}
+
+const methods = [
+  { id: 'gongfu', label: 'Gongfu' },
+  { id: 'western', label: 'Western' },
+  { id: 'grandpa', label: 'Grandpa' },
+  { id: 'kyusu', label: 'Kyūsu' },
+  { id: 'cold', label: 'Cold brew' },
+  { id: 'decoction', label: 'Decoction' },
+];
+
+const byCat = CATEGORY_ORDER.map((cat) => ({
+  cat,
+  teas: teas.filter((t) => t.data.category === cat),
+})).filter((g) => g.teas.length);
+---
+<Base
+  title="Method matrix · fourthsteep"
+  description="Which brewing methods fit which teas in the atlas — derived from the same fields the timer and notes use."
+>
+  <article class="wrap guide">
+    <header class="guide-head">
+      <p class="kicker"><a href={withBase('/brewing')}>Brewing</a> · Leaf</p>
+      <h1>Method matrix</h1>
+      <p class="lede">
+        Suitable, workable, or wrong — read from each tea’s brewing fields, not from a second essay.
+        Gongfu and western come from the schedules. Grandpa is honest for most Chinese loose leaf and a
+        poor fit for Japanese needle greens. Cold brew and decoction appear only where the entry
+        records them. Matcha is a suspension; none of these columns apply.
+      </p>
+      <p class="meta">
+        {teas.length} teas. Wrong is not a moral judgement — it is a method that fights the leaf.
+      </p>
+    </header>
+
+    <div class="table-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Tea</th>
+            {methods.map((m) => <th>{m.label}</th>)}
+          </tr>
+        </thead>
+        {byCat.map((g) => (
+          <tbody>
+            <tr class="cat-row"><th colspan={methods.length + 1}>{categoryLabel(g.cat)}</th></tr>
+            {g.teas.map((t) => (
+              <tr>
+                <th scope="row"><a href={withBase(`/tea/${t.id}`)}>{t.data.name}</a></th>
+                {methods.map((m) => {
+                  const v = cell(t, m.id);
+                  return <td class={v}>{v}</td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        ))}
+      </table>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .matrix { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .matrix th, .matrix td { border-bottom: 1px solid var(--line-soft); padding: 0.4rem 0.5rem; text-align: left; }
+  .matrix thead th { color: var(--ink-muted); font-weight: 500; white-space: nowrap; }
+  .matrix .cat-row th {
+    background: var(--paper-sunk);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    padding-top: 0.85rem;
+  }
+  .matrix td.suitable { color: var(--ink); }
+  .matrix td.workable { color: var(--ink-muted); font-style: italic; }
+  .matrix td.wrong { color: var(--line-soft); }
+</style>

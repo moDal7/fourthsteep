@@ -5,31 +5,43 @@
   "translation": "Raw puer, young",
   "origin": {
     "country": "China",
-    "region": "Yunnan",
+    "regions": [
+      "yunnan"
+    ],
     "subregion": "Xishuangbanna, Pu’er, Lincang"
   },
   "category": "dark",
+  "categoryNote": "Chinese 黑茶, “black tea”, is not English black tea (红茶). Puer’s relationship to the dark class is contested; this atlas files it here by process.",
+  "variety": "assamica",
   "cultivar": [
     "Yunnan large-leaf / assamica"
   ],
   "harvest": {
-    "season": "spring maocha prized",
-    "pluckingStage": "one bud and two leaves, then steamed and pressed"
+    "window": "spring maocha prized"
   },
+  "pluckStandard": "one bud and two leaves, then steamed and pressed",
   "oxidation": 5,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 5,
+    "note": "Kill-green then sun-dry. Not 渥堆. The dark class here is a filing, not a pile."
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Wok sha qing, often a little greener than eastern greens so the leaf can age."
     },
     {
+      "verb": "dry",
       "step": "Sun dry",
-      "description": "Maocha dried in the sun — the signature that lets microbes and slow oxidation work later."
+      "description": "Maocha dried in the sun — 晒青, the signature that lets microbes and slow change work later."
     },
     {
+      "verb": "press",
       "step": "Steam and press",
-      "description": "Cakes, bricks, or tuo. Young sheng is drunk as a bitter-floral green-adjacent tea or stored."
+      "description": "Cakes, bricks, or tuo. Young sheng is drunk as a bitter-floral tea or stored. Not 渥堆."
     }
   ],
   "profile": {
@@ -48,42 +60,44 @@
     "finish": "hui gan — sweetness that rises in the throat"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "yixing or gaiwan",
       "ratio": "1:15",
       "waterTemp": 95,
+      "rinses": [
+        {
+          "seconds": 10,
+          "notes": "quick rinse to wake the cake"
+        }
+      ],
       "infusions": [
         {
           "n": 1,
-          "seconds": 10,
-          "notes": "quick rinse to wake the cake"
-        },
-        {
-          "n": 2,
           "seconds": 8
         },
         {
-          "n": 3,
+          "n": 2,
           "seconds": 10
         },
         {
-          "n": 4,
+          "n": 3,
           "seconds": 15
         },
         {
-          "n": 5,
+          "n": 4,
           "seconds": 20
         },
         {
-          "n": 6,
+          "n": 5,
           "seconds": 30
         },
         {
-          "n": 7,
+          "n": 6,
           "seconds": 45
         },
         {
-          "n": 8,
+          "n": 7,
           "seconds": 70
         }
       ]
@@ -102,25 +116,74 @@
           "seconds": 90
         }
       ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 8,
+      "notes": "Young sheng goes surprisingly floral cold; bitterness drops."
     }
   },
-  "water": "Boiling for compressed tea. Young sheng can be dropped a few degrees if overly bitter.",
+  "water": {
+    "tdsPpm": [
+      50,
+      200
+    ],
+    "tempC": 95,
+    "note": "Boiling for compressed tea. Young sheng can be dropped a few degrees if overly bitter."
+  },
   "storage": "Clean, stable humidity (~50–70%), no perfume. This is a tea meant to change.",
+  "shelfLife": {
+    "kind": "improves",
+    "window": "a decade or more if the storage is honest",
+    "note": "Most teas are food. A few teas are projects."
+  },
   "qualityMarkers": [
-    "clear village / mountain",
-    "spring material",
-    "bitterness that turns sweet",
-    "clean sun-dry"
+    {
+      "claim": "clear village / mountain"
+    },
+    {
+      "claim": "spring material"
+    },
+    {
+      "claim": "bitterness that turns sweet"
+    },
+    {
+      "claim": "clean sun-dry"
+    }
   ],
   "commonFaults": [
-    "wet-stored sour young cakes",
-    "heavy smoke covering thin leaf",
-    "pesticide-green industrial sheng"
+    {
+      "name": "wet-stored sour young cakes"
+    },
+    {
+      "name": "heavy smoke covering thin leaf"
+    },
+    {
+      "name": "pesticide-green industrial sheng"
+    }
   ],
   "similarTo": [
     "sheng-puer-aged",
     "liu-an-gua-pian",
     "liu-bao"
+  ],
+  "compare": [
+    {
+      "teaId": "shou-puer",
+      "differentiator": "Identical until 渥堆. Shou took the wet pile; sheng did not."
+    },
+    {
+      "teaId": "sheng-puer-aged",
+      "differentiator": "Same make until time. Aged sheng is the project; young sheng is the bitter-floral tea you can drink now."
+    }
+  ],
+  "glossaryRefs": [
+    "hong-cha-hei-cha",
+    "oxidation",
+    "wo-dui",
+    "shai-qing",
+    "maocha"
   ],
   "summary": "Sun-dried Yunnan raw puer in its youth: bitter-floral, built to age, gongfu in short flashes."
 }

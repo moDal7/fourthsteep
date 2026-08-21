@@ -5,30 +5,44 @@
   "translation": "Light-steamed sencha",
   "origin": {
     "country": "Japan",
-    "region": "Shizuoka",
+    "regions": [
+      "shizuoka"
+    ],
     "subregion": "classic sencha districts"
   },
   "category": "green",
-  "japaneseType": "sencha",
+  "subtype": "sencha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita",
     "Saemidori",
     "others"
   ],
   "harvest": {
-    "season": "ichibancha (first flush)",
-    "pluckingStage": "young shoots, steamed briefly (~30 s)"
+    "window": "ichibancha (first flush)"
   },
+  "pluckStandard": "young shoots, steamed briefly (~30 s)",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Steam",
-      "description": "Short mushi preserves needle shape and a clearer, more vegetal liquor."
+      "description": "Short mushi (~30 s) preserves needle shape and a clearer, more vegetal liquor."
     },
     {
-      "step": "Roll and dry",
-      "description": "Standard sencha rolling into needles; aracha then refined (shiage)."
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Standard sencha 揉捻 into needles."
+    },
+    {
+      "verb": "refine",
+      "step": "Shiage",
+      "description": "Aracha refined; finishing fire is gentler than Sayama’s."
     }
   ],
   "profile": {
@@ -46,6 +60,7 @@
     "finish": "refreshing, slightly dry"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu",
       "ratio": "1:15",
@@ -64,7 +79,8 @@
           "n": 3,
           "seconds": 45
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -88,22 +104,57 @@
       "notes": "Mizudashi: excellent."
     }
   },
-  "water": "Soft, 70–80 °C. Hard water kills sencha.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "Soft, 70–80 °C. Hard water kills sencha."
+  },
   "storage": "Refrigerate sealed after opening; finish the bag in weeks.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "intact needles",
-    "ichi-bancha date",
-    "clear yellow-green not murky"
+    {
+      "claim": "intact needles"
+    },
+    {
+      "claim": "ichi-bancha date"
+    },
+    {
+      "claim": "clear yellow-green not murky"
+    }
   ],
   "commonFaults": [
-    "stale fishy nori",
-    "overbrewed bitterness",
-    "dusty deep-steam sold as asamushi"
+    {
+      "name": "stale fishy nori"
+    },
+    {
+      "name": "overbrewed bitterness"
+    },
+    {
+      "name": "dusty deep-steam sold as asamushi"
+    }
   ],
   "similarTo": [
     "sencha-fukamushi",
     "shincha",
-    "wenshan-baozhong"
+    "sayama-cha"
   ],
-  "summary": "Light-steamed Japanese sencha: needle leaf, bright grass-nori, the clear end of the sencha spectrum."
+  "summary": "Light-steamed Japanese sencha: needle leaf, bright grass-nori, the clear end of the sencha spectrum.",
+  "compare": [
+    {
+      "teaId": "hojicha",
+      "differentiator": "Same steam-and-roll green until 焙火. Hojicha is this tea, roasted."
+    }
+  ],
+  "glossaryRefs": [
+    "ichibancha",
+    "mushi",
+    "aracha"
+  ]
 }

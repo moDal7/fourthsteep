@@ -5,30 +5,40 @@
   "translation": "White Peony",
   "origin": {
     "country": "China",
-    "region": "Fuding",
+    "regions": [
+      "fujian"
+    ],
     "subregion": "Fujian"
   },
   "category": "white",
+  "variety": "sinensis",
   "cultivar": [
     "Da Bai",
     "Shui Xian"
   ],
   "harvest": {
-    "season": "spring",
-    "pluckingStage": "one bud and one or two leaves"
+    "window": "spring"
   },
+  "pluckStandard": "one bud and one or two leaves",
   "oxidation": 12,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 12
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Bud-and-leaf sets, more body than Yin Zhen."
     },
     {
+      "verb": "wither",
       "step": "Wither",
       "description": "Extended wither develops muscatel-honey notes."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Sun and/or indoor dry."
     }
@@ -49,6 +59,7 @@
     "finish": "honeyed, faintly woody"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or pot",
       "ratio": "1:18",
@@ -97,22 +108,47 @@
       "hours": 8
     }
   },
-  "water": "Medium-soft; a little more mineral than Yin Zhen can support the leaf tannin.",
+  "water": {
+    "tdsPpm": [
+      30,
+      100
+    ],
+    "tempC": 90,
+    "note": "Medium-soft; a little more mineral than Yin Zhen can support the leaf tannin."
+  },
   "storage": "Excellent ager. Keep dry; white tea loves humidity too much.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "cakes breathe if ageing is the point",
+    "note": "Sealed if drinking fresh, breathable if ageing. Both are legitimate and they are different intentions."
+  },
   "qualityMarkers": [
-    "clear bud-and-leaf sets",
-    "grey-green leaf with silver buds",
-    "apricot-honey aroma"
+    {
+      "claim": "clear bud-and-leaf sets"
+    },
+    {
+      "claim": "grey-green leaf with silver buds"
+    },
+    {
+      "claim": "apricot-honey aroma"
+    }
   ],
   "commonFaults": [
-    "brown, over-oxidised cheap white",
-    "dusty fannings",
-    "smoke from careless drying"
+    {
+      "name": "brown, over-oxidised cheap white"
+    },
+    {
+      "name": "dusty fannings"
+    },
+    {
+      "name": "smoke from careless drying"
+    }
   ],
   "similarTo": [
     "bai-hao-yin-zhen",
     "shou-mei",
     "an-ji-bai-cha"
   ],
-  "summary": "White peony: bud plus leaf, more colour and apricot-honey than Silver Needle, still a wither-only tea."
+  "summary": "White peony: bud plus leaf, more colour and apricot-honey than Silver Needle, still a wither-only tea.",
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green."
 }

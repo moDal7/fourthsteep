@@ -5,29 +5,39 @@
   "translation": "Anji White Tea",
   "origin": {
     "country": "China",
-    "region": "Anji",
+    "regions": [
+      "anji"
+    ],
     "subregion": "Zhejiang"
   },
   "category": "green",
+  "variety": "sinensis",
   "cultivar": [
     "Bai Ye Yi Hao"
   ],
   "harvest": {
-    "season": "pre-Qing Ming pale flush",
-    "pluckingStage": "one bud and one leaf while the leaf is still yellow-white"
+    "window": "pre-Qing Ming pale flush"
   },
+  "pluckStandard": "one bud and one leaf while the leaf is still yellow-white",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Harvested in a narrow window when chlorophyll is suppressed by cool nights."
     },
     {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Light pan-fire; processed as green tea despite the “white” name."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Quick dry to keep the pale colour and high amino-acid sweetness."
     }
@@ -47,6 +57,7 @@
     "finish": "savoury-sweet, very little bite"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or glass",
       "ratio": "1:20",
@@ -96,23 +107,49 @@
       "notes": "Exceptional cold: pure umami."
     }
   },
-  "water": "Very soft. This tea is mostly theanine; minerals mute it.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 75,
+    "note": "Very soft. This tea is mostly theanine; minerals mute it."
+  },
   "storage": "Freeze sealed extra if you want the pale colour to last; otherwise cool pantry for a few months.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
   "qualityMarkers": [
-    "pale yellow-green dry leaf",
-    "high umami",
-    "lime-jade liquor",
-    "Bai Ye cultivar"
+    {
+      "claim": "pale yellow-green dry leaf"
+    },
+    {
+      "claim": "high umami"
+    },
+    {
+      "claim": "lime-jade liquor"
+    },
+    {
+      "claim": "Bai Ye cultivar"
+    }
   ],
   "commonFaults": [
-    "green Anji sold as Bai Cha after the pale window",
-    "thin later flushes",
-    "overbrewed bitterness"
+    {
+      "name": "green Anji sold as Bai Cha after the pale window"
+    },
+    {
+      "name": "thin later flushes"
+    },
+    {
+      "name": "overbrewed bitterness"
+    }
   ],
   "similarTo": [
     "long-jing",
     "gyokuro",
     "kabusecha"
   ],
-  "summary": "A green tea in process, “white” only in cultivar colour: high theanine, creamy umami, lime-pale liquor."
+  "summary": "A green tea in process, “white” only in cultivar colour: high theanine, creamy umami, lime-pale liquor.",
+  "categoryNote": "A green tea. “White” is the Bai Ye cultivar’s pale leaf, not the white class. Kill-green is pan-fire; there is no long wither."
 }

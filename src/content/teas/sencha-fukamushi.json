@@ -5,28 +5,37 @@
   "translation": "Deep-steamed sencha",
   "origin": {
     "country": "Japan",
-    "region": "Shizuoka",
+    "regions": [
+      "shizuoka"
+    ],
     "subregion": "Makinohara and similar flat gardens"
   },
   "category": "green",
-  "japaneseType": "sencha",
+  "subtype": "sencha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita"
   ],
   "harvest": {
-    "season": "ichibancha",
-    "pluckingStage": "steamed 60–120 s, which breaks the leaf"
+    "window": "ichibancha"
   },
+  "pluckStandard": "steamed 60–120 s, which breaks the leaf",
   "oxidation": 0,
   "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Deep steam",
-      "description": "Longer mushi for thicker, sunnier leaves; particles become small and the liquor opaque."
+      "description": "Longer mushi (60–120 s) for thicker, sunnier leaves; particles become small and the liquor opaque."
     },
     {
+      "verb": "roll",
       "step": "Roll and dry",
-      "description": "Same rolling line, but the cup is a different tea."
+      "description": "Same rolling line as asamushi, but the cup is a different tea."
     }
   ],
   "profile": {
@@ -44,6 +53,7 @@
     "finish": "sweet, less sharp than asamushi"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu with fine mesh",
       "ratio": "1:12",
@@ -62,7 +72,8 @@
           "n": 3,
           "seconds": 30
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -78,24 +89,58 @@
           "seconds": 20
         }
       ]
+    },
+    "coldBrew": {
+      "grams": 10,
+      "volume": 500,
+      "hours": 6,
+      "notes": "氷出し / kōridashi — ice on the leaf, melt, no kettle. A canonical Japanese cold brew, not a leftover trick."
     }
   },
-  "water": "Very soft, 65–75 °C. The mesh must catch the fukamushi dust.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 70,
+    "note": "Very soft, 65–75 °C. The mesh must catch the fukamushi dust."
+  },
   "storage": "Fridge, sealed. High surface area stales fast.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "opaque jade liquor",
-    "sweet umami",
-    "fine leaf not stale powder"
+    {
+      "claim": "opaque jade liquor"
+    },
+    {
+      "claim": "sweet umami"
+    },
+    {
+      "claim": "fine leaf not stale powder"
+    }
   ],
   "commonFaults": [
-    "stewed spinach overbrew",
-    "old dusty bags",
-    "indistinct blend"
+    {
+      "name": "stewed spinach overbrew"
+    },
+    {
+      "name": "old dusty bags"
+    },
+    {
+      "name": "indistinct blend"
+    }
   ],
   "similarTo": [
     "sencha-asamushi",
     "kabusecha",
     "matcha"
   ],
-  "summary": "Deep-steamed sencha: broken leaf, cloudy jade, spinach-umami instead of needle brightness."
+  "summary": "Deep-steamed sencha: broken leaf, cloudy jade, spinach-umami instead of needle brightness.",
+  "glossaryRefs": [
+    "ichibancha",
+    "mushi"
+  ]
 }

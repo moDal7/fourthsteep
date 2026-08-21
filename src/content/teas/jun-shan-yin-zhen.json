@@ -5,33 +5,45 @@
   "translation": "Junshan Silver Needle",
   "origin": {
     "country": "China",
-    "region": "Dongting Lake",
+    "regions": [
+      "junshan"
+    ],
+    "regionNote": "洞庭湖, Hunan — not Jiangsu Dongting",
     "subregion": "Junshan Island, Hunan"
   },
   "category": "yellow",
+  "variety": "sinensis",
   "cultivar": [
     "Junshan local"
   ],
   "harvest": {
-    "season": "Qing Ming",
-    "pluckingStage": "plump buds only"
+    "window": "Qing Ming"
   },
+  "pluckStandard": "plump buds only",
   "oxidation": 10,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 10
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
       "description": "Island buds from Junshan, historically a tribute tea."
     },
     {
+      "verb": "kill-green",
       "step": "Kill-green",
       "description": "Light pan-fire."
     },
     {
+      "verb": "yellow",
       "step": "Men Huang",
-      "description": "Yellowing: wrapped and held warm so chlorophyll transforms without full oxidation."
+      "description": "Yellowing: wrapped and held warm so chlorophyll transforms without full oxidation. 闷黄 is the whole of the yellow class: wrap, warmth, time."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Gentle dry; buds should “stand and bow” in the glass."
     }
@@ -51,6 +63,7 @@
     "finish": "sweet, calm, slightly cocoa"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "tall glass or gaiwan",
       "ratio": "1:25",
@@ -90,23 +103,51 @@
       ]
     }
   },
-  "water": "Soft water. The famous rising-and-sinking buds need a clear glass and patience.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 85,
+    "note": "Soft water. The famous rising-and-sinking buds need a clear glass and patience."
+  },
   "storage": "Airtight, cool. Yellow teas stale into flat hay if left open.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within the harvest year"
+  },
   "qualityMarkers": [
-    "even gold-silver buds",
-    "the “three rises” in glass",
-    "sweetcorn aroma",
-    "true island origin"
+    {
+      "claim": "even gold-silver buds"
+    },
+    {
+      "claim": "the “three rises” in glass"
+    },
+    {
+      "claim": "sweetcorn aroma"
+    },
+    {
+      "claim": "true island origin"
+    }
   ],
   "commonFaults": [
-    "green tea dyed yellow",
-    "broken buds",
-    "sour men-huang"
+    {
+      "name": "green tea dyed yellow"
+    },
+    {
+      "name": "broken buds"
+    },
+    {
+      "name": "sour men-huang"
+    }
   ],
   "similarTo": [
     "meng-ding-huang-ya",
-    "bai-hao-yin-zhen",
-    "an-ji-bai-cha"
+    "huo-shan-huang-ya",
+    "bai-hao-yin-zhen"
   ],
-  "summary": "Rare Hunan yellow bud tea: men huang mellowing, sweetcorn honey, and needles that dance in the glass."
+  "summary": "Rare Hunan yellow bud tea: men huang mellowing, sweetcorn honey, and needles that dance in the glass.",
+  "glossaryRefs": [
+    "men-huang"
+  ]
 }

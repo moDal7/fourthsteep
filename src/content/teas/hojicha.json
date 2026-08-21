@@ -5,28 +5,44 @@
   "translation": "Roasted tea",
   "origin": {
     "country": "Japan",
-    "region": "Kyoto / nationwide",
+    "regions": [
+      "uji"
+    ],
+    "regionNote": "often packed nationwide from bancha or sencha",
     "subregion": "often bancha or sencha roasted"
   },
   "category": "green",
-  "japaneseType": "hojicha",
+  "subtype": "hojicha",
+  "variety": "sinensis",
   "cultivar": [
     "Yabukita and others, roasted"
   ],
   "harvest": {
-    "season": "later leaf roasted year-round",
-    "pluckingStage": "bancha or sencha, then high-fire roast"
+    "window": "later leaf roasted year-round"
   },
+  "pluckStandard": "bancha or sencha, then high-fire roast",
   "oxidation": 0,
   "roast": "heavy",
+  "transformation": {
+    "kind": "roast",
+    "index": 55,
+    "note": "Hojicha is a green tea that is brown. The cup is fire, not enzymatic oxidation."
+  },
   "processing": [
     {
-      "step": "Base tea",
-      "description": "Usually coarser Japanese green."
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "The base is sencha or bancha — already a green tea."
     },
     {
+      "verb": "roll",
+      "step": "Roll and dry",
+      "description": "Ordinary Japanese rolling. Oxidation is still 0."
+    },
+    {
+      "verb": "roast",
       "step": "Roast",
-      "description": "200 °C-class roast develops pyrazines; caffeine often lower than sencha."
+      "description": "焙火 at high heat develops pyrazines. The brown cup is fire, not enzymatic oxidation."
     }
   ],
   "profile": {
@@ -43,6 +59,7 @@
     "finish": "clean toast"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu or pot",
       "ratio": "1:15",
@@ -60,7 +77,8 @@
           "n": 3,
           "seconds": 40
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 4,
@@ -81,22 +99,55 @@
       "grams": 10,
       "volume": 500,
       "hours": 4
+    },
+    "decoction": {
+      "when": "a kettle on the table, not a timed steep",
+      "minutes": [
+        3,
+        8
+      ],
+      "notes": "煮茶 — hojicha and bancha are often simmered. The roast already did the work; heat just lifts it."
     }
   },
-  "water": "Near boiling is fine; hojicha is robust.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 90,
+    "note": "Near boiling is fine; hojicha is robust."
+  },
   "storage": "Airtight; roast aroma fades. Keep away from sencha.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "within a year of roast or packing"
+  },
   "qualityMarkers": [
-    "even brown, not scorched black",
-    "sweet roast, not ash"
+    {
+      "claim": "even brown, not scorched black"
+    },
+    {
+      "claim": "sweet roast, not ash"
+    }
   ],
   "commonFaults": [
-    "burnt cheap twigs",
-    "stale popcorn"
+    {
+      "name": "burnt cheap twigs"
+    },
+    {
+      "name": "stale popcorn"
+    }
   ],
   "similarTo": [
     "genmaicha",
     "bancha",
     "kukicha"
   ],
-  "summary": "Roasted Japanese green: evening toast, lower tension than sencha, still a green in process."
+  "summary": "Roasted Japanese green: evening toast, lower tension than sencha, still a green in process.",
+  "compare": [
+    {
+      "teaId": "sencha-asamushi",
+      "differentiator": "Hojicha is sencha (or bancha) taken to the roaster. The class does not change."
+    }
+  ]
 }

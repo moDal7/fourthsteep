@@ -5,29 +5,39 @@
   "translation": "Wenshan Wrapped Kind",
   "origin": {
     "country": "Taiwan",
-    "region": "Wenshan",
+    "regions": [
+      "wenshan"
+    ],
     "subregion": "Pinglin, New Taipei"
   },
   "category": "oolong",
+  "variety": "sinensis",
   "cultivar": [
     "Qing Xin"
   ],
   "harvest": {
-    "season": "spring",
-    "pluckingStage": "lightly oxidised, strip-style (not ball)"
+    "window": "spring"
   },
+  "pluckStandard": "lightly oxidised, strip-style (not ball)",
   "oxidation": 15,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 15
+  },
   "processing": [
     {
+      "verb": "wither",
       "step": "Light wither",
       "description": "Barely oolong; historically wrapped in paper (bao zhong)."
     },
     {
+      "verb": "roll",
       "step": "Twist, not ball",
       "description": "Long, slightly twisted leaves, visually closer to green tea."
     },
     {
+      "verb": "roast",
       "step": "Minimal roast",
       "description": "Drying only, to keep gardenia-lilac."
     }
@@ -48,6 +58,7 @@
     "finish": "perfume-like but natural"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan or porcelain pot",
       "ratio": "1:20",
@@ -96,17 +107,41 @@
       "hours": 5
     }
   },
-  "water": "Soft, 80–85 °C. Easy to oversteep into grass.",
+  "water": {
+    "tdsPpm": [
+      30,
+      90
+    ],
+    "tempC": 85,
+    "note": "Soft, 80–85 °C. Easy to oversteep into grass."
+  },
   "storage": "Very fresh; fridge, sealed, months not years.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within a year",
+    "note": "Jade oolong is food. Refrigerate sealed."
+  },
   "qualityMarkers": [
-    "Pinglin / Wenshan",
-    "strip leaf",
-    "gardenia lid aroma",
-    "spring"
+    {
+      "claim": "Pinglin / Wenshan"
+    },
+    {
+      "claim": "strip leaf"
+    },
+    {
+      "claim": "gardenia lid aroma"
+    },
+    {
+      "claim": "spring"
+    }
   ],
   "commonFaults": [
-    "stale grassy lots",
-    "ball-rolled tea mislabelled Baozhong"
+    {
+      "name": "stale grassy lots"
+    },
+    {
+      "name": "ball-rolled tea mislabelled Baozhong"
+    }
   ],
   "similarTo": [
     "tie-guan-yin",

@@ -1,0 +1,170 @@
+{
+  "name": "En Shi Yu Lu",
+  "nameNative": "恩施玉露",
+  "romanization": "Ēnshī Yùlù",
+  "translation": "Enshi jade dew",
+  "origin": {
+    "country": "China",
+    "regions": [
+      "enshi"
+    ],
+    "subregion": "Enshi, Hubei"
+  },
+  "category": "green",
+  "variety": "sinensis",
+  "cultivar": [
+    "Enshi local"
+  ],
+  "harvest": {
+    "window": "early spring",
+    "flush": "Ming Qian lots exist"
+  },
+  "pluckStandard": "one bud and one leaf, steamed into needles",
+  "oxidation": 0,
+  "roast": "none",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
+  "processing": [
+    {
+      "verb": "pluck",
+      "step": "Pluck",
+      "description": "Hubei highland spring; a tribute-style steamed green, not a pan-fire Zhejiang tea."
+    },
+    {
+      "verb": "kill-green",
+      "step": "Steam",
+      "description": "蒸青 — one of the few surviving steamed Chinese greens. The halt is steam, as in sencha, not a wok. That is the comparison, and also the limit of it: the rolling culture and the water are Chinese."
+    },
+    {
+      "verb": "roll",
+      "step": "Roll",
+      "description": "Needles, tighter and drier than fukamushi; liquor stays clear."
+    },
+    {
+      "verb": "dry",
+      "step": "Dry",
+      "description": "Low fire to lock a jade colour and a chestnut-seaweed sweetness."
+    }
+  ],
+  "profile": {
+    "aroma": [
+      "chestnut",
+      "nori edge",
+      "fresh soybean"
+    ],
+    "taste": [
+      "sweet green",
+      "light umami",
+      "clean mineral"
+    ],
+    "mouthfeel": "silky, lighter than gyokuro, more body than Long Jing",
+    "finish": "lingering bean-sweet"
+  },
+  "brewing": {
+    "kind": "infusion",
+    "gongfu": {
+      "vessel": "gaiwan or glass",
+      "ratio": "1:20",
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 20,
+          "notes": "Chinese green schedule, not a kyūsu curve"
+        },
+        {
+          "n": 2,
+          "seconds": 15
+        },
+        {
+          "n": 3,
+          "seconds": 25
+        },
+        {
+          "n": 4,
+          "seconds": 40
+        },
+        {
+          "n": 5,
+          "seconds": 60
+        }
+      ]
+    },
+    "western": {
+      "grams": 3,
+      "volume": 250,
+      "waterTemp": 80,
+      "infusions": [
+        {
+          "n": 1,
+          "seconds": 90
+        },
+        {
+          "n": 2,
+          "seconds": 120
+        }
+      ]
+    },
+    "coldBrew": {
+      "grams": 8,
+      "volume": 500,
+      "hours": 6,
+      "notes": "Sweet, low bitterness — honest for a steamed green."
+    }
+  },
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "Soft water, 30–80 ppm as a working range. Hard tap greys the needle liquor."
+  },
+  "storage": "Airtight, cool, away from spice. Drink within the harvest year.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within 9 months of harvest"
+  },
+  "qualityMarkers": [
+    {
+      "claim": "even jade needles",
+      "test": "broken dust is a lower lot"
+    },
+    {
+      "claim": "steam, not wok smoke"
+    },
+    {
+      "claim": "Enshi origin"
+    }
+  ],
+  "commonFaults": [
+    {
+      "name": "pan-fired “Yu Lu” with wok smoke"
+    },
+    {
+      "name": "sencha relabelled as Enshi"
+    },
+    {
+      "name": "yellowed older leaf"
+    }
+  ],
+  "similarTo": [
+    "sencha-asamushi",
+    "gyokuro",
+    "long-jing"
+  ],
+  "compare": [
+    {
+      "teaId": "sencha-asamushi",
+      "differentiator": "Both steamed. En Shi Yu Lu is a Chinese gaiwan green; sencha is a kyūsu tea with a long–short–long curve."
+    }
+  ],
+  "glossaryRefs": [
+    "sha-qing",
+    "mushi",
+    "ming-qian"
+  ],
+  "summary": "Hubei steamed green: jade needles, chestnut-nori, the Chinese cousin of sencha that still wants a gaiwan."
+}

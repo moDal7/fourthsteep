@@ -5,30 +5,40 @@
   "translation": "Silver Needle",
   "origin": {
     "country": "China",
-    "region": "Fuding",
+    "regions": [
+      "fujian"
+    ],
     "subregion": "Fujian"
   },
   "category": "white",
+  "variety": "sinensis",
   "cultivar": [
     "Da Bai",
     "Da Hao"
   ],
   "harvest": {
-    "season": "early spring",
-    "pluckingStage": "unopened buds only"
+    "window": "early spring"
   },
+  "pluckStandard": "unopened buds only",
   "oxidation": 8,
   "roast": "none",
+  "transformation": {
+    "kind": "enzymatic",
+    "index": 8
+  },
   "processing": [
     {
+      "verb": "pluck",
       "step": "Pluck",
-      "description": "Only the fat, down-covered bud."
+      "description": "Only the fat, down-covered bud. No open leaf."
     },
     {
+      "verb": "wither",
       "step": "Wither",
-      "description": "Long indoor/outdoor wither; the defining “process” of white tea."
+      "description": "Long indoor/outdoor wither; the defining process of white tea, not a prelude to a wok."
     },
     {
+      "verb": "dry",
       "step": "Dry",
       "description": "Sun or low bake. No roll, no kill-green."
     }
@@ -49,6 +59,7 @@
     "finish": "soft sweetness, no tannin if not oversteeped"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "gaiwan",
       "ratio": "1:20",
@@ -98,23 +109,53 @@
       "hours": 8
     }
   },
-  "water": "Soft to medium. Avoid chlorine; it reads as medicine on downy buds.",
+  "water": {
+    "tdsPpm": [
+      30,
+      100
+    ],
+    "tempC": 85,
+    "note": "Soft to medium. Avoid chlorine; it reads as medicine on downy buds."
+  },
   "storage": "Ages gracefully if kept dry and odour-free. Young for florals; 3–7 years for honey-amber.",
+  "shelfLife": {
+    "kind": "stable",
+    "window": "young for florals; years for honey",
+    "note": "Sealed if drinking fresh, breathable if ageing. Both are legitimate and they are different intentions."
+  },
   "qualityMarkers": [
-    "plump silver buds, no leaf",
-    "even down",
-    "sweet hay, not sour",
-    "Fuding Da Bai"
+    {
+      "claim": "plump silver buds, no leaf"
+    },
+    {
+      "claim": "even down"
+    },
+    {
+      "claim": "sweet hay, not sour"
+    },
+    {
+      "claim": "Fuding Da Bai"
+    }
   ],
   "commonFaults": [
-    "needles mixed with leaf (that is Bai Mu Dan)",
-    "sour wither",
-    "warehouse must"
+    {
+      "name": "needles mixed with leaf (that is Bai Mu Dan)"
+    },
+    {
+      "name": "sour wither"
+    },
+    {
+      "name": "warehouse must"
+    }
   ],
   "similarTo": [
     "bai-mu-dan",
     "shou-mei",
     "jun-shan-yin-zhen"
   ],
-  "summary": "The most bud-pure white tea: silver needles, slow wither, melon-hay sweetness."
+  "summary": "The most bud-pure white tea: silver needles, slow wither, melon-hay sweetness.",
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green.",
+  "glossaryRefs": [
+    "ye-di"
+  ]
 }

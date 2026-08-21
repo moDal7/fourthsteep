@@ -60,12 +60,14 @@ npm run preview
 | `/atlas.json` | Build-time search index |
 | `/tea/[slug]` | Profile, scales, tables, timer, calculator |
 | `/regions`, `/regions/[slug]` | Terroir pages |
-| `/brewing`, `/brewing/[slug]` | MDX method and knowledge guides |
+| `/brewing`, `/brewing/[slug]` | MDX method, leaf, and knowledge guides |
+| `/brewing/matrix` | Method matrix derived from brewing fields |
+| `/brewing/chains` | Processing-chain diffs for four flagship pairs |
 | `/glossary` | Bilingual terminology |
 
 ## Content rules
 
-- `src/content/teas/*.json` — one file per tea; `similarTo` must be real slugs (`scripts/check-similar-to.mjs`).
-- Generators under `scripts/generate-*.mjs` rebuild JSON from the authored source in those scripts.
-- Oxidation is a number 0–100 and is also printed so scales are not colour-only.
-- Infusion arrays on each tea feed both the HTML table and the timer.
+- `src/content/teas/*.json` — one file per tea; `similarTo` must be real slugs (`scripts/check-content.mjs`).
+- `scripts/generate-teas*.mjs` and `generate-glossary.mjs` are historical. Do not re-run them; they would overwrite the JSON.
+- Oxidation is enzymatic 0–100 and is printed so scales are not colour-only. Microbial and roast teas also carry a transformation index.
+- Infusion arrays on each tea feed both the HTML table and the timer. Rinses are a separate field, rendered unnumbered as *rinse — discard*.

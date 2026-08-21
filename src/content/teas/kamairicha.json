@@ -5,26 +5,36 @@
   "translation": "Pan-fired tea",
   "origin": {
     "country": "Japan",
-    "region": "Kyushu",
+    "regions": [
+      "kagoshima"
+    ],
+    "regionNote": "Kyushu (Saga, Nagasaki, Kumamoto, Miyazaki as well as Kagoshima)",
     "subregion": "Miyazaki, Saga, Kumamoto"
   },
   "category": "green",
-  "japaneseType": "kamairicha",
+  "subtype": "kamairicha",
+  "variety": "sinensis",
   "cultivar": [
     "local Kyushu cultivars"
   ],
   "harvest": {
-    "season": "first and later flushes",
-    "pluckingStage": "pan-fired in an iron kama instead of steamed"
+    "window": "first and later flushes"
   },
+  "pluckStandard": "pan-fired in an iron kama instead of steamed",
   "oxidation": 0,
   "roast": "light",
+  "transformation": {
+    "kind": "none",
+    "index": 0
+  },
   "processing": [
     {
+      "verb": "kill-green",
       "step": "Kill-green in wok",
       "description": "The Chinese-style exception in Japan: kamairi, not mushi."
     },
     {
+      "verb": "roll",
       "step": "Roll",
       "description": "Often curly like tamaryokucha, with a toasted-bean note from the pan."
     }
@@ -42,6 +52,7 @@
     "finish": "nutty"
   },
   "brewing": {
+    "kind": "infusion",
     "gongfu": {
       "vessel": "kyusu or gaiwan",
       "ratio": "1:16",
@@ -59,7 +70,8 @@
           "n": 3,
           "seconds": 50
         }
-      ]
+      ],
+      "curveException": "Japanese greens go long–short–long: the first cool steep needs time, the second is quick because the leaf is open, the third lengthens again."
     },
     "western": {
       "grams": 3,
@@ -77,21 +89,43 @@
       ]
     }
   },
-  "water": "80 °C, soft to medium. The pan already did some work.",
+  "water": {
+    "tdsPpm": [
+      30,
+      80
+    ],
+    "tempC": 80,
+    "note": "80 °C, soft to medium. The pan already did some work."
+  },
   "storage": "Airtight; more stable than deep-steamed sencha.",
+  "shelfLife": {
+    "kind": "drink-fresh",
+    "window": "within months of harvest",
+    "note": "Sealed, freezer then fridge, small portions."
+  },
   "qualityMarkers": [
-    "true kama-iri (not steamed then roasted)",
-    "chestnut aroma",
-    "Kyushu"
+    {
+      "claim": "true kama-iri (not steamed then roasted)"
+    },
+    {
+      "claim": "chestnut aroma"
+    },
+    {
+      "claim": "Kyushu"
+    }
   ],
   "commonFaults": [
-    "hojicha sold as kamairicha",
-    "smoky scorch"
+    {
+      "name": "hojicha sold as kamairicha"
+    },
+    {
+      "name": "smoky scorch"
+    }
   ],
   "similarTo": [
-    "long-jing",
     "tamaryokucha",
-    "hojicha"
+    "long-jing",
+    "en-shi-yu-lu"
   ],
   "summary": "Japanese pan-fired green: the wok cousin of Long Jing, mostly surviving in Kyushu."
 }
