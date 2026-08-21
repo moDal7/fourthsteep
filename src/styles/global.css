@@ -1760,237 +1760,335 @@ html[data-theme='dark'] .hero-pour__native {
 /* ------------------------------------------------------ the spectrum --- */
 
 .spectrum {
+  --lane-label: 7.2rem;
+  --mark: 1.15rem;
+  --mark-gap: 3px;
   position: relative;
   margin-bottom: 1rem;
 }
 
-.spectrum-strip {
-  list-style: none;
-  margin: 0 0 0.9rem;
-  padding: 1rem 0.6rem 0.4rem;
-  display: flex;
-  align-items: flex-end;
-  gap: clamp(2px, 0.4vw, 5px);
-  height: clamp(120px, 18vw, 200px);
+.spectrum-board {
+  margin: 0 0 0.75rem;
   background: var(--paper-raised);
   border: 3px solid var(--ink);
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-.spectrum-strip li {
-  flex: 1 1 0;
+.spectrum-readout {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.1rem;
+  padding: 0.7rem 0.85rem 0.65rem;
+  border-bottom: 3px solid var(--ink);
+  color: inherit;
+  text-decoration: none;
+}
+
+.spectrum-readout:hover,
+.spectrum-readout:focus-visible {
+  background: var(--paper);
+}
+
+.spectrum-readout__who {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.65rem;
+  align-items: baseline;
   min-width: 0;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
 }
 
-.spectrum-strip a {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  height: 100%;
-  transform-origin: bottom;
+.spectrum-readout b {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
-.spectrum-tick {
-  display: block;
+.spectrum-readout .native {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+}
+
+.spectrum-readout .meta {
+  flex-basis: 100%;
+  margin: 0.15rem 0 0;
+}
+
+.spectrum-readout__n {
+  flex: none;
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.spectrum-lanes {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0 0.15rem;
+}
+
+.spectrum-lane {
+  display: grid;
+  grid-template-columns: var(--lane-label) minmax(0, 1fr);
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+}
+
+.spectrum-lane + .spectrum-lane {
+  border-top: 2px solid var(--ink);
+}
+
+.spectrum-lane__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-width: 0;
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}
+
+.spectrum-lane__label .num {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+.spectrum-lane__label:hover,
+.spectrum-lane__label:focus-visible {
+  color: var(--liquor-ink);
+}
+
+.spectrum-lane__plot {
   position: relative;
-  width: 100%;
-  height: var(--h, 50%);
-  background: linear-gradient(to bottom, var(--liquor-pale), var(--liquor) 40%, var(--liquor-deep));
-  border: 1.5px solid var(--ink);
-  transform: skewX(-12deg);
-  transform-origin: bottom;
-  mix-blend-mode: multiply;
-  transition: transform var(--dur-2) var(--ease-steep);
+  isolation: isolate;
+  min-width: 0;
+  height: calc(var(--rows, 1) * (var(--mark) + var(--mark-gap)) + 10px);
+  border: 2px solid var(--ink);
+  background-color: var(--paper-sunk);
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--ink) 28%, transparent) 0 0),
+    repeating-linear-gradient(
+      to right,
+      color-mix(in oklab, var(--ink) 22%, transparent) 0 1px,
+      transparent 1px 25%
+    );
+  background-size:
+    100% 2px,
+    100% 100%;
+  background-position:
+    0 50%,
+    0 0;
+  background-repeat: no-repeat, repeat;
+  box-shadow: inset -1px 0 0 color-mix(in oklab, var(--ink) 22%, transparent);
 }
 
-.spectrum-tick.kind-microbial::after,
-.spectrum-tick.kind-roast::after {
+.spectrum-cluster {
+  position: absolute;
+  top: 50%;
+  left: var(--x, 50%);
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mark-gap);
+  transform: translate(-50%, -50%);
+}
+
+.spectrum-cluster:hover,
+.spectrum-cluster:has(.is-current) {
+  z-index: 3;
+}
+
+.spectrum-cluster.edge-start {
+  left: 4px;
+  transform: translate(0, -50%);
+}
+
+.spectrum-cluster.edge-end {
+  left: auto;
+  right: 4px;
+  transform: translate(0, -50%);
+}
+
+.spectrum-mark {
+  position: relative;
+  display: block;
+  flex: 0 0 var(--mark);
+  width: var(--mark);
+  height: var(--mark);
+  background: linear-gradient(160deg, var(--liquor-pale), var(--liquor) 42%, var(--liquor-deep));
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  color: inherit;
+  text-decoration: none;
+  transform-origin: center;
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep);
+}
+
+.spectrum-mark::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.spectrum-tick.kind-microbial::after {
+.spectrum-mark.kind-microbial::after {
   background: repeating-linear-gradient(
     -45deg,
-    transparent 0 3px,
-    rgb(0 0 0 / 0.2) 3px 5px
+    transparent 0 2px,
+    color-mix(in oklab, var(--ink) 48%, transparent) 2px 4px
   );
 }
 
-.spectrum-tick.kind-roast::after {
-  background-image: radial-gradient(circle, rgb(0 0 0 / 0.28) 0.9px, transparent 1.1px);
-  background-size: 5px 5px;
+.spectrum-mark.kind-roast::after {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--ink) 62%, transparent) 1.05px,
+    transparent 1.2px
+  );
+  background-size: 4.5px 4.5px;
+}
+
+.spectrum-mark.is-anchor {
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.spectrum-mark:hover,
+.spectrum-mark:focus-visible,
+.spectrum-mark.is-current {
+  z-index: 2;
+  transform: scale(1.28) rotate(-3deg);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.spectrum-axis {
+  display: grid;
+  grid-template-columns: var(--lane-label) minmax(0, 1fr);
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.15rem 0.7rem 0.55rem;
+  border-top: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.spectrum-axis__ticks {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
 }
 
 .spectrum-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1rem;
+  margin: 0;
+  padding: 0.15rem 0.15rem 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.spectrum-legend span {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem 0.7rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  gap: 0.4rem;
 }
 
 .legend-swatch {
   display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border: 1.5px solid var(--ink);
-  background: var(--liquor);
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 2px solid var(--ink);
+  background: var(--paper-sunk);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 
 .legend-microbial {
-  background-image: repeating-linear-gradient(-45deg, transparent 0 2px, rgb(0 0 0 / 0.25) 2px 3px);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 2px,
+    color-mix(in oklab, var(--ink) 55%, transparent) 2px 4px
+  );
 }
 
 .legend-roast {
-  background-image: radial-gradient(circle, rgb(0 0 0 / 0.3) 0.7px, transparent 0.9px);
-  background-size: 4px 4px;
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--ink) 65%, transparent) 1.05px,
+    transparent 1.2px
+  );
+  background-size: 4.5px 4.5px;
 }
 
-html[data-theme='dark'] .spectrum-tick {
-  mix-blend-mode: screen;
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme='light']) .spectrum-tick {
-    mix-blend-mode: screen;
-  }
-}
-
-.spectrum-strip li:hover .spectrum-tick,
-.spectrum-strip li.is-selected .spectrum-tick,
-.spectrum-strip a:focus-visible .spectrum-tick {
-  transform: skewX(-12deg) scaleX(1.7) scaleY(1.06);
-  z-index: 1;
-}
-
-.spectrum-read {
-  position: absolute;
-  left: 0.6rem;
-  right: 0.6rem;
-  bottom: 0.35rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem 0.65rem;
-  align-items: baseline;
-  opacity: 0;
-  transform: translateY(6px) skewX(-4deg);
-  pointer-events: none;
-  transition: opacity var(--dur-2) var(--ease-steep), transform var(--dur-2) var(--ease-steep);
-}
-
-.spectrum-read b {
-  font-family: var(--display);
-  font-size: 1.35rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-}
-
-.spectrum-read .native {
-  font-size: 1rem;
-  color: var(--ink-muted);
-}
-
-.spectrum-strip li:hover .spectrum-read,
-.spectrum-strip li.is-selected .spectrum-read,
-.spectrum-strip li:focus-within .spectrum-read {
-  opacity: 1;
-  transform: none;
-}
-
-.spectrum-anchors {
-  position: relative;
-  height: 1rem;
-  margin: 0.45rem 0 0.55rem;
-  transition: opacity var(--dur-2) var(--ease-steep);
-}
-
-.spectrum-anchors span {
-  position: absolute;
-  top: 0;
-  left: var(--x, 50%);
-  transform: translateX(-50%);
-  font-family: var(--display);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  white-space: nowrap;
-}
-
-.spectrum-anchors span.edge-start {
-  left: 0;
-  transform: none;
-}
-
-.spectrum-anchors span.edge-end {
-  left: auto;
-  right: 0;
-  transform: none;
-}
-
-.spectrum-axis {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 0;
-  padding: 0.55rem 0.2rem 0;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  transition: opacity var(--dur-2) var(--ease-steep);
-}
-
-.spectrum:has(.spectrum-strip li:hover) .spectrum-axis,
-.spectrum:has(.spectrum-strip li.is-selected) .spectrum-axis,
-.spectrum:has(.spectrum-strip li:focus-within) .spectrum-axis {
-  opacity: 0;
-}
-
-.spectrum:has(.spectrum-strip li:hover) .spectrum-anchors,
-.spectrum:has(.spectrum-strip li.is-selected) .spectrum-anchors,
-.spectrum:has(.spectrum-strip li:focus-within) .spectrum-anchors {
-  opacity: 0;
-}
-
-.spectrum-hint--coarse {
+.spectrum-legend .spectrum-hint--coarse {
   display: none;
 }
 
 @media (pointer: coarse) {
-  .spectrum-hint--fine {
+  .spectrum-legend .spectrum-hint--fine {
     display: none;
   }
 
-  .spectrum-hint--coarse {
-    display: inline;
+  .spectrum-legend .spectrum-hint--coarse {
+    display: inline-flex;
   }
 }
 
-@media (max-width: 640px) {
-  .spectrum-hint {
+@media (max-width: 700px) {
+  .spectrum {
+    --mark: 1.05rem;
+  }
+
+  .spectrum-lane,
+  .spectrum-axis {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.28rem;
+    padding-inline: 0.55rem;
+  }
+
+  .spectrum-axis__spacer {
     display: none;
   }
 
+  .spectrum-lane__label {
+    padding: 0 0.1rem;
+  }
+
+  .spectrum-readout {
+    padding: 0.6rem 0.7rem 0.55rem;
+  }
+
   .spectrum-axis {
-    gap: 0.5rem;
-    letter-spacing: 0.06em;
-    font-size: 0.64rem;
+    padding-bottom: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .spectrum-anchors span:nth-child(2) {
+  .spectrum-axis__ticks span:nth-child(2),
+  .spectrum-axis__ticks span:nth-child(4) {
     display: none;
   }
 }
@@ -2987,9 +3085,9 @@ html[data-theme='dark'] .tea-hero__watermark {
   }
 }
 
-@keyframes grow-y {
+@keyframes pop-mark {
   from {
-    transform: scaleY(0);
+    transform: scale(0);
     opacity: 0;
   }
   to {
@@ -3060,9 +3158,8 @@ html[data-theme='dark'] .tea-hero__watermark {
     animation-delay: 1.5s;
   }
 
-  .spectrum-strip a {
-    animation: grow-y 700ms var(--ease-steep) both;
-    animation-delay: calc(var(--i, 0) * 16ms);
+  .spectrum-mark {
+    animation: pop-mark 480ms var(--ease-steep) both;
   }
 
   .ticker__track {
