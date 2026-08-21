@@ -1,10 +1,9 @@
 /* =========================================================================
-   fourthsteep — "Liquor & Steam"
+   fourthsteep — "Misregister"
 
-   Every tea carries three numbers (--lq-l, --lq-c, --lq-h): the OKLCH
-   components of its brewed cup, computed in src/lib/atlas.js. Everything
-   tinted on this site derives from those three numbers, which is why a
-   page can be dyed by its subject without shipping a single image.
+   Poster ink, night-market type, risograph offsets. Every tea still carries
+   three numbers (--lq-l, --lq-c, --lq-h): the OKLCH of its cup, computed in
+   src/lib/atlas.js. Everything tinted derives from those three numbers.
    ========================================================================= */
 
 @property --lq-l {
@@ -34,76 +33,65 @@
   inherits: true;
   initial-value: 0;
 }
-/* Registered so the header can interpolate it; an unregistered custom
-   property would jump halfway through the keyframe instead of easing. */
 @property --header-pad {
   syntax: '<length>';
   inherits: true;
-  initial-value: 18px;
+  initial-value: 14px;
 }
 
 :root {
   color-scheme: light;
 
-  /* The default cup, for pages that are not about one particular tea. Also
-     the fallback where @property is unsupported. */
   --lq-l: 0.78;
   --lq-c: 0.1;
   --lq-h: 78;
 
-  --paper: #f2ece0;
-  --paper-raised: #fbf7ee;
-  --paper-sunk: #e8e0d0;
-  --ink: #191611;
-  --ink-muted: #5b5449;
-  --line: #d8ccb6;
-  --line-soft: #e6dcc9;
-  --jade: #2c5a4e;
-  --amber: #b8601f;
+  --paper: #f4de9a;
+  --paper-raised: #fff1bc;
+  --paper-sunk: #e2c86e;
+  --ink: #140c04;
+  --ink-muted: #4a3c28;
+  --line: #140c04;
+  --line-soft: #c9a84a;
+  --jade: #006d58;
+  --amber: #ff2a00;
 
-  /* How the ramp below is bent for this theme. Kept as plain inherited
-     numbers so that the one derivation rule works in both themes. */
   --ink-shift: -0.34;
-  --ink-floor: 0.3;
-  --ink-ceil: 0.5;
-  --wash-a: 0.2;
-  --veil-a: 0.08;
+  --ink-floor: 0.28;
+  --ink-ceil: 0.48;
+  --wash-a: 0.36;
+  --veil-a: 0.16;
 
-  --sans: 'Source Sans 3', ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --serif: 'Source Serif 4', 'Iowan Old Style', Palatino, Georgia, serif;
-  --cjk: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'PingFang SC', 'Source Han Sans SC',
-    'Noto Sans CJK SC', 'Noto Sans JP', sans-serif;
-  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --sans: 'Instrument Sans', ui-sans-serif, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --serif: var(--display);
+  --cjk: 'Songti SC', 'Hiragino Mincho ProN', 'Yu Mincho', 'PMingLiU', 'Noto Serif SC', 'Noto Serif JP', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-  --measure: 66ch;
-  --radius: 1rem;
-  --radius-sm: 1rem;
-  --radius-pill: 999px;
-  --page-gutter: 1.25rem;
+  --measure: 62ch;
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-pill: 0;
+  --page-gutter: 1.5rem;
+  --frame: 6px;
 
-  --shadow-flat: 0 1px 2px oklch(0.2 0.03 70 / 0.06);
-  --shadow-lift: 0 1.5rem 2.5rem -1.25rem oklch(0.25 0.05 70 / 0.28), 0 0.25rem 0.6rem -0.4rem oklch(0.25 0.05 70 / 0.15);
+  --ease-steep: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-pour: cubic-bezier(0.75, 0, 0.2, 1);
+  --dur-1: 110ms;
+  --dur-2: 200ms;
+  --dur-3: 360ms;
+  --dur-4: 720ms;
 
-  /* Motion. Steeping is slow and settles; nothing here should snap. */
-  --ease-steep: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-pour: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-1: 140ms;
-  --dur-2: 260ms;
-  --dur-3: 480ms;
-  --dur-4: 900ms;
-
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-  --grain-opacity: 0.28;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-opacity: 0.2;
   --grain-blend: multiply;
 }
 
 /* The cup, and the ramp derived from it.
  *
- * This has to be declared on every element rather than once on :root. A
- * custom property's var() references are substituted where the property is
- * *declared*, so a ramp declared on :root would resolve against the root's
- * --lq-* once and ignore the per-tea values set further down the tree — which
- * is exactly how every swatch on the atlas ends up the same colour. */
+ * Declared on every element rather than once on :root. A custom property's
+ * var() references are substituted where the property is *declared*, so a
+ * ramp on :root would ignore per-tea --lq-* further down the tree. */
 *,
 *::before,
 *::after {
@@ -112,57 +100,54 @@
   --liquor-pale: oklch(calc(var(--lq-l) + 0.09) calc(var(--lq-c) * 0.55) var(--lq-h));
   --liquor-wash: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / var(--wash-a));
   --liquor-veil: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / var(--veil-a));
-  /* Same hue at zero alpha — fading to keyword `transparent` interpolates
-     through black and leaves a muddy band, especially on a small wash. */
   --liquor-fade: oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0);
   --liquor-ink: oklch(
     clamp(var(--ink-floor), calc(var(--lq-l) + var(--ink-shift)), var(--ink-ceil)) calc(var(--lq-c) * 0.95)
       var(--lq-h)
   );
+  /* Per-element so each card's offset is its own cup, not the page default. */
+  --shadow-flat: 3px 3px 0 var(--ink);
+  --shadow-lift: 7px 7px 0 var(--liquor);
 }
 
 html[data-theme='dark'] {
   color-scheme: dark;
-  --paper: #12100d;
-  --paper-raised: #1b1814;
-  --paper-sunk: #0c0a08;
-  --ink: #f0e8d9;
-  --ink-muted: #ab9f8b;
-  --line: #362f27;
-  --line-soft: #262019;
-  --jade: #8fbfad;
-  --amber: #e09a5b;
-  --ink-shift: 0.06;
-  --ink-floor: 0.74;
-  --ink-ceil: 0.9;
-  --wash-a: 0.16;
-  --veil-a: 0.07;
-  --shadow-flat: 0 1px 2px oklch(0 0 0 / 0.4);
-  --shadow-lift: 0 1.5rem 2.5rem -1.25rem oklch(0 0 0 / 0.7), 0 0.25rem 0.6rem -0.4rem oklch(0 0 0 / 0.5);
-  --grain-opacity: 0.16;
+  --paper: #0c0a07;
+  --paper-raised: #16130e;
+  --paper-sunk: #060504;
+  --ink: #f6e7c2;
+  --ink-muted: #b9a57a;
+  --line: #f6e7c2;
+  --line-soft: #3a3224;
+  --jade: #3dcfb0;
+  --amber: #ff5a2a;
+  --ink-shift: 0.08;
+  --ink-floor: 0.76;
+  --ink-ceil: 0.92;
+  --wash-a: 0.28;
+  --veil-a: 0.12;
+  --grain-opacity: 0.22;
   --grain-blend: overlay;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme='light']) {
     color-scheme: dark;
-    --paper: #12100d;
-    --paper-raised: #1b1814;
-    --paper-sunk: #0c0a08;
-    --ink: #f0e8d9;
-    --ink-muted: #ab9f8b;
-    --line: #362f27;
-    --line-soft: #262019;
-    --jade: #8fbfad;
-    --amber: #e09a5b;
-    --ink-shift: 0.06;
-    --ink-floor: 0.74;
-    --ink-ceil: 0.9;
-    --wash-a: 0.16;
-    --veil-a: 0.07;
-    --shadow-flat: 0 1px 2px oklch(0 0 0 / 0.4);
-    --shadow-lift: 0 1.5rem 2.5rem -1.25rem oklch(0 0 0 / 0.7), 0 0.25rem 0.6rem -0.4rem oklch(0 0 0 / 0.5);
-    --grain-opacity: 0.16;
+    --paper: #0c0a07;
+    --paper-raised: #16130e;
+    --paper-sunk: #060504;
+    --ink: #f6e7c2;
+    --ink-muted: #b9a57a;
+    --line: #f6e7c2;
+    --line-soft: #3a3224;
+    --jade: #3dcfb0;
+    --amber: #ff5a2a;
+    --ink-shift: 0.08;
+    --ink-floor: 0.76;
+    --ink-ceil: 0.92;
+    --wash-a: 0.28;
+    --veil-a: 0.12;
+    --grain-opacity: 0.22;
     --grain-blend: overlay;
   }
 }
@@ -182,18 +167,21 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    -19deg,
+    transparent 0 12px,
+    var(--liquor-veil) 12px 13px
+  );
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.55;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Two soft pools of the page's own liquor colour, plus paper grain over
-   everything. Both are fixed and inert. */
 body::before,
 body::after {
   content: '';
@@ -205,12 +193,16 @@ body::after {
 
 body::before {
   background:
-    radial-gradient(60rem 40rem at 78% -8%, var(--liquor-wash), var(--liquor-fade) 65%),
-    radial-gradient(45rem 35rem at 4% 12%, var(--liquor-veil), var(--liquor-fade) 70%);
+    radial-gradient(70rem 48rem at 92% -12%, var(--liquor-wash), var(--liquor-fade) 62%),
+    radial-gradient(38rem 38rem at -8% 88%, var(--liquor-veil), var(--liquor-fade) 70%),
+    linear-gradient(122deg, var(--liquor-fade) 20%, var(--liquor-wash) 48%, var(--liquor-fade) 78%);
 }
 
 body::after {
-  background-image: var(--grain);
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--ink) 0.42px, transparent 0.5px),
+    var(--grain);
+  background-size: 3px 3px, 160px 160px;
   opacity: var(--grain-opacity);
   mix-blend-mode: var(--grain-blend);
 }
@@ -220,14 +212,25 @@ body > * {
   z-index: 1;
 }
 
+/* Viewport rails: a poster sitting in a lightbox. */
+.rails {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 80;
+  box-shadow:
+    inset 0 0 0 var(--frame) var(--ink),
+    inset 0 0 0 calc(var(--frame) + 5px) var(--liquor);
+}
+
 img {
   max-width: 100%;
 }
 
 a {
   color: var(--liquor-ink);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
   transition: color var(--dur-1) var(--ease-steep);
 }
 
@@ -240,33 +243,35 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--liquor-ink);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
+  box-shadow: 3px 3px 0 var(--liquor);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--sans);
-  font-weight: 650;
-  line-height: 1.08;
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 0.88;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
-  font-weight: 700;
-  margin: 0.2em 0 0.3em;
+  font-size: clamp(2.8rem, 9vw, 6.2rem);
+  font-weight: 900;
+  margin: 0.15em 0 0.28em;
 }
 
 h2 {
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.45rem;
 }
 
 p {
@@ -275,24 +280,28 @@ p {
 }
 
 ::selection {
-  background: var(--liquor-wash);
+  background: var(--ink);
+  color: var(--liquor-pale);
 }
 
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: -4rem;
+  left: calc(var(--frame) + 0.6rem);
+  top: -5rem;
   background: var(--ink);
   color: var(--paper);
   padding: 0.5rem 0.8rem;
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-  z-index: 60;
+  z-index: 90;
   text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: top var(--dur-2) var(--ease-steep);
 }
 
 .skip-link:focus {
-  top: 0;
+  top: calc(var(--frame) + 0.35rem);
 }
 
 /* ------------------------------------------------------------- layout --- */
@@ -300,12 +309,12 @@ p {
 .header-inner,
 .footer-inner,
 .wrap {
-  width: min(1140px, calc(100% - 2 * var(--page-gutter)));
+  width: min(1180px, calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
 }
 
 .wrap-wide {
-  width: min(1400px, calc(100% - 2 * var(--page-gutter)));
+  width: min(1440px, calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
 }
 
@@ -315,9 +324,8 @@ p {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: color-mix(in oklab, var(--paper) 82%, transparent);
-  backdrop-filter: blur(14px) saturate(1.3);
-  border-bottom: 1px solid transparent;
+  background: var(--paper);
+  border-bottom: 4px solid var(--ink);
 }
 
 .header-inner {
@@ -331,8 +339,6 @@ p {
   margin-right: auto;
 }
 
-/* The header condenses as you scroll, driven by the scroll position itself —
-   no listener, no layout reads. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
     .site-header {
@@ -345,22 +351,22 @@ p {
 
 @keyframes header-condense {
   to {
-    --header-pad: 9px;
-    border-bottom-color: var(--line);
-    box-shadow: 0 0.6rem 1.4rem -1rem oklch(0.2 0.04 70 / 0.35);
+    --header-pad: 7px;
+    box-shadow: 0 8px 0 var(--liquor);
   }
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--sans);
-  font-size: 1.2rem;
-  font-weight: 600;
+  gap: 0.7rem;
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 900;
   color: inherit;
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .brand:hover {
@@ -369,13 +375,13 @@ p {
 
 .brand small {
   display: block;
-  font-family: var(--sans);
-  font-size: 0.62rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  line-height: 1.4;
+  line-height: 1.35;
   white-space: nowrap;
 }
 
@@ -383,14 +389,11 @@ p {
   white-space: nowrap;
 }
 
-/* Below this the wordmark and five controls cannot share a line without the
-   name breaking across three of them, so the nav takes a row of its own.
-   The toggle stays on the wordmark row, in flow, so it keeps the same inset
-   as the brand instead of pinning to the viewport corner. */
 @media (max-width: 640px) {
   :root {
-    --page-gutter: 1.75rem;
-    --header-pad: 22px;
+    --page-gutter: 1.35rem;
+    --header-pad: 16px;
+    --frame: 3px;
   }
 
   .header-inner {
@@ -430,16 +433,15 @@ p {
     justify-content: center;
     flex: 1 1 0;
     min-width: 0;
-    padding: 0.5rem 0.2rem;
-    font-size: 0.86rem;
+    padding: 0.5rem 0.15rem;
+    font-size: 0.78rem;
   }
 
   nav.primary a::after {
-    left: 0.35rem;
-    right: 0.35rem;
+    left: 0.2rem;
+    right: 0.2rem;
   }
 
-  /* Two-row header is ~8rem; keep letter stickies and jump links below it. */
   .glossary-letter {
     top: 8.5rem;
   }
@@ -478,31 +480,36 @@ p {
   }
 }
 
-/* A cup that fills with the current page's liquor as you hover the wordmark. */
 .brand-mark {
   --wash: 0.55;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 1.85rem;
+  height: 1.85rem;
   flex: none;
-  border-radius: 50%;
-  border: 1.5px solid var(--line);
-  background:
-    radial-gradient(circle at 34% 26%, oklch(1 0 0 / 0.45), transparent 42%),
-    linear-gradient(to top, var(--liquor-deep) 0, var(--liquor) calc(var(--wash) * 100%), var(--paper-raised) 0)
-      no-repeat;
-  transition: --wash var(--dur-3) var(--ease-pour), border-color var(--dur-2) var(--ease-steep);
+  border: 2.5px solid var(--ink);
+  background: linear-gradient(
+      to top,
+      var(--liquor-deep) 0,
+      var(--liquor) calc(var(--wash) * 100%),
+      var(--paper-raised) 0
+    )
+    no-repeat;
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(10deg);
+  transition:
+    --wash var(--dur-3) var(--ease-pour),
+    transform var(--dur-3) var(--ease-steep);
 }
 
 .brand:hover .brand-mark,
 .brand:focus-visible .brand-mark {
-  --wash: 0.9;
-  border-color: var(--liquor-ink);
+  --wash: 0.95;
+  transform: rotate(100deg);
 }
 
 nav.primary {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 0.3rem;
+  gap: 0.35rem;
   align-items: center;
 }
 
@@ -510,29 +517,38 @@ nav.primary a {
   position: relative;
   color: inherit;
   text-decoration: none;
-  font-size: 0.92rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.38rem 0.7rem;
+  border: 2px solid transparent;
   white-space: nowrap;
-  transition: background var(--dur-2) var(--ease-steep), color var(--dur-1) var(--ease-steep);
+  transition:
+    background var(--dur-2) var(--ease-steep),
+    color var(--dur-1) var(--ease-steep),
+    border-color var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep);
 }
 
 nav.primary a::after {
   content: '';
   position: absolute;
-  left: 0.7rem;
-  right: 0.7rem;
-  bottom: 0.25rem;
-  height: 1.5px;
-  background: var(--liquor-ink);
+  left: 0.45rem;
+  right: 0.45rem;
+  bottom: 0.18rem;
+  height: 4px;
+  background: var(--liquor);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--dur-2) var(--ease-steep);
 }
 
 nav.primary a:hover {
-  background: var(--liquor-veil);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 
 nav.primary a:hover::after,
@@ -541,29 +557,31 @@ nav.primary a[aria-current='page']::after {
 }
 
 nav.primary a[aria-current='page'] {
-  color: var(--liquor-ink);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--liquor);
 }
 
-/* Theme toggle: a cup that pours full at night and empties by day. */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 2.3rem;
-  height: 2.3rem;
-  margin-left: 0.3rem;
-  border: 1px solid var(--line);
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 0.25rem;
+  border: 2.5px solid var(--ink);
   background: var(--paper-raised);
   color: inherit;
-  border-radius: 999px;
   cursor: pointer;
-  transition: border-color var(--dur-2) var(--ease-steep), transform var(--dur-2) var(--ease-steep);
+  box-shadow: 3px 3px 0 var(--liquor);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep);
 }
 
 .theme-toggle:hover {
-  border-color: var(--liquor-ink);
-  transform: rotate(-8deg);
+  transform: rotate(-14deg) scale(1.06);
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 .theme-toggle svg {
@@ -614,27 +632,91 @@ html[data-theme='dark'] .toggle-steam {
   }
 }
 
+/* ------------------------------------------------------------- ticker --- */
+
+.ticker {
+  overflow: hidden;
+  border-block: 4px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display), var(--cjk);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(0.82rem, 1.6vw, 1.05rem);
+  line-height: 1;
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+}
+
+.ticker__track > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.4rem 0.5rem;
+  white-space: nowrap;
+  border-right: 2px solid var(--paper);
+}
+
+.ticker__swatch {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  background: var(--liquor);
+  box-shadow: 2px 2px 0 var(--paper);
+  flex: none;
+}
+
+.ticker em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+}
+
+.ticker--footer {
+  border-top: 4px solid var(--ink);
+  border-bottom: 0;
+}
+
+.ticker--cups {
+  margin: 0;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.ticker--cups .ticker__track > span {
+  border-right-color: var(--ink);
+}
+
 /* ------------------------------------------------------- micro-labels --- */
 
 .kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 0 0 0.4rem;
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  gap: 0.4rem;
+  margin: 0 0 0.7rem;
+  padding: 0.28rem 0.62rem 0.22rem;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--paper);
+  background: var(--ink);
+  box-shadow: 4px 4px 0 var(--liquor);
+  transform: rotate(-2deg);
+  transform-origin: left center;
 }
 
 .kicker::before {
-  content: '';
-  width: 1.6rem;
-  height: 1.5px;
-  background: var(--liquor);
-  flex: none;
+  content: none;
 }
 
 .meta {
@@ -644,36 +726,42 @@ html[data-theme='dark'] .toggle-steam {
 
 .native {
   font-family: var(--cjk);
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-weight: 700;
 }
 
 .lede {
-  max-width: var(--measure);
-  font-family: var(--serif);
-  font-size: clamp(1.08rem, 1.6vw, 1.28rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.55;
-  color: var(--ink-muted);
+  max-width: 46ch;
+  font-family: var(--sans);
+  font-size: clamp(1.12rem, 1.8vw, 1.38rem);
+  font-style: italic;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--ink);
 }
 
 .rule {
   border: 0;
-  height: 1px;
-  background: linear-gradient(to right, var(--line), transparent);
+  height: 4px;
+  background: var(--ink);
   margin: 2.5rem 0;
+  box-shadow: 4px 0 0 var(--liquor);
 }
 
 .section-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  margin: 3.5rem 0 1.4rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--line);
+  margin: 3.2rem 0 1.3rem;
+  padding: 0.75rem 1rem;
+  border: 3px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: 6px 6px 0 var(--liquor);
 }
 
 .section-head h2 {
@@ -681,23 +769,27 @@ html[data-theme='dark'] .toggle-steam {
 }
 
 .section-head .meta {
-  font-family: var(--serif);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------- hero --- */
 
 .hero {
   position: relative;
-  padding: clamp(3rem, 9vw, 6.5rem) 0 3rem;
+  padding: clamp(2.4rem, 8vw, 5.5rem) 0 2.4rem;
 }
 
 .hero h1 {
-  max-width: 15ch;
+  max-width: 12ch;
+  transform: skewX(-7deg);
+  transform-origin: left;
+  font-style: italic;
 }
 
-/* Per-word reveal: each word rises out of its own clipped line. */
 .reveal-word {
   display: inline-block;
   overflow: hidden;
@@ -718,58 +810,61 @@ html[data-theme='dark'] .toggle-steam {
   gap: 0.5rem;
   isolation: isolate;
   appearance: none;
-  border: 1px solid var(--ink);
+  border: 3px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
-  border-radius: var(--radius-pill);
-  padding: 0.62rem 1.25rem;
-  font: inherit;
+  border-radius: 0;
+  padding: 0.7rem 1.2rem 0.62rem;
+  font-family: var(--display);
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  transition: transform var(--dur-2) var(--ease-steep), box-shadow var(--dur-2) var(--ease-steep),
-    border-color var(--dur-2) var(--ease-steep), color var(--dur-2) var(--ease-steep);
+  box-shadow: 5px 5px 0 var(--liquor);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep),
+    color var(--dur-2) var(--ease-steep);
 }
 
-/* Hovering pours the liquor up through the button. */
 .btn::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -20% -40%;
   z-index: -1;
-  background: linear-gradient(to top, var(--liquor-deep), var(--liquor));
-  transform: translateY(101%);
+  background: linear-gradient(118deg, var(--liquor-deep), var(--liquor));
+  transform: translateX(-75%) skewX(-18deg);
   transition: transform var(--dur-3) var(--ease-pour);
 }
 
 .btn:hover,
 .btn:focus-visible {
-  color: var(--paper);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lift);
-  border-color: var(--liquor-deep);
+  color: var(--ink);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
 }
 
 .btn:hover::before,
 .btn:focus-visible::before {
-  transform: translateY(0);
+  transform: translateX(0) skewX(-18deg);
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: none;
+  box-shadow: 3px 3px 0 var(--liquor);
 }
 
 .btn.secondary {
-  background: transparent;
+  background: var(--paper-raised);
   color: var(--ink);
-  border-color: var(--line);
 }
 
 .btn.secondary:hover,
 .btn.secondary:focus-visible {
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .btn[disabled] {
@@ -780,7 +875,7 @@ html[data-theme='dark'] .toggle-steam {
 }
 
 .btn[disabled]::before {
-  transform: translateY(101%);
+  transform: translateX(-75%) skewX(-18deg);
 }
 
 .arrow {
@@ -788,14 +883,14 @@ html[data-theme='dark'] .toggle-steam {
 }
 
 .btn:hover .arrow {
-  transform: translateX(3px);
+  transform: translateX(5px);
 }
 
 /* -------------------------------------------------------------- cards --- */
 
 .grid {
   display: grid;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 
 .card-grid {
@@ -810,17 +905,23 @@ html[data-theme='dark'] .toggle-steam {
   justify-content: space-between;
   gap: 0.5rem 1rem;
   margin: 0 0 1.2rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--line-soft);
+  padding: 0.55rem 0.75rem;
+  border: 3px solid var(--ink);
+  background: var(--paper-raised);
   color: var(--ink-muted);
-  font-size: 0.88rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .result-bar .num {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--ink);
+  text-transform: none;
 }
 
 .card {
@@ -830,41 +931,44 @@ html[data-theme='dark'] .toggle-steam {
   flex-direction: column;
   isolation: isolate;
   background: var(--paper-raised);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
-  padding: 1.2rem 1.25rem 1.3rem;
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  padding: 1.15rem 1.2rem 1.2rem;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
   box-shadow: var(--shadow-flat);
-  transition: transform var(--dur-3) var(--ease-steep), box-shadow var(--dur-3) var(--ease-steep),
-    border-color var(--dur-3) var(--ease-steep);
+  transition:
+    transform var(--dur-3) var(--ease-steep),
+    box-shadow var(--dur-3) var(--ease-steep);
 }
 
-/* The wash: liquor settling in the bottom of the card, rising on hover. */
 .card::before {
   content: '';
   position: absolute;
-  inset: auto 0 0 0;
-  height: 100%;
+  inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, var(--liquor-wash), var(--liquor-fade) 72%);
-  transform: translateY(calc(72% - var(--wash) * 72%));
+  background: linear-gradient(125deg, var(--liquor-wash), var(--liquor-fade) 58%);
+  transform: translate(-108%, 18%) skewX(-18deg);
   transition: transform var(--dur-4) var(--ease-pour);
 }
 
 .card:hover,
 .card:focus-visible {
   --wash: 1;
-  transform: translateY(-4px);
-  border-color: color-mix(in oklab, var(--liquor) 45%, var(--line));
+  transform: translate(-4px, -5px) rotate(-1.2deg);
   box-shadow: var(--shadow-lift);
+}
+
+.card:nth-child(even):hover,
+.card:nth-child(even):focus-visible {
+  transform: translate(-4px, -5px) rotate(1.3deg);
 }
 
 .card h2,
 .card h3 {
   margin: 0.1rem 0 0.3rem;
-  font-size: 1.32rem;
+  font-size: 1.55rem;
 }
 
 .card .meta {
@@ -876,7 +980,10 @@ html[data-theme='dark'] .toggle-steam {
   padding-top: 0.9rem;
 }
 
-/* Tea cards carry a swatch of the cup itself. */
+.card .kicker {
+  margin-bottom: 0;
+}
+
 .tea-card {
   padding-top: 1rem;
 }
@@ -890,27 +997,28 @@ html[data-theme='dark'] .toggle-steam {
 }
 
 .tea-card__swatch {
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
   flex: none;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--liquor-pale), var(--liquor) 52%, var(--liquor-deep));
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.12), inset 0 -0.35rem 0.7rem oklch(0 0 0 / 0.18);
+  border: 2.5px solid var(--ink);
+  background: linear-gradient(145deg, var(--liquor-pale), var(--liquor) 48%, var(--liquor-deep));
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(8deg);
   transition: transform var(--dur-3) var(--ease-steep);
 }
 
 .card:hover .tea-card__swatch {
-  transform: scale(1.1) rotate(-6deg);
+  transform: rotate(-18deg) scale(1.12);
 }
 
 .tea-card .native {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   margin: 0 0 0.35rem;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .tea-card h3 {
-  font-size: 1.24rem;
+  font-size: 1.45rem;
 }
 
 .tea-card__summary {
@@ -922,24 +1030,29 @@ html[data-theme='dark'] .toggle-steam {
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-transform: none;
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
 }
 
-/* Inline oxidation meter: a bar plus the printed number, never colour alone. */
 .mini-meter {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
 .mini-meter__track {
   flex: 1;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--line);
+  height: 6px;
+  background: var(--paper-sunk);
+  border: 2px solid var(--ink);
   overflow: hidden;
 }
 
@@ -947,8 +1060,7 @@ html[data-theme='dark'] .toggle-steam {
   display: block;
   height: 100%;
   width: var(--value, 0%);
-  border-radius: 999px;
-  background: linear-gradient(to right, var(--liquor), var(--liquor-deep));
+  background: var(--liquor);
   transform-origin: left;
 }
 
@@ -957,28 +1069,36 @@ html[data-theme='dark'] .toggle-steam {
 .cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: 0.22rem 0.7rem;
-  font-size: 0.8rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 0.2rem 0.55rem 0.16rem;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   background: var(--paper-raised);
   color: inherit;
   text-decoration: none;
-  transition: border-color var(--dur-2) var(--ease-steep), background var(--dur-2) var(--ease-steep),
-    transform var(--dur-2) var(--ease-steep);
+  box-shadow: 3px 3px 0 var(--liquor);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep),
+    background var(--dur-2) var(--ease-steep);
 }
 
 a.chip:hover {
-  border-color: var(--liquor);
-  background: var(--liquor-veil);
-  transform: translateY(-2px);
+  background: var(--ink);
+  color: var(--paper);
+  transform: translate(-2px, -2px) rotate(-2deg);
+  box-shadow: 5px 5px 0 var(--liquor);
 }
 
 /* ------------------------------------------------------------- scales --- */
@@ -989,10 +1109,9 @@ a.chip:hover {
 }
 
 .scale-track {
-  height: 0.6rem;
+  height: 0.85rem;
   background: var(--paper-sunk);
-  border: 1px solid var(--line-soft);
-  border-radius: 999px;
+  border: 2.5px solid var(--ink);
   position: relative;
   overflow: hidden;
 }
@@ -1000,7 +1119,6 @@ a.chip:hover {
 .scale-fill {
   height: 100%;
   width: var(--value, 0%);
-  border-radius: 999px;
   background: linear-gradient(to right, var(--liquor-pale), var(--liquor) 55%, var(--liquor-deep));
   transform-origin: left;
 }
@@ -1010,17 +1128,18 @@ a.chip:hover {
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
 .scale-label b {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-transform: none;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
@@ -1030,8 +1149,7 @@ a.chip:hover {
 
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   background: var(--paper-raised);
   box-shadow: var(--shadow-flat);
 }
@@ -1046,7 +1164,7 @@ th,
 td {
   text-align: left;
   padding: 0.7rem 0.9rem;
-  border-bottom: 1px solid var(--line-soft);
+  border-bottom: 2px solid var(--ink);
   vertical-align: middle;
 }
 
@@ -1059,24 +1177,27 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background: var(--liquor-veil);
+  background: var(--liquor-wash);
 }
 
 th {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-muted);
-  font-weight: 600;
-  border-bottom-color: var(--line);
+  color: var(--ink);
+  font-weight: 800;
+  background: var(--paper-sunk);
+  border-bottom-color: var(--ink);
 }
 
 .num {
+  font-family: var(--display);
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-/* Each steep drawn to scale against the longest one in the schedule. */
 .steep-cell {
   display: flex;
   align-items: center;
@@ -1086,10 +1207,10 @@ th {
 
 .steep-bar {
   flex: 1;
-  height: 0.5rem;
+  height: 0.65rem;
   min-width: 2.5rem;
-  border-radius: 999px;
   background: var(--paper-sunk);
+  border: 2px solid var(--ink);
   overflow: hidden;
 }
 
@@ -1097,27 +1218,24 @@ th {
   display: block;
   height: 100%;
   width: var(--value, 0%);
-  border-radius: 999px;
-  background: linear-gradient(to right, var(--liquor), var(--liquor-deep));
+  background: var(--liquor);
   transform-origin: left;
 }
 
 /* ------------------------------------------------------------ islands --- */
 
 .island {
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   background: var(--paper-raised);
   padding: 1.25rem;
   display: grid;
   gap: 0.85rem;
-  box-shadow: var(--shadow-flat);
+  box-shadow: var(--shadow-lift);
 }
 
 .island h2 {
   margin: 0;
-  font-size: 1.15rem;
-  letter-spacing: 0.01em;
+  font-size: 1.35rem;
 }
 
 .island > div > .meta {
@@ -1137,39 +1255,38 @@ th {
   flex-wrap: wrap;
 }
 
-/* The ring is the steep: it fills with this tea's own colour as time runs. */
 .timer-ring {
   position: relative;
   flex: none;
-  width: 8.4rem;
-  height: 8.4rem;
+  width: 8.6rem;
+  height: 8.6rem;
   display: grid;
   place-items: center;
-  border-radius: 50%;
+  border: 3px solid var(--ink);
   background: conic-gradient(
     from -90deg,
     var(--liquor) calc(var(--progress) * 360deg),
     var(--paper-sunk) calc(var(--progress) * 360deg)
   );
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 .timer-ring::before {
   content: '';
   position: absolute;
-  inset: 0.6rem;
-  border-radius: 50%;
+  inset: 0.55rem;
   background: var(--paper-raised);
-  box-shadow: inset 0 0 0 1px var(--line-soft);
+  border: 2px solid var(--ink);
 }
 
 .timer-display {
   position: relative;
-  font-family: var(--serif);
+  font-family: var(--display);
   font-variant-numeric: tabular-nums;
-  font-size: 2.1rem;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: 900;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .timer-steam {
@@ -1208,17 +1325,16 @@ th {
 .pips {
   list-style: none;
   display: flex;
-  gap: 0.25rem;
+  gap: 0.3rem;
   margin: 0.55rem 0;
   padding: 0;
 }
 
 .pips li {
   flex: 1;
-  height: 0.35rem;
-  border-radius: 999px;
+  height: 0.55rem;
   background: var(--paper-sunk);
-  box-shadow: inset 0 0 0 1px var(--line-soft);
+  border: 2px solid var(--ink);
   overflow: hidden;
 }
 
@@ -1226,7 +1342,6 @@ th {
   display: block;
   height: 100%;
   width: 0;
-  border-radius: 999px;
   background: var(--liquor);
 }
 
@@ -1250,7 +1365,7 @@ th {
 
 .controls .btn {
   padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .ratio-fields {
@@ -1262,9 +1377,12 @@ th {
 .ratio-out {
   margin: 0;
   padding-top: 0.8rem;
-  border-top: 1px solid var(--line-soft);
-  font-family: var(--serif);
-  font-size: 1.05rem;
+  border-top: 3px solid var(--ink);
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--liquor-ink);
 }
 
@@ -1273,37 +1391,41 @@ th {
 label.field {
   display: grid;
   gap: 0.3rem;
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink);
 }
 
 input,
 select {
-  font: inherit;
+  font-family: var(--sans);
   font-size: 0.95rem;
   letter-spacing: 0;
   text-transform: none;
   font-weight: 400;
   padding: 0.5rem 0.65rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--line);
+  border: 2.5px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
-  transition: border-color var(--dur-2) var(--ease-steep), box-shadow var(--dur-2) var(--ease-steep);
+  box-shadow: 3px 3px 0 var(--liquor);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep);
 }
 
 input:hover,
 select:hover {
-  border-color: color-mix(in oklab, var(--liquor) 40%, var(--line));
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 input:focus,
 select:focus {
-  border-color: var(--liquor-ink);
-  box-shadow: 0 0 0 3px var(--liquor-veil);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
 }
 
 .filters {
@@ -1311,8 +1433,7 @@ select:focus {
   gap: 0.8rem;
   margin-bottom: 1.4rem;
   padding: 1.15rem;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   background: var(--paper-raised);
   box-shadow: var(--shadow-flat);
 }
@@ -1333,6 +1454,9 @@ select:focus {
   font-style: italic;
   padding: 3rem 0;
   text-align: center;
+  font-family: var(--display);
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------- prose --- */
@@ -1344,12 +1468,15 @@ select:focus {
 
 .prose > p:first-of-type::first-letter {
   float: left;
-  font-family: var(--serif);
-  font-size: 3.6em;
-  line-height: 0.78;
-  font-weight: 700;
-  padding: 0.08em 0.09em 0 0;
-  color: var(--liquor-ink);
+  font-family: var(--display);
+  font-size: 4.1em;
+  line-height: 0.72;
+  font-weight: 900;
+  padding: 0.14em 0.16em 0.02em;
+  margin: 0.1em 0.22em 0 0;
+  background: var(--ink);
+  color: var(--liquor-pale);
+  box-shadow: 5px 5px 0 var(--liquor);
 }
 
 .prose :where(h2, h3) {
@@ -1358,8 +1485,8 @@ select:focus {
 }
 
 .prose :where(h2) {
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--line-soft);
+  padding-top: 0.7rem;
+  border-top: 4px solid var(--ink);
 }
 
 .prose :where(ul, ol) {
@@ -1372,49 +1499,75 @@ select:focus {
 
 .prose li::marker {
   color: var(--liquor-ink);
+  font-weight: 800;
 }
 
 .prose blockquote {
   margin: 1.6rem 0;
-  padding: 0.2rem 0 0.2rem 1.2rem;
-  border-left: 3px solid var(--liquor);
-  color: var(--ink-muted);
-  font-family: var(--serif);
-  font-size: 1.12rem;
+  padding: 0.8rem 1rem;
+  border: 3px solid var(--ink);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  box-shadow: 6px 6px 0 var(--liquor);
 }
 
 .prose code {
   font-family: var(--mono);
   font-size: 0.88em;
-  background: var(--liquor-veil);
+  background: var(--liquor-wash);
   padding: 0.1em 0.35em;
-  border-radius: 0.3rem;
+  border: 1.5px solid var(--ink);
 }
 
 .prose table {
   margin: 1.5rem 0;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
+  border: 3px solid var(--ink);
 }
 
 /* ------------------------------------------------------------ footer --- */
 
 .site-footer {
-  margin-top: 5rem;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(to bottom, transparent, var(--liquor-veil));
+  margin-top: 4rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site-footer a {
+  color: var(--liquor-pale);
+}
+
+.site-footer a:hover {
+  color: var(--paper);
 }
 
 .footer-inner {
-  padding: 2rem 0 2.5rem;
-  color: var(--ink-muted);
-  font-size: 0.88rem;
+  padding: 1.6rem 0 2.2rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.5rem;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-wordmark {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: var(--liquor);
+  text-transform: uppercase;
+  padding: 1.2rem 0 0.2rem;
 }
 
 /* ------------------------------------------------------------ layout --- */
@@ -1451,17 +1604,12 @@ select:focus {
   }
 }
 
-/* Below the split, the cup is the first screen; the headline stays first
-   in the DOM for screen readers. */
 @media (max-width: 899px) {
   .hero-pour {
     order: -1;
   }
 }
 
-/* The featured tea, already poured: its cup, its steam, its gongfu caption,
-   and a first-steep bar that fills in real time. The whole thing links into
-   the profile, where the disc morphs into the tea page's cup. */
 .hero-pour {
   position: relative;
   isolation: isolate;
@@ -1469,30 +1617,60 @@ select:focus {
   display: grid;
   justify-items: center;
   gap: 0.85rem;
-  max-width: 17rem;
-  padding: 0.5rem 0.5rem 0.75rem;
+  max-width: 18rem;
+  padding: 1rem 1rem 1.1rem;
   text-align: center;
   text-decoration: none;
   color: inherit;
-  border-radius: var(--radius);
+  background: var(--paper-raised);
+  border: 4px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--liquor);
+  transform: rotate(2.4deg);
+  transition: transform var(--dur-3) var(--ease-steep), box-shadow var(--dur-3) var(--ease-steep);
 }
 
-/* The native name hung beside the cup like a scroll, not a caption. */
+.hero-pour:hover,
+.hero-pour:focus-visible {
+  transform: rotate(-2deg) translate(-4px, -4px);
+  box-shadow: 14px 14px 0 var(--ink);
+}
+
+.hero-pour__live {
+  position: absolute;
+  top: -0.7rem;
+  left: -0.4rem;
+  z-index: 2;
+  margin: 0;
+}
+
 .hero-pour__native {
   position: absolute;
-  top: -0.6rem;
-  right: -2.4rem;
+  top: -0.4rem;
+  right: -1.6rem;
   z-index: -1;
   writing-mode: vertical-rl;
   font-family: var(--cjk);
-  font-size: clamp(3rem, 6vw, 4.4rem);
+  font-size: clamp(3.2rem, 7vw, 5rem);
   line-height: 1;
   letter-spacing: 0.08em;
   color: var(--liquor);
-  opacity: 0.18;
+  opacity: 0.35;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+html[data-theme='dark'] .hero-pour__native {
+  mix-blend-mode: screen;
+  opacity: 0.45;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .hero-pour__native {
+    mix-blend-mode: screen;
+    opacity: 0.45;
+  }
 }
 
 .hero-pour__steam {
@@ -1514,16 +1692,16 @@ select:focus {
   display: block;
   width: clamp(8.5rem, 15vw, 11.5rem);
   aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--liquor-pale), var(--liquor) 52%, var(--liquor-deep));
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14), inset 0 -0.7rem 1.5rem oklch(0 0 0 / 0.2),
-    0 1.1rem 2.6rem -0.9rem var(--liquor);
+  border: 3px solid var(--ink);
+  background: linear-gradient(145deg, var(--liquor-pale), var(--liquor) 48%, var(--liquor-deep));
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(6deg);
   transition: transform var(--dur-3) var(--ease-steep);
 }
 
 .hero-pour:hover .hero-pour__cup,
 .hero-pour:focus-visible .hero-pour__cup {
-  transform: scale(1.045);
+  transform: rotate(-8deg) scale(1.05);
 }
 
 .hero-pour__name {
@@ -1532,49 +1710,47 @@ select:focus {
 }
 
 .hero-pour__name b {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-family: var(--display);
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
-/* The first infusion, printed as a number and drawn as a bar that fills over
-   that many real seconds — the schedule is watchable before it is run. */
 .hero-pour__steep {
   display: flex;
   align-items: center;
   gap: 0.55rem;
   width: 100%;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
 .hero-pour__steep .num {
-  font-family: var(--serif);
-  font-size: 0.98rem;
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-transform: none;
   color: var(--ink);
 }
 
 .hero-pour__bar {
   flex: 1;
-  height: 0.5rem;
-  border-radius: 999px;
+  height: 0.65rem;
   background: var(--paper-sunk);
-  box-shadow: inset 0 0 0 1px var(--line-soft);
+  border: 2px solid var(--ink);
   overflow: hidden;
 }
 
 .hero-pour__bar i {
   display: block;
   height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(to right, var(--liquor), var(--liquor-deep));
+  background: var(--liquor);
   transform-origin: left;
 }
 
@@ -1584,12 +1760,16 @@ select:focus {
 }
 
 .hero-pour__cta {
-  font-size: 0.88rem;
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--liquor-ink);
 }
 
 .hero-pour:hover .hero-pour__cta .arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 /* ------------------------------------------------------ the spectrum --- */
@@ -1602,11 +1782,14 @@ select:focus {
 .spectrum-strip {
   list-style: none;
   margin: 0 0 0.9rem;
-  padding: 0;
+  padding: 1rem 0.6rem 0.4rem;
   display: flex;
   align-items: flex-end;
-  gap: clamp(2px, 0.45vw, 6px);
-  height: clamp(110px, 17vw, 180px);
+  gap: clamp(2px, 0.4vw, 5px);
+  height: clamp(120px, 18vw, 200px);
+  background: var(--paper-raised);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
 }
 
 .spectrum-strip li {
@@ -1622,7 +1805,6 @@ select:focus {
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  border-radius: 4px;
   transform-origin: bottom;
 }
 
@@ -1630,41 +1812,52 @@ select:focus {
   display: block;
   width: 100%;
   height: var(--h, 50%);
-  border-radius: 4px 4px 2px 2px;
   background: linear-gradient(to bottom, var(--liquor-pale), var(--liquor) 40%, var(--liquor-deep));
-  /* The palest greens would otherwise vanish into the paper. */
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14);
+  border: 1.5px solid var(--ink);
+  transform: skewX(-12deg);
   transform-origin: bottom;
-  transition: transform var(--dur-2) var(--ease-steep), box-shadow var(--dur-2) var(--ease-steep);
+  mix-blend-mode: multiply;
+  transition: transform var(--dur-2) var(--ease-steep);
+}
+
+html[data-theme='dark'] .spectrum-tick {
+  mix-blend-mode: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .spectrum-tick {
+    mix-blend-mode: screen;
+  }
 }
 
 .spectrum-strip li:hover .spectrum-tick,
 .spectrum-strip li.is-selected .spectrum-tick,
 .spectrum-strip a:focus-visible .spectrum-tick {
-  transform: scaleX(1.85) scaleY(1.05);
-  box-shadow: 0 0.4rem 1rem -0.4rem oklch(0.2 0.04 70 / 0.5);
+  transform: skewX(-12deg) scaleX(1.7) scaleY(1.06);
+  z-index: 1;
 }
 
-/* All forty-five readouts stack in one slot over the axis line, so only the
-   hovered one is ever visible and none of it costs any JavaScript. */
 .spectrum-read {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.35rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.15rem 0.65rem;
   align-items: baseline;
   opacity: 0;
-  transform: translateY(5px);
+  transform: translateY(6px) skewX(-4deg);
   pointer-events: none;
   transition: opacity var(--dur-2) var(--ease-steep), transform var(--dur-2) var(--ease-steep);
 }
 
 .spectrum-read b {
-  font-family: var(--serif);
-  font-size: 1.1rem;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
 .spectrum-read .native {
@@ -1679,8 +1872,6 @@ select:focus {
   transform: none;
 }
 
-/* A few bars named at rest, positioned as fractions of the evenly flexed
-   strip — the picture identifies itself without hover or touch. */
 .spectrum-anchors {
   position: relative;
   height: 1rem;
@@ -1693,8 +1884,9 @@ select:focus {
   top: 0;
   left: var(--x, 50%);
   transform: translateX(-50%);
-  font-size: 0.64rem;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -1717,10 +1909,10 @@ select:focus {
   justify-content: space-between;
   gap: 1rem;
   margin: 0;
-  padding-top: 0.7rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.76rem;
-  letter-spacing: 0.13em;
+  padding: 0.55rem 0.2rem 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
   transition: opacity var(--dur-2) var(--ease-steep);
@@ -1732,14 +1924,12 @@ select:focus {
   opacity: 0;
 }
 
-/* The readout takes the anchors' place while a bar is named. */
 .spectrum:has(.spectrum-strip li:hover) .spectrum-anchors,
 .spectrum:has(.spectrum-strip li.is-selected) .spectrum-anchors,
 .spectrum:has(.spectrum-strip li:focus-within) .spectrum-anchors {
   opacity: 0;
 }
 
-/* Hover advice for mice, tap advice for fingers. */
 .spectrum-hint--coarse {
   display: none;
 }
@@ -1761,8 +1951,8 @@ select:focus {
 
   .spectrum-axis {
     gap: 0.5rem;
-    letter-spacing: 0.08em;
-    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    font-size: 0.64rem;
   }
 }
 
@@ -1772,25 +1962,26 @@ select:focus {
   }
 }
 
-/* The strip regrouped: one chip per category, tinted by its median tea. */
 .spectrum-cats {
-  margin-top: 1.05rem;
+  margin-top: 1.15rem;
 }
 
 .spectrum-cats .chip {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .spectrum-cats .num {
   color: var(--ink-muted);
-  font-size: 0.74rem;
+  font-size: 0.85rem;
 }
 
 /* ----------------------------------------------------------- row list --- */
 
 .rows {
   display: grid;
-  border-top: 1px solid var(--line);
+  border: 3px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: 7px 7px 0 var(--ink);
 }
 
 .rows.numbered {
@@ -1806,11 +1997,16 @@ select:focus {
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 0.6rem 1.3rem;
-  padding: 1.15rem 0.9rem;
-  border-bottom: 1px solid var(--line-soft);
+  padding: 1.05rem 0.95rem;
+  border-bottom: 3px solid var(--ink);
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+}
+
+.rows > .row:last-child,
+.rows.numbered > li:last-child .row {
+  border-bottom: 0;
 }
 
 .row::before {
@@ -1819,32 +2015,31 @@ select:focus {
   inset: 0;
   z-index: -1;
   background: linear-gradient(
-    to right,
-    oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.38),
-    oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.06)
+    108deg,
+    oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.5),
+    oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.05)
   );
-  transform: scaleX(0);
-  transform-origin: left;
+  transform: translateX(-101%) skewX(-16deg);
   transition: transform var(--dur-3) var(--ease-pour);
 }
 
 .row:hover::before,
 .row:focus-visible::before {
-  transform: scaleX(1);
+  transform: translateX(0) skewX(-16deg);
 }
 
 .row:hover .arrow {
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
 .row__n {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 3vw, 2.3rem);
-  font-weight: 700;
-  line-height: 1;
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 0.8;
   color: var(--liquor-ink);
   font-variant-numeric: tabular-nums;
-  min-width: 2.4ch;
+  min-width: 2.2ch;
 }
 
 .row__body h3 {
@@ -1870,17 +2065,16 @@ select:focus {
 }
 
 .dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
   background: var(--liquor);
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.12);
+  border: 1.5px solid var(--ink);
 }
 
 @media (max-width: 700px) {
   .row {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    padding-inline: 0;
+    padding-inline: 0.7rem;
   }
 
   .row > .row__dots {
@@ -1888,7 +2082,6 @@ select:focus {
   }
 }
 
-/* The closing band: the whole collection restated as one wide row. */
 .rows--close {
   margin: 2.4rem 0 2rem;
 }
@@ -1920,8 +2113,12 @@ select:focus {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 2rem 0 2.4rem;
-  border-bottom: 1px solid var(--line);
+  padding: 2rem 1.1rem 2.2rem;
+  margin-inline: calc(-1 * var(--page-gutter) + var(--frame));
+  padding-inline: max(var(--page-gutter), calc(var(--page-gutter) - var(--frame) + 1.1rem));
+  border: 4px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: 10px 10px 0 var(--liquor);
 }
 
 .tea-hero::before {
@@ -1932,39 +2129,57 @@ select:focus {
   pointer-events: none;
   background:
     radial-gradient(90% 80% at 16% -12%, var(--liquor-wash), var(--liquor-fade) 72%),
-    linear-gradient(to bottom, oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.1), var(--liquor-fade) 68%);
+    linear-gradient(to bottom, oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.16), var(--liquor-fade) 68%);
 }
 
-/* The name in its own script, set as the page's ground rather than a caption. */
 .tea-hero__watermark {
   position: absolute;
-  right: 0;
-  top: -0.5rem;
+  right: 0.2rem;
+  top: -0.4rem;
   z-index: -1;
   font-family: var(--cjk);
-  font-size: clamp(5rem, 17vw, 12rem);
+  font-size: clamp(5rem, 18vw, 13rem);
   line-height: 0.82;
   color: var(--liquor);
-  opacity: 0.17;
+  opacity: 0.32;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+html[data-theme='dark'] .tea-hero__watermark {
+  mix-blend-mode: screen;
+  opacity: 0.28;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .tea-hero__watermark {
+    mix-blend-mode: screen;
+    opacity: 0.28;
+  }
 }
 
 .tea-hero__cup {
   display: block;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
   margin-bottom: 1.1rem;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--liquor-pale), var(--liquor) 52%, var(--liquor-deep));
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14), inset 0 -0.5rem 1rem oklch(0 0 0 / 0.2),
-    0 0.6rem 1.6rem -0.6rem var(--liquor);
+  border: 3px solid var(--ink);
+  background: linear-gradient(145deg, var(--liquor-pale), var(--liquor) 48%, var(--liquor-deep));
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(8deg);
 }
 
 .tea-hero__native {
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
   margin-bottom: 0.15rem;
+}
+
+.tea-hero h1 {
+  text-transform: uppercase;
+  transform: skewX(-5deg);
+  transform-origin: left;
 }
 
 .tea-hero .lede {
@@ -1983,15 +2198,24 @@ select:focus {
   }
 
   h1 {
-    font-size: clamp(2.15rem, 8vw, 3.2rem);
+    font-size: clamp(2.3rem, 12vw, 3.6rem);
   }
 
   .hero {
-    padding: clamp(1.4rem, 6vw, 3rem) 0 2rem;
+    padding: clamp(1.2rem, 5vw, 2.6rem) 0 1.6rem;
+  }
+
+  .hero h1 {
+    transform: skewX(-5deg);
   }
 
   .section-head {
-    margin-top: 2.4rem;
+    margin-top: 2.2rem;
+  }
+
+  .tea-hero {
+    margin-inline: 0;
+    padding-inline: 0.9rem;
   }
 
   .tea-hero::before {
@@ -1999,8 +2223,8 @@ select:focus {
       radial-gradient(130% 95% at 28% -18%, var(--liquor-wash), var(--liquor-fade) 74%),
       linear-gradient(
         to bottom,
-        oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.14) 0%,
-        oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.05) 42%,
+        oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.18) 0%,
+        oklch(var(--lq-l) var(--lq-c) var(--lq-h) / 0.06) 42%,
         var(--liquor-fade) 78%
       );
   }
@@ -2009,12 +2233,9 @@ select:focus {
     font-size: clamp(3.4rem, 22vw, 6.5rem);
     top: 0.2rem;
     right: -0.12em;
-    opacity: 0.13;
+    opacity: 0.24;
   }
 
-  /* Keep the pour a centered object so the native name sits beside the cup,
-     not at the page gutter. Inset rather than hanging, so overflow-x: hidden
-     on body does not clip it. */
   .hero-pour__native {
     right: 0.1rem;
     top: -0.15rem;
@@ -2040,18 +2261,19 @@ select:focus {
 
 .deflist dt {
   padding: 0.6rem 0;
-  border-top: 1px solid var(--line-soft);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  border-top: 2px solid var(--ink);
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink);
 }
 
 .deflist dd {
   margin: 0;
   padding: 0.6rem 0;
-  border-top: 1px solid var(--line-soft);
+  border-top: 2px solid var(--ink);
 }
 
 @media (max-width: 700px) {
@@ -2071,12 +2293,12 @@ select:focus {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0.94rem;
+  left: 0.85rem;
   top: 0.6rem;
   bottom: 1.2rem;
-  width: 2px;
-  border-radius: 999px;
-  background: linear-gradient(to bottom, var(--liquor), var(--liquor-deep));
+  width: 4px;
+  background: var(--liquor);
+  border: 2px solid var(--ink);
   transform-origin: top;
 }
 
@@ -2088,31 +2310,35 @@ select:focus {
 .timeline li::before {
   content: '';
   position: absolute;
-  left: -1.5rem;
-  top: 0.35rem;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
+  left: -1.55rem;
+  top: 0.3rem;
+  width: 1.05rem;
+  height: 1.05rem;
   background: var(--paper);
-  border: 2px solid var(--liquor-deep);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--liquor);
 }
 
 .timeline h3 {
   margin: 0 0 0.2rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .timeline p {
   margin: 0;
   color: var(--ink-muted);
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .note {
-  border-left: 3px solid var(--liquor);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: var(--liquor-veil);
-  padding: 0.8rem 1rem;
+  border: 3px solid var(--ink);
+  background: var(--liquor-wash);
+  padding: 0.85rem 1rem;
   margin: 1.5rem 0 0;
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 .notes-grid {
@@ -2122,8 +2348,7 @@ select:focus {
 }
 
 .note-card {
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   background: var(--paper-raised);
   padding: 1.1rem 1.2rem;
   box-shadow: var(--shadow-flat);
@@ -2152,6 +2377,7 @@ select:focus {
   position: absolute;
   left: 0;
   color: var(--liquor-ink);
+  font-weight: 800;
 }
 
 .note-card.faults .ticks li::before {
@@ -2162,9 +2388,10 @@ select:focus {
 .row__swatch {
   width: 2.3rem;
   height: 2.3rem;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--liquor-pale), var(--liquor) 52%, var(--liquor-deep));
-  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14);
+  border: 2.5px solid var(--ink);
+  background: linear-gradient(145deg, var(--liquor-pale), var(--liquor) 48%, var(--liquor-deep));
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(8deg);
 }
 
 .tea-aside {
@@ -2177,32 +2404,34 @@ select:focus {
 .alpha-index {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.35rem;
   margin: 1.8rem 0 0.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--line);
 }
 
 .alpha-index a {
   display: grid;
   place-items: center;
-  min-width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--line-soft);
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  font-weight: 600;
+  min-width: 2.15rem;
+  height: 2.15rem;
+  border: 2.5px solid var(--ink);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 800;
   color: inherit;
   text-decoration: none;
-  transition: background var(--dur-2) var(--ease-steep), border-color var(--dur-2) var(--ease-steep),
-    transform var(--dur-2) var(--ease-steep);
+  background: var(--paper-raised);
+  box-shadow: 3px 3px 0 var(--liquor);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    background var(--dur-2) var(--ease-steep),
+    color var(--dur-2) var(--ease-steep);
 }
 
 .alpha-index a:hover {
-  background: var(--liquor-wash);
-  border-color: var(--liquor);
-  transform: translateY(-2px);
+  background: var(--ink);
+  color: var(--paper);
+  transform: translate(-2px, -2px) rotate(-6deg);
 }
 
 .glossary-group {
@@ -2217,20 +2446,21 @@ select:focus {
   position: sticky;
   top: 5.5rem;
   margin: 1.6rem 0 0;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  line-height: 1;
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  font-weight: 900;
+  line-height: 0.8;
   color: var(--liquor-ink);
-  opacity: 0.4;
 }
 
 .glossary-item {
   padding: 1.4rem 0;
-  border-top: 1px solid var(--line-soft);
+  border-top: 3px solid var(--ink);
   scroll-margin-top: 6rem;
 }
 
 .glossary-group:first-child .glossary-entries > .glossary-item:first-child {
-  border-top-color: var(--line);
+  border-top-color: var(--ink);
 }
 
 .glossary-item h3 {
@@ -2239,11 +2469,11 @@ select:focus {
   align-items: baseline;
   gap: 0.7rem;
   margin: 0 0 0.15rem;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .glossary-item h3 .native {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--liquor-ink);
 }
 
@@ -2260,9 +2490,16 @@ select:focus {
 }
 
 .guide-head {
-  padding-bottom: 1.8rem;
+  padding: 1.4rem 1.2rem 1.6rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid var(--line);
+  border: 4px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: 10px 10px 0 var(--liquor);
+}
+
+.guide-head h1 {
+  transform: skewX(-5deg);
+  transform-origin: left;
 }
 
 .pager {
@@ -2271,21 +2508,24 @@ select:focus {
   grid-template-columns: 1fr 1fr;
   margin-top: 3.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
 }
 
 .pager__link {
   display: grid;
   gap: 0.2rem;
   padding: 1rem 1.15rem;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-pill);
+  border: 3px solid var(--ink);
   background: var(--paper-raised);
   color: inherit;
   text-decoration: none;
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  transition: transform var(--dur-2) var(--ease-steep), border-color var(--dur-2) var(--ease-steep),
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  box-shadow: var(--shadow-flat);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
     box-shadow var(--dur-2) var(--ease-steep);
 }
 
@@ -2299,8 +2539,7 @@ select:focus {
 }
 
 .pager__link:hover {
-  transform: translateY(-3px);
-  border-color: var(--liquor);
+  transform: translate(-3px, -3px);
   box-shadow: var(--shadow-lift);
 }
 
@@ -2331,26 +2570,26 @@ select:focus {
 .geo-map__admin,
 .geo-map__inset-land {
   fill: var(--paper-raised);
-  stroke: var(--line);
-  stroke-width: 0.9;
+  stroke: var(--ink);
+  stroke-width: 1.2;
   stroke-linejoin: round;
 }
 
 .geo-map__highlight {
-  fill: color-mix(in oklab, var(--liquor) 62%, transparent);
-  stroke: var(--liquor-ink);
-  stroke-width: 1.6;
+  fill: color-mix(in oklab, var(--liquor) 70%, transparent);
+  stroke: var(--ink);
+  stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .geo-map__mark {
-  fill: var(--liquor-ink);
+  fill: var(--ink);
   stroke: var(--paper-raised);
   stroke-width: 1.6;
 }
 
 .geo-map__mark-halo {
-  fill: color-mix(in oklab, var(--liquor) 35%, transparent);
+  fill: color-mix(in oklab, var(--liquor) 45%, transparent);
 }
 
 .geo-map__scale rect {
@@ -2360,25 +2599,25 @@ select:focus {
 .geo-map__scale text {
   fill: var(--ink-muted);
   font-size: 11px;
-  font-family: var(--sans);
-  letter-spacing: 0.06em;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .geo-map__inset-frame {
   fill: color-mix(in oklab, var(--paper) 88%, var(--paper-sunk));
-  stroke: var(--line);
-  stroke-width: 1;
+  stroke: var(--ink);
+  stroke-width: 1.4;
 }
 
 .geo-map__locator {
-  fill: color-mix(in oklab, var(--liquor) 28%, transparent);
-  stroke: var(--liquor-ink);
-  stroke-width: 1.2;
+  fill: color-mix(in oklab, var(--liquor) 40%, transparent);
+  stroke: var(--ink);
+  stroke-width: 1.4;
 }
 
 .geo-map__inset-mark {
-  fill: var(--liquor-ink);
+  fill: var(--ink);
 }
 
 .geo-plate {
@@ -2386,8 +2625,7 @@ select:focus {
 }
 
 .geo-map--detail {
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   background: var(--paper-sunk);
   overflow: hidden;
   box-shadow: var(--shadow-flat);
@@ -2403,6 +2641,7 @@ select:focus {
 
 .geo-coords {
   font-variant-numeric: tabular-nums;
+  font-family: var(--mono);
   color: var(--ink-muted);
 }
 
@@ -2423,8 +2662,7 @@ select:focus {
 .geo-atlas__panel {
   margin: 0;
   background: var(--paper-raised);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
+  border: 3px solid var(--ink);
   overflow: hidden;
   box-shadow: var(--shadow-flat);
 }
@@ -2432,11 +2670,12 @@ select:focus {
 .geo-atlas__label {
   margin: 0;
   padding: 0.65rem 0.85rem 0;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink);
 }
 
 .geo-map--overview a {
@@ -2445,7 +2684,7 @@ select:focus {
 
 .geo-map--overview a:hover .geo-map__highlight,
 .geo-map--overview a:focus-visible .geo-map__highlight {
-  fill: color-mix(in oklab, var(--liquor) 82%, transparent);
+  fill: color-mix(in oklab, var(--liquor) 88%, transparent);
 }
 
 .geo-map--overview a:hover .geo-map__mark,
@@ -2462,19 +2701,21 @@ select:focus {
 .origin-map__frame {
   display: block;
   position: relative;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-sm);
+  border: 3px solid var(--ink);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   background: var(--paper-sunk);
-  transition: border-color var(--dur-2) var(--ease-steep), box-shadow var(--dur-2) var(--ease-steep);
+  box-shadow: var(--shadow-flat);
+  transition:
+    transform var(--dur-2) var(--ease-steep),
+    box-shadow var(--dur-2) var(--ease-steep);
 }
 
 .origin-map__frame:hover,
 .origin-map__frame:focus-visible {
-  border-color: var(--liquor);
-  box-shadow: var(--shadow-flat);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lift);
 }
 
 .origin-map__go {
@@ -2482,8 +2723,12 @@ select:focus {
   justify-content: space-between;
   align-items: center;
   padding: 0.45rem 0.75rem 0.55rem;
-  font-size: 0.8rem;
-  color: var(--ink-muted);
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
 @media (max-width: 800px) {
@@ -2504,11 +2749,11 @@ select:focus {
 /* ------------------------------------------------------------ regions --- */
 
 .region-card .geo-map--card {
-  margin: -1.2rem -1.25rem 0.95rem;
-  width: calc(100% + 2.5rem);
+  margin: -1.15rem -1.2rem 0.95rem;
+  width: calc(100% + 2.4rem);
   max-width: none;
   background: var(--paper-sunk);
-  border-bottom: 1px solid var(--line-soft);
+  border-bottom: 3px solid var(--ink);
 }
 
 .region-card__native {
@@ -2542,7 +2787,7 @@ select:focus {
 @keyframes steep-in {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.985);
+    transform: translateY(18px) skewX(8deg);
   }
   to {
     opacity: 1;
@@ -2552,10 +2797,12 @@ select:focus {
 
 @keyframes rise {
   from {
-    transform: translateY(105%);
+    transform: translateX(-1.15em) skewX(16deg);
+    opacity: 0;
   }
   to {
     transform: none;
+    opacity: 1;
   }
 }
 
@@ -2614,6 +2861,15 @@ select:focus {
   }
 }
 
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .steep-in {
     animation: steep-in var(--dur-4) var(--ease-steep) both;
@@ -2621,12 +2877,10 @@ select:focus {
   }
 
   .reveal-word > span {
-    animation: rise 900ms var(--ease-steep) both;
-    animation-delay: calc(var(--i, 0) * 90ms);
+    animation: rise 780ms var(--ease-steep) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
   }
 
-  /* The featured cup steams, and its first steep pours in real time — the
-     bar takes exactly as many seconds as the schedule says it should. */
   .hero-pour__steam path {
     animation: steam-drift 5s var(--ease-steep) infinite;
   }
@@ -2643,7 +2897,6 @@ select:focus {
     animation: fill-x var(--steep-dur, 20s) linear 1.2s both;
   }
 
-  /* Steam only while the steep is actually running. */
   .timer.is-running .timer-steam path {
     animation: steam-drift 3.6s var(--ease-steep) infinite;
   }
@@ -2653,11 +2906,18 @@ select:focus {
   }
 
   .spectrum-strip a {
-    animation: grow-y 800ms var(--ease-steep) both;
-    animation-delay: calc(var(--i, 0) * 18ms);
+    animation: grow-y 700ms var(--ease-steep) both;
+    animation-delay: calc(var(--i, 0) * 16ms);
   }
 
-  /* Scales and steep bars draw themselves when scrolled into view. */
+  .ticker__track {
+    animation: ticker 48s linear infinite;
+  }
+
+  .ticker:hover .ticker__track {
+    animation-play-state: paused;
+  }
+
   @supports (animation-timeline: view()) {
     .scale-fill,
     .steep-bar span,
@@ -2667,7 +2927,6 @@ select:focus {
       animation-range: entry 5% cover 22%;
     }
 
-    /* The processing chain's spine draws downward as the list is read. */
     .timeline::before {
       animation: draw-y 1s linear both;
       animation-timeline: view();
@@ -2683,8 +2942,6 @@ select:focus {
   }
 }
 
-/* The single motion kill-switch. Everything above is written so that the
-   settled state is the meaningful one, so cutting the duration is safe. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2704,7 +2961,6 @@ select:focus {
   navigation: auto;
 }
 
-/* The element the atlas grid morphs into on a tea page. */
 .morph-target {
   view-transition-name: active-tea;
 }
@@ -2727,13 +2983,13 @@ select:focus {
 @keyframes vt-out {
   to {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: skewX(10deg) translateX(-14px);
   }
 }
 
 @keyframes vt-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: skewX(-10deg) translateX(16px);
   }
 }

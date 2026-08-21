@@ -94,6 +94,7 @@ const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — ev
         </div>
       </div>
       <a class="hero-pour" href={withBase(`/tea/${featured.id}`)} style={featuredLiquor} data-tea-card>
+        <span class="kicker hero-pour__live">Now pouring</span>
         <span class="hero-pour__native" aria-hidden="true">{featured.data.nameNative}</span>
         <svg class="hero-pour__steam" viewBox="0 0 60 40" aria-hidden="true">
           <path d="M18 38c0-10 8-13 8-24" />
@@ -114,7 +115,23 @@ const description = `${teas.length} Chinese, Taiwanese, and Japanese teas — ev
         <span class="hero-pour__cta">Open the timer <span class="arrow">&rarr;</span></span>
       </a>
     </section>
+  </div>
 
+  <div class="ticker ticker--cups" aria-hidden="true">
+    <div class="ticker__track">
+      {
+        [...teas, ...teas].map((t) => (
+          <span style={liquorStyle({ ...t.data, id: t.id })}>
+            <i class="ticker__swatch" />
+            {t.data.nameNative}
+            <em>{t.data.name}</em>
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="wrap">
     <Spectrum teas={teas} anchors={SPECTRUM_ANCHORS} />
 
     <nav class="cluster spectrum-cats" aria-label="Browse by category">
