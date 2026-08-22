@@ -1,0 +1,22 @@
+# GitHub Pages is still set to a legacy branch build, so every push also
+# runs pages-build-deployment (Jekyll). This repo is Astro; Jekyll treats
+# `---` in .astro files as YAML front matter and fails.
+# The live site is published by .github/workflows/deploy.yml, not Jekyll.
+# Exclude the Astro tree so that leftover Jekyll job can complete.
+exclude:
+  - src
+  - scripts
+  - public
+  - docs
+  - dist
+  - node_modules
+  - .github
+  - astro.config.mjs
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - README.md
+readme_index:
+  enabled: false
+optional_front_matter:
+  enabled: false
