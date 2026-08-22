@@ -183,5 +183,15 @@
     "sha-qing",
     "qunti-zhong"
   ],
-  "summary": "Pan-fired Hangzhou green tea: flattened leaves, chestnut sweetness, and the template for Chinese green-tea craft."
+  "summary": "Pan-fired Hangzhou green tea: flattened leaves, chestnut sweetness, and the template for Chinese green-tea craft.",
+  "photo": {
+    "src": "../../assets/teas/long-jing.jpg",
+    "alt": "Pre-Qingming Long Jing green tea steeping in a pale green gaiwan",
+    "caption": "Long Jing steeping in a gaiwan",
+    "subject": "liquor",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Longjing_tea_steeping_in_gaiwan.jpg"
+  }
 }

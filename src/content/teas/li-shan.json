@@ -135,5 +135,15 @@
     "wenshan-baozhong",
     "gyokuro"
   ],
-  "summary": "Among Taiwan’s highest gardens: pear-blossom oolong with extreme smoothness."
+  "summary": "Among Taiwan’s highest gardens: pear-blossom oolong with extreme smoothness.",
+  "photo": {
+    "src": "../../assets/teas/li-shan.jpg",
+    "alt": "Mountain landscape at Lishan in Taichung, Taiwan",
+    "caption": "Lishan, Taichung — high-mountain terroir of Li Shan oolong",
+    "subject": "garden",
+    "author": "De-Shao Liu",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%A2%A8%E5%B1%B1%E5%9C%B0%E6%A8%99_Lishan_landscape.jpg"
+  }
 }

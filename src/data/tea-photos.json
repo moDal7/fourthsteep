@@ -1,0 +1,332 @@
+{
+  "alishan": {
+    "commonsFile": "高山茶 3.jpg",
+    "subject": "leaf",
+    "caption": "Alishan gaoshan oolong leaves",
+    "alt": "Dry rolled Alishan high-mountain oolong leaves"
+  },
+  "an-ji-bai-cha": {
+    "commonsFile": "Anji bai cha leaves.jpg",
+    "subject": "leaf",
+    "caption": "An Ji Bai Cha dry leaves",
+    "alt": "Pale An Ji Bai Cha green tea leaves picked and roasted in Zhejiang"
+  },
+  "awa-bancha": {
+    "commonsFile": "神田茶.jpg",
+    "subject": "leaf",
+    "caption": "Awa Bancha, post-fermented tea from Tokushima",
+    "alt": "Dark fermented Awa Bancha leaves from Tokushima Prefecture"
+  },
+  "bai-hao-yin-zhen": {
+    "commonsFile": "Bai Hao Yinzhen or Silver needle White Tea.JPG",
+    "subject": "leaf",
+    "caption": "Bai Hao Yin Zhen silver needles",
+    "alt": "Downy Bai Hao Yin Zhen silver-needle white tea buds"
+  },
+  "bai-mu-dan": {
+    "commonsFile": "Bai Mudan.jpg",
+    "subject": "leaf",
+    "caption": "Bai Mu Dan dry leaves",
+    "alt": "Bai Mu Dan white tea, one bud with two leaves"
+  },
+  "bancha": {
+    "commonsFile": "Shizuoka bancha.jpg",
+    "subject": "leaf",
+    "caption": "Shizuoka bancha leaves",
+    "alt": "Bancha green tea grown in Shizuoka from the Yabukita cultivar"
+  },
+  "bi-luo-chun": {
+    "commonsFile": "Suzhou Biluochun 苏州碧螺春.jpg",
+    "subject": "leaf",
+    "caption": "Bi Luo Chun spirals from Suzhou",
+    "alt": "Tightly spiralled Bi Luo Chun green tea from Dongting, Suzhou"
+  },
+  "da-hong-pao": {
+    "commonsFile": "Daikouhou 1.jpg",
+    "subject": "leaf",
+    "caption": "Da Hong Pao dry leaf",
+    "alt": "Dark twisted Da Hong Pao Wuyi rock oolong leaves"
+  },
+  "dian-hong": {
+    "commonsFile": "GoldenDianHong.jpg",
+    "subject": "leaf",
+    "caption": "Golden-bud Dian Hong",
+    "alt": "Golden-tipped Dian Hong black tea from Yunnan"
+  },
+  "dong-ding": {
+    "commonsFile": "Dong Ding tea.jpg",
+    "subject": "leaf",
+    "caption": "Dong Ding oolong from Nantou",
+    "alt": "Loose Dong Ding oolong tea from Nantou, Taiwan"
+  },
+  "dong-fang-mei-ren": {
+    "commonsFile": "동방미인1.jpg",
+    "subject": "leaf",
+    "caption": "Dong Fang Mei Ren (Oriental Beauty)",
+    "alt": "Oriental Beauty oolong leaves with white down"
+  },
+  "en-shi-yu-lu": {
+    "commonsFile": "Enshi Grand Canyon 20240725.jpg",
+    "subject": "garden",
+    "caption": "Enshi Grand Canyon, Hubei — terroir of En Shi Yu Lu",
+    "alt": "Limestone peaks of Enshi Grand Canyon in Hubei, origin region of En Shi Yu Lu"
+  },
+  "fu-zhuan": {
+    "commonsFile": "Anhua Fuzhuan Fermented Tea.jpg",
+    "subject": "leaf",
+    "caption": "Fu Zhuan brick with golden flowers",
+    "alt": "Anhua Fu Zhuan dark tea covered with golden-flower fungus"
+  },
+  "genmaicha": {
+    "commonsFile": "Genmaicha tea brewed and unbrewed.jpg",
+    "subject": "liquor",
+    "caption": "Genmaicha leaves and liquor",
+    "alt": "Genmaicha with toasted rice, dry leaf beside a glass of the brew"
+  },
+  "gong-mei": {
+    "commonsFile": "綠牡丹白茶.jpg",
+    "subject": "related",
+    "caption": "Fujian white tea (green peony). Gong Mei is the brow-grade in the same family.",
+    "alt": "Green peony white tea, a Fujian white related to Gong Mei"
+  },
+  "gyokuro": {
+    "commonsFile": "Gyokuro img 0067.jpg",
+    "subject": "leaf",
+    "caption": "Gyokuro dry needles",
+    "alt": "Dark green needle-shaped gyokuro leaves"
+  },
+  "hojicha": {
+    "commonsFile": "Houjicha.jpg",
+    "subject": "leaf",
+    "caption": "Hojicha roasted leaves",
+    "alt": "Close-up of roasted brown hojicha stems and leaves"
+  },
+  "huangshan-mao-feng": {
+    "commonsFile": "Maofeng 黄山毛峰 安徽.jpg",
+    "subject": "leaf",
+    "caption": "Huangshan Mao Feng from Anhui",
+    "alt": "Huangshan Mao Feng green tea leaves from Anhui"
+  },
+  "huo-shan-huang-ya": {
+    "commonsFile": "Huoshan Huangya tea leaves close.jpg",
+    "subject": "leaf",
+    "caption": "Huo Shan Huang Ya leaves",
+    "alt": "Huo Shan Huang Ya yellow tea leaves"
+  },
+  "jin-jun-mei": {
+    "commonsFile": "Jin Jun Mei.jpg",
+    "subject": "leaf",
+    "caption": "Jin Jun Mei from Tongmu",
+    "alt": "Golden Jin Jun Mei black tea buds from Tongmu, Wuyi"
+  },
+  "jun-shan-yin-zhen": {
+    "commonsFile": "Kunzanginshin(1).jpg",
+    "subject": "leaf",
+    "caption": "Jun Shan Yin Zhen yellow tea",
+    "alt": "Jun Shan Yin Zhen yellow-tea needles"
+  },
+  "kabusecha": {
+    "commonsFile": "Green tea kabuse-cha.jpg",
+    "subject": "leaf",
+    "caption": "Kabusecha leaves",
+    "alt": "Japanese kabusecha, shade-grown green tea leaves"
+  },
+  "kamairicha": {
+    "commonsFile": "Kamairicha.jpg",
+    "subject": "leaf",
+    "caption": "Kamairicha pan-fired green tea",
+    "alt": "Kamairicha green tea from Miyazaki, pan-fired"
+  },
+  "kukicha": {
+    "commonsFile": "Kukicha.jpg",
+    "subject": "leaf",
+    "caption": "Kukicha stems from Kagoshima",
+    "alt": "Kukicha twig tea grown in Kagoshima"
+  },
+  "li-shan": {
+    "commonsFile": "梨山地標 Lishan landscape.jpg",
+    "subject": "garden",
+    "caption": "Lishan, Taichung — high-mountain terroir of Li Shan oolong",
+    "alt": "Mountain landscape at Lishan in Taichung, Taiwan"
+  },
+  "liu-an-gua-pian": {
+    "commonsFile": "Lu'an Melon Seed tea.jpg",
+    "subject": "leaf",
+    "caption": "Liu An Gua Pian (melon seed) leaves",
+    "alt": "Liu An Gua Pian green tea, showing the melon-seed leaf shape"
+  },
+  "liu-bao": {
+    "commonsFile": "JinHua \"golden flower\" from Liu Bao - 28198313680.jpg",
+    "subject": "leaf",
+    "caption": "Liu Bao with golden flowers",
+    "alt": "Liu Bao dark tea showing golden-flower fungus"
+  },
+  "long-jing": {
+    "commonsFile": "Longjing tea steeping in gaiwan.jpg",
+    "subject": "liquor",
+    "caption": "Long Jing steeping in a gaiwan",
+    "alt": "Pre-Qingming Long Jing green tea steeping in a pale green gaiwan"
+  },
+  "matcha": {
+    "commonsFile": "Matcha Scoop.jpg",
+    "subject": "leaf",
+    "caption": "Matcha powder",
+    "alt": "A scoop of bright green matcha powder"
+  },
+  "meng-ding-huang-ya": {
+    "commonsFile": "Gaiwan-yellow-tea-huang-ya.jpg",
+    "subject": "related",
+    "caption": "Huang Ya yellow tea in a gaiwan. Meng Ding Huang Ya is the Sichuan bud yellow of this family.",
+    "alt": "Yellow tea called Huang Ya steeping in a gaiwan"
+  },
+  "mi-lan-xiang-dan-cong": {
+    "commonsFile": "Mi Lan Xiang Oolong Tea.jpg",
+    "subject": "leaf",
+    "caption": "Mi Lan Xiang Dan Cong from Wudong",
+    "alt": "Mi Lan Xiang dancong oolong harvested in Wudong, Chaozhou"
+  },
+  "mo-li-long-zhu": {
+    "commonsFile": "Fujian Zhangzhou jasmine dragon pearls.jpg",
+    "subject": "leaf",
+    "caption": "Jasmine dragon pearls from Zhangzhou",
+    "alt": "Rolled Fujian jasmine dragon-pearl tea from Zhangzhou"
+  },
+  "qian-liang": {
+    "commonsFile": "Anhua Heicha 2. Aufguss.jpg",
+    "subject": "related",
+    "caption": "Anhua dark-tea liquor. Qian Liang is the thousand-tael log of the same Hunan heicha tradition.",
+    "alt": "Second infusion of Anhua dark tea"
+  },
+  "qimen": {
+    "commonsFile": "Keemun FTGFOP (1).JPG",
+    "subject": "leaf",
+    "caption": "Qimen (Keemun) black tea",
+    "alt": "Tightly rolled Qimen black tea leaves from Anhui"
+  },
+  "rou-gui": {
+    "commonsFile": "Wuyi oolong tea.jpg",
+    "subject": "related",
+    "caption": "Wuyi yancha oolong. Rou Gui is the cassia-scented rock oolong of this mountain.",
+    "alt": "Wuyi rock oolong leaves"
+  },
+  "ruby-18": {
+    "commonsFile": "日月老茶廠 Tea Farm, Sun Moon Lake 14.jpg",
+    "subject": "garden",
+    "caption": "Sun Moon Lake tea farm, Yuchi — home of Ruby 18",
+    "alt": "Tea farm at Sun Moon Lake in Yuchi, Nantou, Taiwan"
+  },
+  "sayama-cha": {
+    "commonsFile": "Iruma Sayama Tea Field 1.JPG",
+    "subject": "garden",
+    "caption": "Sayama tea fields in Iruma, Saitama",
+    "alt": "Tea bushes of Sayama-cha in Iruma, Saitama"
+  },
+  "sencha-asamushi": {
+    "commonsFile": "2018 Uji lightly steamed sencha.jpg",
+    "subject": "leaf",
+    "caption": "Lightly steamed Uji sencha",
+    "alt": "Lightly steamed sencha from the 2018 Uji first harvest"
+  },
+  "sencha-fukamushi": {
+    "commonsFile": "2017 Kagoshima sencha.jpg",
+    "subject": "leaf",
+    "caption": "Deep-steamed Kagoshima sencha",
+    "alt": "Deep-steamed sencha from Kagoshima, first harvest 2017"
+  },
+  "sheng-puer-aged": {
+    "commonsFile": "Pu-erh tea front.JPG",
+    "subject": "leaf",
+    "caption": "Sheng puer cake (qizi bing)",
+    "alt": "A seven-son sheng puer cake, the form aged cakes keep"
+  },
+  "sheng-puer-young": {
+    "commonsFile": "Classic original Pu'er.jpg",
+    "subject": "leaf",
+    "caption": "Young sheng puer cake",
+    "alt": "A classic raw puer cake"
+  },
+  "shincha": {
+    "commonsFile": "Shincha-2010.jpg",
+    "subject": "leaf",
+    "caption": "Shincha first-flush green tea",
+    "alt": "Shincha from the 2010 first harvest"
+  },
+  "shou-mei": {
+    "commonsFile": "Shou Mei tea.JPG",
+    "subject": "leaf",
+    "caption": "Shou Mei white tea",
+    "alt": "Shou Mei (longevity eyebrow) white tea leaves"
+  },
+  "shou-mei-aged": {
+    "commonsFile": "Frisch aufgebrühter weißer Tee Pai Mu Tan.jpg",
+    "subject": "related",
+    "caption": "Brewed Fujian white tea. Aged Shou Mei pours darker and redder than young white.",
+    "alt": "White tea brewing in a pot and a glass"
+  },
+  "shou-puer": {
+    "commonsFile": "\"Da Yi Gong Tuo\" Pu-erh shou cha, 2010.jpg",
+    "subject": "leaf",
+    "caption": "Shou puer tuo cha",
+    "alt": "Da Yi tribute tuo of ripe (shou) puer from 2010"
+  },
+  "shui-xian": {
+    "commonsFile": "Shui Xian.jpg",
+    "subject": "leaf",
+    "caption": "Wuyi Shui Xian yancha",
+    "alt": "Shui Xian rock oolong harvested in Huangcun, Wuyi"
+  },
+  "tai-ping-hou-kui": {
+    "commonsFile": "Taiping houkui 13.jpg",
+    "subject": "leaf",
+    "caption": "Tai Ping Hou Kui blades",
+    "alt": "Long flat Tai Ping Hou Kui green tea leaves"
+  },
+  "tamaryokucha": {
+    "commonsFile": "Tamaryokucha.jpg",
+    "subject": "leaf",
+    "caption": "Tamaryokucha curly-leaf green tea",
+    "alt": "Tamaryokucha, a comma-shaped Japanese green tea"
+  },
+  "tencha": {
+    "commonsFile": "Tencha on traditional stone mill in Uji Japan.jpg",
+    "subject": "leaf",
+    "caption": "Tencha being milled in Uji",
+    "alt": "Tencha flakes on a granite mill in Uji, before they become matcha"
+  },
+  "tie-guan-yin": {
+    "commonsFile": "Fulles de Tieguanyin.jpg",
+    "subject": "leaf",
+    "caption": "Tie Guan Yin dry leaves",
+    "alt": "Rolled Tie Guan Yin oolong leaves from Anxi"
+  },
+  "wakoucha": {
+    "commonsFile": "Mariko Tea Plantation 135309311 org.jpg",
+    "subject": "garden",
+    "caption": "Mariko black-tea plantation in Shizuoka (benifuuki), a wakoucha garden",
+    "alt": "Tea field at Mariko, Shizuoka, planted to Japanese black tea"
+  },
+  "wenshan-baozhong": {
+    "commonsFile": "Spring pouchong tea leaves on plate.jpg",
+    "subject": "leaf",
+    "caption": "Wenshan Baozhong (pouchong) leaves",
+    "alt": "Spring pouchong tea leaves on a plate"
+  },
+  "ya-shi-xiang-dan-cong": {
+    "commonsFile": "Duck shit aroma tea 5.jpg",
+    "subject": "leaf",
+    "caption": "Ya Shi Xiang (duck-shit aroma) dancong",
+    "alt": "Ya Shi Xiang phoenix dancong oolong leaves from Guangdong"
+  },
+  "zhang-ping-shui-xian": {
+    "commonsFile": "Shui Hsien Oolong tea leaf.jpg",
+    "subject": "related",
+    "caption": "Shui Xian oolong leaf. Zhangping Shui Xian is the same cultivar pressed as small cakes in Fujian.",
+    "alt": "Shui Xian oolong leaves, the cultivar pressed as Zhangping cakes"
+  },
+  "zheng-shan-xiao-zhong": {
+    "commonsFile": "Theae folium \"lapsang souchong\"1.JPG",
+    "subject": "leaf",
+    "caption": "Zheng Shan Xiao Zhong (Lapsang Souchong) leaf",
+    "alt": "Lapsang Souchong leaves, the smoked black tea of Tongmu"
+  }
+}

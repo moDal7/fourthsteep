@@ -155,5 +155,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Japanese orthodox black tea: 和紅茶, malt and honey from Benifuuki and its kin, a kyūsu that is allowed to pour red."
+  "summary": "Japanese orthodox black tea: 和紅茶, malt and honey from Benifuuki and its kin, a kyūsu that is allowed to pour red.",
+  "photo": {
+    "src": "../../assets/teas/wakoucha.jpg",
+    "alt": "Tea field at Mariko, Shizuoka, planted to Japanese black tea",
+    "caption": "Mariko black-tea plantation in Shizuoka (benifuuki), a wakoucha garden",
+    "subject": "garden",
+    "author": "Nightingale",
+    "license": "CC BY 2.1 jp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.1/jp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mariko_Tea_Plantation_135309311_org.jpg"
+  }
 }

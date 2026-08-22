@@ -156,5 +156,15 @@
     "da-hong-pao",
     "dong-fang-mei-ren"
   ],
-  "summary": "Phoenix dan cong selected for honey-orchid perfume: wiry leaves, short gongfu steeps."
+  "summary": "Phoenix dan cong selected for honey-orchid perfume: wiry leaves, short gongfu steeps.",
+  "photo": {
+    "src": "../../assets/teas/mi-lan-xiang-dan-cong.jpg",
+    "alt": "Mi Lan Xiang dancong oolong harvested in Wudong, Chaozhou",
+    "caption": "Mi Lan Xiang Dan Cong from Wudong",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mi_Lan_Xiang_Oolong_Tea.jpg"
+  }
 }

@@ -156,5 +156,15 @@
   "glossaryRefs": [
     "ichibancha",
     "mushi"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/gyokuro.jpg",
+    "alt": "Dark green needle-shaped gyokuro leaves",
+    "caption": "Gyokuro dry needles",
+    "subject": "leaf",
+    "author": "Rama",
+    "license": "CC BY-SA 2.0 fr",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/fr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyokuro_img_0067.jpg"
+  }
 }

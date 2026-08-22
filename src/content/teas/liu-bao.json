@@ -152,5 +152,15 @@
     "oxidation",
     "wo-dui"
   ],
-  "summary": "Guangxi dark tea aged in bamboo: betel-nut, camphor, and a cousin to puer rather than a copy."
+  "summary": "Guangxi dark tea aged in bamboo: betel-nut, camphor, and a cousin to puer rather than a copy.",
+  "photo": {
+    "src": "../../assets/teas/liu-bao.jpg",
+    "alt": "Liu Bao dark tea showing golden-flower fungus",
+    "caption": "Liu Bao with golden flowers",
+    "subject": "leaf",
+    "author": "Cosmin Dordea",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:JinHua_%22golden_flower%22_from_Liu_Bao_-_28198313680.jpg"
+  }
 }

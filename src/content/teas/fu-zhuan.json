@@ -161,5 +161,15 @@
     "oxidation",
     "wo-dui"
   ],
-  "summary": "Brick dark tea grown with golden flowers: grain-jujube mildness from Eurotium cristatum."
+  "summary": "Brick dark tea grown with golden flowers: grain-jujube mildness from Eurotium cristatum.",
+  "photo": {
+    "src": "../../assets/teas/fu-zhuan.jpg",
+    "alt": "Anhua Fu Zhuan dark tea covered with golden-flower fungus",
+    "caption": "Fu Zhuan brick with golden flowers",
+    "subject": "leaf",
+    "author": "Kasuga",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anhua_Fuzhuan_Fermented_Tea.jpg"
+  }
 }

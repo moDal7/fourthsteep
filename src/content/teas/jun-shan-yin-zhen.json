@@ -149,5 +149,15 @@
   "summary": "Rare Hunan yellow bud tea: men huang mellowing, sweetcorn honey, and needles that dance in the glass.",
   "glossaryRefs": [
     "men-huang"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/jun-shan-yin-zhen.jpg",
+    "alt": "Jun Shan Yin Zhen yellow-tea needles",
+    "caption": "Jun Shan Yin Zhen yellow tea",
+    "subject": "leaf",
+    "author": "Commonsenses",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kunzanginshin(1).jpg"
+  }
 }

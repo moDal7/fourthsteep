@@ -142,5 +142,15 @@
   "glossaryRefs": [
     "ichibancha",
     "mushi"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/sencha-fukamushi.jpg",
+    "alt": "Deep-steamed sencha from Kagoshima, first harvest 2017",
+    "caption": "Deep-steamed Kagoshima sencha",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2017_Kagoshima_sencha.jpg"
+  }
 }

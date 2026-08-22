@@ -117,5 +117,15 @@
     "bancha",
     "sencha-asamushi"
   ],
-  "summary": "Green tea cut with popped toasted rice: popcorn comfort, still a Japanese green."
+  "summary": "Green tea cut with popped toasted rice: popcorn comfort, still a Japanese green.",
+  "photo": {
+    "src": "../../assets/teas/genmaicha.jpg",
+    "alt": "Genmaicha with toasted rice, dry leaf beside a glass of the brew",
+    "caption": "Genmaicha leaves and liquor",
+    "subject": "liquor",
+    "author": "Matt Gibson",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genmaicha_tea_brewed_and_unbrewed.jpg"
+  }
 }

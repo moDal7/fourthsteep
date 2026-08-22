@@ -155,5 +155,15 @@
     "gao-shan",
     "yao-qing",
     "qing-xin"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/alishan.jpg",
+    "alt": "Dry rolled Alishan high-mountain oolong leaves",
+    "caption": "Alishan gaoshan oolong leaves",
+    "subject": "leaf",
+    "author": "Mx. Granger",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%B1%B1%E8%8C%B6_3.jpg"
+  }
 }

@@ -149,5 +149,15 @@
     "bai-mu-dan"
   ],
   "summary": "The rustic white: later leaf, date-and-herb depth, and the usual candidate for aging into cakes.",
-  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green."
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green.",
+  "photo": {
+    "src": "../../assets/teas/shou-mei.jpg",
+    "alt": "Shou Mei (longevity eyebrow) white tea leaves",
+    "caption": "Shou Mei white tea",
+    "subject": "leaf",
+    "author": "Matros",
+    "license": "Public Domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shou_Mei_tea.JPG"
+  }
 }

@@ -148,5 +148,15 @@
     "alishan",
     "sencha-asamushi"
   ],
-  "summary": "Taiwan’s lightest traditional oolong: paper-wrapped history, strip leaf, gardenia perfume."
+  "summary": "Taiwan’s lightest traditional oolong: paper-wrapped history, strip leaf, gardenia perfume.",
+  "photo": {
+    "src": "../../assets/teas/wenshan-baozhong.jpg",
+    "alt": "Spring pouchong tea leaves on a plate",
+    "caption": "Wenshan Baozhong (pouchong) leaves",
+    "subject": "leaf",
+    "author": "Richard Corner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spring_pouchong_tea_leaves_on_plate.jpg"
+  }
 }

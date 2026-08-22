@@ -173,5 +173,15 @@
     "yan-yun",
     "zheng-yan",
     "hong-bei"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/da-hong-pao.jpg",
+    "alt": "Dark twisted Da Hong Pao Wuyi rock oolong leaves",
+    "caption": "Da Hong Pao dry leaf",
+    "subject": "leaf",
+    "author": "Shizuha",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daikouhou_1.jpg"
+  }
 }

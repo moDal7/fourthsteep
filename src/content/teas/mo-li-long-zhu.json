@@ -140,5 +140,15 @@
     "wenshan-baozhong",
     "tie-guan-yin"
   ],
-  "summary": "Green pearls scented overnight with real jasmine: garden perfume that should still drink as tea."
+  "summary": "Green pearls scented overnight with real jasmine: garden perfume that should still drink as tea.",
+  "photo": {
+    "src": "../../assets/teas/mo-li-long-zhu.jpg",
+    "alt": "Rolled Fujian jasmine dragon-pearl tea from Zhangzhou",
+    "caption": "Jasmine dragon pearls from Zhangzhou",
+    "subject": "leaf",
+    "author": "Fumikas Sagisavas",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujian_Zhangzhou_jasmine_dragon_pearls.jpg"
+  }
 }

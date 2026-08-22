@@ -120,5 +120,15 @@
     "bancha",
     "hojicha"
   ],
-  "summary": "Stem tea: lighter, sweeter, and cheaper than the leaf it was sorted from — karigane when shaded."
+  "summary": "Stem tea: lighter, sweeter, and cheaper than the leaf it was sorted from — karigane when shaded.",
+  "photo": {
+    "src": "../../assets/teas/kukicha.jpg",
+    "alt": "Kukicha twig tea grown in Kagoshima",
+    "caption": "Kukicha stems from Kagoshima",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kukicha.jpg"
+  }
 }

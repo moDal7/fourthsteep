@@ -1,3 +1,6 @@
+# Live site publisher. GitHub Pages should use "GitHub Actions" as the
+# source; the repo is still on a legacy branch/Jekyll build as well, which
+# is why _config.yml exists.
 name: Deploy to GitHub Pages
 
 on:

@@ -157,5 +157,15 @@
   "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green.",
   "glossaryRefs": [
     "ye-di"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/bai-hao-yin-zhen.jpg",
+    "alt": "Downy Bai Hao Yin Zhen silver-needle white tea buds",
+    "caption": "Bai Hao Yin Zhen silver needles",
+    "subject": "leaf",
+    "author": "LDFrancis",
+    "license": "Public Domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_Hao_Yinzhen_or_Silver_needle_White_Tea.JPG"
+  }
 }

@@ -187,5 +187,15 @@
       "teaId": "sheng-puer-young",
       "differentiator": "Same sun-dried leaf until 渥堆. Sheng skipped the pile."
     }
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/shou-puer.jpg",
+    "alt": "Da Yi tribute tuo of ripe (shou) puer from 2010",
+    "caption": "Shou puer tuo cha",
+    "subject": "leaf",
+    "author": "Copypaiste",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22Da_Yi_Gong_Tuo%22_Pu-erh_shou_cha,_2010.jpg"
+  }
 }

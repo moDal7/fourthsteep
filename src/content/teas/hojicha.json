@@ -149,5 +149,15 @@
       "teaId": "sencha-asamushi",
       "differentiator": "Hojicha is sencha (or bancha) taken to the roaster. The class does not change."
     }
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/hojicha.jpg",
+    "alt": "Close-up of roasted brown hojicha stems and leaves",
+    "caption": "Hojicha roasted leaves",
+    "subject": "leaf",
+    "author": "FCartegnie",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Houjicha.jpg"
+  }
 }

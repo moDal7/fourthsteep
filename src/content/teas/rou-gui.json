@@ -146,5 +146,15 @@
     "shui-xian",
     "ya-shi-xiang-dan-cong"
   ],
-  "summary": "Wuyi cassia cultivar: cinnamon-pepper yancha with a sharper profile than blended Da Hong Pao."
+  "summary": "Wuyi cassia cultivar: cinnamon-pepper yancha with a sharper profile than blended Da Hong Pao.",
+  "photo": {
+    "src": "../../assets/teas/rou-gui.jpg",
+    "alt": "Wuyi rock oolong leaves",
+    "caption": "Wuyi yancha oolong. Rou Gui is the cassia-scented rock oolong of this mountain.",
+    "subject": "related",
+    "author": "Nadav Spiegelman",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wuyi_oolong_tea.jpg"
+  }
 }

@@ -160,5 +160,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Yunnan large-leaf black: malt, cocoa, sweet potato, often gold-tipped."
+  "summary": "Yunnan large-leaf black: malt, cocoa, sweet potato, often gold-tipped.",
+  "photo": {
+    "src": "../../assets/teas/dian-hong.jpg",
+    "alt": "Golden-tipped Dian Hong black tea from Yunnan",
+    "caption": "Golden-bud Dian Hong",
+    "subject": "leaf",
+    "author": "Sjschen",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoldenDianHong.jpg"
+  }
 }
