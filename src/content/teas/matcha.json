@@ -133,5 +133,15 @@
       "differentiator": "Tencha is the unswept leaf. Matcha is that leaf put through a stone mill."
     }
   ],
-  "summary": "Stone-milled shaded tencha: usucha froth and koicha paste are two ratios of the same powder."
+  "summary": "Stone-milled shaded tencha: usucha froth and koicha paste are two ratios of the same powder.",
+  "photo": {
+    "src": "../../assets/teas/matcha.jpg",
+    "alt": "A scoop of bright green matcha powder",
+    "caption": "Matcha powder",
+    "subject": "leaf",
+    "author": "Evanhoever",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matcha_Scoop.jpg"
+  }
 }

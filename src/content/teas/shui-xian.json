@@ -144,5 +144,15 @@
     "da-hong-pao",
     "zhang-ping-shui-xian"
   ],
-  "summary": "Narcissus yancha, often from old bushes: cedar-plum breadth under charcoal."
+  "summary": "Narcissus yancha, often from old bushes: cedar-plum breadth under charcoal.",
+  "photo": {
+    "src": "../../assets/teas/shui-xian.jpg",
+    "alt": "Shui Xian rock oolong harvested in Huangcun, Wuyi",
+    "caption": "Wuyi Shui Xian yancha",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shui_Xian.jpg"
+  }
 }

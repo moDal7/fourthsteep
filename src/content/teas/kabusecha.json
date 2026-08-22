@@ -130,5 +130,15 @@
     "sencha-fukamushi",
     "an-ji-bai-cha"
   ],
-  "summary": "Partially shaded sencha: a bridge between bright sencha and broth-like gyokuro."
+  "summary": "Partially shaded sencha: a bridge between bright sencha and broth-like gyokuro.",
+  "photo": {
+    "src": "../../assets/teas/kabusecha.jpg",
+    "alt": "Japanese kabusecha, shade-grown green tea leaves",
+    "caption": "Kabusecha leaves",
+    "subject": "leaf",
+    "author": "Shizuha",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_tea_kabuse-cha.jpg"
+  }
 }

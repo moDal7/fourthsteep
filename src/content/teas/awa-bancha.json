@@ -159,5 +159,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Tokushima’s lactic late tea: boiled, pickled, sun-dried. A dark tea that tastes of sour plum, not of 渥堆."
+  "summary": "Tokushima’s lactic late tea: boiled, pickled, sun-dried. A dark tea that tastes of sour plum, not of 渥堆.",
+  "photo": {
+    "src": "../../assets/teas/awa-bancha.jpg",
+    "alt": "Dark fermented Awa Bancha leaves from Tokushima Prefecture",
+    "caption": "Awa Bancha, post-fermented tea from Tokushima",
+    "subject": "leaf",
+    "author": "Shugyoso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E7%94%B0%E8%8C%B6.jpg"
+  }
 }

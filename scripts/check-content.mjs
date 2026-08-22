@@ -1,9 +1,10 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, access } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const teaDir = join(root, 'src/content/teas');
+const teaPhotoDir = join(root, 'src/assets/teas');
 const regionDir = join(root, 'src/content/regions');
 const glossaryDir = join(root, 'src/content/glossary');
 
@@ -29,6 +30,19 @@ for (const file of regionFiles) {
 const glossaryIds = new Set(glossaryFiles.map((f) => f.replace(/\.json$/, '')));
 
 const rinseWord = /\b(rinse|rinses|wash)\b/i;
+const photoLicenses = new Set([
+  'CC0',
+  'Public Domain',
+  'CC BY 2.0',
+  'CC BY 2.1 jp',
+  'CC BY 3.0',
+  'CC BY 4.0',
+  'CC BY-SA 2.0',
+  'CC BY-SA 2.0 fr',
+  'CC BY-SA 3.0',
+  'CC BY-SA 4.0',
+]);
+const commonsFilePage = /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i;
 let failed = false;
 const err = (msg) => {
   console.error(msg);
@@ -90,6 +104,26 @@ for (const [id, data] of teas) {
   }
   for (const ref of data.glossaryRefs ?? []) {
     if (!glossaryIds.has(ref)) err(`${id}: unknown glossaryRefs ${ref}`);
+  }
+
+  const photo = data.photo;
+  if (!photo) {
+    err(`${id}: missing photo`);
+  } else {
+    if (!photo.alt) err(`${id}: photo.alt empty`);
+    if (!photo.caption) err(`${id}: photo.caption empty`);
+    if (!photo.author) err(`${id}: photo.author empty`);
+    if (!photoLicenses.has(photo.license)) err(`${id}: photo.license not allowed (${photo.license})`);
+    if (!commonsFilePage.test(photo.sourceUrl || '')) {
+      err(`${id}: photo.sourceUrl is not a Commons File page`);
+    }
+    const expectedSrc = `../../assets/teas/${id}.jpg`;
+    if (photo.src !== expectedSrc) err(`${id}: photo.src should be ${expectedSrc}`);
+    try {
+      await access(join(teaPhotoDir, `${id}.jpg`));
+    } catch {
+      err(`${id}: missing asset src/assets/teas/${id}.jpg`);
+    }
   }
 }
 

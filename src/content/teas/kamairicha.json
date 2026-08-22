@@ -127,5 +127,15 @@
     "long-jing",
     "en-shi-yu-lu"
   ],
-  "summary": "Japanese pan-fired green: the wok cousin of Long Jing, mostly surviving in Kyushu."
+  "summary": "Japanese pan-fired green: the wok cousin of Long Jing, mostly surviving in Kyushu.",
+  "photo": {
+    "src": "../../assets/teas/kamairicha.jpg",
+    "alt": "Kamairicha green tea from Miyazaki, pan-fired",
+    "caption": "Kamairicha pan-fired green tea",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kamairicha.jpg"
+  }
 }

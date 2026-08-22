@@ -137,5 +137,15 @@
     "long-jing",
     "an-ji-bai-cha"
   ],
-  "summary": "Dramatic pressed-leaf green from Hou Keng: orchid-cane aroma and a liquor that looks like a vase of spears."
+  "summary": "Dramatic pressed-leaf green from Hou Keng: orchid-cane aroma and a liquor that looks like a vase of spears.",
+  "photo": {
+    "src": "../../assets/teas/tai-ping-hou-kui.jpg",
+    "alt": "Long flat Tai Ping Hou Kui green tea leaves",
+    "caption": "Tai Ping Hou Kui blades",
+    "subject": "leaf",
+    "author": "Pannet",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taiping_houkui_13.jpg"
+  }
 }

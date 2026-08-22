@@ -157,5 +157,15 @@
     "mushi",
     "aracha"
   ],
-  "summary": "Kantō sencha with 狭山火入れ: thicker, toastier needles from Saitama, still a steamed green."
+  "summary": "Kantō sencha with 狭山火入れ: thicker, toastier needles from Saitama, still a steamed green.",
+  "photo": {
+    "src": "../../assets/teas/sayama-cha.jpg",
+    "alt": "Tea bushes of Sayama-cha in Iruma, Saitama",
+    "caption": "Sayama tea fields in Iruma, Saitama",
+    "subject": "garden",
+    "author": "京浜にけ",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iruma_Sayama_Tea_Field_1.JPG"
+  }
 }

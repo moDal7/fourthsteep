@@ -174,5 +174,15 @@
     "ye-di",
     "hui-gan"
   ],
-  "summary": "Shou Mei after the years: a dry-stored white cake that drinks as dates and amber, still not a pile-fermented dark tea."
+  "summary": "Shou Mei after the years: a dry-stored white cake that drinks as dates and amber, still not a pile-fermented dark tea.",
+  "photo": {
+    "src": "../../assets/teas/shou-mei-aged.jpg",
+    "alt": "White tea brewing in a pot and a glass",
+    "caption": "Brewed Fujian white tea. Aged Shou Mei pours darker and redder than young white.",
+    "subject": "related",
+    "author": "André Helbig",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frisch_aufgebr%C3%BChter_wei%C3%9Fer_Tee_Pai_Mu_Tan.jpg"
+  }
 }

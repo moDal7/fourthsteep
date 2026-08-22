@@ -152,5 +152,15 @@
     "mi-lan-xiang-dan-cong",
     "bai-mu-dan"
   ],
-  "summary": "Bug-bitten Taiwan oolong: muscat honey from leafhoppers, closer to a fragrant black than to jade oolong."
+  "summary": "Bug-bitten Taiwan oolong: muscat honey from leafhoppers, closer to a fragrant black than to jade oolong.",
+  "photo": {
+    "src": "../../assets/teas/dong-fang-mei-ren.jpg",
+    "alt": "Oriental Beauty oolong leaves with white down",
+    "caption": "Dong Fang Mei Ren (Oriental Beauty)",
+    "subject": "leaf",
+    "author": "Gcd822",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EB%8F%99%EB%B0%A9%EB%AF%B8%EC%9D%B81.jpg"
+  }
 }

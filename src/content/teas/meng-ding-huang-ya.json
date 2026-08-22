@@ -146,5 +146,15 @@
   "summary": "Sichuan yellow bud from Mengding: squash-osmanthus sweetness from the men huang wrap.",
   "glossaryRefs": [
     "men-huang"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/meng-ding-huang-ya.jpg",
+    "alt": "Yellow tea called Huang Ya steeping in a gaiwan",
+    "caption": "Huang Ya yellow tea in a gaiwan. Meng Ding Huang Ya is the Sichuan bud yellow of this family.",
+    "subject": "related",
+    "author": "KirillK",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gaiwan-yellow-tea-huang-ya.jpg"
+  }
 }

@@ -127,5 +127,15 @@
     "sencha-asamushi",
     "long-jing"
   ],
-  "summary": "Kyushu curled green: sencha’s cousin with optional pan-fire chestnut, shaped for a different market."
+  "summary": "Kyushu curled green: sencha’s cousin with optional pan-fire chestnut, shaped for a different market.",
+  "photo": {
+    "src": "../../assets/teas/tamaryokucha.jpg",
+    "alt": "Tamaryokucha, a comma-shaped Japanese green tea",
+    "caption": "Tamaryokucha curly-leaf green tea",
+    "subject": "leaf",
+    "author": "Fanny Schertzer",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tamaryokucha.jpg"
+  }
 }

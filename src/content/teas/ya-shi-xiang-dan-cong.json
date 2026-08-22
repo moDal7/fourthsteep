@@ -139,5 +139,15 @@
     "tie-guan-yin",
     "rou-gui"
   ],
-  "summary": "Dan cong with a mischievous name and a creamy magnolia profile — not an acquired “farm” taste."
+  "summary": "Dan cong with a mischievous name and a creamy magnolia profile — not an acquired “farm” taste.",
+  "photo": {
+    "src": "../../assets/teas/ya-shi-xiang-dan-cong.jpg",
+    "alt": "Ya Shi Xiang phoenix dancong oolong leaves from Guangdong",
+    "caption": "Ya Shi Xiang (duck-shit aroma) dancong",
+    "subject": "leaf",
+    "author": "Mx. Granger",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duck_shit_aroma_tea_5.jpg"
+  }
 }

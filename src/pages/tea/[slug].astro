@@ -6,6 +6,7 @@ import RatioCalculator from '../../components/RatioCalculator.astro';
 import InfusionTable from '../../components/InfusionTable.astro';
 import RegionMap from '../../components/RegionMap.astro';
 import ProcessingDiff from '../../components/ProcessingDiff.astro';
+import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import {
   parseRatio,
@@ -56,6 +57,12 @@ const kindPrint = {
   microbial: 'microbial',
   roast: 'roast',
 };
+const photoSubject = {
+  leaf: 'Dry leaf',
+  liquor: 'Liquor',
+  garden: 'Garden',
+  related: 'Related',
+};
 ---
 
 <Base title={`${d.name} · fourthsteep`} description={d.summary} liquor={liquor}>
@@ -99,6 +106,27 @@ const kindPrint = {
         <span class="chip chip--pluck">{d.pluckStandard}</span>
       </div>
       {d.harvest.note && <p class="meta">{d.harvest.note}</p>}
+      <figure class="tea-hero__photo">
+        <Image
+          src={d.photo.src}
+          alt={d.photo.alt}
+          widths={[640, 960, 1280]}
+          sizes="(min-width: 1180px) 1100px, calc(100vw - 3rem)"
+          class="tea-hero__img"
+        />
+        <figcaption class="meta tea-hero__credit">
+          {photoSubject[d.photo.subject]}
+          {' · '}
+          {d.photo.caption}
+          {' · '}
+          {d.photo.author}
+          {' · '}
+          <a href={d.photo.licenseUrl}>{d.photo.license}</a>
+          {' · '}
+          <a href={d.photo.sourceUrl}>Wikimedia Commons</a>
+          {' · resized'}
+        </figcaption>
+      </figure>
     </header>
 
     <div class="two-col">

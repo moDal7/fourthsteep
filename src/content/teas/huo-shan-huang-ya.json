@@ -159,5 +159,15 @@
     "ming-qian",
     "sha-qing"
   ],
-  "summary": "Anhui yellow bud from Huoshan: 闷黄 wrap, corn-chestnut sweetness, a green tea plus time in a cloth."
+  "summary": "Anhui yellow bud from Huoshan: 闷黄 wrap, corn-chestnut sweetness, a green tea plus time in a cloth.",
+  "photo": {
+    "src": "../../assets/teas/huo-shan-huang-ya.jpg",
+    "alt": "Huo Shan Huang Ya yellow tea leaves",
+    "caption": "Huo Shan Huang Ya leaves",
+    "subject": "leaf",
+    "author": "Iateasquirrel",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huoshan_Huangya_tea_leaves_close.jpg"
+  }
 }

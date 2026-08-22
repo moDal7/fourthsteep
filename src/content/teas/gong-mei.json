@@ -160,5 +160,15 @@
     "qunti-zhong",
     "ye-di"
   ],
-  "summary": "The white-tea eyebrow that is supposed to be small-leaf 菜茶, sitting between White Peony and Shou Mei — when the name is honest."
+  "summary": "The white-tea eyebrow that is supposed to be small-leaf 菜茶, sitting between White Peony and Shou Mei — when the name is honest.",
+  "photo": {
+    "src": "../../assets/teas/gong-mei.jpg",
+    "alt": "Green peony white tea, a Fujian white related to Gong Mei",
+    "caption": "Fujian white tea (green peony). Gong Mei is the brow-grade in the same family.",
+    "subject": "related",
+    "author": "地底深山",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%B6%A0%E7%89%A1%E4%B8%B9%E7%99%BD%E8%8C%B6.jpg"
+  }
 }

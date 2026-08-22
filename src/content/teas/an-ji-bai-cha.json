@@ -151,5 +151,15 @@
     "kabusecha"
   ],
   "summary": "A green tea in process, “white” only in cultivar colour: high theanine, creamy umami, lime-pale liquor.",
-  "categoryNote": "A green tea. “White” is the Bai Ye cultivar’s pale leaf, not the white class. Kill-green is pan-fire; there is no long wither."
+  "categoryNote": "A green tea. “White” is the Bai Ye cultivar’s pale leaf, not the white class. Kill-green is pan-fire; there is no long wither.",
+  "photo": {
+    "src": "../../assets/teas/an-ji-bai-cha.jpg",
+    "alt": "Pale An Ji Bai Cha green tea leaves picked and roasted in Zhejiang",
+    "caption": "An Ji Bai Cha dry leaves",
+    "subject": "leaf",
+    "author": "LinusBG",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anji_bai_cha_leaves.jpg"
+  }
 }

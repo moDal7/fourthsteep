@@ -156,5 +156,15 @@
     "ichibancha",
     "mushi",
     "aracha"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/sencha-asamushi.jpg",
+    "alt": "Lightly steamed sencha from the 2018 Uji first harvest",
+    "caption": "Lightly steamed Uji sencha",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Uji_lightly_steamed_sencha.jpg"
+  }
 }

@@ -150,5 +150,15 @@
     "an-ji-bai-cha"
   ],
   "summary": "White peony: bud plus leaf, more colour and apricot-honey than Silver Needle, still a wither-only tea.",
-  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green."
+  "categoryNote": "White tea is withered and dried. Withering is the process — there is no kill-green.",
+  "photo": {
+    "src": "../../assets/teas/bai-mu-dan.jpg",
+    "alt": "Bai Mu Dan white tea, one bud with two leaves",
+    "caption": "Bai Mu Dan dry leaves",
+    "subject": "leaf",
+    "author": "chaidrakon.ru",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_Mudan.jpg"
+  }
 }

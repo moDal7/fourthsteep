@@ -145,5 +145,15 @@
   "summary": "The first sencha of the year: a seasonal designation more than a separate process.",
   "glossaryRefs": [
     "ichibancha"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/shincha.jpg",
+    "alt": "Shincha from the 2010 first harvest",
+    "caption": "Shincha first-flush green tea",
+    "subject": "leaf",
+    "author": "Camw",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shincha-2010.jpg"
+  }
 }

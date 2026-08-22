@@ -152,5 +152,15 @@
     "bi-luo-chun",
     "liu-an-gua-pian"
   ],
-  "summary": "Anhui high-mountain green with orchid aroma and a plump, pekoe-dusted leaf."
+  "summary": "Anhui high-mountain green with orchid aroma and a plump, pekoe-dusted leaf.",
+  "photo": {
+    "src": "../../assets/teas/huangshan-mao-feng.jpg",
+    "alt": "Huangshan Mao Feng green tea leaves from Anhui",
+    "caption": "Huangshan Mao Feng from Anhui",
+    "subject": "leaf",
+    "author": "Qirille",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maofeng_%E9%BB%84%E5%B1%B1%E6%AF%9B%E5%B3%B0_%E5%AE%89%E5%BE%BD.jpg"
+  }
 }

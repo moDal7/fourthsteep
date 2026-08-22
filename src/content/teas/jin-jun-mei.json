@@ -149,5 +149,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Tongmu bud black: honey-gold, unsmoked, a modern luxury sibling of Zheng Shan Xiao Zhong."
+  "summary": "Tongmu bud black: honey-gold, unsmoked, a modern luxury sibling of Zheng Shan Xiao Zhong.",
+  "photo": {
+    "src": "../../assets/teas/jin-jun-mei.jpg",
+    "alt": "Golden Jin Jun Mei black tea buds from Tongmu, Wuyi",
+    "caption": "Jin Jun Mei from Tongmu",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jin_Jun_Mei.jpg"
+  }
 }

@@ -129,5 +129,15 @@
     "hojicha",
     "sencha-asamushi"
   ],
-  "summary": "Everyday Japanese green from later or coarser leaf: simple, hot, and built for a pot."
+  "summary": "Everyday Japanese green from later or coarser leaf: simple, hot, and built for a pot.",
+  "photo": {
+    "src": "../../assets/teas/bancha.jpg",
+    "alt": "Bancha green tea grown in Shizuoka from the Yabukita cultivar",
+    "caption": "Shizuoka bancha leaves",
+    "subject": "leaf",
+    "author": "Difference engine",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shizuoka_bancha.jpg"
+  }
 }

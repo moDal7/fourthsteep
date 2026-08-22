@@ -149,5 +149,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Anhui’s classic Chinese black: orchid-cocoa “keemun aroma”, orthodox strips, gentle body."
+  "summary": "Anhui’s classic Chinese black: orchid-cocoa “keemun aroma”, orthodox strips, gentle body.",
+  "photo": {
+    "src": "../../assets/teas/qimen.jpg",
+    "alt": "Tightly rolled Qimen black tea leaves from Anhui",
+    "caption": "Qimen (Keemun) black tea",
+    "subject": "leaf",
+    "author": "Whiteness",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keemun_FTGFOP_(1).JPG"
+  }
 }

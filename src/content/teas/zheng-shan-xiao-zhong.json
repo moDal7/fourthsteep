@@ -165,5 +165,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Tongmu black tea, ancestor of Lapsang: pine-dried or clean, always with dried-longan sweetness."
+  "summary": "Tongmu black tea, ancestor of Lapsang: pine-dried or clean, always with dried-longan sweetness.",
+  "photo": {
+    "src": "../../assets/teas/zheng-shan-xiao-zhong.jpg",
+    "alt": "Lapsang Souchong leaves, the smoked black tea of Tongmu",
+    "caption": "Zheng Shan Xiao Zhong (Lapsang Souchong) leaf",
+    "subject": "leaf",
+    "author": "Maša Sinreih in Valentina Vivod",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theae_folium_%22lapsang_souchong%221.JPG"
+  }
 }

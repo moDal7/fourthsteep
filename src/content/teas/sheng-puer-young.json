@@ -185,5 +185,15 @@
     "shai-qing",
     "maocha"
   ],
-  "summary": "Sun-dried Yunnan raw puer in its youth: bitter-floral, built to age, gongfu in short flashes."
+  "summary": "Sun-dried Yunnan raw puer in its youth: bitter-floral, built to age, gongfu in short flashes.",
+  "photo": {
+    "src": "../../assets/teas/sheng-puer-young.jpg",
+    "alt": "A classic raw puer cake",
+    "caption": "Young sheng puer cake",
+    "subject": "leaf",
+    "author": "Fumikas Sagisavas",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Classic_original_Pu%27er.jpg"
+  }
 }

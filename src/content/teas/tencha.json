@@ -125,5 +125,15 @@
     "gyokuro",
     "kabusecha"
   ],
-  "summary": "Unmilled shaded leaf: the raw material of matcha, occasionally brewed as flakes."
+  "summary": "Unmilled shaded leaf: the raw material of matcha, occasionally brewed as flakes.",
+  "photo": {
+    "src": "../../assets/teas/tencha.jpg",
+    "alt": "Tencha flakes on a granite mill in Uji, before they become matcha",
+    "caption": "Tencha being milled in Uji",
+    "subject": "leaf",
+    "author": "Derjochenmeyer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tencha_on_traditional_stone_mill_in_Uji_Japan.jpg"
+  }
 }

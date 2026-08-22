@@ -156,5 +156,15 @@
     "yao-qing",
     "lang-qing",
     "hong-bei"
-  ]
+  ],
+  "photo": {
+    "src": "../../assets/teas/dong-ding.jpg",
+    "alt": "Loose Dong Ding oolong tea from Nantou, Taiwan",
+    "caption": "Dong Ding oolong from Nantou",
+    "subject": "leaf",
+    "author": "Waliy sherpa",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dong_Ding_tea.jpg"
+  }
 }

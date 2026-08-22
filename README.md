@@ -68,6 +68,7 @@ npm run preview
 ## Content rules
 
 - `src/content/teas/*.json` — one file per tea; `similarTo` must be real slugs (`scripts/check-content.mjs`).
+- Each tea has a `photo` from Wikimedia Commons, stored in `src/assets/teas/{slug}.jpg`. Re-fetch with `node scripts/fetch-tea-photos.mjs` (not part of `npm run build`).
 - `scripts/generate-teas*.mjs` and `generate-glossary.mjs` are historical. Do not re-run them; they would overwrite the JSON.
 - Oxidation is enzymatic 0–100 and is printed so scales are not colour-only. Microbial and roast teas also carry a transformation index.
 - Infusion arrays on each tea feed both the HTML table and the timer. Rinses are a separate field, rendered unnumbered as *rinse — discard*.

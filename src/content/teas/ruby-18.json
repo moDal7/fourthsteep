@@ -157,5 +157,15 @@
     "hong-cha-hei-cha",
     "oxidation"
   ],
-  "summary": "Taiwan’s named black: TTES No. 18 from Yuchi, orthodox, with a mint-cinnamon register no mainland black shares."
+  "summary": "Taiwan’s named black: TTES No. 18 from Yuchi, orthodox, with a mint-cinnamon register no mainland black shares.",
+  "photo": {
+    "src": "../../assets/teas/ruby-18.jpg",
+    "alt": "Tea farm at Sun Moon Lake in Yuchi, Nantou, Taiwan",
+    "caption": "Sun Moon Lake tea farm, Yuchi — home of Ruby 18",
+    "subject": "garden",
+    "author": "舟集 Boattoad",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%97%A5%E6%9C%88%E8%80%81%E8%8C%B6%E5%BB%A0_Tea_Farm,_Sun_Moon_Lake_14.jpg"
+  }
 }

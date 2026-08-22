@@ -167,5 +167,15 @@
     "oxidation",
     "wo-dui"
   ],
-  "summary": "The same raw cake after years: camphor, plum, and a softer body — storage is the craft."
+  "summary": "The same raw cake after years: camphor, plum, and a softer body — storage is the craft.",
+  "photo": {
+    "src": "../../assets/teas/sheng-puer-aged.jpg",
+    "alt": "A seven-son sheng puer cake, the form aged cakes keep",
+    "caption": "Sheng puer cake (qizi bing)",
+    "subject": "leaf",
+    "author": "静葉",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pu-erh_tea_front.JPG"
+  }
 }

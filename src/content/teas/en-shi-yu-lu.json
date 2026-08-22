@@ -166,5 +166,15 @@
     "mushi",
     "ming-qian"
   ],
-  "summary": "Hubei steamed green: jade needles, chestnut-nori, the Chinese cousin of sencha that still wants a gaiwan."
+  "summary": "Hubei steamed green: jade needles, chestnut-nori, the Chinese cousin of sencha that still wants a gaiwan.",
+  "photo": {
+    "src": "../../assets/teas/en-shi-yu-lu.jpg",
+    "alt": "Limestone peaks of Enshi Grand Canyon in Hubei, origin region of En Shi Yu Lu",
+    "caption": "Enshi Grand Canyon, Hubei — terroir of En Shi Yu Lu",
+    "subject": "garden",
+    "author": "HoweyYuan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enshi_Grand_Canyon_20240725.jpg"
+  }
 }

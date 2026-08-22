@@ -177,5 +177,15 @@
     "yao-qing",
     "hong-bei"
   ],
-  "summary": "The square oolong: Zhangping Shui Xian, paper-wrapped, orchid over a medium roast, not a Wuyi strip."
+  "summary": "The square oolong: Zhangping Shui Xian, paper-wrapped, orchid over a medium roast, not a Wuyi strip.",
+  "photo": {
+    "src": "../../assets/teas/zhang-ping-shui-xian.jpg",
+    "alt": "Shui Xian oolong leaves, the cultivar pressed as Zhangping cakes",
+    "caption": "Shui Xian oolong leaf. Zhangping Shui Xian is the same cultivar pressed as small cakes in Fujian.",
+    "subject": "related",
+    "author": "Iateasquirrel",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shui_Hsien_Oolong_tea_leaf.jpg"
+  }
 }

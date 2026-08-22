@@ -146,5 +146,15 @@
     "tai-ping-hou-kui",
     "long-jing"
   ],
-  "summary": "The only classic Chinese green made solely from leaves, baked into a melon-seed shape with unusual body."
+  "summary": "The only classic Chinese green made solely from leaves, baked into a melon-seed shape with unusual body.",
+  "photo": {
+    "src": "../../assets/teas/liu-an-gua-pian.jpg",
+    "alt": "Liu An Gua Pian green tea, showing the melon-seed leaf shape",
+    "caption": "Liu An Gua Pian (melon seed) leaves",
+    "subject": "leaf",
+    "author": "PanShiBo",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lu%27an_Melon_Seed_tea.jpg"
+  }
 }

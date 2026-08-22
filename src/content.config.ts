@@ -131,9 +131,23 @@ const fault = z.object({
   tell: z.string().optional(),
 });
 
+const photoLicense = z.enum([
+  'CC0',
+  'Public Domain',
+  'CC BY 2.0',
+  'CC BY 2.1 jp',
+  'CC BY 3.0',
+  'CC BY 4.0',
+  'CC BY-SA 2.0',
+  'CC BY-SA 2.0 fr',
+  'CC BY-SA 3.0',
+  'CC BY-SA 4.0',
+]);
+
 const teas = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/teas' }),
-  schema: z.object({
+  schema: ({ image }) =>
+    z.object({
     name: z.string(),
     nameNative: z.string(),
     romanization: z.string(),
@@ -193,6 +207,16 @@ const teas = defineCollection({
       .optional(),
     glossaryRefs: z.array(z.string()).optional(),
     summary: z.string(),
+    photo: z.object({
+      src: image(),
+      alt: z.string(),
+      caption: z.string(),
+      subject: z.enum(['leaf', 'liquor', 'garden', 'related']),
+      author: z.string(),
+      license: photoLicense,
+      licenseUrl: z.string().url(),
+      sourceUrl: z.string().url(),
+    }),
   }),
 });
 
